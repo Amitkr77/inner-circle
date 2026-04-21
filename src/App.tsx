@@ -7,7 +7,7 @@
 import React, { useState } from "react";
 import { GlowBackground } from "./components/UI";
 import {
-  Navbar,
+  // Navbar,
   Hero,
   ExperienceShowcase,
   CorporateExperience,
@@ -18,6 +18,8 @@ import {
   Footer,
   PastExpeditions,
 } from "./components/Sections";
+import { Navbar } from "./components/Navbar";
+
 import { Experience } from "./constants";
 
 // Pages
