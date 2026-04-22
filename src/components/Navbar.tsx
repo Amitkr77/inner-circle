@@ -145,12 +145,11 @@ export function Navbar({ onBook }: NavbarProps) {
       <nav
         className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ${
           isScrolled
-            ? "h-20 backdrop-blur-xl bg-black/70 border-b border-emerald-500/10 shadow-2xl shadow-emerald-500/5"
+            ? "h-20 backdrop-blur-xl bg-black/70 shadow-2xl shadow-emerald-500/5"
             : "h-24 bg-gradient-to-b from-black/50 to-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto h-full px-6 md:px-10 flex items-center justify-between">
-          {/* Logo */}
           {/* Logo */}
           <div
             className="flex items-center cursor-pointer group"

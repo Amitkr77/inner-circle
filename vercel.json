@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/zoho-webhook/:path*",
+      "destination": "https://flow.zoho.com/:path*"
+    }
+  ]
+}

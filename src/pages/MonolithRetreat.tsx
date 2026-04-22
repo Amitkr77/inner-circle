@@ -58,23 +58,71 @@ const MonolithRetreat: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+  // const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   try {
+  //     // Replace with your Google Apps Script deployment URL
+  //     const GOOGLE_APPS_SCRIPT_URL =
+  //       "https://script.google.com/macros/s/AKfycby-5_dWHy4UMhiA8pwdgIvTBu5fDZZZ5_SFysqAVaeJJecjB2TE8PHaoeRxA7KR6uwE/exec";
+
+  //     const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+  //       method: "POST",
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     const result: ApiResponse = await response.json();
+
+  //     if (result.status === "success") {
+  //       setSubmitted(true);
+  //       setFormData({
+  //         fullName: "",
+  //         linkedin: "",
+  //         company: "",
+  //         stage: "",
+  //         phone: "",
+  //         email: "",
+  //         location: "",
+  //         hardestProblem: "",
+  //         contribution: "",
+  //         breakthrough: "",
+  //         cohortDate: "Autumn Session (Oct 12-15)",
+  //         dietary: "",
+  //         notes: "",
+  //       });
+  //       setTimeout(() => setSubmitted(false), 5000);
+  //     } else {
+  //       alert("Error submitting form. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     alert("Error submitting form. Please try again.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Replace with your Google Apps Script deployment URL
-      const GOOGLE_APPS_SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycby-5_dWHy4UMhiA8pwdgIvTBu5fDZZZ5_SFysqAVaeJJecjB2TE8PHaoeRxA7KR6uwE/exec";
+      const ZOHO_FLOW_WEBHOOK_URL =
+        "/zoho-webhook/921703489/flow/webhook/incoming?zapikey=1001.3a8f40c7d56c15ca8ff9f88e1702f159.4c9d09fc73d1a99a0f53721dc345ec49&isdebug=false";
 
-      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+      const response = await fetch(ZOHO_FLOW_WEBHOOK_URL, {
         method: "POST",
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+        }),
       });
 
-      const result: ApiResponse = await response.json();
-
-      if (result.status === "success") {
+      if (response.ok) {
         setSubmitted(true);
         setFormData({
           fullName: "",
@@ -93,7 +141,7 @@ const MonolithRetreat: React.FC = () => {
         });
         setTimeout(() => setSubmitted(false), 5000);
       } else {
-        alert("Error submitting form. Please try again.");
+        alert("Error submitting form. Please try again later.");
       }
     } catch (error) {
       console.error("Error:", error);
