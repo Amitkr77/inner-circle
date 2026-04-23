@@ -97,7 +97,7 @@ export const EXPERIENCES: Experience[] = [
 },
   {
     id: 'in-1',
-    title: 'Mystical Darjeeling Heights',
+    title: 'Mystical Darjeeling',
     location: 'West Bengal, India',
     category: 'India',
     vibe: 'Nature',
@@ -274,6 +274,13 @@ export const TESTIMONIALS: Testimonial[] = [
     content: 'Finally, a platform that understands that travel is the best medium for personal growth and deep networking.',
     avatar: 'https://i.pravatar.cc/150?u=elena',
   },
+  {
+    id: '4',
+    name: 'Aruna Mehta',
+    role: 'Startup Founder',
+    content: 'This experience completely redefined how I approach both business and life. The connections I made here are invaluable.',
+    avatar: 'https://i.pravatar.cc/150?u=arjun',
+  },
 ];
 
 export const STATS: Stats[] = [
@@ -285,4 +292,10 @@ export const STATS: Stats[] = [
 
 export const LOGOS = [
   'Google', 'Microsoft', 'Amazon', 'Netflix', 'Tesla', 'Airbnb'
+];
+
+export const social = [
+  { name: "Facebook", url: "https://www.facebook.com/collabuilder/" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/collabuilder/" },
+  { name: "Instagram", url: "https://www.instagram.com/collabuilder" },
 ];

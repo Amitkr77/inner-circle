@@ -97,7 +97,7 @@ export default function App() {
         {/* <StatsSection /> */}
         <ClaritySection/>
         <ExperienceShowcase onSelectExp={handleOpenExp} />
-        <PastExpeditions />
+        {/* <PastExpeditions /> */}
         <CorporateExperience />
         <HowItWorks />
         <InsideRetreat/>
