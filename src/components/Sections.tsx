@@ -625,9 +625,11 @@ export function CorporateExperience() {
               ))}
             </div>
 
-            <Button className="px-10 py-5 text-lg">
-              Download Executive Guide
-            </Button>
+            <a href="#contact">
+              <Button className="px-10 py-5 text-lg">
+                Enquire now
+              </Button>
+            </a>
 
             <div className="mt-16 pt-8 border-t border-white/10">
               <p className="text-[10px] uppercase tracking-widest text-white/30 mb-6">
@@ -689,7 +691,7 @@ export function CommunitySection() {
                     +15
                   </div>
                 </div>
-                <Button variant="outline">Meet the Mentors</Button>
+                {/* <Button variant="outline">Meet the Mentors</Button> */}
               </div>
               <div className="flex-1 w-full relative">
                 <div className="absolute inset-0 neon-gradient blur-[80px] opacity-20" />
@@ -734,39 +736,42 @@ export function CommunitySection() {
           </GlassCard>
         </div>
 
-        <div className="mt-20">
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {TESTIMONIALS.map((t) => (
-              <GlassCard
-                key={t.id}
-                className="w-full md:w-[400px] p-8"
-                hover={false}
-              >
-                <div className="flex items-center gap-1 text-accent-orange mb-6">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-lg font-light leading-relaxed mb-8">
-                  "{t.content}"
-                </p>
-                <div className="flex items-center gap-4">
-                  <img
-                    src={t.avatar}
-                    className="w-12 h-12 rounded-full"
-                    alt={t.name}
-                  />
-                  <div>
-                    <p className="font-bold">{t.name}</p>
-                    <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold">
-                      {t.role} {t.company && `@ ${t.company}`}
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-            ))}
+        <div className="mt-20 overflow-hidden">
+  <div className="flex gap-6 animate-marquee">
+    
+    {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
+      <GlassCard
+        key={index}
+        className="min-w-[150px] md:min-w-[100px] p-2 flex-shrink-0"
+        hover={false}
+      >
+        <div className="flex items-center gap-4">
+          <img
+            src={t.avatar}
+            className="w-12 h-12 rounded-full"
+            alt={t.name}
+          />
+          <div>
+            <p className="font-bold">{t.name}</p>
+            <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold mb-4">
+              {t.role} {t.company && `@ ${t.company}`}
+            </p>
           </div>
         </div>
+        <div className="flex items-center gap-1 text-accent-orange mb-4">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <Star key={i} className="w-4 h-4 fill-current" />
+          ))}
+        </div>
+
+        <p className="text-lg font-light leading-relaxed mb-8">
+          "{t.content}"
+        </p>
+      </GlassCard>
+    ))}
+
+  </div>
+</div>
       </div>
     </section>
   );
