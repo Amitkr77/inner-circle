@@ -457,7 +457,7 @@ export function ExperienceShowcase({
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredExperiences.map((exp, idx) => (
+            {filteredExperiences.slice(0,3).map((exp, idx) => (
               <motion.div
                 key={exp.id}
                 layout
@@ -528,8 +528,18 @@ export function ExperienceShowcase({
                   </div>
                 </div>
               </motion.div>
+              
             ))}
           </AnimatePresence>
+          <div className="col-span-full flex justify-center">
+           {/* EXPLORE BUTTON */}
+            <button
+              onClick={() => window.location.href = "/explore"}
+              className="px-6 py-3 bg-accent-emerald backdrop-blur-2xl text-black font-bold rounded-xl hover:scale-105 transition-all duration-300"
+            >
+              View More →
+            </button>
+           </div> 
         </motion.div>
       </div>
     </section>

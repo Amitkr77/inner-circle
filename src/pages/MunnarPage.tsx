@@ -45,7 +45,7 @@ export default function MunnarPage({ onBack }: Props) {
       <nav className="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl shadow-2xl shadow-black/40">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-12 py-5">
           <button onClick={onBack} className="flex items-center gap-2 text-[#E9C176] font-bold hover:opacity-80 transition-opacity group"><ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform"/>Back to Expeditions</button>
-          <button className="bg-gradient-to-br from-[#E9C176] to-[#C5A059] text-[#412d00] font-bold py-2.5 px-6 text-xs uppercase tracking-widest">🚀 Request Booking</button>
+          <button className="bg-gradient-to-br from-[#E9C176] to-[#C5A059] text-[#412d00] font-bold py-2.5 px-6 text-xs uppercase tracking-widest"> Request Booking</button>
         </div>
       </nav>
       <section className="relative min-h-screen flex items-end overflow-hidden pt-20">
