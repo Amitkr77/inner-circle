@@ -94,7 +94,7 @@ export default function App() {
         <Hero />
         <StatsSection />
         <ExperienceShowcase onSelectExp={handleOpenExp} />
-        <PastExpeditions />
+        {/* <PastExpeditions /> */}
         <CorporateExperience />
         <HowItWorks />
         <CommunitySection />
