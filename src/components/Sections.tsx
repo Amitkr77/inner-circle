@@ -241,6 +241,10 @@ export function PastExpeditions() {
   );
 }
 
+
+
+
+
 export function Navbar({ onBook }: { onBook: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

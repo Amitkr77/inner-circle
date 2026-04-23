@@ -251,14 +251,14 @@ export function Navbar({ onBook }: NavbarProps) {
       )}
 
       {/* Scroll Progress Indicator */}
-      {isScrolled && (
+      {/* {isScrolled && (
         <div
           className="fixed bottom-0 left-0 right-0 z-[998] h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500"
           style={{
             width: `${(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`,
           }}
         />
-      )}
+      )} */}
     </>
   );
 }
