@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface NavbarProps {
   onBook: () => void;
@@ -29,7 +30,7 @@ export function Navbar({ onBook }: NavbarProps) {
     { label: "Explore", href: "#explore" },
     { label: "Corporate", href: "#corporate" },
     { label: "Community", href: "#community" },
-    { label: "About", href: "#about" },
+    { label: "About", href: "about" },
     { label: "Resources", href: "#resources" },
   ];
 
@@ -166,18 +167,31 @@ export function Navbar({ onBook }: NavbarProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-12">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
-              >
-                <span className="relative">
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
-                </span>
-              </a>
-            ))}
+            {navItems.map((item) =>
+  item.href.startsWith("/") ? (
+    <Link
+      key={item.label}
+      to={item.href}
+      className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
+    >
+      <span className="relative">
+        {item.label}
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
+      </span>
+    </Link>
+  ) : (
+    <a
+      key={item.label}
+      href={item.href}
+      className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
+    >
+      <span className="relative">
+        {item.label}
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
+      </span>
+    </a>
+  )
+)}
 
             {/* Contact Link */}
             <a
@@ -244,13 +258,13 @@ export function Navbar({ onBook }: NavbarProps) {
               onClick={handleBookClick}
               className="mt-4 w-full px-8 py-4 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105"
             >
-              🚀 Book Now
+               Book Now
             </button>
           </div>
         </div>
       )}
 
-      {/* Scroll Progress Indicator */}
+      {/* Scroll Progress Indicator 
       {isScrolled && (
         <div
           className="fixed bottom-0 left-0 right-0 z-[998] h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500"
@@ -258,7 +272,7 @@ export function Navbar({ onBook }: NavbarProps) {
             width: `${(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`,
           }}
         />
-      )}
+      )}*/}
     </>
   );
 }

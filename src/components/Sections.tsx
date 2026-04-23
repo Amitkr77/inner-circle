@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ShaderGradient } from "shadergradient";
 import { Canvas } from "@react-three/fiber";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   Compass,
@@ -271,14 +272,14 @@ export function Navbar({ onBook }: { onBook: () => void }) {
         </div>
 
         <div className="hidden lg:flex items-center gap-8">
-          {["Explore", "Corporate", "Community", "About", "Resources"].map(
+          {[{name: "Explore",link:""}, {name: "Corporate",link:""}, {name: "Community",link:""}, {name: "About",link:"/about"}, {name: "Resources",link:""}].map(
             (item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.name}
+                href={item.link || `#${item.name.toLowerCase()}`}
                 className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/60 hover:text-accent-emerald transition"
               >
-                {item}
+                {item.name}
               </a>
             ),
           )}
@@ -345,7 +346,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-6xl md:text-8xl font-bold leading-[1.05] mb-6 tracking-[-0.04em]"
         >
-          Founder Retreat for <span className="italic font-algerian">Clarity</span>
+          Founder Retreat for <span className="italic font-light">Clarity</span>
           <br />
           <span className="text-accent-gradient">Focus & Real <span className="italic font-algerian">Progress</span>.</span>
         </motion.h1>
