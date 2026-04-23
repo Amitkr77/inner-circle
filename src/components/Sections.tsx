@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ShaderGradient } from "shadergradient";
 import { Canvas } from "@react-three/fiber";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   Compass,
@@ -30,6 +31,7 @@ import {
   STATS,
   LOGOS,
   Experience,
+  social,
 } from "../constants";
 export function ExperienceDetailModal({
   exp,
@@ -241,6 +243,10 @@ export function PastExpeditions() {
   );
 }
 
+
+
+
+
 export function Navbar({ onBook }: { onBook: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -270,14 +276,14 @@ export function Navbar({ onBook }: { onBook: () => void }) {
         </div>
 
         <div className="hidden lg:flex items-center gap-8">
-          {["Explore", "Corporate", "Community", "About", "Resources"].map(
+          {[{name: "Explore",link:""}, {name: "Corporate",link:""}, {name: "Community",link:""}, {name: "About",link:"/about"}, {name: "Resources",link:""}].map(
             (item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.name}
+                href={item.link || `#${item.name.toLowerCase()}`}
                 className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/60 hover:text-accent-emerald transition"
               >
-                {item}
+                {item.name}
               </a>
             ),
           )}
@@ -327,43 +333,43 @@ export function Hero() {
         />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20 text-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-20 pt-40 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-immersive text-[10px] font-bold tracking-[0.1em] text-white/80 uppercase mb-8"
+          className="inline-flex items-center gap-3 px-4 py-3 rounded-full glass-immersive text-sm font-bold tracking-[0.1em] text-white/80 uppercase mb-8"
         >
-          <span className="glow-dot" />
-          India & Global expeditions now open
+          <span className="glow-dot h-2 w-2 rounded-full bg-accent-emerald" />
+          India expeditions now open
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-6xl md:text-8xl font-bold leading-[1.05] mb-8 tracking-[-0.04em]"
+          className="text-6xl md:text-8xl font-bold leading-[1.05] mb-6 tracking-[-0.04em]"
         >
-          Explore Nature,
+          Founder Retreat for <span className="italic font-light">Clarity</span>
           <br />
-          <span className="text-accent-gradient">Elevate Life.</span>
+          <span className="text-accent-gradient">Focus & Real <span className="italic font-algerian">Progress</span>.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-white/50 max-w-xl mx-auto mb-12 font-medium leading-relaxed"
+          className="text-2xl md:text-xl text-white/50 max-w-xl mx-auto mb-6 font-medium leading-relaxed"
         >
-          From the heights of Darjeeling to the Fjords of Norway. Premium travel
-          experiences tailored for leaders, creators, and world-shakers.
+           Step away. Think clearly. Build better.{/*A curated startup founder retreat designed to 
+          help you step away from noise, gain clarity, and solve real business bottlenecks. */}
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
         >
           <Button className="w-full sm:w-auto px-10 py-5 text-lg flex items-center group">
             Explore Experiences
@@ -457,7 +463,7 @@ export function ExperienceShowcase({
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredExperiences.map((exp, idx) => (
+            {filteredExperiences.slice(0,3).map((exp, idx) => (
               <motion.div
                 key={exp.id}
                 layout
@@ -528,8 +534,18 @@ export function ExperienceShowcase({
                   </div>
                 </div>
               </motion.div>
+              
             ))}
           </AnimatePresence>
+          <div className="col-span-full flex justify-center">
+           {/* EXPLORE BUTTON */}
+            <button
+              onClick={() => window.location.href = "/explore"}
+              className="px-6 py-3 bg-accent-emerald backdrop-blur-2xl text-black font-bold rounded-xl hover:scale-105 transition-all duration-300"
+            >
+              View More →
+            </button>
+           </div> 
         </motion.div>
       </div>
     </section>
@@ -737,41 +753,41 @@ export function CommunitySection() {
         </div>
 
         <div className="mt-20 overflow-hidden">
-        <div className="flex gap-6 animate-marquee">
-          
-          {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
-            <GlassCard
-              key={index}
-              className="w-[320px] h-[400px] p-6 flex flex-col justify-between flex-shrink-0"
-              hover={false}
-            >
-              <div className="flex items-center gap-4">
-                <img
-                  src={t.avatar}
-                  className="w-12 h-12 rounded-full"
-                  alt={t.name}
-                />
-                <div>
-                  <p className="font-bold">{t.name}</p>
-                  <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold mb-4">
-                    {t.role} {t.company && `@ ${t.company}`}
-                  </p>
+          <div className="flex w-max gap-6 animate-marquee">
+            
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
+              <GlassCard
+                key={index}
+                className="w-[320px] h-[400px] p-6 flex flex-col items-center text-center justify-between flex-shrink-0"
+                hover={false}
+              >
+                <div className="flex items-center -mb-8">
+                  <img
+                    src={t.avatar}
+                    className="w-12 h-12 rounded-full"
+                    alt={t.name}
+                  />
                 </div>
-              </div>
-              <div className="flex items-center gap-1 text-accent-orange mb-4">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
+                <div>
+                    <p className="font-bold">{t.name}</p>
+                    <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold">
+                      {t.role} {t.company && `@ ${t.company}`}
+                    </p>
+                  </div>
+                <div className="flex gap-1 text-accent-orange -mb-6">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
 
-              <p className="text-lg font-light leading-relaxed mb-8">
-                "{t.content}"
-              </p>
-            </GlassCard>
-          ))}
+                <p className="text-lg font-light leading-relaxed mb-2 h-[120px]">
+                  "{t.content}"
+                </p>
+              </GlassCard>
+            ))}
 
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );
@@ -813,21 +829,19 @@ export function HowItWorks() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-          <div className="hidden lg:block absolute top-10 left-0 w-full h-[1px] bg-white/10" />
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative text-center justify-items-center">  
+          <div className="hidden lg:block absolute top-10 left-25 w-[80%] h-[1px] bg-white/10" />
           {steps.map((step, idx) => (
-            <div key={idx} className="relative group">
+            <div key={idx} className="relative group flex flex-col items-center text-center">           
               <div className="w-20 h-20 rounded-full glass-immersive flex items-center justify-center text-3xl font-bold mb-8 relative z-10 group-hover:bg-accent-gradient transition-all duration-500">
                 {step.num}
               </div>
-              <h4 className="text-2xl font-display font-bold mb-4">
+              <h4 className="text-2xl font-display font-bold mb-4 text-center">
                 {step.title}
               </h4>
-              <p className="text-white/40 font-light leading-relaxed">
+              <p className="text-white/40 font-light leading-relaxed text-center">
                 {step.desc}
               </p>
-              <ArrowRight className="w-6 h-6 mt-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
             </div>
           ))}
         </div>
@@ -1045,13 +1059,13 @@ export function Footer() {
             © 2026 Aetheris Global Expeditions. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            {["Twitter", "LinkedIn", "Instagram"].map((social) => (
+            {social.map((social) => (
               <a
-                key={social}
-                href="#"
+                key={social.name}
+                href={social.url}
                 className="text-xs font-bold uppercase tracking-widest text-white/30 hover:text-white transition-colors"
               >
-                {social}
+                {social.name}
               </a>
             ))}
           </div>

@@ -33,13 +33,13 @@ export const EXPERIENCES: Experience[] = [
   // INDIA
   {
     id: 'in-3',
-    title: 'Rishikesh High-Octane Tech-Sprint',
+    title: 'Rishikesh Retreat',
     location: 'Rishikesh, Uttarakhand',
     category: 'India',
     vibe: 'Adventure',
     duration: '6 Days',
     nights: 5,
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.openai.com/static-rsc-4/HAnKpCGuyUpaROw05X-SNya_wEHqb5FJ6lb4iDSn7PfyvRxJ5WPyKH6NyLsTbhEqRLClHYfFhorUkxOOil3tTeWsSMkxxHc77LyHSjrXIq4BfF9O6b9fXQtILkwytsq9PqWU9yrrwZ9LDLXtuqSIx-vT2Ez0_vaEIeW4mA6Wr38-1gPbIpEt1-ioBRtWaWaF?purpose=fullsize',
     pricePerHead: 25500,
     groupSize: 15,
     description: 'Perfect for teams looking for high energy and spiritual depth. Convenient travel from Patna via Dehradun/Haridwar.',
@@ -54,27 +54,50 @@ export const EXPERIENCES: Experience[] = [
     ]
   },
   {
-    id: 'in-4',
-    title: 'Kashmir: Paradise Protocol',
-    location: 'Srinagar/Gulmarg, Kashmir',
-    category: 'India',
-    vibe: 'Luxury',
-    duration: '7 Days',
-    nights: 6,
-    image: 'https://images.unsplash.com/photo-1595815771614-ade9d652a45d?auto=format&fit=crop&q=80&w=2070',
-    pricePerHead: 32000,
-    groupSize: 8,
-    description: 'A royal retreat in the heart of Kashmir. Easy flights from Patna to Srinagar.',
-    highlights: ['Luxury Houseboat Stay', 'Gulmarg Gondola World-Class Skiing', 'Private Shikara Rides', 'Wazwan Feast Experience'],
-    itinerary: [
-      { day: 1, title: 'Lakeside Welcome', desc: 'Check into a premium houseboat on Dal Lake.', meals: ['Wazwan Dinner'] },
-      { day: 2, title: 'Gulmarg Gondola Ride', desc: 'Worlds highest golf course and snowy meadows.', meals: ['Breakfast', 'Lunch', 'Dinner'] },
-      { day: 3, title: 'Trek to Alpather', desc: 'High altitude lake trek and picnic lunch.', meals: ['Breakfast', 'Lunch', 'Dinner'] }
-    ]
-  },
+  id: 'in-4',
+  title: 'Manali Mountains',
+  location: 'Manali, Himachal Pradesh',
+  category: 'India',
+  vibe: 'Luxury',
+  duration: '7 Days',
+  nights: 6,
+  image: "https://images.openai.com/static-rsc-4/vV9nuW4oHBAYdSoqINgTld_LPZPAYIlhDqDF3jz2HR9WIwa9IckNG_paDLbrrMluk9yPar2ZdvuRXy33WY1QVPlFu6PJ0ccf3N0QhvMWGz9EZbdHoGN98aufvCBBeLPxo4QDRak4ivO7OsHiYzl9dLCgEM-8NiXdblxOCPwW_t1y0BkybRm98bMNkksXKUzS?purpose=inline",
+  pricePerHead: 32000,
+  groupSize: 8,
+
+  description: 'A premium mountain retreat in the heart of Himachal. Smooth travel routes from major cities to Manali via Chandigarh or Kullu.',
+
+  highlights: [
+    'Luxury Riverside Cottage Stay',
+    'Solang Valley Adventure Experience',
+    'Atal Tunnel & Sissu Excursion',
+    'Bonfire & Himachali Cultural Night'
+  ],
+
+  itinerary: [
+    {
+      day: 1,
+      title: 'Riverside Arrival',
+      desc: 'Check into a premium riverside resort with scenic Himalayan views.',
+      meals: ['Welcome Dinner']
+    },
+    {
+      day: 2,
+      title: 'Solang Valley Adventure',
+      desc: 'Enjoy paragliding, ATV rides, and snow activities (seasonal).',
+      meals: ['Breakfast', 'Lunch', 'Dinner']
+    },
+    {
+      day: 3,
+      title: 'Atal Tunnel & Sissu Visit',
+      desc: 'Drive through the iconic Atal Tunnel and explore the stunning Sissu valley.',
+      meals: ['Breakfast', 'Lunch', 'Dinner']
+    }
+  ]
+},
   {
     id: 'in-1',
-    title: 'Mystical Darjeeling Heights',
+    title: 'Mystical Darjeeling',
     location: 'West Bengal, India',
     category: 'India',
     vibe: 'Nature',
@@ -251,6 +274,13 @@ export const TESTIMONIALS: Testimonial[] = [
     content: 'Finally, a platform that understands that travel is the best medium for personal growth and deep networking.',
     avatar: 'https://i.pravatar.cc/150?u=elena',
   },
+  {
+    id: '4',
+    name: 'Aruna Mehta',
+    role: 'Startup Founder',
+    content: 'This experience completely redefined how I approach both business and life. The connections I made here are invaluable.',
+    avatar: 'https://i.pravatar.cc/150?u=arjun',
+  },
 ];
 
 export const STATS: Stats[] = [
@@ -262,4 +292,10 @@ export const STATS: Stats[] = [
 
 export const LOGOS = [
   'Google', 'Microsoft', 'Amazon', 'Netflix', 'Tesla', 'Airbnb'
+];
+
+export const social = [
+  { name: "Facebook", url: "https://www.facebook.com/collabuilder/" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/collabuilder/" },
+  { name: "Instagram", url: "https://www.instagram.com/collabuilder" },
 ];

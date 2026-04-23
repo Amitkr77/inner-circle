@@ -29,6 +29,8 @@ import { Experience } from "./constants";
 // Pages
 import Contact from "./pages/contact";
 import MonolithRetreat from "./pages/MonolithRetreat";
+import InsideRetreat from "./components/InsideRetreat";
+import ClaritySection from "./components/ClaritySection";
 
 // Types
 type PageProps = { onBack: () => void; onApply: () => void };
@@ -104,6 +106,7 @@ export default function App() {
   };
 
   return (
+<<<<<<< HEAD
     <BrowserRouter>
       <Routes>
 
@@ -146,5 +149,26 @@ export default function App() {
 
       </Routes>
     </BrowserRouter>
+=======
+    <div className="relative min-h-screen selection:bg-accent-pink/30">
+      {" "}
+      <GlowBackground />
+      {/* 🔥 NAVBAR WITH BOOK NOW */}
+      <Navbar onBook={handleApplyOpen} />
+      <main>
+        <Hero />
+        {/* <StatsSection /> */}
+        <ClaritySection/>
+        <ExperienceShowcase onSelectExp={handleOpenExp} />
+        {/* <PastExpeditions /> */}
+        <CorporateExperience />
+        <HowItWorks />
+        <InsideRetreat/>
+        <CommunitySection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+>>>>>>> 515ff3b678137b0ca4109ca43a65407e8f21c9e3
   );
 }
