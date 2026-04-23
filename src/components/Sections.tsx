@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import { ShaderGradient } from "shadergradient";
+import { Canvas } from "@react-three/fiber";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   Compass,
   Users,
@@ -61,7 +63,7 @@ export function ExperienceDetailModal({
               onClick={onBook}
               className="ml-4 px-8 py-3 text-[10px] uppercase tracking-[0.2em] font-black rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)]"
             >
-              🚀 Book Now
+              Book Now
             </Button>
 
             <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -155,7 +157,7 @@ export function ExperienceDetailModal({
                 </div>
 
                 <Button className="w-full py-5 text-sm font-black uppercase tracking-[0.2em]">
-                  🚀 Request Booking Details
+                   Request Booking Details
                 </Button>
               </div>
             </div>
@@ -294,7 +296,7 @@ export function Navbar({ onBook }: { onBook: () => void }) {
             onClick={onBook}
             className="ml-4 px-8 py-3 text-[10px] uppercase tracking-[0.2em] font-black rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)]"
           >
-            🚀 Book Now
+             Book Now
           </Button>
         </div>
 
@@ -474,38 +476,52 @@ export function ExperienceShowcase({
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-premium-black via-premium-black/20 to-transparent z-1" />
 
-                <div className="absolute top-8 left-8 right-8 flex justify-between items-start z-10">
-                  <div className="flex gap-3">
-                    <span className="bg-white/10 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-bold">
-                      {exp.vibe}
-                    </span>
-                    <span className="bg-accent-emerald/20 border border-accent-emerald/20 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-bold text-accent-emerald">
-                      {exp.duration} • {exp.nights} Nights
-                    </span>
-                  </div>
-                  <div className="glass-immersive px-4 py-1.5 rounded-full text-[9px] uppercase tracking-widest font-black text-white/50">
-                    Group of {exp.groupSize}
+                <div className="absolute top-8 left-8 right-8 z-10">
+                  <div className="grid grid-cols-3 items-center">   
+                    {/* LEFT */}
+                    <div className="flex justify-start">
+                      <span className="min-w-[100px] h-[30px] px-4 flex items-center justify-center 
+                      bg-white/10 backdrop-blur-md border border-white/10 
+                      rounded-full text-[9px] uppercase font-bold whitespace-nowrap">
+                        {exp.vibe}
+                      </span>
+                    </div>
+                    {/* CENTER (GREEN) */}
+                    <div className="flex justify-center">
+                      <span className="min-w-[100px] h-[32px] px-5 flex items-center justify-center 
+                      bg-white/10 backdrop-blur-2xl border border-accent-emerald/40 
+                      rounded-full text-[9px] uppercase font-bold text-green-800 whitespace-nowrap">
+                        {exp.duration} • {exp.nights} Nights
+                      </span>
+                    </div>
+                    {/* RIGHT */}
+                    <div className="flex justify-end">
+                      <span className="min-w-[100px] h-[30px] px-4 flex items-center justify-center 
+                      glass-immersive rounded-full text-[9px] uppercase font-black text-white/80 whitespace-nowrap">
+                        Group of {exp.groupSize}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 <div className="absolute bottom-8 left-8 right-8 z-10">
-                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                  <div className="flex flex-col gap-6">
                     <div>
-                      <p className="text-accent-emerald text-[11px] uppercase tracking-[0.3em] font-bold mb-2">
+                      <p className="text-accent-emerald text-sm uppercase font-bold mb-2">
                         Location: {exp.location}
                       </p>
                       <h4 className="text-3xl md:text-4xl font-bold mb-2 tracking-tight">
                         {exp.title}
                       </h4>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-2xl border border-white/10 p-6 rounded-3xl flex flex-col items-center min-w-[160px] group-hover:bg-accent-emerald transition-colors duration-500">
+                    <div className="bg-white/10 backdrop-blur-2xl border border-white/10 p-2 rounded-3xl flex flex-col items-center min-w-[160px] group-hover:bg-accent-emerald transition-colors duration-500">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-white/60 group-hover:text-white/80">
                         Starts At
                       </span>
                       <span className="text-2xl font-black tracking-tight self-center mt-1">
                         ₹{exp.pricePerHead.toLocaleString()}
                       </span>
-                      <span className="text-[8px] uppercase tracking-widest font-bold text-white/40 group-hover:text-white/60">
+                      <span className="text-[8px] uppercase tracking-widest font-bold text-white/60 group-hover:text-white/80">
                         Per Person
                       </span>
                     </div>
@@ -818,6 +834,34 @@ export function HowItWorks() {
 export function StatsSection() {
   return (
     <section className="py-20 relative px-6">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/your-image.jpg')",
+        }}
+      />
+
+      {/* Gradient Overlay */}
+<div className="absolute inset-0 -z-10">
+        <Canvas>
+          <ShaderGradient
+            animate="on"
+            brightness={1.5}
+            color1="#17ff59"
+            color2="#216bff"
+            color3="#c98fff"
+            type="sphere"
+            uAmplitude={3.7}
+            uDensity={0.9}
+            uFrequency={5.5}
+            uSpeed={0.2}
+          />
+        </Canvas>
+      </div>
+
+  {/* Your content */}
+  {/* <div className="max-w-7xl mx-auto glass-immersive rounded-2xl p-10"> */}
       <div className="max-w-7xl mx-auto glass-immersive rounded-2xl p-10 flex flex-col lg:flex-row items-center justify-between gap-12 backdrop-blur-2xl">
         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-16">
           {STATS.map((stat, idx) => (

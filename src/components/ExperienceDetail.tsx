@@ -211,7 +211,7 @@ export function ExperienceDetail({ exp, onBack }: ExperienceDetailProps) {
                 </div>
 
                 <Button className="w-full py-4 text-sm font-black uppercase tracking-[0.2em]">
-                  🚀 Request Booking
+                   Request Booking
                 </Button>
               </div>
 

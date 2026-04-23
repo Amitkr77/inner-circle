@@ -197,7 +197,7 @@ export function Navbar({ onBook }: NavbarProps) {
               className="glow-button relative group ml-6 px-8 py-3 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95"
             >
               <span className="relative flex items-center justify-center gap-2">
-                <span>🚀 Book Now</span>
+                <span> Book Now</span>
               </span>
             </button>
           </div>

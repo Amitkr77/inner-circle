@@ -55,7 +55,7 @@ export default function DarjeelingPage({ onBack }: Props) {
             Back to Expeditions
           </button>
           <button className="bg-gradient-to-br from-[#E9C176] to-[#C5A059] text-[#412d00] font-bold py-2.5 px-6 text-xs uppercase tracking-widest">
-            🚀 Request Booking
+             Request Booking
           </button>
         </div>
       </nav>
