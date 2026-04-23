@@ -839,63 +839,58 @@ export function HowItWorks() {
 export function StatsSection() {
   return (
     <section className="py-20 relative px-6">
-      {/* Background Image */}
+      {/* Background Image 
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center"
         style={{
           backgroundImage: "url('/your-image.jpg')",
         }}
-      />
+      />*/}
 
-      {/* Gradient Overlay */}
-<div className="absolute inset-0 -z-10">
-        <Canvas>
-          <ShaderGradient
-            animate="on"
-            brightness={1.5}
-            color1="#17ff59"
-            color2="#216bff"
-            color3="#c98fff"
-            type="sphere"
-            uAmplitude={3.7}
-            uDensity={0.9}
-            uFrequency={5.5}
-            uSpeed={0.2}
+      {/* Gradient Background */}
+        <div className="absolute inset-0 -z-10 bg-[#0b0f1a]">
+          <div
+            className="absolute inset-0 
+            bg-[radial-gradient(circle_at_30%_40%,#94ffd1,transparent_40%),radial-gradient(circle_at_70%_60%,#7297f7,transparent_40%),radial-gradient(circle_at_50%_80%,#ffffff,transparent_30%)]
+            opacity-80 blur-2xl animate-gradientMove"
           />
-        </Canvas>
-      </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-black/30" />
+        </div>
 
-  {/* Your content */}
-  {/* <div className="max-w-7xl mx-auto glass-immersive rounded-2xl p-10"> */}
-      <div className="max-w-7xl mx-auto glass-immersive rounded-2xl p-10 flex flex-col lg:flex-row items-center justify-between gap-12 backdrop-blur-2xl">
-        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-16">
-          {STATS.map((stat, idx) => (
-            <div key={idx} className="flex flex-col gap-1">
-              <div className="text-3xl font-bold flex items-baseline">
-                <span>{stat.value}</span>
-                <span className="text-accent-red text-xl ml-0.5">
-                  {stat.suffix}
-                </span>
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto glass-immersive rounded-2xl p-10 flex flex-col lg:flex-row items-center justify-between gap-12 backdrop-blur-2xl">
+
+          {/* Stats */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-16">
+            {STATS.map((stat, idx) => (
+              <div key={idx} className="flex flex-col gap-1">
+                <div className="text-3xl font-bold flex items-baseline">
+                  <span>{stat.value}</span>
+                  <span className="text-accent-red text-xl ml-0.5">
+                    {stat.suffix}
+                  </span>
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/80 font-bold">
+                  {stat.label}
+                </p>
               </div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-bold">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-10 opacity-30 grayscale invert brightness-200">
-          {LOGOS.slice(0, 4).map((logo) => (
-            <span
-              key={logo}
-              className="text-xl font-black tracking-tighter uppercase"
-            >
-              {logo}
-            </span>
-          ))}
+          {/* Logos */}
+          <div className="flex flex-wrap items-center justify-center gap-10 opacity-30 grayscale invert brightness-200">
+            {LOGOS.slice(0, 4).map((logo) => (
+              <span
+                key={logo}
+                className="text-xl font-black tracking-tighter uppercase"
+              >
+                {logo}
+              </span>
+            ))}
+          </div>
+
         </div>
-      </div>
-    </section>
+      </section>
   );
 }
 
