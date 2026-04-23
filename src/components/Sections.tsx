@@ -328,43 +328,43 @@ export function Hero() {
         />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20 text-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-20 pt-40 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-immersive text-[10px] font-bold tracking-[0.1em] text-white/80 uppercase mb-8"
+          className="inline-flex items-center gap-3 px-4 py-3 rounded-full glass-immersive text-sm font-bold tracking-[0.1em] text-white/80 uppercase mb-8"
         >
-          <span className="glow-dot" />
-          India & Global expeditions now open
+          <span className="glow-dot h-2 w-2 rounded-full bg-accent-emerald" />
+          India expeditions now open
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-6xl md:text-8xl font-bold leading-[1.05] mb-8 tracking-[-0.04em]"
+          className="text-6xl md:text-8xl font-bold leading-[1.05] mb-6 tracking-[-0.04em]"
         >
-          Founder Retreat for Clarity
+          Founder Retreat for <span className="italic font-algerian">Clarity</span>
           <br />
-          <span className="text-accent-gradient">Focus & Real Progress.</span>
+          <span className="text-accent-gradient">Focus & Real <span className="italic font-algerian">Progress</span>.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-white/50 max-w-xl mx-auto mb-12 font-medium leading-relaxed"
+          className="text-2xl md:text-xl text-white/50 max-w-xl mx-auto mb-6 font-medium leading-relaxed"
         >
-          Step away. Think clearly. Build better.A curated startup founder retreat designed to 
-          help you step away from noise, gain clarity, and solve real business bottlenecks.
+           Step away. Think clearly. Build better.{/*A curated startup founder retreat designed to 
+          help you step away from noise, gain clarity, and solve real business bottlenecks. */}
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
         >
           <Button className="w-full sm:w-auto px-10 py-5 text-lg flex items-center group">
             Explore Experiences
