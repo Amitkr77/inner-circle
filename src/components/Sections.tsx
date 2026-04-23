@@ -505,7 +505,7 @@ export function ExperienceShowcase({
                 </div>
 
                 <div className="absolute bottom-8 left-8 right-8 z-10">
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col text-center justify-center gap-6">
                     <div>
                       <p className="text-accent-emerald text-sm uppercase font-bold mb-2">
                         Location: {exp.location}
