@@ -737,41 +737,41 @@ export function CommunitySection() {
         </div>
 
         <div className="mt-20 overflow-hidden">
-  <div className="flex gap-6 animate-marquee">
-    
-    {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
-      <GlassCard
-        key={index}
-        className="min-w-[150px] md:min-w-[100px] p-2 flex-shrink-0"
-        hover={false}
-      >
-        <div className="flex items-center gap-4">
-          <img
-            src={t.avatar}
-            className="w-12 h-12 rounded-full"
-            alt={t.name}
-          />
-          <div>
-            <p className="font-bold">{t.name}</p>
-            <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold mb-4">
-              {t.role} {t.company && `@ ${t.company}`}
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center gap-1 text-accent-orange mb-4">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <Star key={i} className="w-4 h-4 fill-current" />
+        <div className="flex gap-6 animate-marquee">
+          
+          {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
+            <GlassCard
+              key={index}
+              className="w-[320px] h-[400px] p-6 flex flex-col justify-between flex-shrink-0"
+              hover={false}
+            >
+              <div className="flex items-center gap-4">
+                <img
+                  src={t.avatar}
+                  className="w-12 h-12 rounded-full"
+                  alt={t.name}
+                />
+                <div>
+                  <p className="font-bold">{t.name}</p>
+                  <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold mb-4">
+                    {t.role} {t.company && `@ ${t.company}`}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1 text-accent-orange mb-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+
+              <p className="text-lg font-light leading-relaxed mb-8">
+                "{t.content}"
+              </p>
+            </GlassCard>
           ))}
+
         </div>
-
-        <p className="text-lg font-light leading-relaxed mb-8">
-          "{t.content}"
-        </p>
-      </GlassCard>
-    ))}
-
-  </div>
-</div>
+      </div>
       </div>
     </section>
   );
