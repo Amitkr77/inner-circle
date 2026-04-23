@@ -32,6 +32,8 @@ import MeghalayaPage from "./pages/MeghalayaPage";
 
 // ✅ APPLY / BOOK NOW PAGE
 import MonolithRetreat from "./pages/MonolithRetreat";
+import InsideRetreat from "./components/InsideRetreat";
+import ClaritySection from "./components/ClaritySection";
 
 // Page map
 type PageProps = { onBack: () => void; onApply: () => void };
@@ -92,11 +94,13 @@ export default function App() {
       <Navbar onBook={handleApplyOpen} />
       <main>
         <Hero />
-        <StatsSection />
+        {/* <StatsSection /> */}
+        <ClaritySection/>
         <ExperienceShowcase onSelectExp={handleOpenExp} />
         {/* <PastExpeditions /> */}
         <CorporateExperience />
         <HowItWorks />
+        <InsideRetreat/>
         <CommunitySection />
         <ContactSection />
       </main>
