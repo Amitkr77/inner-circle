@@ -1,13 +1,17 @@
 /**
-
-* @license
-* SPDX-License-Identifier: Apache-2.0
-  */
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 import React, { useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 import { GlowBackground } from "./components/UI";
 import {
-  // Navbar,
   Hero,
   ExperienceShowcase,
   CorporateExperience,
@@ -18,45 +22,73 @@ import {
   Footer,
   PastExpeditions,
 } from "./components/Sections";
-import { Navbar } from "./components/Navbar";
 
+import { Navbar } from "./components/Navbar";
 import { Experience } from "./constants";
 
 // Pages
-import RishikeshPage from "./pages/RishikeshPage";
-import KashmirPage from "./pages/KashmirPage";
-import DarjeelingPage from "./pages/DarjeelingPage";
-import SikkimPage from "./pages/SikkimPage";
-import MunnarPage from "./pages/MunnarPage";
-import MeghalayaPage from "./pages/MeghalayaPage";
-
-// ✅ APPLY / BOOK NOW PAGE
+import Contact from "./pages/contact";
 import MonolithRetreat from "./pages/MonolithRetreat";
 
-// Page map
+// Types
 type PageProps = { onBack: () => void; onApply: () => void };
 
-const PAGE_MAP: Record<string, React.ComponentType<PageProps>> = {
-  "in-3": RishikeshPage,
-  "in-4": KashmirPage,
-  "in-1": DarjeelingPage,
-  "in-2": SikkimPage,
-  "in-5": MunnarPage,
-  "in-6": MeghalayaPage,
-};
+// ✅ PAGE MAP (future use)
+const PAGE_MAP: Record<string, React.ComponentType<PageProps>> = {};
 
+// ✅ LAYOUT (Reusable for all pages)
+function Layout({
+  children,
+  onBook,
+}: {
+  children: React.ReactNode;
+  onBook: () => void;
+}) {
+  return (
+    <div className="relative min-h-screen selection:bg-accent-pink/30">
+      <GlowBackground />
+      <Navbar onBook={onBook} />
+
+      <main>{children}</main>
+
+      <Footer />
+    </div>
+  );
+}
+
+// ✅ HOME COMPONENT
+function Home({
+  handleOpenExp,
+  handleApplyOpen,
+}: {
+  handleOpenExp: (exp: Experience) => void;
+  handleApplyOpen: () => void;
+}) {
+  return (
+    <>
+      <Hero />
+      <StatsSection />
+      <ExperienceShowcase onSelectExp={handleOpenExp} />
+      <PastExpeditions />
+      <CorporateExperience />
+      <HowItWorks />
+      <CommunitySection />
+      <ContactSection />
+    </>
+  );
+}
+
+// ✅ MAIN APP
 export default function App() {
   const [activeExpId, setActiveExpId] = useState<string | null>(null);
   const [showApplyPage, setShowApplyPage] = useState(false);
 
-  // 🔥 OPEN EXPERIENCE
   const handleOpenExp = (exp: Experience) => {
     if (!exp?.id) return;
     setActiveExpId(exp.id);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // 🔙 BACK TO HOME
   const handleBack = () => {
     setActiveExpId(null);
     setTimeout(() => {
@@ -66,41 +98,53 @@ export default function App() {
     }, 100);
   };
 
-  // 🔥 APPLY / BOOK NOW OPEN
   const handleApplyOpen = () => {
     setShowApplyPage(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // ✅ APPLY PAGE
-  if (showApplyPage) {
-    return <MonolithRetreat />;
-  }
-
-  // ✅ EXPERIENCE PAGE
-  if (activeExpId && PAGE_MAP[activeExpId]) {
-    const PageComponent = PAGE_MAP[activeExpId];
-    return <PageComponent onBack={handleBack} onApply={handleApplyOpen} />;
-  }
-
-  // ✅ HOME PAGE
   return (
-    <div className="relative min-h-screen selection:bg-accent-pink/30">
-      {" "}
-      <GlowBackground />
-      {/* 🔥 NAVBAR WITH BOOK NOW */}
-      <Navbar onBook={handleApplyOpen} />
-      <main>
-        <Hero />
-        <StatsSection />
-        <ExperienceShowcase onSelectExp={handleOpenExp} />
-        <PastExpeditions />
-        <CorporateExperience />
-        <HowItWorks />
-        <CommunitySection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+
+        {/* 🔥 HOME */}
+        <Route
+          path="/"
+          element={
+            <Layout onBook={handleApplyOpen}>
+              {activeExpId && PAGE_MAP[activeExpId] ? (
+                (() => {
+                  const PageComponent = PAGE_MAP[activeExpId];
+                  return (
+                    <PageComponent
+                      onBack={handleBack}
+                      onApply={handleApplyOpen}
+                    />
+                  );
+                })()
+              ) : showApplyPage ? (
+                <MonolithRetreat />
+              ) : (
+                <Home
+                  handleOpenExp={handleOpenExp}
+                  handleApplyOpen={handleApplyOpen}
+                />
+              )}
+            </Layout>
+          }
+        />
+
+        {/* 🔥 CONTACT PAGE */}
+        <Route
+          path="/contact"
+          element={
+            <Layout onBook={handleApplyOpen}>
+              <Contact />
+            </Layout>
+          }
+        />
+
+      </Routes>
+    </BrowserRouter>
   );
 }

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, ExternalLink } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   onBook: () => void;
@@ -8,21 +9,19 @@ interface NavbarProps {
 export function Navbar({ onBook }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      const progress =
+        (window.scrollY /
+          (document.documentElement.scrollHeight - window.innerHeight)) *
+        100;
+      setScrollProgress(progress);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const navItems = [
@@ -42,104 +41,35 @@ export function Navbar({ onBook }: NavbarProps) {
     <>
       <style>{`
         @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(-12px); }
+          to   { opacity: 1; transform: translateY(0);     }
         }
-
-        @keyframes slideUp {
-          from {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          to {
-            opacity: 0;
-            transform: translateY(-12px);
-          }
-        }
-
         @keyframes shimmer {
-          0% { background-position: -1000px 0; }
-          100% { background-position: 1000px 0; }
+          0%   { background-position: -1000px 0; }
+          100% { background-position:  1000px 0; }
         }
-
-        @keyframes navFloatIn {
-          from {
-            opacity: 0;
-            transform: translateY(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .nav-item-active {
-          position: relative;
-          color: #10b981;
-        }
-
-        .nav-item-active::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #10b981, transparent);
-          animation: slideDown 0.3s ease-out;
-        }
-
-        .dropdown-enter {
-          animation: slideDown 0.2s ease-out forwards;
-        }
-
-        .dropdown-exit {
-          animation: slideUp 0.2s ease-out forwards;
-        }
-
-        .mobile-menu-enter {
-          animation: slideDown 0.3s ease-out forwards;
-        }
-
-        .glow-button {
-          position: relative;
-          overflow: hidden;
-        }
-
+        .mobile-menu-enter { animation: slideDown 0.3s ease-out forwards; }
+        .glow-button { position: relative; overflow: hidden; }
         .glow-button::before {
           content: '';
           position: absolute;
-          top: 50%;
-          left: 50%;
+          top: 50%; left: 50%;
           transform: translate(-50%, -50%);
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+          width: 100%; height: 100%;
+          background: radial-gradient(circle, rgba(16,185,129,0.3) 0%, transparent 70%);
           opacity: 0;
           transition: opacity 0.3s ease;
         }
-
-        .glow-button:hover::before {
-          opacity: 1;
-        }
-
-        .nav-shimmer {
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(16, 185, 129, 0.1),
-            transparent
-          );
-          background-size: 1000px 100%;
-          animation: shimmer 3s infinite;
-        }
+        .glow-button:hover::before { opacity: 1; }
       `}</style>
+
+      {/* Scroll Progress Bar */}
+      {isScrolled && (
+        <div
+          className="fixed top-0 left-0 z-[1000] h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500 transition-all duration-100"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      )}
 
       {/* Main Navbar */}
       <nav
@@ -150,11 +80,9 @@ export function Navbar({ onBook }: NavbarProps) {
         }`}
       >
         <div className="max-w-7xl mx-auto h-full px-6 md:px-10 flex items-center justify-between">
+
           {/* Logo */}
-          <div
-            className="flex items-center cursor-pointer group"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
+          <Link to="/" className="flex items-center cursor-pointer group">
             <div className="p-2 rounded-full bg-white border border-white/5 group-hover:border-white/20 transition-all duration-300">
               <img
                 src="./logo3.png"
@@ -162,7 +90,7 @@ export function Navbar({ onBook }: NavbarProps) {
                 className="h-10 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
               />
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-12">
@@ -170,35 +98,30 @@ export function Navbar({ onBook }: NavbarProps) {
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
+                className="text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors"
               >
-                <span className="relative">
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
-                </span>
+                {item.label}
               </a>
             ))}
 
             {/* Contact Link */}
-            <a
-              href="#contact"
-              className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300 flex items-center gap-2"
+            <Link
+              to="/contact"
+              className="group flex items-center gap-1 text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors relative"
             >
               <span className="relative">
                 Contact
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
               </span>
               <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
+            </Link>
 
-            {/* Premium Booking Button */}
+            {/* Book Now Button */}
             <button
               onClick={handleBookClick}
               className="glow-button relative group ml-6 px-8 py-3 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95"
             >
-              <span className="relative flex items-center justify-center gap-2">
-                <span> Book Now</span>
-              </span>
+              Book Now
             </button>
           </div>
 
@@ -207,11 +130,7 @@ export function Navbar({ onBook }: NavbarProps) {
             className="lg:hidden p-2 text-white/70 hover:text-emerald-400 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </nav>
@@ -232,7 +151,7 @@ export function Navbar({ onBook }: NavbarProps) {
             ))}
 
             <a
-              href="#contact"
+              href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="mobile-menu-enter text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors flex items-center gap-2"
             >
@@ -248,16 +167,6 @@ export function Navbar({ onBook }: NavbarProps) {
             </button>
           </div>
         </div>
-      )}
-
-      {/* Scroll Progress Indicator */}
-      {isScrolled && (
-        <div
-          className="fixed bottom-0 left-0 right-0 z-[998] h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500"
-          style={{
-            width: `${(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`,
-          }}
-        />
       )}
     </>
   );
