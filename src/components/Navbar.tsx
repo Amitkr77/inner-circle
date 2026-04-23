@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-=======
-import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
->>>>>>> 515ff3b678137b0ca4109ca43a65407e8f21c9e3
 
 interface NavbarProps {
   onBook: () => void;
@@ -100,7 +94,6 @@ export function Navbar({ onBook }: NavbarProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-12">
-<<<<<<< HEAD
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -110,33 +103,6 @@ export function Navbar({ onBook }: NavbarProps) {
                 {item.label}
               </a>
             ))}
-=======
-            {navItems.map((item) =>
-  item.href.startsWith("/") ? (
-    <Link
-      key={item.label}
-      to={item.href}
-      className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
-    >
-      <span className="relative">
-        {item.label}
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
-      </span>
-    </Link>
-  ) : (
-    <a
-      key={item.label}
-      href={item.href}
-      className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
-    >
-      <span className="relative">
-        {item.label}
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
-      </span>
-    </a>
-  )
-)}
->>>>>>> 515ff3b678137b0ca4109ca43a65407e8f21c9e3
 
             {/* Contact Link */}
             <Link
@@ -197,33 +163,11 @@ export function Navbar({ onBook }: NavbarProps) {
               onClick={handleBookClick}
               className="mt-4 w-full px-8 py-4 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105"
             >
-               Book Now
+              🚀 Book Now
             </button>
           </div>
         </div>
       )}
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-      {/* Scroll Progress Indicator 
-      {isScrolled && (
-=======
-      {/* Scroll Progress Indicator */}
-      {/* {isScrolled && (
->>>>>>> a061ecb0ce09aefe97af311d61d5e5b1c260e651
-        <div
-          className="fixed bottom-0 left-0 right-0 z-[998] h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500"
-          style={{
-            width: `${(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`,
-          }}
-        />
-<<<<<<< HEAD
-      )}*/}
-=======
-      )} */}
->>>>>>> a061ecb0ce09aefe97af311d61d5e5b1c260e651
->>>>>>> 515ff3b678137b0ca4109ca43a65407e8f21c9e3
     </>
   );
 }
