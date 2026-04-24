@@ -21,8 +21,9 @@ import {
 
 import { Navbar } from "./components/Navbar";
 import { Experience } from "./constants";
-
+import PremiumPage from "./pages/PremiumPage";
 // Pages
+import Resources from "./pages/resourses";
 import Contact from "./pages/contact";
 import About from "./pages/about";
 import RishikeshPage from "./pages/RishikeshPage";
@@ -192,7 +193,24 @@ function AppInner() {
           </Layout>
         }
       />
+        <Route
+        path="/PremiumPage"
+        element={
+          <Layout onBook={handleApplyOpen}>
+            <PremiumPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/resources"
+        element={
+          <Layout onBook={handleApplyOpen}> 
+            <Resources />
+          </Layout>
+        }
+      />  
     </Routes>
+    
   );
 }
 
