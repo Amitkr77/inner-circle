@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import type { ChangeEvent } from "react";
 
 interface FormData {
@@ -17,19 +18,9 @@ interface FormData {
   notes: string;
 }
 
-// interface ApiResponse {
-//   status: "success" | "error";
-//   message?: string;
-// }
-
-// interface FieldConfig {
-//   label: string;
-//   name: keyof FormData;
-//   type?: string;
-//   placeholder: string;
-// }
-
 const MonolithRetreat: React.FC = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     linkedin: "",
@@ -41,13 +32,12 @@ const MonolithRetreat: React.FC = () => {
     hardestProblem: "",
     contribution: "",
     breakthrough: "",
-    cohortDate: "Autumn Session (Oct 12-15)",
+    cohortDate: "Rishikesh Retreat",
     dietary: "",
     notes: "",
   });
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -58,51 +48,6 @@ const MonolithRetreat: React.FC = () => {
       [name]: value,
     }));
   };
-
-  // const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-  //   e.preventDefault();
-  //   setLoading(true);
-
-  //   try {
-  //     // Replace with your Google Apps Script deployment URL
-  //     const GOOGLE_APPS_SCRIPT_URL =
-  //       "https://script.google.com/macros/s/AKfycby-5_dWHy4UMhiA8pwdgIvTBu5fDZZZ5_SFysqAVaeJJecjB2TE8PHaoeRxA7KR6uwE/exec";
-
-  //     const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-  //       method: "POST",
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     const result: ApiResponse = await response.json();
-
-  //     if (result.status === "success") {
-  //       setSubmitted(true);
-  //       setFormData({
-  //         fullName: "",
-  //         linkedin: "",
-  //         company: "",
-  //         stage: "",
-  //         phone: "",
-  //         email: "",
-  //         location: "",
-  //         hardestProblem: "",
-  //         contribution: "",
-  //         breakthrough: "",
-  //         cohortDate: "Autumn Session (Oct 12-15)",
-  //         dietary: "",
-  //         notes: "",
-  //       });
-  //       setTimeout(() => setSubmitted(false), 5000);
-  //     } else {
-  //       alert("Error submitting form. Please try again.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //     alert("Error submitting form. Please try again.");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -124,23 +69,7 @@ const MonolithRetreat: React.FC = () => {
       });
 
       if (response.ok) {
-        setSubmitted(true);
-        setFormData({
-          fullName: "",
-          linkedin: "",
-          company: "",
-          stage: "",
-          phone: "",
-          email: "",
-          location: "",
-          hardestProblem: "",
-          contribution: "",
-          breakthrough: "",
-          cohortDate: "Autumn Session (Oct 12-15)",
-          dietary: "",
-          notes: "",
-        });
-        setTimeout(() => setSubmitted(false), 5000);
+        navigate("/success");
       } else {
         alert("Error submitting form. Please try again later.");
       }
@@ -159,30 +88,6 @@ const MonolithRetreat: React.FC = () => {
       `}</style>
 
       <div className="min-h-screen bg-gray-950 text-gray-100 font-[Manrope]">
-        {/* Navigation */}
-        {/* <nav className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center">
-            <div className="font-[Epilogue] text-xl font-bold tracking-tight text-gray-100">
-              The Monolith Retreat
-            </div>
-            <div className="flex items-center gap-8">
-              {["Agenda", "Venue", "Founders"].map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-amber-400 transition-colors"
-                >
-                  {link}
-                </a>
-              ))}
-              <button className="px-6 py-2 bg-amber-700 text-amber-50 text-xs font-bold uppercase tracking-widest rounded-sm hover:shadow-lg hover:shadow-amber-500/20 transition-all">
-                Apply Now
-              </button>
-            </div>
-          </div>
-        </nav> */}
-
-        {/* Main */}
         <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
           {/* Hero */}
           <header className="mb-32 max-w-2xl">
@@ -206,14 +111,6 @@ const MonolithRetreat: React.FC = () => {
           >
             {/* Left Column */}
             <div className="lg:col-span-5 space-y-20">
-              {/* Success Message */}
-              {submitted && (
-                <div className="p-4 bg-green-900/20 border border-green-700 rounded-sm text-green-300 text-sm">
-                  ✓ Application submitted successfully! We'll review and respond
-                  within 48 hours.
-                </div>
-              )}
-
               {/* Section 1: The Basics */}
               <section>
                 <div className="flex items-baseline gap-4 mb-12">
@@ -278,7 +175,7 @@ const MonolithRetreat: React.FC = () => {
                         type={field.type}
                         name={field.name}
                         placeholder={field.placeholder}
-                        value={formData[field.name]}
+                        value={formData[field.name as keyof FormData]}
                         onChange={handleChange}
                         className="w-full bg-transparent border-b border-gray-700 focus:border-amber-500 py-3 text-gray-200 placeholder-gray-600 focus:outline-none transition-colors text-sm"
                       />
@@ -328,7 +225,7 @@ const MonolithRetreat: React.FC = () => {
                         name={field.name}
                         placeholder={field.placeholder}
                         rows={3}
-                        value={formData[field.name]}
+                        value={formData[field.name as keyof FormData]}
                         onChange={handleChange}
                         className="w-full bg-transparent border-b border-gray-700 focus:border-amber-500 py-3 text-gray-200 placeholder-gray-600 focus:outline-none transition-colors text-sm resize-none"
                       />
@@ -352,7 +249,7 @@ const MonolithRetreat: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div className="group">
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
-                        Preferred Cohort Date
+                        Preferred Place
                       </label>
                       <select
                         name="cohortDate"
@@ -361,13 +258,10 @@ const MonolithRetreat: React.FC = () => {
                         className="w-full bg-transparent border-b border-gray-700 focus:border-amber-500 py-3 text-gray-200 focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
                       >
                         <option className="bg-gray-950 text-gray-200">
-                          Autumn Session (Oct 12–15)
+                          Rishikesh Retreat
                         </option>
                         <option className="bg-gray-950 text-gray-200">
-                          Winter Solstice (Dec 4–7)
-                        </option>
-                        <option className="bg-gray-950 text-gray-200">
-                          Spring Ascent (Mar 20–23)
+                          Manali Mountains
                         </option>
                       </select>
                     </div>
@@ -427,7 +321,7 @@ const MonolithRetreat: React.FC = () => {
             <aside className="lg:col-span-2 space-y-8">
               <div className="sticky top-32 space-y-8">
                 {/* Image Card */}
-                <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-800 group cursor-pointer">
+                <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-800 group cursor-pointer relative">
                   <img
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL8ICws2CRXOYbd0NRAFTsUaJc7gRUVNLpNz9miDX9JWHTYdxuSsxTbVS0M-h0ln4bnpA7LVi0EH5dPcyt0TG2eBB5E-Up2B7Ammv_ILzxP5rZ17vCJe7sSIt5UDBWxPjSaJzkg2f9kKaV5dx9u4oOznXbQXF-3Ck19cvMGHUmgV08FWbKQq0j2DwdhL4RReHrAW6w39-WUrBR8Usc7G6gRk2hXcON7Yd1MfclCRf8sKPFa_gPADDR3XUza3OAA6DkfcdH49aVDno"
                     alt="Interior architectural detail"
@@ -472,29 +366,6 @@ const MonolithRetreat: React.FC = () => {
             </aside>
           </form>
         </main>
-
-        {/* Footer */}
-        {/* <footer className="border-t border-gray-800 bg-black/40 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div className="font-[Epilogue] text-lg font-black text-gray-100">
-              The Monolith
-            </div>
-            <div className="flex gap-8">
-              {["Privacy", "Terms of Service", "Press"].map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-sm text-gray-500 hover:text-amber-400 transition-colors"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-            <div className="text-sm text-gray-500">
-              © 2024 The Monolith. By Invitation Only.
-            </div>
-          </div>
-        </footer> */}
       </div>
     </>
   );

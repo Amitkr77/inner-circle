@@ -265,9 +265,12 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                   ))}
                 </div>
 
-                <Button className="w-full py-4 text-sm font-black uppercase tracking-[0.2em]">
-                  Request Booking
-                </Button>
+               <Button
+              onClick={() => navigate(`/apply?exp=${exp.id}`)}
+              className="w-full py-4 text-sm font-black uppercase tracking-[0.2em]"
+            >
+              Request Booking
+            </Button>
               </div>
 
               <div className="glass-immersive rounded-2xl p-6">

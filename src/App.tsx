@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Explore from "./pages/Explore";
 import Resources from "./pages/Resources";
+import Success from "./pages/success";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/experiences/:id" element={<ExperienceDetails />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
       <Footer />
     </Router>

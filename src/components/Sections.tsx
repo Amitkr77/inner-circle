@@ -453,7 +453,7 @@ export function ExperienceShowcase() {
                       </h4>
                     </div>
                     <div className="bg-white/10 backdrop-blur-2xl border border-white/10 p-2 rounded-3xl flex flex-col items-center min-w-[160px] group-hover:bg-accent-emerald transition-colors duration-500">
-                      <span className="text-[10px] uppercase tracking-widest font-bold text-white/60 group-hover:text-white/80">
+                      {/* <span className="text-[10px] uppercase tracking-widest font-bold text-white/60 group-hover:text-white/80">
                         Starts At
                       </span>
                       <span className="text-2xl font-black tracking-tight self-center mt-1">
@@ -461,7 +461,16 @@ export function ExperienceShowcase() {
                       </span>
                       <span className="text-[8px] uppercase tracking-widest font-bold text-white/60 group-hover:text-white/80">
                         Per Person
-                      </span>
+                      </span> */}
+                      {idx < 2 ? (
+                          <span className="flex flex-col items-center min-w-[160px]">
+                            ₹{exp.pricePerHead.toLocaleString()}
+                          </span>
+                        ) : (
+                          <span className="flex flex-col items-center min-w-[160px]">
+                            Coming Soon
+                          </span>
+                        )}
                     </div>
                   </div>
                 </div>
