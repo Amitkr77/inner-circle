@@ -199,9 +199,5 @@ function AppInner() {
 
 // ✅ ROOT APP
 export default function App() {
-  return (
-    <BrowserRouter>
-      <AppInner />
-    </BrowserRouter>
-  );
+  return <AppInner /> ;
 }
