@@ -9,7 +9,7 @@ function toSlug(title: string) {
     .replace(/\s+/g, "-");
 }
 
-export default function Journal() {
+export default function Blog() {
   const navigate = useNavigate();
 
   const filters = ["All", "Mindset", "Execution", "Retreats", "Deep Work", "Community"];

@@ -134,7 +134,7 @@ export default function BlogDetail() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl overflow-hidden bg-[#050505] font-[family-name:var(--font-sans)] text-white">
+    <div className="mx-auto max-w-7xl overflow-hidden bg-[#050505] font-[family-name:var(--font-sans)] text-white pt-28">
 
       {/* ── Breadcrumb ── */}
       <div className="flex items-center gap-2.5 border-b border-white/[0.06] px-11 py-5">
