@@ -12,7 +12,7 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Explore from "./pages/Explore";
 import Resources from "./pages/Resources";
-import Success from "./pages/success";
+import Success from "./pages/Success";
 
 export default function App() {
   return (

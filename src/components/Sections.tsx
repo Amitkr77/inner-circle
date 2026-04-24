@@ -462,13 +462,13 @@ export function ExperienceShowcase() {
                       <span className="text-[8px] uppercase tracking-widest font-bold text-white/60 group-hover:text-white/80">
                         Per Person
                       </span> */}
-                      {idx < 2 ? (
+                      {idx < 0 ? (
                           <span className="flex flex-col items-center min-w-[160px]">
                             ₹{exp.pricePerHead.toLocaleString()}
                           </span>
                         ) : (
                           <span className="flex flex-col items-center min-w-[160px]">
-                            Coming Soon
+                           ₹ Revealing Soon
                           </span>
                         )}
                     </div>
@@ -845,16 +845,84 @@ export function StatsSection() {
   );
 }
 
+
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    interest: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<any>({});
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const validate = () => {
+    const newErrors: any = {};
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Invalid email";
+    }
+
+    if (!formData.interest) {
+      newErrors.interest = "Please select an option";
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) return;
+
+    setLoading(true);
+
+    setTimeout(() => {
+      console.log("Form Data:", formData);
+      alert("Form submitted successfully 🚀");
+
+      setFormData({
+        fullName: "",
+        email: "",
+        interest: "",
+        message: "",
+      });
+
+      setLoading(false);
+    }, 1000);
+  };
+
   return (
     <section className="py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
+          {/* LEFT */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
               Ready to Upgrade <br />
               Your Life & Team?
             </h2>
+
             <p className="text-white/60 font-light text-lg mb-12 leading-relaxed">
               Join the waiting list for our Summer 2026 expeditions or schedule
               a custom consultation for your corporate leadership team.
@@ -876,61 +944,96 @@ export function ContactSection() {
             </div>
           </div>
 
-          <GlassCard className="p-12" hover={false}>
-            <form className="space-y-6">
+          {/* RIGHT FORM */}
+          <div className="p-12 rounded-2xl bg-white/5 border border-white/10">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              
+              {/* NAME + EMAIL */}
               <div className="grid grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-[0.1em] text-white/40 font-bold">
-                    Full Name
-                  </label>
+                <div>
                   <input
                     type="text"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink transition-colors"
-                    placeholder="John Doe"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="Full Name"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink text-white"
                   />
+                  {errors.fullName && (
+                    <p className="text-red-400 text-xs mt-1">
+                      {errors.fullName}
+                    </p>
+                  )}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-[0.1em] text-white/40 font-bold">
-                    Email Address
-                  </label>
+
+                <div>
                   <input
                     type="email"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink transition-colors"
-                    placeholder="john@example.com"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email Address"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink text-white"
                   />
+                  {errors.email && (
+                    <p className="text-red-400 text-xs mt-1">
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs uppercase tracking-[0.1em] text-white/40 font-bold">
-                  I am interested in...
-                </label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink transition-colors appearance-none">
-                  <option className="bg-premium-black">
+              {/* SELECT (FIXED) */}
+              <div>
+                <select
+                  name="interest"
+                  value={formData.interest}
+                  onChange={handleChange}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink transition-colors appearance-none text-white"
+                >
+                  <option value="" className="bg-gray-900 text-white">
+                    Select Interest
+                  </option>
+                  <option value="personal" className="bg-gray-900 text-white">
                     Personal Expedition
                   </option>
-                  <option className="bg-premium-black">
+                  <option value="corporate" className="bg-gray-900 text-white">
                     Corporate Offsite
                   </option>
-                  <option className="bg-premium-black">
+                  <option value="mentorship" className="bg-gray-900 text-white">
                     Mentorship Program
                   </option>
                 </select>
+
+                {errors.interest && (
+                  <p className="text-red-400 text-xs mt-1">
+                    {errors.interest}
+                  </p>
+                )}
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs uppercase tracking-[0.1em] text-white/40 font-bold">
-                  Message (Optional)
-                </label>
+              {/* MESSAGE */}
+              <div>
                 <textarea
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink transition-colors h-32"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell us about your goals..."
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 h-32 focus:outline-none focus:border-accent-pink text-white"
                 />
               </div>
 
-              <Button className="w-full py-4 text-lg">Send Inquiry</Button>
+              {/* BUTTON */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-4 text-lg font-bold bg-white text-black rounded-xl hover:opacity-90 transition disabled:opacity-50"
+              >
+                {loading ? "Sending..." : "Send Inquiry"}
+              </button>
             </form>
-          </GlassCard>
+          </div>
+
         </div>
       </div>
     </section>

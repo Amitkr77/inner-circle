@@ -145,8 +145,16 @@ const MonolithRetreat: React.FC = () => {
                     {
                       label: "Current Stage / Revenue",
                       name: "stage",
-                      type: "text",
-                      placeholder: "Series A / $5M ARR",
+                      type: "select", // change from text → select
+                      options: [
+                        { label: "Ideation", value: "idea" },
+                        { label: "MVP", value: "mvp" },
+                        { label: "Early Stage", value: "early stage" },
+                        { label: "Pre-Seed", value: "pre-seed" },
+                        { label: "Seed", value: "seed" },
+                        { label: "Series A & Above", value: "series-a" },
+                        
+                      ],
                     },
                     {
                       label: "Contact/WhatsApp Number",
@@ -171,6 +179,21 @@ const MonolithRetreat: React.FC = () => {
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
                         {field.label}
                       </label>
+                     {field.type === "select" ? (
+                      <select
+                        name={field.name}
+                        value={formData[field.name as keyof FormData]}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-b border-gray-700 focus:border-amber-500 py-3 text-gray-200 focus:outline-none transition-colors text-sm"
+                      >
+                        <option value="">Select Stage</option>
+                        {field.options?.map((opt, i) => (
+                          <option key={i} value={opt.value} className="bg-gray-950">
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
                       <input
                         type={field.type}
                         name={field.name}
@@ -179,6 +202,7 @@ const MonolithRetreat: React.FC = () => {
                         onChange={handleChange}
                         className="w-full bg-transparent border-b border-gray-700 focus:border-amber-500 py-3 text-gray-200 placeholder-gray-600 focus:outline-none transition-colors text-sm"
                       />
+                    )}
                     </div>
                   ))}
                 </div>
