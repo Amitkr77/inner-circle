@@ -355,9 +355,10 @@ const MonolithRetreat: React.FC = () => {
             <aside className="lg:col-span-2 space-y-8">
               <div className="sticky top-32 space-y-8">
                 {/* Image Card */}
-                <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-800 group cursor-pointer">
+                <div className="aspect-4/5 overflow-hidden rounded-sm bg-gray-800 group cursor-pointer">
                   <img
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL8ICws2CRXOYbd0NRAFTsUaJc7gRUVNLpNz9miDX9JWHTYdxuSsxTbVS0M-h0ln4bnpA7LVi0EH5dPcyt0TG2eBB5E-Up2B7Ammv_ILzxP5rZ17vCJe7sSIt5UDBWxPjSaJzkg2f9kKaV5dx9u4oOznXbQXF-3Ck19cvMGHUmgV08FWbKQq0j2DwdhL4RReHrAW6w39-WUrBR8Usc7G6gRk2hXcON7Yd1MfclCRf8sKPFa_gPADDR3XUza3OAA6DkfcdH49aVDno"
+                    // src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL8ICws2CRXOYbd0NRAFTsUaJc7gRUVNLpNz9miDX9JWHTYdxuSsxTbVS0M-h0ln4bnpA7LVi0EH5dPcyt0TG2eBB5E-Up2B7Ammv_ILzxP5rZ17vCJe7sSIt5UDBWxPjSaJzkg2f9kKaV5dx9u4oOznXbQXF-3Ck19cvMGHUmgV08FWbKQq0j2DwdhL4RReHrAW6w39-WUrBR8Usc7G6gRk2hXcON7Yd1MfclCRf8sKPFa_gPADDR3XUza3OAA6DkfcdH49aVDno"
+                    src="./form_image.png"
                     alt="Interior architectural detail"
                     className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
                   />

@@ -101,7 +101,7 @@ export default function Blog() {
         {/* Left */}
         <div className="border-r border-white/[0.07] pr-12 pb-14">
           {/* Fixed: replaced broken before: pseudo with explicit <span> */}
-          <p className="mb-6 flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.4em] text-white/[0.12]">
+          <p className="mb-6 flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.4em] text-white/[0.4]">
             <span className="block h-px w-5 shrink-0 bg-emerald-400" />
             The journal
           </p>
@@ -112,7 +112,7 @@ export default function Blog() {
             <br />
             stories.
           </h1>
-          <p className="mb-9 max-w-[340px] text-[13px] leading-[1.85] text-white/[0.22]">
+          <p className="mb-9 max-w-[340px] text-sm leading-[1.85] text-white/[0.4]">
             Honest writing on building, thinking, and the spaces that make both
             possible. No fluff — just what actually moves the needle.
           </p>
@@ -146,7 +146,7 @@ export default function Blog() {
               </div>
             ))}
           </div>
-          <p className="mt-6 mb-3.5 text-[9px] font-bold uppercase tracking-[0.3em] text-white/[0.12]">
+          <p className="mt-6 mb-3.5 text-[9px] font-bold uppercase tracking-[0.3em] text-white/[0.4]">
             Latest this month
           </p>
           {latestItems.map((item) => (
@@ -155,7 +155,7 @@ export default function Blog() {
               onClick={() => navigate(`/blog/${toSlug(item.text)}`)}
               className="flex cursor-pointer items-center gap-3.5 border-b border-white/[0.06] py-3.5 last:border-b-0 hover:opacity-70 transition-opacity duration-200"
             >
-              <span className="min-w-[20px] text-[10px] font-bold text-white/[0.1]">
+              <span className="min-w-[20px] text-[10px] font-bold text-white/[0.4]">
                 {item.num}
               </span>
               <span className="flex-1 text-sm font-bold tracking-[-0.01em] text-white/[0.45]">
@@ -244,7 +244,7 @@ export default function Blog() {
       {/* ── List Section ── */}
       <div className="mb-[2px]">
         <div className="flex items-center justify-between border-b border-white/[0.07] px-11 py-8">
-          <span className="text-[11px] font-bold uppercase tracking-[0.35em] text-white/[0.15]">
+          <span className="text-[11px] font-bold uppercase tracking-[0.35em] text-white/[0.4]">
             Recent articles
           </span>
           <span className="cursor-pointer text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-400">
