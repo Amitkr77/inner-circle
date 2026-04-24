@@ -159,7 +159,7 @@ const MonolithRetreat: React.FC = () => {
 
       <div className="min-h-screen bg-gray-950 text-gray-100 font-[Manrope]">
         {/* Navigation */}
-        <nav className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-gray-800">
+        {/* <nav className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center">
             <div className="font-[Epilogue] text-xl font-bold tracking-tight text-gray-100">
               The Monolith Retreat
@@ -179,7 +179,7 @@ const MonolithRetreat: React.FC = () => {
               </button>
             </div>
           </div>
-        </nav>
+        </nav> */}
 
         {/* Main */}
         <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
@@ -473,7 +473,7 @@ const MonolithRetreat: React.FC = () => {
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-gray-800 bg-black/40 backdrop-blur-sm">
+        {/* <footer className="border-t border-gray-800 bg-black/40 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div className="font-[Epilogue] text-lg font-black text-gray-100">
               The Monolith
@@ -493,7 +493,7 @@ const MonolithRetreat: React.FC = () => {
               © 2024 The Monolith. By Invitation Only.
             </div>
           </div>
-        </footer>
+        </footer> */}
       </div>
     </>
   );

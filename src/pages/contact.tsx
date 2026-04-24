@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
-import { motion, Variants, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import type { Variants } from "framer-motion";
 import heroimg from "../assets/hhh.png";
 
 const fadeUp: Variants = {

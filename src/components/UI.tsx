@@ -1,12 +1,18 @@
-import { ReactNode } from 'react';
-import { motion, HTMLMotionProps } from 'motion/react';
+import { ReactNode } from "react";
+import { motion } from "motion/react";
+import type { HTMLMotionProps } from "framer-motion";
 
-interface GlassCardProps extends HTMLMotionProps<'div'> {
+interface GlassCardProps extends HTMLMotionProps<"div"> {
   children: ReactNode;
   hover?: boolean;
 }
 
-export function GlassCard({ children, className = '', hover = true, ...props }: GlassCardProps) {
+export function GlassCard({
+  children,
+  className = "",
+  hover = true,
+  ...props
+}: GlassCardProps) {
   return (
     <motion.div
       whileHover={hover ? { y: -5, transition: { duration: 0.2 } } : {}}
@@ -21,23 +27,35 @@ export function GlassCard({ children, className = '', hover = true, ...props }: 
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: "primary" | "secondary" | "outline" | "ghost";
   className?: string;
   onClick?: () => void;
 }
 
-export function Button({ children, variant = 'primary', className = '', onClick }: ButtonProps) {
-  const base = "px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 active:scale-[0.98] cursor-pointer";
-  
+export function Button({
+  children,
+  variant = "primary",
+  className = "",
+  onClick,
+}: ButtonProps) {
+  const base =
+    "px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 active:scale-[0.98] cursor-pointer";
+
   const variants = {
-    primary: "bg-accent-gradient text-white hover:brightness-110 shadow-lg shadow-accent-red/20",
-    secondary: "bg-surface border border-surface-border text-white hover:bg-white/10 backdrop-blur-md",
-    outline: "border border-white/10 hover:border-white/20 backdrop-blur-sm text-white",
+    primary:
+      "bg-accent-gradient text-white hover:brightness-110 shadow-lg shadow-accent-red/20",
+    secondary:
+      "bg-surface border border-surface-border text-white hover:bg-white/10 backdrop-blur-md",
+    outline:
+      "border border-white/10 hover:border-white/20 backdrop-blur-sm text-white",
     ghost: "hover:bg-white/5 text-white/80 hover:text-white",
   };
 
   return (
-    <button className={`${base} ${variants[variant]} ${className}`} onClick={onClick}>
+    <button
+      className={`${base} ${variants[variant]} ${className}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
