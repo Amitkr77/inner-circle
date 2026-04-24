@@ -11,6 +11,7 @@ import ExperienceDetails from "./pages/ExperienceDetails";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Explore from "./pages/Explore";
+import Resources from "./pages/Resources";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/experiences/:id" element={<ExperienceDetails />} />
+        <Route path="/resources" element={<Resources />} />
       </Routes>
       <Footer />
     </Router>

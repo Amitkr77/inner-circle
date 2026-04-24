@@ -23,11 +23,11 @@ export function Navbar() {
   }, []);
 
   const navItems = [
-    { label: "Explore", to: "#explore" },
-    { label: "Corporate", to: "#corporate" },
-    { label: "Community", to: "#community" },
+    { label: "Explore", to: "/explore" },
+    { label: "Corporate", to: "/corporate" },
+    { label: "Blog", to: "/blog" },
     { label: "About", to: "/about" },
-    { label: "Resources", to: "#resources" },
+    { label: "Resources", to: "/resources" },
   ];
 
   return (
@@ -147,7 +147,10 @@ export function Navbar() {
             className="flex items-center cursor-pointer group"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <Link to="/" className="p-2 rounded-full bg-white border border-white/5 group-hover:border-white/20 transition-all duration-300">
+            <Link
+              to="/"
+              className="p-2 rounded-full bg-white border border-white/5 group-hover:border-white/20 transition-all duration-300"
+            >
               <img
                 src="./logo3.png"
                 alt="Logo"
@@ -231,12 +234,11 @@ export function Navbar() {
               <ExternalLink className="w-4 h-4" />
             </Link>
 
-            <button
-              onClick={handleBookClick}
-              className="mt-4 w-full px-8 py-4 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105"
-            >
-              Book Now
-            </button>
+            <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
+              <button className="mt-4 w-full px-8 py-4 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105">
+                Book Now
+              </button>
+            </Link>
           </div>
         </div>
       )}
