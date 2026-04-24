@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import { motion } from "framer-motion";
 import {
   ChevronLeft,
@@ -15,13 +15,10 @@ import {
   BarChart3,
   LayoutGrid,
   Quote,
-  Languages,
-  Lock,
+ 
 } from "lucide-react";
 
 /* ================= DATA ================= */
-
-const NAV_LINKS = ["The Vision", "Experience", "Agenda", "Resources"];
 
 const FEATURED_INSIGHTS = [
   {

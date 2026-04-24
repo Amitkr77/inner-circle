@@ -1,4 +1,5 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useState } from "react";
+import type { ChangeEvent } from "react";
 
 interface FormData {
   fullName: string;
@@ -14,11 +15,6 @@ interface FormData {
   cohortDate: string;
   dietary: string;
   notes: string;
-}
-
-interface ApiResponse {
-  status: "success" | "error";
-  message?: string;
 }
 
 interface FieldConfig {
@@ -45,6 +41,70 @@ const MonolithRetreat: React.FC = () => {
     notes: "",
   });
 
+  const basicFields: FieldConfig[] = [
+    {
+      label: "Full Name",
+      name: "fullName",
+      type: "text",
+      placeholder: "John Doe",
+    },
+    {
+      label: "LinkedIn Profile",
+      name: "linkedin",
+      type: "url",
+      placeholder: "linkedin.com/in/...",
+    },
+    {
+      label: "Company Name",
+      name: "company",
+      type: "text",
+      placeholder: "Acme Corp",
+    },
+    {
+      label: "Current Stage / Revenue",
+      name: "stage",
+      type: "text",
+      placeholder: "Series A / $5M ARR",
+    },
+    {
+      label: "Contact/WhatsApp Number",
+      name: "phone",
+      type: "tel",
+      placeholder: "+1 (555) 000-0000",
+    },
+    {
+      label: "Email ID",
+      name: "email",
+      type: "email",
+      placeholder: "john@example.com",
+    },
+    {
+      label: "Location",
+      name: "location",
+      type: "text",
+      placeholder: "San Francisco, CA",
+    },
+  ];
+
+  const deepDiveFields: FieldConfig[] = [
+    {
+      label: "What is the hardest problem you're solving right now?",
+      name: "hardestProblem",
+      placeholder: "Scaling cultural integrity during hyper-growth...",
+    },
+    {
+      label: "What do you hope to contribute to the group?",
+      name: "contribution",
+      placeholder: "Hard-won expertise in GTM strategy and failure states...",
+    },
+    {
+      label: "What breakthroughs have you had in the last 6 months?",
+      name: "breakthrough",
+      placeholder:
+        "Developed a new framework for handling customer feedback...",
+    },
+  ];
+
   const [loading, setLoading] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
@@ -58,52 +118,7 @@ const MonolithRetreat: React.FC = () => {
     }));
   };
 
-  // const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-  //   e.preventDefault();
-  //   setLoading(true);
-
-  //   try {
-  //     // Replace with your Google Apps Script deployment URL
-  //     const GOOGLE_APPS_SCRIPT_URL =
-  //       "https://script.google.com/macros/s/AKfycby-5_dWHy4UMhiA8pwdgIvTBu5fDZZZ5_SFysqAVaeJJecjB2TE8PHaoeRxA7KR6uwE/exec";
-
-  //     const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-  //       method: "POST",
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     const result: ApiResponse = await response.json();
-
-  //     if (result.status === "success") {
-  //       setSubmitted(true);
-  //       setFormData({
-  //         fullName: "",
-  //         linkedin: "",
-  //         company: "",
-  //         stage: "",
-  //         phone: "",
-  //         email: "",
-  //         location: "",
-  //         hardestProblem: "",
-  //         contribution: "",
-  //         breakthrough: "",
-  //         cohortDate: "Autumn Session (Oct 12-15)",
-  //         dietary: "",
-  //         notes: "",
-  //       });
-  //       setTimeout(() => setSubmitted(false), 5000);
-  //     } else {
-  //       alert("Error submitting form. Please try again.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //     alert("Error submitting form. Please try again.");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
@@ -158,29 +173,6 @@ const MonolithRetreat: React.FC = () => {
       `}</style>
 
       <div className="min-h-screen bg-gray-950 text-gray-100 font-[Manrope]">
-        {/* Navigation */}
-        {/* <nav className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center">
-            <div className="font-[Epilogue] text-xl font-bold tracking-tight text-gray-100">
-              The Monolith Retreat
-            </div>
-            <div className="flex items-center gap-8">
-              {["Agenda", "Venue", "Founders"].map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-amber-400 transition-colors"
-                >
-                  {link}
-                </a>
-              ))}
-              <button className="px-6 py-2 bg-amber-700 text-amber-50 text-xs font-bold uppercase tracking-widest rounded-sm hover:shadow-lg hover:shadow-amber-500/20 transition-all">
-                Apply Now
-              </button>
-            </div>
-          </div>
-        </nav> */}
-
         {/* Main */}
         <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
           {/* Hero */}
@@ -225,50 +217,7 @@ const MonolithRetreat: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  {[
-                    {
-                      label: "Full Name",
-                      name: "fullName",
-                      type: "text",
-                      placeholder: "John Doe",
-                    },
-                    {
-                      label: "LinkedIn Profile",
-                      name: "linkedin",
-                      type: "url",
-                      placeholder: "linkedin.com/in/...",
-                    },
-                    {
-                      label: "Company Name",
-                      name: "company",
-                      type: "text",
-                      placeholder: "Acme Corp",
-                    },
-                    {
-                      label: "Current Stage / Revenue",
-                      name: "stage",
-                      type: "text",
-                      placeholder: "Series A / $5M ARR",
-                    },
-                    {
-                      label: "Contact/WhatsApp Number",
-                      name: "phone",
-                      type: "tel",
-                      placeholder: "+1 (555) 000-0000",
-                    },
-                    {
-                      label: "Email ID",
-                      name: "email",
-                      type: "email",
-                      placeholder: "john@example.com",
-                    },
-                    {
-                      label: "Location",
-                      name: "location",
-                      type: "text",
-                      placeholder: "San Francisco, CA",
-                    },
-                  ].map((field) => (
+                  {basicFields.map((field) => (
                     <div key={field.name} className="group">
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
                         {field.label}
@@ -298,27 +247,7 @@ const MonolithRetreat: React.FC = () => {
                 </div>
 
                 <div className="space-y-10">
-                  {[
-                    {
-                      label:
-                        "What is the hardest problem you're solving right now?",
-                      name: "hardestProblem",
-                      placeholder:
-                        "Scaling cultural integrity during hyper-growth...",
-                    },
-                    {
-                      label: "What do you hope to contribute to the group?",
-                      name: "contribution",
-                      placeholder:
-                        "Hard-won expertise in GTM strategy and failure states...",
-                    },
-                    {
-                      label: "Describe a recent breakthrough.",
-                      name: "breakthrough",
-                      placeholder:
-                        "Rethinking our fundamental unit economics...",
-                    },
-                  ].map((field) => (
+                  {deepDiveFields.map((field) => (
                     <div key={field.name} className="group">
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
                         {field.label}

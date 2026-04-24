@@ -8,8 +8,6 @@ import {
   Search,
   SlidersHorizontal,
   X,
-  ArrowLeft,
-  Star,
   Plane,
 } from "lucide-react";
 import { EXPERIENCES } from "../constants";
@@ -49,7 +47,7 @@ export default function Explore() {
       (activeDuration === "3–5 Days" && exp.nights <= 4) ||
       (activeDuration === "6–8 Days" && exp.nights >= 5 && exp.nights <= 7) ||
       (activeDuration === "9+ Days" && exp.nights >= 8);
-
+    console.log(bookOpen);
     const matchesVibe =
       activeVibe === "All" ||
       exp.vibe.toLowerCase() === activeVibe.toLowerCase();
@@ -361,5 +359,6 @@ function ExploreCard({
         </div>
       </div>
     </motion.div>
+    
   );
 }
