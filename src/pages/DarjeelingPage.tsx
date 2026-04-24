@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowLeft } from "lucide-react";
-import { Hero } from "../components/Sections";
+// import { Hero } from "../components/Sections";
 interface Props {
   onBack: () => void;
 }

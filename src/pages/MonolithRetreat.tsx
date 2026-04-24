@@ -1,4 +1,5 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useState } from "react";
+import type { ChangeEvent } from "react";
 
 interface FormData {
   fullName: string;
@@ -16,17 +17,17 @@ interface FormData {
   notes: string;
 }
 
-interface ApiResponse {
-  status: "success" | "error";
-  message?: string;
-}
+// interface ApiResponse {
+//   status: "success" | "error";
+//   message?: string;
+// }
 
-interface FieldConfig {
-  label: string;
-  name: keyof FormData;
-  type?: string;
-  placeholder: string;
-}
+// interface FieldConfig {
+//   label: string;
+//   name: keyof FormData;
+//   type?: string;
+//   placeholder: string;
+// }
 
 const MonolithRetreat: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -103,7 +104,7 @@ const MonolithRetreat: React.FC = () => {
   //   }
   // };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
