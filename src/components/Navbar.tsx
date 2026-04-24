@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
-interface NavbarProps {
-  onBook: () => void;
-}
-
-export function Navbar({ onBook }: NavbarProps) {
+export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -26,17 +23,12 @@ export function Navbar({ onBook }: NavbarProps) {
   }, []);
 
   const navItems = [
-    { label: "Explore", href: "#explore" },
-    { label: "Corporate", href: "#corporate" },
-    { label: "Community", href: "#community" },
-    { label: "About", href: "#about" },
-    { label: "Resources", href: "#resources" },
+    { label: "Explore", to: "#explore" },
+    { label: "Corporate", to: "#corporate" },
+    { label: "Community", to: "#community" },
+    { label: "About", to: "/about" },
+    { label: "Resources", to: "#resources" },
   ];
-
-  const handleBookClick = () => {
-    onBook();
-    setMobileMenuOpen(false);
-  };
 
   return (
     <>
@@ -155,33 +147,33 @@ export function Navbar({ onBook }: NavbarProps) {
             className="flex items-center cursor-pointer group"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <div className="p-2 rounded-full bg-white border border-white/5 group-hover:border-white/20 transition-all duration-300">
+            <Link to="/" className="p-2 rounded-full bg-white border border-white/5 group-hover:border-white/20 transition-all duration-300">
               <img
                 src="./logo3.png"
                 alt="Logo"
                 className="h-10 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
               />
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-12">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.to}
                 className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
               >
                 <span className="relative">
                   {item.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
                 </span>
-              </a>
+              </Link>
             ))}
 
             {/* Contact Link */}
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300 flex items-center gap-2"
             >
               <span className="relative">
@@ -189,17 +181,16 @@ export function Navbar({ onBook }: NavbarProps) {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
               </span>
               <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
+            </Link>
 
             {/* Premium Booking Button */}
-            <button
-              onClick={handleBookClick}
-              className="glow-button relative group ml-6 px-8 py-3 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95"
-            >
-              <span className="relative flex items-center justify-center gap-2">
-                <span> Book Now</span>
-              </span>
-            </button>
+            <Link to="/apply">
+              <button className="glow-button relative group ml-6 px-8 py-3 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95">
+                <span className="relative flex items-center justify-center gap-2">
+                  <span> Book Now</span>
+                </span>
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -221,30 +212,30 @@ export function Navbar({ onBook }: NavbarProps) {
         <div className="fixed top-24 left-0 right-0 z-[998] lg:hidden bg-black/95 backdrop-blur-xl border-b border-emerald-500/10">
           <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.to}
                 onClick={() => setMobileMenuOpen(false)}
                 className="mobile-menu-enter text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
 
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="mobile-menu-enter text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors flex items-center gap-2"
             >
               Contact
               <ExternalLink className="w-4 h-4" />
-            </a>
+            </Link>
 
             <button
               onClick={handleBookClick}
               className="mt-4 w-full px-8 py-4 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105"
             >
-               Book Now
+              Book Now
             </button>
           </div>
         </div>

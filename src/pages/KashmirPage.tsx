@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
-import { Navbar } from '../components/Sections';
 
 
 interface Props { onBack: () => void; }

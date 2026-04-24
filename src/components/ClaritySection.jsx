@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ClaritySection() {
   const cols = [
     {
@@ -98,7 +100,7 @@ export default function ClaritySection() {
             </div>
 
             <div className="border-t border-white/[0.07] pt-8">
-              <div className="flex items-center justify-between">
+              <Link to="/apply"  className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">
                   Apply now
                 </span>
@@ -112,7 +114,7 @@ export default function ClaritySection() {
                     />
                   </svg>
                 </div>
-              </div>
+              </Link >
             </div>
           </div>
         </div>

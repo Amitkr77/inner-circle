@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
-import { ShaderGradient } from "shadergradient";
-import { Canvas } from "@react-three/fiber";
+// import { ShaderGradient } from "shadergradient";
+// import { Canvas } from "@react-three/fiber";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import {
   Compass,
   Users,
@@ -30,9 +35,10 @@ import {
   TESTIMONIALS,
   STATS,
   LOGOS,
-  Experience,
+  // Experience,
   social,
 } from "../constants";
+import type { Experience } from "../constants";
 export function ExperienceDetailModal({
   exp,
   isOpen,
@@ -159,7 +165,7 @@ export function ExperienceDetailModal({
                 </div>
 
                 <Button className="w-full py-5 text-sm font-black uppercase tracking-[0.2em]">
-                   Request Booking Details
+                  Request Booking Details
                 </Button>
               </div>
             </div>
@@ -243,80 +249,6 @@ export function PastExpeditions() {
   );
 }
 
-
-
-
-
-export function Navbar({ onBook }: { onBook: () => void }) {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ${
-        isScrolled
-          ? "h-20 backdrop-blur-xl bg-premium-black/60 border-none shadow-none"
-          : "h-24 bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto h-full px-6 md:px-10 flex items-center justify-between">
-        <div
-          className="flex items-center gap-2 cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          <span className="text-2xl font-black tracking-tighter text-accent-gradient">
-            VANTAGE
-          </span>
-        </div>
-
-        <div className="hidden lg:flex items-center gap-8">
-          {[{name: "Explore",link:""}, {name: "Corporate",link:""}, {name: "Community",link:""}, {name: "About",link:"/about"}, {name: "Resources",link:""}].map(
-            (item) => (
-              <a
-                key={item.name}
-                href={item.link || `#${item.name.toLowerCase()}`}
-                className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/60 hover:text-accent-emerald transition"
-              >
-                {item.name}
-              </a>
-            ),
-          )}
-
-
-         
-          <a
-            href="#contact"
-            className="text-[10px] uppercase text-white/60 hover:text-accent-emerald"
-          >
-            Contact
-          </a>
-
-          {/* 🔥 FINAL WORKING BUTTON */}
-          <Button
-            onClick={onBook}
-            className="ml-4 px-8 py-3 text-[10px] uppercase tracking-[0.2em] font-black rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)]"
-          >
-             Book Now
-          </Button>
-        </div>
-
-        <button
-          className="lg:hidden p-2 text-white"
-          onClick={() => setMobileMenuOpen(true)}
-        >
-          <Menu className="w-6 h-6" />
-        </button>
-      </div>
-    </nav>
-  );
-}
-
 export function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
@@ -352,7 +284,9 @@ export function Hero() {
         >
           Founder Retreat for <span className="italic font-light">Clarity</span>
           <br />
-          <span className="text-accent-gradient">Focus & Real <span className="italic font-algerian">Progress</span>.</span>
+          <span className="text-accent-gradient">
+            Focus & Real <span className="italic font-algerian">Progress</span>.
+          </span>
         </motion.h1>
 
         <motion.p
@@ -361,7 +295,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-2xl md:text-xl text-white/50 max-w-xl mx-auto mb-6 font-medium leading-relaxed"
         >
-           Step away. Think clearly. Build better.{/*A curated startup founder retreat designed to 
+          Step away. Think clearly. Build better.
+          {/*A curated startup founder retreat designed to 
           help you step away from noise, gain clarity, and solve real business bottlenecks. */}
         </motion.p>
 
@@ -414,12 +349,10 @@ export function Hero() {
   );
 }
 
-export function ExperienceShowcase({
-  onSelectExp,
-}: {
-  onSelectExp?: (exp: Experience) => void;
-}) {
+export function ExperienceShowcase() {
   const [filter, setFilter] = useState<"India" | "International">("India");
+
+  const MotionLink = motion(Link);
 
   const filteredExperiences = EXPERIENCES.filter(
     (exp) => exp.category === filter,
@@ -463,15 +396,16 @@ export function ExperienceShowcase({
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredExperiences.slice(0,3).map((exp, idx) => (
-              <motion.div
+            {filteredExperiences.slice(0, 3).map((exp, idx) => (
+              <MotionLink
+                to={`/experiences/${exp.id}`}
                 key={exp.id}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                onClick={() => onSelectExp?.(exp)}
+                // onClick={() => onSelectExp?.(exp)}
                 className="group relative h-[450px] md:h-[550px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl border border-white/5"
               >
                 <img
@@ -483,27 +417,33 @@ export function ExperienceShowcase({
                 <div className="absolute inset-0 bg-linear-to-t from-premium-black via-premium-black/20 to-transparent z-1" />
 
                 <div className="absolute top-8 left-8 right-8 z-10">
-                  <div className="grid grid-cols-3 items-center">   
+                  <div className="grid grid-cols-3 items-center">
                     {/* LEFT */}
                     <div className="flex justify-start">
-                      <span className="min-w-[100px] h-[30px] px-4 flex items-center justify-center 
+                      <span
+                        className="min-w-[100px] h-[30px] px-4 flex items-center justify-center 
                       bg-white/10 backdrop-blur-md border border-white/10 
-                      rounded-full text-[9px] uppercase font-bold whitespace-nowrap">
+                      rounded-full text-[9px] uppercase font-bold whitespace-nowrap"
+                      >
                         {exp.vibe}
                       </span>
                     </div>
                     {/* CENTER (GREEN) */}
                     <div className="flex justify-center">
-                      <span className="min-w-[100px] h-[32px] px-5 flex items-center justify-center 
+                      <span
+                        className="min-w-[100px] h-[32px] px-5 flex items-center justify-center 
                       bg-white/10 backdrop-blur-2xl border border-accent-emerald/40 
-                      rounded-full text-[9px] uppercase font-bold text-green-800 whitespace-nowrap">
+                      rounded-full text-[9px] uppercase font-bold text-green-800 whitespace-nowrap"
+                      >
                         {exp.duration} • {exp.nights} Nights
                       </span>
                     </div>
                     {/* RIGHT */}
                     <div className="flex justify-end">
-                      <span className="min-w-[100px] h-[30px] px-4 flex items-center justify-center 
-                      glass-immersive rounded-full text-[9px] uppercase font-black text-white/80 whitespace-nowrap">
+                      <span
+                        className="min-w-[100px] h-[30px] px-4 flex items-center justify-center 
+                      glass-immersive rounded-full text-[9px] uppercase font-black text-white/80 whitespace-nowrap"
+                      >
                         Group of {exp.groupSize}
                       </span>
                     </div>
@@ -533,19 +473,18 @@ export function ExperienceShowcase({
                     </div>
                   </div>
                 </div>
-              </motion.div>
-              
+              </MotionLink>
             ))}
           </AnimatePresence>
           <div className="col-span-full flex justify-center">
-           {/* EXPLORE BUTTON */}
+            {/* EXPLORE BUTTON */}
             <button
-              onClick={() => window.location.href = "/explore"}
+              onClick={() => (window.location.href = "/explore")}
               className="px-6 py-3 bg-accent-emerald backdrop-blur-2xl text-black font-bold rounded-xl hover:scale-105 transition-all duration-300"
             >
               View More →
             </button>
-           </div> 
+          </div>
         </motion.div>
       </div>
     </section>
@@ -642,9 +581,7 @@ export function CorporateExperience() {
             </div>
 
             <a href="#contact">
-              <Button className="px-10 py-5 text-lg">
-                Enquire now
-              </Button>
+              <Button className="px-10 py-5 text-lg">Enquire now</Button>
             </a>
 
             <div className="mt-16 pt-8 border-t border-white/10">
@@ -754,7 +691,6 @@ export function CommunitySection() {
 
         <div className="mt-20 overflow-hidden">
           <div className="flex w-max gap-6 animate-marquee">
-            
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
               <GlassCard
                 key={index}
@@ -769,11 +705,11 @@ export function CommunitySection() {
                   />
                 </div>
                 <div>
-                    <p className="font-bold">{t.name}</p>
-                    <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold">
-                      {t.role} {t.company && `@ ${t.company}`}
-                    </p>
-                  </div>
+                  <p className="font-bold">{t.name}</p>
+                  <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold">
+                    {t.role} {t.company && `@ ${t.company}`}
+                  </p>
+                </div>
                 <div className="flex gap-1 text-accent-orange -mb-6">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
@@ -785,7 +721,6 @@ export function CommunitySection() {
                 </p>
               </GlassCard>
             ))}
-
           </div>
         </div>
       </div>
@@ -829,10 +764,13 @@ export function HowItWorks() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative text-center justify-items-center">  
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative text-center justify-items-center">
           <div className="hidden lg:block absolute top-10 left-25 w-[80%] h-[1px] bg-white/10" />
           {steps.map((step, idx) => (
-            <div key={idx} className="relative group flex flex-col items-center text-center">           
+            <div
+              key={idx}
+              className="relative group flex flex-col items-center text-center"
+            >
               <div className="w-20 h-20 rounded-full glass-immersive flex items-center justify-center text-3xl font-bold mb-8 relative z-10 group-hover:bg-accent-gradient transition-all duration-500">
                 {step.num}
               </div>
@@ -862,49 +800,47 @@ export function StatsSection() {
       />*/}
 
       {/* Gradient Background */}
-        <div className="absolute inset-0 -z-10 bg-[#0b0f1a]">
-          <div
-            className="absolute inset-0 
+      <div className="absolute inset-0 -z-10 bg-[#0b0f1a]">
+        <div
+          className="absolute inset-0 
             bg-[radial-gradient(circle_at_30%_40%,#94ffd1,transparent_40%),radial-gradient(circle_at_70%_60%,#7297f7,transparent_40%),radial-gradient(circle_at_50%_80%,#ffffff,transparent_30%)]
             opacity-80 blur-2xl animate-gradientMove"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-black/30" />
-        </div>
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-black/30" />
+      </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto glass-immersive rounded-2xl p-10 flex flex-col lg:flex-row items-center justify-between gap-12 backdrop-blur-2xl">
-
-          {/* Stats */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-16">
-            {STATS.map((stat, idx) => (
-              <div key={idx} className="flex flex-col gap-1">
-                <div className="text-3xl font-bold flex items-baseline">
-                  <span>{stat.value}</span>
-                  <span className="text-accent-red text-xl ml-0.5">
-                    {stat.suffix}
-                  </span>
-                </div>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/80 font-bold">
-                  {stat.label}
-                </p>
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto glass-immersive rounded-2xl p-10 flex flex-col lg:flex-row items-center justify-between gap-12 backdrop-blur-2xl">
+        {/* Stats */}
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-16">
+          {STATS.map((stat, idx) => (
+            <div key={idx} className="flex flex-col gap-1">
+              <div className="text-3xl font-bold flex items-baseline">
+                <span>{stat.value}</span>
+                <span className="text-accent-red text-xl ml-0.5">
+                  {stat.suffix}
+                </span>
               </div>
-            ))}
-          </div>
-
-          {/* Logos */}
-          <div className="flex flex-wrap items-center justify-center gap-10 opacity-30 grayscale invert brightness-200">
-            {LOGOS.slice(0, 4).map((logo) => (
-              <span
-                key={logo}
-                className="text-xl font-black tracking-tighter uppercase"
-              >
-                {logo}
-              </span>
-            ))}
-          </div>
-
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/80 font-bold">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
+
+        {/* Logos */}
+        <div className="flex flex-wrap items-center justify-center gap-10 opacity-30 grayscale invert brightness-200">
+          {LOGOS.slice(0, 4).map((logo) => (
+            <span
+              key={logo}
+              className="text-xl font-black tracking-tighter uppercase"
+            >
+              {logo}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -1008,7 +944,7 @@ export function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-2">
               <img
-                src="/logo.png"   // put your image inside public folder
+                src="/logo.png" // put your image inside public folder
                 alt="AETHERIS logo"
                 className="h-16 w-44 bg-white p-2 rounded-full shadow-md"
               />
