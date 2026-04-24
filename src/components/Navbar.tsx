@@ -29,7 +29,7 @@ export function Navbar({ onBook }: NavbarProps) {
     { label: "Explore", href: "#explore" },
     { label: "Corporate", href: "#corporate" },
     { label: "Community", href: "#community" },
-    { label: "About", href: "#about" },
+    { label: "About", href: "about" },
     { label: "Resources", href: "#resources" },
   ];
 
@@ -181,7 +181,7 @@ export function Navbar({ onBook }: NavbarProps) {
 
             {/* Contact Link */}
             <a
-              href="#contact"
+              href="/contact"
               className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300 flex items-center gap-2"
             >
               <span className="relative">
@@ -232,7 +232,7 @@ export function Navbar({ onBook }: NavbarProps) {
             ))}
 
             <a
-              href="#contact"
+              href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="mobile-menu-enter text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors flex items-center gap-2"
             >

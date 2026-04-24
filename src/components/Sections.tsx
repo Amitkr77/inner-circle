@@ -291,7 +291,7 @@ export function Navbar({ onBook }: { onBook: () => void }) {
 
          
           <a
-            href="#contact"
+            href="/contact"
             className="text-[10px] uppercase text-white/60 hover:text-accent-emerald"
           >
             Contact
@@ -641,7 +641,7 @@ export function CorporateExperience() {
               ))}
             </div>
 
-            <a href="#contact">
+            <a href="/contact">
               <Button className="px-10 py-5 text-lg">
                 Enquire now
               </Button>
