@@ -8,7 +8,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Sections";
 import MonolithRetreat from "./pages/MonolithRetreat";
 import ExperienceDetails from "./pages/ExperienceDetails";
-import Blog from "./pages/Blog";
+import Blog from "./pages/BlogDetail";
 import BlogDetail from "./pages/BlogDetail";
 import Explore from "./pages/Explore";
 import Resources from "./pages/Resources";
