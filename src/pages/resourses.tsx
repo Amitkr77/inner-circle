@@ -123,10 +123,10 @@ export default function Resources() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center px-6 lg:px-32 overflow-hidden bg-surface pt-20">
+        <section className="relative min-h-[100vh] flex items-center px-6 lg:px-32 overflow-hidden bg-surface pt-20">
           <div className="absolute inset-0 z-0">
             <img 
-              className="w-full h-full object-cover opacity-[0.12] grayscale"
+              className="w-full h-full object-cover opacity-[0.8] "
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbnDFLP43Fn141nKcxJbanMu6mYas6vX-2s8-gNzG-74JMQktYuYVbszGHGkJ7_1RgoVhuouFPrMG90d4m7TaYpnomQpLT_906UyIEeaq094pU2igxg-LpIQNpjoO_uMRNdYdiEDYBVdzi8FTaX4HU_fJ2wIZ5OCRzW6mFCRVwpbRDNxiedY-UphCaqzCnRQ_TohLsAt3dUQWZBLINzszW5FVQ0q9WGszV1ehZLN-bbdrijV9rpW3gWBNk7kmAb5tczz59j4-kVpQ"
               alt="Cinematic wide shot founders"
             />
@@ -145,18 +145,18 @@ export default function Resources() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-display font-bold text-5xl md:text-8xl lg:text-9xl tracking-ultra-tight leading-[0.85] text-on-surface mb-10"
+              className="font-display font-bold text-5xl md:text-6xl lg:text-7xl tracking-ultra-tight leading-[0.85] text-on-surface mb-10"
             >
               Resources for <br/>Founders Who <br/>Want <span className="text-primary italic font-medium">Clarity</span>.
             </motion.h1>
             <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ delay: 0.4 }}
-              className="font-body text-lg lg:text-xl text-on-surface-variant max-w-xl leading-relaxed font-light"
-            >
-              A curated repository of strategic leverage, operational frameworks, and psychological protocols for the modern architect.
-            </motion.p>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 0.6 }}
+  transition={{ delay: 0.4 }}
+  className="font-body text-sm md:text-base text-on-surface-variant max-w-lg leading-relaxed font-light"
+>
+  A curated repository of strategic leverage, operational frameworks, and psychological protocols for the modern architect.
+</motion.p>
           </div>
         </section>
 

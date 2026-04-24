@@ -23,6 +23,7 @@ import { Navbar } from "./components/Navbar";
 import { Experience } from "./constants";
 import PremiumPage from "./pages/PremiumPage";
 // Pages
+import Blog from "./pages/blog";  
 import Resources from "./pages/resourses";
 import Contact from "./pages/contact";
 import About from "./pages/about";
@@ -209,7 +210,16 @@ function AppInner() {
           </Layout>
         }
       />  
+      <Route
+        path="/blog"
+        element={
+          <Layout onBook={handleApplyOpen}>
+            <Blog />
+          </Layout>
+        }
+      />
     </Routes>
+
     
   );
 }

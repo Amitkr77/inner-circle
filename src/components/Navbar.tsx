@@ -26,10 +26,11 @@ export function Navbar({ onBook }: NavbarProps) {
 
   const navItems = [
     { label: "Explore", href: "Explore" },
-    { label: "Corporate", href: "CorporatePage" },
-    { label: "Community", href: "CommunityPage" },
+    // { label: "Corporate", href: "CorporatePage" },
+    // { label: "Community", href: "CommunityPage" },
     { label: "About", href: "About" },
     { label: "Resources", href: "Resources" },
+    { label: "Blog", href: "Blog" },
   ];
 
   const handleBookClick = () => {
