@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // import { ShaderGradient } from "shadergradient";
 // import { Canvas } from "@react-three/fiber";
 import { Link } from "react-router-dom";
@@ -15,19 +15,12 @@ import {
   Sparkles,
   ArrowRight,
   Play,
-  Globe,
-  Menu,
-  X,
   Star,
   CheckCircle2,
-  ChevronRight,
-  Search,
-  MapPin,
   Utensils,
   Plane,
   Calendar,
-  ShieldCheck,
-  Zap,
+
 } from "lucide-react";
 import { Button, GlassCard } from "./UI";
 import {
@@ -42,7 +35,6 @@ import type { Experience } from "../constants";
 export function ExperienceDetailModal({
   exp,
   isOpen,
-  onClose,
   onBook,
 }: {
   exp: Experience | null;
