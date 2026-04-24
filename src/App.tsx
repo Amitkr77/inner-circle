@@ -21,7 +21,7 @@ import {
 
 import { Navbar } from "./components/Navbar";
 import { Experience } from "./constants";
-
+import PremiumPage from "./pages/PremiumPage";
 // Pages
 import Contact from "./pages/contact";
 import About from "./pages/about";
@@ -189,6 +189,14 @@ function AppInner() {
         element={
           <Layout onBook={handleApplyOpen}>
             <About />
+          </Layout>
+        }
+      />
+        <Route
+        path="/PremiumPage"
+        element={
+          <Layout onBook={handleApplyOpen}>
+            <PremiumPage />
           </Layout>
         }
       />
