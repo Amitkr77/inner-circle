@@ -1,14 +1,6 @@
-import { useNavigate } from "react-router-dom";
-export default function Blog() {
-  const navigate = useNavigate();
-  const filters = [
-    "All",
-    "Mindset",
-    "Execution",
-    "Retreats",
-    "Deep Work",
-    "Community",
-  ];
+export default function Journal() {
+  const filters = ["All", "Mindset", "Execution", "Retreats", "Deep Work", "Community"];
+
   const stats = [
     { n: "48+", l: "Articles" },
     { n: "12k", l: "Readers" },
@@ -17,21 +9,9 @@ export default function Blog() {
   ];
 
   const latestItems = [
-    {
-      num: "01",
-      text: "Why most founders confuse motion with progress",
-      tag: "Mindset",
-    },
-    {
-      num: "02",
-      text: "What 48 hours in the Alps taught me about leverage",
-      tag: "Retreats",
-    },
-    {
-      num: "03",
-      text: "The 90-day plan that actually sticks",
-      tag: "Execution",
-    },
+    { num: "01", text: "Why most founders confuse motion with progress", tag: "Mindset" },
+    { num: "02", text: "What 48 hours in the Alps taught me about leverage", tag: "Retreats" },
+    { num: "03", text: "The 90-day plan that actually sticks", tag: "Execution" },
   ];
 
   const featuredCards = [
@@ -54,42 +34,12 @@ export default function Blog() {
   ];
 
   const listItems = [
-    {
-      img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=200",
-      tag: "Execution",
-      title: "The 90-day plan that actually sticks",
-      meta: "5 min · Feb 2025",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=200",
-      tag: "Mindset",
-      title: "Stop optimising. Start deciding.",
-      meta: "4 min · Jan 2025",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=200",
-      tag: "Community",
-      title: "The people in the room change everything",
-      meta: "6 min · Dec 2024",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&q=80&w=200",
-      tag: "Retreats",
-      title: "Bali 2025 — what happened, honestly",
-      meta: "7 min · Nov 2024",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=200",
-      tag: "Execution",
-      title: "How to find your actual bottleneck",
-      meta: "5 min · Oct 2024",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?auto=format&fit=crop&q=80&w=200",
-      tag: "Deep Work",
-      title: "Designing your environment for focus",
-      meta: "6 min · Sep 2024",
-    },
+    { img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=200", tag: "Execution", title: "The 90-day plan that actually sticks", meta: "5 min · Feb 2025" },
+    { img: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=200", tag: "Mindset", title: "Stop optimising. Start deciding.", meta: "4 min · Jan 2025" },
+    { img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=200", tag: "Community", title: "The people in the room change everything", meta: "6 min · Dec 2024" },
+    { img: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&q=80&w=200", tag: "Retreats", title: "Bali 2025 — what happened, honestly", meta: "7 min · Nov 2024" },
+    { img: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=200", tag: "Execution", title: "How to find your actual bottleneck", meta: "5 min · Oct 2024" },
+    { img: "https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?auto=format&fit=crop&q=80&w=200", tag: "Deep Work", title: "Designing your environment for focus", meta: "6 min · Sep 2024" },
   ];
 
   const gridCards = [
@@ -130,6 +80,9 @@ export default function Blog() {
 
   return (
     <div className="mx-auto max-w-7xl overflow-hidden bg-[#050505] font-[family-name:var(--font-sans)] text-white pt-28">
+
+    
+
       {/* ── Hero ── */}
       <div className="grid grid-cols-2 gap-[2px] items-end pb-[2px]">
         {/* Left */}
@@ -203,10 +156,7 @@ export default function Blog() {
       {/* ── Featured Photo Grid ── */}
       <div className="grid grid-cols-2 gap-[2px] mb-[2px]">
         {featuredCards.map((card) => (
-          <div
-            key={card.title}
-            className="group relative h-[440px] cursor-pointer overflow-hidden"
-          >
+          <div key={card.title} className="group relative h-[440px] cursor-pointer overflow-hidden">
             <img
               src={card.img}
               referrerPolicy="no-referrer"
@@ -235,12 +185,7 @@ export default function Blog() {
                 </span>
                 <div className="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-white/15">
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path
-                      d="M2 8L8 2M8 2H3M8 2v5"
-                      stroke="#fff"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
+                    <path d="M2 8L8 2M8 2H3M8 2v5" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
                   </svg>
                 </div>
               </div>
@@ -250,12 +195,7 @@ export default function Blog() {
       </div>
 
       {/* ── Wide Card ── */}
-      <div
-        onClick={() =>
-          navigate(`/blog/why-founders-confuse-motion-with-progress`)
-        }
-        className="group relative mb-[2px] h-[320px] cursor-pointer overflow-hidden"
-      >
+      <div className="group relative mb-[2px] h-[320px] cursor-pointer overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1540539234-c14a20fb7c7b?auto=format&fit=crop&q=80&w=1400"
           referrerPolicy="no-referrer"
@@ -303,38 +243,33 @@ export default function Blog() {
           </span>
         </div>
         {Array.from({ length: 3 }, (_, rowIndex) => (
-          <div
-            key={rowIndex}
-            className="grid grid-cols-2 border-b border-white/[0.07] last:border-b-0"
-          >
-            {listItems
-              .slice(rowIndex * 2, rowIndex * 2 + 2)
-              .map((item, colIndex) => (
-                <div
-                  key={item.title}
-                  className={`group flex cursor-pointer items-start gap-5 px-11 py-7 transition-colors duration-200 hover:bg-white/[0.015] ${
-                    colIndex === 0 ? "border-r border-white/[0.07]" : ""
-                  }`}
-                >
-                  <img
-                    src={item.img}
-                    referrerPolicy="no-referrer"
-                    alt=""
-                    className="h-[72px] w-[72px] shrink-0 rounded object-cover opacity-50"
-                  />
-                  <div className="flex-1">
-                    <p className="mb-1.5 text-[9px] font-bold uppercase tracking-[0.25em] text-emerald-400">
-                      {item.tag}
-                    </p>
-                    <p className="mb-2 text-[15px] font-extrabold leading-[1.3] tracking-[-0.01em] text-white/[0.65] transition-colors duration-200 group-hover:text-white/[0.9]">
-                      {item.title}
-                    </p>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/[0.15]">
-                      {item.meta}
-                    </p>
-                  </div>
+          <div key={rowIndex} className="grid grid-cols-2 border-b border-white/[0.07] last:border-b-0">
+            {listItems.slice(rowIndex * 2, rowIndex * 2 + 2).map((item, colIndex) => (
+              <div
+                key={item.title}
+                className={`group flex cursor-pointer items-start gap-5 px-11 py-7 transition-colors duration-200 hover:bg-white/[0.015] ${
+                  colIndex === 0 ? "border-r border-white/[0.07]" : ""
+                }`}
+              >
+                <img
+                  src={item.img}
+                  referrerPolicy="no-referrer"
+                  alt=""
+                  className="h-[72px] w-[72px] shrink-0 rounded object-cover opacity-50"
+                />
+                <div className="flex-1">
+                  <p className="mb-1.5 text-[9px] font-bold uppercase tracking-[0.25em] text-emerald-400">
+                    {item.tag}
+                  </p>
+                  <p className="mb-2 text-[15px] font-extrabold leading-[1.3] tracking-[-0.01em] text-white/[0.65] transition-colors duration-200 group-hover:text-white/[0.9]">
+                    {item.title}
+                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/[0.15]">
+                    {item.meta}
+                  </p>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         ))}
       </div>
@@ -350,9 +285,7 @@ export default function Blog() {
           by founders asking the same hard questions.
         </p>
         <div className="min-w-[160px] text-right">
-          <p className="mb-1 text-[13px] font-bold text-white/[0.85]">
-            Priya Nair
-          </p>
+          <p className="mb-1 text-[13px] font-bold text-white/[0.85]">Priya Nair</p>
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/[0.15]">
             Founder · Oslo 2024
           </p>
@@ -419,8 +352,7 @@ export default function Blog() {
           </h3>
           <p className="text-[13px] leading-[1.8] text-white/[0.22]">
             One email a week. Honest writing on building better, thinking
-            clearer, and going further — from founders who&apos;ve done the
-            work.
+            clearer, and going further — from founders who&apos;ve done the work.
           </p>
         </div>
         <div className="flex flex-col gap-2.5">
@@ -438,6 +370,8 @@ export default function Blog() {
           </p>
         </div>
       </div>
+
+
     </div>
   );
 }

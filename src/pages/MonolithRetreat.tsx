@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import type { ChangeEvent } from "react";
-
+import { useNavigate } from "react-router-dom";
 interface FormData {
   fullName: string;
   linkedin: string;
@@ -18,9 +17,16 @@ interface FormData {
   notes: string;
 }
 
-const MonolithRetreat: React.FC = () => {
-  const navigate = useNavigate();
+interface FieldConfig {
+  label: string;
+  name: keyof FormData;
+  type?: string;
+  placeholder: string;
+  options?: { label: string; value: string }[];
+}
 
+const MonolithRetreat: React.FC = () => {
+   const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     linkedin: "",
@@ -32,12 +38,85 @@ const MonolithRetreat: React.FC = () => {
     hardestProblem: "",
     contribution: "",
     breakthrough: "",
-    cohortDate: "Rishikesh Retreat",
+    cohortDate: "Autumn Session (Oct 12-15)",
     dietary: "",
     notes: "",
   });
 
+  const basicFields: FieldConfig[] = [
+    {
+      label: "Full Name",
+      name: "fullName",
+      type: "text",
+      placeholder: "John Doe",
+    },
+    {
+      label: "LinkedIn Profile",
+      name: "linkedin",
+      type: "url",
+      placeholder: "linkedin.com/in/...",
+    },
+    {
+      label: "Company Name",
+      name: "company",
+      type: "text",
+      placeholder: "Acme Corp",
+    },
+    {
+        label: "Current Stage / Revenue",
+        name: "stage",
+        placeholder: "Select the stage",
+        type: "select", // change from text → select
+        options: [
+          { label: "Ideation", value: "idea" },
+          { label: "MVP", value: "mvp" },
+          
+          { label: "Pre-Seed", value: "pre-seed" },
+          { label: "Seed", value: "seed" },
+          { label: "Series A & Above", value: "series-a & above" },
+        ],
+      },
+    {
+      label: "Contact/WhatsApp Number",
+      name: "phone",
+      type: "tel",
+      placeholder: "+1 (555) 000-0000",
+    },
+    {
+      label: "Email ID",
+      name: "email",
+      type: "email",
+      placeholder: "john@example.com",
+    },
+    {
+      label: "Location",
+      name: "location",
+      type: "text",
+      placeholder: "San Francisco, CA",
+    },
+  ];
+
+  const deepDiveFields: FieldConfig[] = [
+    {
+      label: "What is the hardest problem you're solving right now?",
+      name: "hardestProblem",
+      placeholder: "Scaling cultural integrity during hyper-growth...",
+    },
+    {
+      label: "What do you hope to contribute to the group?",
+      name: "contribution",
+      placeholder: "Hard-won expertise in GTM strategy and failure states...",
+    },
+    {
+      label: "What breakthroughs have you had in the last 6 months?",
+      name: "breakthrough",
+      placeholder:
+        "Developed a new framework for handling customer feedback...",
+    },
+  ];
+
   const [loading, setLoading] = useState<boolean>(false);
+  // const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -69,8 +148,24 @@ const MonolithRetreat: React.FC = () => {
       });
 
       if (response.ok) {
-        navigate("/success");
-      } else {
+          setFormData({
+            fullName: "",
+            linkedin: "",
+            company: "",
+            stage: "",
+            phone: "",
+            email: "",
+            location: "",
+            hardestProblem: "",
+            contribution: "",
+            breakthrough: "",
+            cohortDate: "Autumn Session (Oct 12-15)",
+            dietary: "",
+            notes: "",
+          });
+
+          navigate("/success"); // ✅ YAHI MAIN LINE HAI
+        } else {
         alert("Error submitting form. Please try again later.");
       }
     } catch (error) {
@@ -88,6 +183,7 @@ const MonolithRetreat: React.FC = () => {
       `}</style>
 
       <div className="min-h-screen bg-gray-950 text-gray-100 font-[Manrope]">
+        {/* Main */}
         <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
           {/* Hero */}
           <header className="mb-32 max-w-2xl">
@@ -111,6 +207,14 @@ const MonolithRetreat: React.FC = () => {
           >
             {/* Left Column */}
             <div className="lg:col-span-5 space-y-20">
+              {/* Success Message */}
+              {/* {submitted && (
+                <div className="p-4 bg-green-900/20 border border-green-700 rounded-sm text-green-300 text-sm">
+                  ✓ Application submitted successfully! We'll review and respond
+                  within 48 hours.
+                </div>
+              )} */}
+
               {/* Section 1: The Basics */}
               <section>
                 <div className="flex items-baseline gap-4 mb-12">
@@ -123,63 +227,12 @@ const MonolithRetreat: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  {[
-                    {
-                      label: "Full Name",
-                      name: "fullName",
-                      type: "text",
-                      placeholder: "John Doe",
-                    },
-                    {
-                      label: "LinkedIn Profile",
-                      name: "linkedin",
-                      type: "url",
-                      placeholder: "linkedin.com/in/...",
-                    },
-                    {
-                      label: "Company Name",
-                      name: "company",
-                      type: "text",
-                      placeholder: "Acme Corp",
-                    },
-                    {
-                      label: "Current Stage / Revenue",
-                      name: "stage",
-                      type: "select", // change from text → select
-                      options: [
-                        { label: "Ideation", value: "idea" },
-                        { label: "MVP", value: "mvp" },
-                        { label: "Early Stage", value: "early stage" },
-                        { label: "Pre-Seed", value: "pre-seed" },
-                        { label: "Seed", value: "seed" },
-                        { label: "Series A & Above", value: "series-a" },
-                        
-                      ],
-                    },
-                    {
-                      label: "Contact/WhatsApp Number",
-                      name: "phone",
-                      type: "tel",
-                      placeholder: "+1 (555) 000-0000",
-                    },
-                    {
-                      label: "Email ID",
-                      name: "email",
-                      type: "email",
-                      placeholder: "john@example.com",
-                    },
-                    {
-                      label: "Location",
-                      name: "location",
-                      type: "text",
-                      placeholder: "San Francisco, CA",
-                    },
-                  ].map((field) => (
+                  {basicFields.map((field) => (
                     <div key={field.name} className="group">
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
                         {field.label}
                       </label>
-                     {field.type === "select" ? (
+                      {field.type === "select" ? (
                       <select
                         name={field.name}
                         value={formData[field.name as keyof FormData]}
@@ -220,27 +273,7 @@ const MonolithRetreat: React.FC = () => {
                 </div>
 
                 <div className="space-y-10">
-                  {[
-                    {
-                      label:
-                        "What is the hardest problem you're solving right now?",
-                      name: "hardestProblem",
-                      placeholder:
-                        "Scaling cultural integrity during hyper-growth...",
-                    },
-                    {
-                      label: "What do you hope to contribute to the group?",
-                      name: "contribution",
-                      placeholder:
-                        "Hard-won expertise in GTM strategy and failure states...",
-                    },
-                    {
-                      label: "Describe a recent breakthrough.",
-                      name: "breakthrough",
-                      placeholder:
-                        "Rethinking our fundamental unit economics...",
-                    },
-                  ].map((field) => (
+                  {deepDiveFields.map((field) => (
                     <div key={field.name} className="group">
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
                         {field.label}
@@ -249,7 +282,7 @@ const MonolithRetreat: React.FC = () => {
                         name={field.name}
                         placeholder={field.placeholder}
                         rows={3}
-                        value={formData[field.name as keyof FormData]}
+                        value={formData[field.name]}
                         onChange={handleChange}
                         className="w-full bg-transparent border-b border-gray-700 focus:border-amber-500 py-3 text-gray-200 placeholder-gray-600 focus:outline-none transition-colors text-sm resize-none"
                       />
@@ -273,7 +306,7 @@ const MonolithRetreat: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div className="group">
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
-                        Preferred Place
+                        Preferred Cohort Date
                       </label>
                       <select
                         name="cohortDate"
@@ -287,6 +320,9 @@ const MonolithRetreat: React.FC = () => {
                         <option className="bg-gray-950 text-gray-200">
                           Manali Mountains
                         </option>
+                        {/* <option className="bg-gray-950 text-gray-200">
+                          Spring Ascent (Mar 20–23)
+                        </option> */}
                       </select>
                     </div>
 
@@ -345,9 +381,10 @@ const MonolithRetreat: React.FC = () => {
             <aside className="lg:col-span-2 space-y-8">
               <div className="sticky top-32 space-y-8">
                 {/* Image Card */}
-                <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-800 group cursor-pointer relative">
+                <div className="aspect-4/5 overflow-hidden rounded-sm bg-gray-800 group cursor-pointer">
                   <img
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL8ICws2CRXOYbd0NRAFTsUaJc7gRUVNLpNz9miDX9JWHTYdxuSsxTbVS0M-h0ln4bnpA7LVi0EH5dPcyt0TG2eBB5E-Up2B7Ammv_ILzxP5rZ17vCJe7sSIt5UDBWxPjSaJzkg2f9kKaV5dx9u4oOznXbQXF-3Ck19cvMGHUmgV08FWbKQq0j2DwdhL4RReHrAW6w39-WUrBR8Usc7G6gRk2hXcON7Yd1MfclCRf8sKPFa_gPADDR3XUza3OAA6DkfcdH49aVDno"
+                    // src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL8ICws2CRXOYbd0NRAFTsUaJc7gRUVNLpNz9miDX9JWHTYdxuSsxTbVS0M-h0ln4bnpA7LVi0EH5dPcyt0TG2eBB5E-Up2B7Ammv_ILzxP5rZ17vCJe7sSIt5UDBWxPjSaJzkg2f9kKaV5dx9u4oOznXbQXF-3Ck19cvMGHUmgV08FWbKQq0j2DwdhL4RReHrAW6w39-WUrBR8Usc7G6gRk2hXcON7Yd1MfclCRf8sKPFa_gPADDR3XUza3OAA6DkfcdH49aVDno"
+                    src="./form_image.png"
                     alt="Interior architectural detail"
                     className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
                   />
@@ -390,6 +427,29 @@ const MonolithRetreat: React.FC = () => {
             </aside>
           </form>
         </main>
+
+        {/* Footer */}
+        {/* <footer className="border-t border-gray-800 bg-black/40 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div className="font-[Epilogue] text-lg font-black text-gray-100">
+              The Monolith
+            </div>
+            <div className="flex gap-8">
+              {["Privacy", "Terms of Service", "Press"].map((link) => (
+                <a
+                  key={link}
+                  href="#"
+                  className="text-sm text-gray-500 hover:text-amber-400 transition-colors"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+            <div className="text-sm text-gray-500">
+              © 2024 The Monolith. By Invitation Only.
+            </div>
+          </div>
+        </footer> */}
       </div>
     </>
   );
