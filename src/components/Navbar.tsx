@@ -1,257 +1,204 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Menu, X, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  console.log(mousePosition);
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const location = useLocation();
 
+  // Close mobile menu on route change
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Scroll handler — also computes progress
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      const total =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
     { label: "Explore", to: "/explore" },
-    { label: "Corporate", to: "/corporate" },
-    { label: "Blog", to: "/blog" },
     { label: "About", to: "/about" },
     { label: "Resources", to: "/resources" },
+    { label: "Blog", to: "/blog" },
+    { label: "Contact", to: "/contact", external: false },
   ];
+
+  const isActive = (path: string) =>
+    location.pathname === path ||
+    (path !== "/" && location.pathname.startsWith(path));
 
   return (
     <>
       <style>{`
         @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(-10px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes slideUp {
-          from {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          to {
-            opacity: 0;
-            transform: translateY(-12px);
-          }
-        }
-
         @keyframes shimmer {
-          0% { background-position: -1000px 0; }
-          100% { background-position: 1000px 0; }
+          0%   { background-position: -1000px 0; }
+          100% { background-position:  1000px 0; }
         }
-
-        @keyframes navFloatIn {
-          from {
-            opacity: 0;
-            transform: translateY(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .nav-item-active {
-          position: relative;
-          color: #10b981;
-        }
-
-        .nav-item-active::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #10b981, transparent);
-          animation: slideDown 0.3s ease-out;
-        }
-
-        .dropdown-enter {
-          animation: slideDown 0.2s ease-out forwards;
-        }
-
-        .dropdown-exit {
-          animation: slideUp 0.2s ease-out forwards;
-        }
-
         .mobile-menu-enter {
-          animation: slideDown 0.3s ease-out forwards;
+          animation: slideDown 0.25s ease-out forwards;
         }
-
-        .glow-button {
-          position: relative;
-          overflow: hidden;
-        }
-
         .glow-button::before {
           content: '';
           position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+          inset: 0;
+          background: radial-gradient(circle at center, rgba(16,185,129,0.35) 0%, transparent 70%);
           opacity: 0;
           transition: opacity 0.3s ease;
         }
-
-        .glow-button:hover::before {
-          opacity: 1;
-        }
-
+        .glow-button:hover::before { opacity: 1; }
         .nav-shimmer {
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(16, 185, 129, 0.1),
-            transparent
-          );
+          background: linear-gradient(90deg, transparent, rgba(16,185,129,0.08), transparent);
           background-size: 1000px 100%;
-          animation: shimmer 3s infinite;
+          animation: shimmer 4s infinite;
         }
       `}</style>
 
-      {/* Main Navbar */}
+      {/* ── Main Navbar ── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ${
+        className={`fixed left-0 right-0 top-0 z-[999] transition-all duration-500 ${
           isScrolled
-            ? "h-20 backdrop-blur-xl bg-black/70 shadow-2xl shadow-emerald-500/5"
-            : "h-24 bg-gradient-to-b from-black/50 to-transparent"
+            ? "h-16  bg-black/80 shadow-2xl shadow-black/40 backdrop-blur-xl"
+            : "h-24 bg-gradient-to-b from-black/60 to-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto h-full px-6 md:px-10 flex items-center justify-between">
-          {/* Logo */}
+        {/* Scroll progress bar */}
+        {/* {isScrolled && scrollProgress > 0 && (
           <div
-            className="flex items-center cursor-pointer group"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 transition-all duration-100"
+            style={{ width: `${scrollProgress}%` }}
+          />
+        )} */}
+
+        <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 md:px-10">
+
+          {/* ── Logo ── */}
+          <Link
+            to="/"
+            className="group flex items-center gap-3"
           >
-            <Link
-              to="/"
-              className="p-2 rounded-full bg-white border border-white/5 group-hover:border-white/20 transition-all duration-300"
-            >
+            <div className="rounded-full border border-white/10 bg-white p-1.5 transition-all duration-300 group-hover:border-emerald-400/30 group-hover:shadow-lg group-hover:shadow-emerald-500/10">
               <img
                 src="./logo3.png"
                 alt="Logo"
-                className="h-10 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                className="h-8 w-auto object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
               />
-            </Link>
+            </div>
+          </Link>
+
+          {/* ── Desktop Nav ── */}
+          <div className="hidden items-center gap-10 lg:flex">
+            {navItems.map((item) => {
+              const active = isActive(item.to);
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className={`group relative flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
+                    active
+                      ? "text-emerald-400"
+                      : "text-white/50 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                  {item.external && (
+                    <ExternalLink className="h-2.5 w-2.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+                  )}
+                  {/* Underline */}
+                  <span
+                    className={`absolute -bottom-1.5 left-0 h-px bg-gradient-to-r from-emerald-400 to-transparent transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                  {/* Active dot */}
+                  {active && (
+                    <span className="absolute -bottom-3.5 left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-emerald-400" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-12">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-                className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300"
-              >
-                <span className="relative">
-                  {item.label}
-                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
-                </span>
-              </Link>
-            ))}
-
-            {/* Contact Link */}
-            <Link
-              to="/contact"
-              className="group relative text-xs uppercase tracking-[0.15em] font-bold text-white/60 hover:text-emerald-400 transition-all duration-300 flex items-center gap-2"
-            >
-              <span className="relative">
-                Contact
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent group-hover:w-full transition-all duration-300" />
-              </span>
-              <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Link>
-
-            {/* Premium Booking Button */}
+          {/* ── CTA ── */}
+          <div className="hidden items-center gap-4 lg:flex">
             <Link to="/apply">
-              <button className="glow-button relative group ml-6 px-8 py-3 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95">
-                <span className="relative flex items-center justify-center gap-2">
-                  <span> Book Now</span>
+              <button className="glow-button group relative overflow-hidden rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 px-7 py-2.5 text-[10px] font-black uppercase tracking-[0.18em] text-black shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/40 active:scale-95">
+                <span className="relative flex items-center gap-2">
+                  Book Now
+                  <ArrowUpRight className="h-3 w-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>
               </button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* ── Mobile Toggle ── */}
           <button
-            className="lg:hidden p-2 text-white/70 hover:text-emerald-400 transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            className="rounded-lg border border-white/10 p-2 text-white/60 transition-all duration-200 hover:border-white/20 hover:text-white lg:hidden"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="h-5 w-5" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="h-5 w-5" />
             )}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* ── Mobile Menu ── */}
       {mobileMenuOpen && (
-        <div className="fixed top-24 left-0 right-0 z-[998] lg:hidden bg-black/95 backdrop-blur-xl border-b border-emerald-500/10">
-          <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-                onClick={() => setMobileMenuOpen(false)}
-                className="mobile-menu-enter text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div className="fixed inset-x-0 top-16 z-[998] border-b border-white/[0.06] bg-black/95 backdrop-blur-xl lg:hidden">
+          <div className="mx-auto max-w-7xl px-6 py-8">
+            <div className="mb-8 flex flex-col gap-1">
+              {navItems.map((item, i) => {
+                const active = isActive(item.to);
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.to}
+                    className={`mobile-menu-enter flex items-center justify-between rounded-lg px-4 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-200 ${
+                      active
+                        ? "bg-emerald-400/10 text-emerald-400"
+                        : "text-white/50 hover:bg-white/[0.04] hover:text-white"
+                    }`}
+                    style={{ animationDelay: `${i * 40}ms` }}
+                  >
+                    <span>{item.label}</span>
+                    <span className="flex items-center gap-2">
+                      {active && (
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      )}
+                      {item.external && (
+                        <ExternalLink className="h-3 w-3 opacity-40" />
+                      )}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
 
-            <Link
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mobile-menu-enter text-sm uppercase tracking-[0.15em] font-bold text-white/70 hover:text-emerald-400 transition-colors flex items-center gap-2"
-            >
-              Contact
-              <ExternalLink className="w-4 h-4" />
-            </Link>
-
-            <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
-              <button className="mt-4 w-full px-8 py-4 text-xs uppercase tracking-[0.15em] font-black text-black rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 shadow-lg shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105">
+            <Link to="/apply" className="block">
+              <button className="w-full rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 py-4 text-[11px] font-black uppercase tracking-[0.2em] text-black shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-emerald-500/40 active:scale-95">
                 Book Now
               </button>
             </Link>
           </div>
         </div>
       )}
-
-      {/* Scroll Progress Indicator 
-      {isScrolled && (
-        <div
-          className="fixed bottom-0 left-0 right-0 z-[998] h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500"
-          style={{
-            width: `${(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`,
-          }}
-        />
-      )}*/}
     </>
   );
 }
