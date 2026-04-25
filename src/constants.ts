@@ -3,7 +3,19 @@ export interface Experience {
   title: string;
   location: string;
   category: "India" | "International";
-  vibe: "Adventure" | "Growth" | "Luxury" | "Nature";
+ 
+  vibe:
+    | "Adventure"
+    | "Growth"
+    | "Luxury"
+    | "Nature"
+    | "Party"
+    | "Heritage"
+    | "Spiritual"
+    | "Culture"
+    | "Urban"
+    | "Wildlife";
+
   duration: string;
   nights: number;
   image: string;
