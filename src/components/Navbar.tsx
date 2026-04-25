@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
 
   // Close mobile menu on route change
@@ -17,10 +16,8 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      const total =
-        document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -75,21 +72,9 @@ export function Navbar() {
             : "h-24 bg-gradient-to-b from-black/60 to-transparent"
         }`}
       >
-        {/* Scroll progress bar */}
-        {/* {isScrolled && scrollProgress > 0 && (
-          <div
-            className="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 transition-all duration-100"
-            style={{ width: `${scrollProgress}%` }}
-          />
-        )} */}
-
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 md:px-10">
-
           {/* ── Logo ── */}
-          <Link
-            to="/"
-            className="group flex items-center gap-3"
-          >
+          <Link to="/" className="group flex items-center gap-3">
             <div className="rounded-full border border-white/10 bg-white p-1.5 transition-all duration-300 group-hover:border-emerald-400/30 group-hover:shadow-lg group-hover:shadow-emerald-500/10">
               <img
                 src="./logo3.png"
