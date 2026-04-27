@@ -70,7 +70,7 @@ const MonolithRetreat: React.FC = () => {
         options: [
           { label: "Ideation", value: "idea" },
           { label: "MVP", value: "mvp" },
-          
+
           { label: "Pre-Seed", value: "pre-seed" },
           { label: "Seed", value: "seed" },
           { label: "Series A & Above", value: "series-a & above" },
@@ -306,7 +306,7 @@ const MonolithRetreat: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div className="group">
                       <label className="block text-xs uppercase tracking-widest text-gray-500 group-focus-within:text-amber-500 mb-2 transition-colors font-semibold">
-                        Preferred Cohort Date
+                        Preferred Places
                       </label>
                       <select
                         name="cohortDate"

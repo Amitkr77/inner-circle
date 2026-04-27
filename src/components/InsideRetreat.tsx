@@ -65,17 +65,17 @@ export default function InsideRetreat() {
               key={s.num}
               className="group grid grid-cols-[56px_1fr_1fr_100px] items-center border-b border-white/[0.06] py-8 transition-colors duration-200 hover:bg-white/[0.02]"
             >
-              <span className="pr-4 text-xs font-bold tracking-[0.2em] text-white/[0.5]">
+              <span className="pr-4 text-ls font-bold tracking-[0.2em] text-white/[0.5]">
                 {s.num}
               </span>
-              <span className="pr-8 text-2xl font-extrabold tracking-[-0.025em] text-white/[0.85] transition-colors duration-200 group-hover:text-emerald-400">
+              <span className="pr-8 text-3xl font-extrabold tracking-[-0.025em] text-white/[0.85] transition-colors duration-200 group-hover:text-emerald-400">
                 {s.title}
               </span>
-              <span className="pr-6 text-sm leading-[1.7] text-white/[0.5]">
+              <span className="pr-6 text-lm leading-[1.7] text-white/[0.5]">
                 {s.desc}
               </span>
               <div className="text-right">
-                <span className="inline-block rounded-[2px] border border-emerald-400/20 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-400/60">
+                <span className="inline-block rounded-[2px] border border-emerald-400/20 px-2.5 py-1.5 text-[15px] font-bold uppercase tracking-[0.22em] text-emerald-400/60">
                   {s.tag}
                 </span>
               </div>

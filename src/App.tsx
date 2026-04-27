@@ -13,12 +13,15 @@ import BlogDetail from "./pages/BlogDetail";
 import Explore from "./pages/Explore";
 import Resources from "./pages/Resources";
 import Success from "./pages/Success";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
+      
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

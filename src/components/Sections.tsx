@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { ShaderGradient } from "shadergradient";
 // import { Canvas } from "@react-three/fiber";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   motion,
   useScroll,
@@ -194,7 +194,7 @@ export function PastExpeditions() {
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden bg-premium-black">
+    <section className="py-12 relative overflow-hidden bg-premium-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
@@ -242,11 +242,12 @@ export function PastExpeditions() {
 }
 
 export function Hero() {
+  const navigate = useNavigate();
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-12 pb-20 overflow-hidden">
       <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-premium-black/80 via-transparent to-premium-black z-10" />
         <img
@@ -298,11 +299,14 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
         >
-          <Button className="w-full sm:w-auto px-10 py-5 text-lg flex items-center group">
+          <Button
+          onClick={() => navigate("/explore")}
+           className="w-full sm:w-auto px-10 py-5 text-lg flex items-center group">
             Explore Experiences
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button
+            onClick={() => navigate("/apply")}
             variant="outline"
             className="w-full sm:w-auto px-10 py-5 text-lg group"
           >
@@ -353,7 +357,7 @@ export function ExperienceShowcase() {
   return (
     <section
       id="explore"
-      className="py-32 relative overflow-hidden bg-premium-black"
+      className="py-12 relative overflow-hidden bg-premium-black"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
@@ -494,7 +498,7 @@ export function ExperienceShowcase() {
 
 export function CorporateExperience() {
   return (
-    <section id="corporate" className="py-32 bg-premium-navy relative">
+    <section id="corporate" className="py-12 bg-premium-navy relative">
       <div className="absolute inset-0 opacity-10 mask-radial">
         <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
       </div>
@@ -517,7 +521,7 @@ export function CorporateExperience() {
               <div className="absolute inset-0 bg-accent-purple/20 mix-blend-overlay" />
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -538,7 +542,7 @@ export function CorporateExperience() {
                 "The ROI on an Aetheris offsite isn't just better culture—it's
                 visible in our revenue growth."
               </p>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           <div>
@@ -581,8 +585,9 @@ export function CorporateExperience() {
               ))}
             </div>
 
-            <a href="#contact">
-              <Button className="px-10 py-5 text-lg">Enquire now</Button>
+            <a href="/contact">
+              <Button
+              className="px-10 py-5 text-lg">Enquire now</Button>
             </a>
 
             <div className="mt-16 pt-8 border-t border-white/10">
@@ -609,13 +614,13 @@ export function CorporateExperience() {
 
 export function CommunitySection() {
   return (
-    <section id="community" className="py-32 relative">
+    <section id="community" className="py-12 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-xs uppercase tracking-[0.3em] font-bold text-accent-emerald mb-4">
             Network Effect
           </h2>
-          <h3 className="text-5xl md:text-6xl font-bold leading-tight max-w-3xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
             More Than a Trip. A Lifelong Network.
           </h3>
         </div>
@@ -695,7 +700,7 @@ export function CommunitySection() {
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
               <GlassCard
                 key={index}
-                className="w-[320px] h-[400px] p-6 flex flex-col items-center text-center justify-between flex-shrink-0"
+                className="w-[300px] h-[350px] p-6 flex flex-col items-center text-center justify-between flex-shrink-0"
                 hover={false}
               >
                 <div className="flex items-center -mb-8">
@@ -754,7 +759,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden bg-white/5">
+    <section className="py-12 relative overflow-hidden bg-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20">
           <h2 className="text-xs uppercase tracking-[0.3em] font-bold text-accent-emerald mb-4">
@@ -772,7 +777,7 @@ export function HowItWorks() {
               key={idx}
               className="relative group flex flex-col items-center text-center"
             >
-              <div className="w-20 h-20 rounded-full glass-immersive flex items-center justify-center text-3xl font-bold mb-8 relative z-10 group-hover:bg-accent-gradient transition-all duration-500">
+              <div className="w-20 h-20 rounded-full glass-immersive flex items-center justify-center text-3xl font-bold mb-8 relative z-10 group-hover:bg-[#10B981] group-hover:text-white group-hover:scale-110 transition-all duration-500">
                 {step.num}
               </div>
               <h4 className="text-2xl font-display font-bold mb-4 text-center">
@@ -912,7 +917,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="py-32 relative">
+    <section className="py-12 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           

@@ -3,6 +3,7 @@ import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroimg from "../assets/hhh.png";
+import { useNavigate } from "react-router-dom";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -114,6 +115,7 @@ const InputField = ({
 };
 
 export default function Contact() {
+  const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 80]);
@@ -271,82 +273,106 @@ export default function Contact() {
 </section>
 
         {/* ── CONTACT CARDS ── */}
-        <section
-          style={{
-            maxWidth: 1152,
-            margin: "0 auto",
-            padding: "6rem 2rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "2rem",
-          }}
-        >
-          {[
-            {
-              title: "Retreat Applications",
-              desc: "Skip the conversation. Apply directly for the next retreat.",
-              action: "Apply Now →",
-            },
-            {
-              title: "Partnerships",
-              desc: "Collaborate, contribute, or build together.",
-              action: "hello@collabuilder.com",
-            },
-            {
-              title: "Mentors & Investors",
-              desc: "Join the network and work with selected founders.",
-              action: "Request Access →",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              whileHover={{ y: -5 }}
-              style={{
-                padding: "2rem",
-                borderRadius: "1.5rem",
-                background: "rgba(255,255,255,0.04)",
-                backdropFilter: "blur(16px)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                transition: "border-color 0.3s",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "#10b981";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.08)";
-              }}
-            >
-              <h3
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "1rem",
-                  fontWeight: 600,
-                  color: "#fff",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                {item.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: "0.82rem",
-                  color: "rgba(255,255,255,0.4)",
-                  marginBottom: "1rem",
-                  lineHeight: 1.6,
-                  fontWeight: 300,
-                }}
-              >
-                {item.desc}
-              </p>
-              <p style={{ fontSize: "0.82rem", color: "#10b981" }}>{item.action}</p>
-            </motion.div>
-          ))}
-        </section>
+<section
+  style={{
+    maxWidth: 1152,
+    margin: "0 auto",
+    padding: "6rem 2rem",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "2rem",
+  }}
+>
+  {[
+    {
+      title: "Retreat Applications",
+      desc: "Skip the conversation. Apply directly for the next retreat.",
+      action: "Apply Now →",
+      onClick: () => navigate("/apply"),
+    },
+    {
+      title: "Partnerships",
+      desc: "Collaborate, contribute, or build together.",
+      action: "hello@collabuilder.com",
+      onClick: () => (window.location.href = "mailto:hello@collabuilder.com"),
+    },
+    {
+    
+      title: "Mentors & Investors",
+      desc: "A high-trust network designed for founders, mentors, and investors to collaborate deeply.",
+      action: "Launching Soon",
+      onClick: () => {
+        document
+          .getElementById("contact")
+          ?.scrollIntoView({ behavior: "smooth" });
+      },
+    },
+  ].map((item, i) => (
+    <motion.div
+      key={i}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      whileHover={{ y: -5 }}
+      onClick={item.onClick}
+      style={{
+        padding: "2rem",
+        borderRadius: "1.5rem",
+        background: "rgba(255,255,255,0.04)",
+        backdropFilter: "blur(16px)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        transition: "all 0.3s",
+        cursor: "pointer",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLDivElement).style.borderColor = "#10b981";
+        (e.currentTarget as HTMLDivElement).style.transform =
+          "translateY(-4px)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLDivElement).style.borderColor =
+          "rgba(255,255,255,0.08)";
+        (e.currentTarget as HTMLDivElement).style.transform =
+          "translateY(0px)";
+      }}
+    >
+      <h3
+        style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "1rem",
+          fontWeight: 600,
+          color: "#fff",
+          marginBottom: "0.5rem",
+        }}
+      >
+        {item.title}
+      </h3>
+
+      <p
+        style={{
+          fontSize: "0.82rem",
+          color: "rgba(255,255,255,0.4)",
+          marginBottom: "1rem",
+          lineHeight: 1.6,
+          fontWeight: 300,
+        }}
+      >
+        {item.desc}
+      </p>
+
+      <p
+        style={{
+          fontSize: "0.82rem",
+          color: "#10b981",
+          fontWeight: 600,
+        }}
+      >
+        {item.action}
+      </p>
+    </motion.div>
+  ))}
+</section>
 
         {/* ── INQUIRY FORM ── */}
         <section
@@ -417,7 +443,7 @@ export default function Contact() {
               >
                 {[
                   { label: "Foundry Queue: Minimal Latency", pulse: true },
-                  { label: "Global Network Status: Operational", pulse: false },
+                  // { label: "Global Network Status: Operational", pulse: false },
                 ].map((s) => (
                   <div
                     key={s.label}
@@ -600,7 +626,7 @@ export default function Contact() {
         </section>
 
         {/* ── CTA SECTION ── */}
-        <section style={{ padding: "8rem 2rem", textAlign: "center" }}>
+        <section style={{ padding: "2rem 2rem", textAlign: "center" }}>
           <motion.h2
             initial="hidden"
             whileInView="show"
@@ -620,7 +646,7 @@ export default function Contact() {
             <span style={{ color: "#10b981" }}>Build something meaningful.</span>
           </motion.h2>
 
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             style={{
               background: "#10b981",
@@ -636,7 +662,7 @@ export default function Contact() {
             }}
           >
             Start the conversation →
-          </motion.button>
+          </motion.button> */}
         </section>
       </div>
     </>

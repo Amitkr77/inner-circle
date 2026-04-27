@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -19,6 +20,7 @@ const stagger = {
 };
 
 export default function About() {
+  const navigate = useNavigate();
   return (
     <div className="bg-[#0B0B0B] text-white font-sans overflow-hidden">
 
@@ -76,7 +78,7 @@ export default function About() {
       </section>
 
       {/* 2. ORIGIN */}
-      <section className="py-32 px-12 md:px-24 bg-[#0B0B0B]">
+      <section className="py-12 px-12 md:px-24 bg-[#0B0B0B]">
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
 
@@ -116,7 +118,7 @@ export default function About() {
       </section>
 
       {/* 3. THE MANDATE */}
-      <section className="py-32 px-12 md:px-24 bg-[#0F0F0F] overflow-hidden">
+      <section className="py-12 px-12 md:px-24 bg-[#0F0F0F] overflow-hidden">
         <div className="flex flex-col md:flex-row items-center gap-20">
           {/* IMAGE SIDE */}
           <motion.div
@@ -187,7 +189,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
-          className="text-[#E9C176] text-xs tracking-[0.3em] uppercase mb-8"
+          className="text-emerald-400 text-xs tracking-[0.3em] uppercase mb-8"
         >
           THE BELIEF
         </motion.p>
@@ -203,7 +205,7 @@ export default function About() {
         </motion.h2>
 
         {/* DIVIDER */}
-        <div className="w-16 h-[1px] bg-[#E9C176] mx-auto mb-10 opacity-40"></div>
+        <div className="w-16 h-[1px] bg-emerald-400 mx-auto mb-10 opacity-40"></div>
         {/* SUPPORT TEXT */}
         <motion.p
           variants={fadeUp}
@@ -217,7 +219,7 @@ export default function About() {
       </section>
 
       {/* 5. EXPERIENCE */}
-      <section className="py-32 px-4 md:px-24 bg-[#0F0F0F]">
+      <section className="py-12 px-4 md:px-24 bg-[#0F0F0F]">
         <div className="max-w-6xl mx-auto"> 
         <div className="grid md:grid-cols-12 gap-16 items-center">
           {/* LEFT SIDE */}
@@ -227,7 +229,7 @@ export default function About() {
             whileInView="show"
             className="md:col-span-5"
           >
-            <h2 className="text-4xl md:text-5xl text-[#E9C176] font-bold tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl text-emerald-400 font-bold tracking-tight leading-tight">
               A different kind of environment
             </h2>
           </motion.div>
@@ -252,7 +254,7 @@ export default function About() {
       </section>
 
       {/* 6. PRINCIPLES */}
-      <section className="py-32 px-12 md:px-24 bg-[#0B0B0B]">
+      <section className="py-12 px-12 md:px-24 bg-[#0B0B0B]">
 
         {/* HEADER */}
         <div className="text-center mb-24">
@@ -308,7 +310,7 @@ export default function About() {
 
               {/* ICON */}
               <span
-                className="material-symbols-outlined text-[#E9C176] mb-8 block text-center"
+                className="material-symbols-outlined text-emerald-400 mb-8 block text-center"
                 style={{
                   fontSize: "40px",
                   fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24",
@@ -336,7 +338,7 @@ export default function About() {
       </section>
 
       {/* 7. BUILDERS */}
-      <section className="py-32 px-12 md:px-24 bg-[#0F0F0F]">
+      <section className="py-12 px-12 md:px-24 bg-[#0F0F0F]">
         <div className="max-w-4xl mx-auto">
           {/* TOP TEXT */}
           <div className="mb-20 text-center md:text-left">
@@ -372,7 +374,7 @@ export default function About() {
               </div>
               <div>
                 <h4 className="font-bold text-lg">Founder</h4>
-                <p className="text-[#E9C176] text-[10px] tracking-widest uppercase mb-1">
+                <p className="text-emerald-400 text-[10px] tracking-widest uppercase mb-1">
                   Builder
                 </p>
                 <p className="text-gray-400 text-sm">
@@ -392,7 +394,7 @@ export default function About() {
 
               <div>
                 <h4 className="font-bold text-lg">Co-Builder</h4>
-                <p className="text-[#E9C176] text-[10px] tracking-widest uppercase mb-1">
+                <p className="text-emerald-400 text-[10px] tracking-widest uppercase mb-1">
                   Operator
                 </p>
                 <p className="text-gray-400 text-sm">
@@ -405,7 +407,7 @@ export default function About() {
       </section>
 
       {/* 8. POSITIONING */}
-      <section className="py-32 px-12 md:px-24 bg-[#0B0B0B] text-center">
+      <section className="py-12 px-12 md:px-24 bg-[#0B0B0B] text-center">
         <motion.h2
           variants={fadeUp}
           initial="hidden"
@@ -428,14 +430,14 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
-          className="text-xl md:text-2xl font-medium text-[#E9C176] max-w-2xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl font-medium text-emerald-400 max-w-2xl mx-auto leading-relaxed"
         >
           But if you want clarity, direction, and real progress—you’ll feel it immediately.
         </motion.p>
       </section>
 
       {/* 9. FINAL CTA */}
-      <section className="py-40 text-center bg-[#0B0B0B]">
+      <section className="py-12 text-center bg-[#0B0B0B]">
         <motion.h2
           variants={fadeUp}
           initial="hidden"
@@ -453,9 +455,10 @@ export default function About() {
           Join a small group of founders serious about building.
         </motion.p>
         <motion.button
+          onClick={() => navigate("/apply")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.96 }}
-          className="bg-[#E9C176] text-black px-12 py-5 text-sm font-bold tracking-[0.2em] uppercase rounded-sm hover:opacity-90 transition-all duration-300"
+          className="bg-emerald-400 text-black px-12 py-5 text-sm font-bold tracking-[0.2em] uppercase rounded-sm hover:opacity-90 transition-all duration-300"
         >
           Apply for the next retreat
         </motion.button>

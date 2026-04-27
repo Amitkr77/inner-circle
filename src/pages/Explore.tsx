@@ -11,7 +11,6 @@ import {
   Plane,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Footer } from "../components/Sections";
 import { EXPERIENCES } from "../constants";
 import type { Experience } from "../constants";
 
@@ -99,7 +98,7 @@ export default function Explore() {
       </section>
 
       {/* ── Search + Filter Bar ── */}
-      <div className="sticky top-20 z-50 bg-premium-black/80 backdrop-blur-xl border-b border-white/5 py-4">
+      <div className="sticky top-[80px] z-50 bg-premium-black/80 backdrop-blur-xl border-b border-white/5 py-4">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-4 items-center">
           {/* Search */}
           <div className="relative flex-1 w-full">
@@ -221,7 +220,7 @@ export default function Explore() {
         )}
       </section>
 
-      <Footer />
+
     </div>
   );
 }
