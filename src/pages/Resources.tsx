@@ -3,9 +3,9 @@
 
 import { motion } from "framer-motion";
 import {
-  ChevronLeft,
-  ChevronRight,
-  ArrowRight,
+  // ChevronLeft,
+  // ChevronRight,
+  // ArrowRight,
   Brain,
   Network,
   Users,
@@ -134,7 +134,7 @@ export default function Resources() {
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-block font-label text-primary text-[10px] uppercase tracking-[0.4em] mb-8 font-bold"
+              className="inline-block font-label text-green-400 text-[14px] uppercase tracking-[0.4em] mb-8 font-bold"
             >
               Archives & Insights
             </motion.span>
@@ -142,33 +142,33 @@ export default function Resources() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-display font-bold text-5xl md:text-6xl lg:text-7xl tracking-ultra-tight leading-[0.85] text-on-surface mb-10"
+              className="font-display font-bold text-6xl md:text-6xl lg:text-7xl tracking-ultra-tight leading-[0.85] text-on-surface mb-10"
             >
               Resources for <br/>Founders Who <br/>Want <span className="text-primary italic font-medium">Clarity</span>.
             </motion.h1>
             <motion.p 
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 0.6 }}
-  transition={{ delay: 0.4 }}
-  className="font-body text-sm md:text-base text-on-surface-variant max-w-lg leading-relaxed font-light"
->
-  A curated repository of strategic leverage, operational frameworks, and psychological protocols for the modern architect.
-</motion.p>
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ delay: 0.4 }}
+              className="font-body text-xl md:text-base font-bold text-on-surface-variant max-w-lg leading-relaxed"
+            >
+              A curated repository of strategic leverage, operational frameworks, and psychological protocols for the modern architect.
+            </motion.p>
           </div>
         </section>
 
         {/* Featured Insights */}
-        <section className="py-24 lg:py-48 px-6 lg:px-32 bg-surface">
+        <section className="py-16 lg:py-38 px-6 lg:px-32 bg-surface">
           <div className="mb-24 flex items-baseline justify-between border-b border-outline-variant/10 pb-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="font-label text-primary text-[10px] uppercase tracking-[0.3em] block mb-4 font-bold">The Vanguard</span>
+              <span className="font-label text-green-400 text-[10px] uppercase tracking-[0.3em] block mb-4 font-bold">The Vanguard</span>
               <h2 className="font-display font-bold text-4xl lg:text-5xl tracking-ultra-tight">Featured Insights</h2>
             </motion.div>
-            <a href="#" className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">
+            <a href="#" className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-green-400 transition-colors">
               View All Insights
             </a>
           </div>
@@ -181,17 +181,17 @@ export default function Resources() {
               viewport={{ once: true }}
               className="md:col-span-8 group cursor-pointer"
             >
-              <div className="aspect-[16/8] overflow-hidden mb-10 bg-surface-highest relative border border-white/[0.03]">
+              <div className="aspect-[16/8] overflow-hidden mb-6 bg-surface-highest relative border border-white/[0.03]">
                 <img 
                   className="w-full h-full object-cover grayscale brightness-50 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-1000"
                   src={FEATURED_INSIGHTS[0].image}
                   alt={FEATURED_INSIGHTS[0].title}
                 />
-                <div className="absolute top-8 left-8 bg-background-lowest/90 backdrop-blur-md px-4 py-2 border border-white/10 text-[9px] font-label text-primary tracking-widest uppercase font-bold">
+                <div className="absolute top-8 left-8 bg-background-lowest/90 backdrop-blur-md px-4 py-2 border border-white/10 text-[9px] font-label text-green-400 tracking-widest uppercase font-bold">
                   {FEATURED_INSIGHTS[0].category}
                 </div>
               </div>
-              <h3 className="font-display font-bold text-3xl lg:text-4xl mb-6 tracking-ultra-tight group-hover:text-primary transition-colors duration-500">
+              <h3 className="font-display font-bold text-3xl lg:text-4xl mb-6 tracking-ultra-tight group-hover:text-green-400 transition-colors duration-500">
                 {FEATURED_INSIGHTS[0].title}
               </h3>
               <p className="font-body text-on-surface-variant opacity-60 max-w-xl leading-relaxed text-lg font-light">
@@ -210,7 +210,7 @@ export default function Resources() {
                   key={item.title} 
                   className="group cursor-pointer"
                 >
-                  <span className="font-label text-primary/60 text-[9px] uppercase tracking-[0.3em] block mb-4 font-bold">
+                  <span className="font-label text-green-400 text-[12px] uppercase tracking-[0.3em] block mb-4 font-bold">
                     {item.category}
                   </span>
                   <h3 className="font-display font-bold text-2xl mb-4 tracking-tight group-hover:text-primary transition-colors duration-500">
@@ -239,8 +239,8 @@ export default function Resources() {
                 href="#"
                 className="bg-surface-low py-12 lg:py-16 px-6 lg:px-10 flex flex-col items-center text-center border-r border-b border-white/[0.03] hover:bg-surface transition-all group duration-500"
               >
-                <cat.icon className="w-8 h-8 lg:w-10 lg:h-10 text-on-surface-variant/40 group-hover:text-primary mb-6 transition-colors" />
-                <span className="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 group-hover:text-on-surface transition-colors font-bold">
+                <cat.icon className="w-8 h-8 lg:w-10 lg:h-10 text-on-surface-variant/40 group-hover:text-green-400 mb-6 transition-colors" />
+                <span className="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 group-hover:text-green-400 transition-colors font-bold">
                   {cat.label}
                 </span>
               </motion.a>
@@ -252,17 +252,17 @@ export default function Resources() {
         <section className="py-24 lg:py-48 px-6 lg:px-32 bg-background-lowest">
           <div className="flex justify-between items-end mb-24 border-b border-outline-variant/10 pb-12">
             <div className="max-w-2xl">
-              <span className="font-label text-primary text-[10px] uppercase tracking-[0.3em] block mb-4 font-bold">The Archive</span>
+              <span className="font-label text-green-400 text-[10px] uppercase tracking-[0.3em] block mb-4 font-bold">The Archive</span>
               <h2 className="font-display font-bold text-4xl lg:text-5xl tracking-ultra-tight">Resource Library</h2>
             </div>
-            <div className="hidden md:flex gap-4">
+            {/* <div className="hidden md:flex gap-4">
               <button className="w-12 h-12 flex items-center justify-center border border-outline-variant/20 rounded-full text-on-surface-variant hover:border-primary hover:text-primary transition-all group">
                 <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
               </button>
               <button className="w-12 h-12 flex items-center justify-center border border-outline-variant/20 rounded-full text-on-surface-variant hover:border-primary hover:text-primary transition-all group">
                 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
@@ -283,8 +283,8 @@ export default function Resources() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background-lowest/80 to-transparent" />
                   <div className="absolute bottom-10 left-10">
-                    <span className={`px-3 py-1 text-[8px] font-bold uppercase tracking-widest ${
-                      card.tag === "Article" ? "bg-primary text-background-lowest" : "bg-white/10 backdrop-blur-md text-white border border-white/20"
+                    <span className={`px-3 py-1 text-[8px] font-bold uppercase group-hover:text-green-400 group-hover:border-green-400 tracking-widest ${
+                      card.tag === "Article" ? "bg-primary text-background-lowest border border-white/20" : "bg-white/10 backdrop-blur-md text-white border border-white/20"
                     }`}>
                       {card.tag}
                     </span>
@@ -296,7 +296,7 @@ export default function Resources() {
                     <span className="w-1 h-1 bg-outline-variant/30 rounded-full" />
                     <span className="font-label text-[9px] text-on-surface-variant/50 uppercase tracking-widest">{card.readTime}</span>
                   </div>
-                  <h3 className="font-display font-bold text-2xl tracking-tight group-hover:text-primary transition-colors duration-500">
+                  <h3 className="font-display font-bold text-2xl tracking-tight group-hover:text-green-400 transition-colors duration-500">
                     {card.title}
                   </h3>
                 </div>
@@ -315,7 +315,7 @@ export default function Resources() {
                 className="group cursor-pointer"
               >
                 <span className="font-label text-[9px] text-primary tracking-widest uppercase mb-4 block font-bold">{article.category}</span>
-                <h3 className="font-display font-bold text-xl mb-3 tracking-tight group-hover:text-primary transition-colors duration-500">
+                <h3 className="font-display font-bold text-xl mb-3 tracking-tight group-hover:text-green-400 transition-colors duration-500">
                   {article.title}
                 </h3>
                 <p className="text-xs text-on-surface-variant opacity-50 font-light leading-relaxed">
@@ -327,14 +327,14 @@ export default function Resources() {
         </section>
 
         {/* Founder Frameworks */}
-        <section className="py-24 lg:py-48 px-6 lg:px-32 bg-surface text-center">
+        <section className="py-12 lg:py-18 px-6 lg:px-32 bg-surface text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex flex-col items-center mb-24"
           >
-            <span className="font-label text-primary text-[10px] uppercase tracking-[0.4em] mb-6 font-bold">Founder Frameworks</span>
+            <span className="font-label text-green-400 text-[10px] uppercase tracking-[0.4em] mb-6 font-bold">Founder Frameworks</span>
             <h2 className="font-display font-bold text-5xl lg:text-7xl tracking-ultra-tight max-w-4xl leading-tight">
               High-Value Tools for <br/>High-Stakes Decisions.
             </h2>
@@ -348,28 +348,28 @@ export default function Resources() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                whileHover={{ borderColor: "rgba(233, 193, 118, 0.4)" }}
-                className="bg-surface-low/30 p-12 lg:p-16 border border-white/[0.03] transition-all duration-700 group hover:bg-surface-highest/20"
+                whileHover={{ borderColor: "rgba(13, 154, 6, 0.79)", scale: 1.02 }}
+                className="bg-surface-low/30 p-12 lg:p-16 border border-white/[0.03] transition-all duration-700 group hover:bg-surface-highest/20 rounded-lg cursor-pointer"
               >
-                <div className="w-16 h-16 flex items-center justify-center border border-white/5 bg-surface-highest rounded-sm mb-12 group-hover:border-primary/20 transition-colors">
+                <div className="w-16 h-16 flex items-center justify-center border border-white/5 bg-surface-highest rounded-sm mb-12 group-hover:border-green-400 transition-colors">
                   <tool.icon className="text-primary w-8 h-8" strokeWidth={1.5} />
                 </div>
-                <h4 className="font-display font-bold text-3xl mb-6 tracking-tight">{tool.title}</h4>
+                <h4 className="font-display font-bold group-hover:text-green-400 text-3xl mb-6 tracking-tight">{tool.title}</h4>
                 <p className="font-body text-on-surface-variant mb-10 opacity-50 font-light leading-relaxed">
                   {tool.description}
                 </p>
-                <a href="#" className="font-label text-[9px] uppercase tracking-[0.3em] text-primary flex items-center gap-3 group/link font-bold">
+                {/* <a href="#" className="font-label text-[9px] uppercase tracking-[0.3em] text-primary flex items-center gap-3 group/link font-bold">
                   Access Tool <ArrowRight size={14} className="group-hover/link:translate-x-2 transition-transform duration-500" />
-                </a>
+                </a> */}
               </motion.div>
             ))}
           </div>
         </section>
 
         {/* Quotes */}
-        <section className="py-24 lg:py-48 px-6 lg:px-32 bg-background-lowest border-y border-white/[0.03]">
+        <section className="py-12 lg:py-28 px-6 lg:px-32 bg-background-lowest border-y border-white/[0.03]">
           <div className="max-w-6xl mx-auto">
-            <div className="flex justify-center mb-16 opacity-20">
+            <div className="flex justify-center mb-8 opacity-20">
               <Quote size={60} fill="var(--color-primary)" className="text-primary" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20 lg:gap-32">
@@ -405,17 +405,17 @@ export default function Resources() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-32 lg:py-64 px-6 lg:px-32 bg-background-lowest text-center relative overflow-hidden">
+        <section className="py-10 lg:py-14 px-6 lg:px-32 bg-background-lowest text-center relative overflow-hidden">
           <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-primary/20 rounded-full blur-3xl" />
           </div>
           
-          <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="relative z-2 max-w-4xl mx-auto">
             <motion.h2 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-display font-bold text-6xl md:text-8xl tracking-ultra-tight mb-16 leading-[0.9]"
+              className="font-display font-bold text-6xl md:text-8xl tracking-ultra-tight mb-12 leading-[0.9]"
             >
               Experience <br/>The Unseen.
             </motion.h2>
@@ -426,7 +426,7 @@ export default function Resources() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="luxury-gradient text-background-lowest font-display font-bold text-[10px] uppercase tracking-[0.4em] px-16 py-6 transition-all duration-700 shadow-2xl shadow-primary/10"
+              className="luxury-gradient text-background-lowest font-display font-bold text-[10px] uppercase tracking-[0.4em] px-16 transition-all duration-700 shadow-2xl shadow-primary/10"
             >
               Explore Experiences
             </motion.button>

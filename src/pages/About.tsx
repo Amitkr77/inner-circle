@@ -117,7 +117,7 @@ export default function About() {
 
       {/* 3. THE MANDATE */}
       <section className="py-32 px-12 md:px-24 bg-[#0F0F0F] overflow-hidden">
-        <div className="flex flex-col md:flex-row items-center gap-20">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
           {/* IMAGE SIDE */}
           <motion.div
             variants={fadeUp}
@@ -187,7 +187,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
-          className="text-[#E9C176] text-xs tracking-[0.3em] uppercase mb-8"
+          className="text-green-400 text-xs tracking-[0.3em] uppercase mb-8"
         >
           THE BELIEF
         </motion.p>
@@ -227,7 +227,7 @@ export default function About() {
             whileInView="show"
             className="md:col-span-5"
           >
-            <h2 className="text-4xl md:text-5xl text-[#E9C176] font-bold tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl text-green-400 font-bold tracking-tight leading-tight">
               A different kind of environment
             </h2>
           </motion.div>
@@ -253,6 +253,7 @@ export default function About() {
 
       {/* 6. PRINCIPLES */}
       <section className="py-32 px-12 md:px-24 bg-[#0B0B0B]">
+        <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
         <div className="text-center mb-24">
@@ -308,7 +309,7 @@ export default function About() {
 
               {/* ICON */}
               <span
-                className="material-symbols-outlined text-[#E9C176] mb-8 block text-center"
+                className="material-symbols-outlined text-green-400 mb-8 block text-center"
                 style={{
                   fontSize: "40px",
                   fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24",
@@ -333,6 +334,7 @@ export default function About() {
 
         </motion.div>
 
+        </div>
       </section>
 
       {/* 7. BUILDERS */}
@@ -372,7 +374,7 @@ export default function About() {
               </div>
               <div>
                 <h4 className="font-bold text-lg">Founder</h4>
-                <p className="text-[#E9C176] text-[10px] tracking-widest uppercase mb-1">
+                <p className="text-green-400 text-[10px] tracking-widest uppercase mb-1">
                   Builder
                 </p>
                 <p className="text-gray-400 text-sm">
@@ -392,7 +394,7 @@ export default function About() {
 
               <div>
                 <h4 className="font-bold text-lg">Co-Builder</h4>
-                <p className="text-[#E9C176] text-[10px] tracking-widest uppercase mb-1">
+                <p className="text-green-400 text-[10px] tracking-widest uppercase mb-1">
                   Operator
                 </p>
                 <p className="text-gray-400 text-sm">
@@ -428,7 +430,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
-          className="text-xl md:text-2xl font-medium text-[#E9C176] max-w-2xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl font-medium text-green-400 max-w-2xl mx-auto leading-relaxed"
         >
           But if you want clarity, direction, and real progress—you’ll feel it immediately.
         </motion.p>
@@ -455,7 +457,7 @@ export default function About() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.96 }}
-          className="bg-[#E9C176] text-black px-12 py-5 text-sm font-bold tracking-[0.2em] uppercase rounded-sm hover:opacity-90 transition-all duration-300"
+          className="bg-green-400 text-black px-12 py-5 text-sm font-bold tracking-[0.2em] uppercase rounded-sm hover:opacity-90 transition-all duration-300"
         >
           Apply for the next retreat
         </motion.button>
