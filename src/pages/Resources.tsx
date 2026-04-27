@@ -158,7 +158,7 @@ export default function Resources() {
         </section>
 
         {/* Featured Insights */}
-        <section className="py-16 lg:py-38 px-6 lg:px-32 bg-surface">
+        <section className="py-16 lg:py-26 px-6 lg:px-32 bg-surface">
           <div className="mb-24 flex items-baseline justify-between border-b border-outline-variant/10 pb-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -249,7 +249,7 @@ export default function Resources() {
         </section>
 
         {/* Resource Library */}
-        <section className="py-24 lg:py-48 px-6 lg:px-32 bg-background-lowest">
+        <section className="py-24 lg:py-24 px-6 lg:px-32 bg-background-lowest">
           <div className="flex justify-between items-end mb-24 border-b border-outline-variant/10 pb-12">
             <div className="max-w-2xl">
               <span className="font-label text-green-400 text-[10px] uppercase tracking-[0.3em] block mb-4 font-bold">The Archive</span>
@@ -304,7 +304,7 @@ export default function Resources() {
             ))}
           </div>
 
-          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-16 border-t border-outline-variant/10">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-16 border-t border-outline-variant/10">
             {MINI_ARTICLES.map((article, i) => (
               <motion.div 
                 key={article.title}
@@ -327,12 +327,12 @@ export default function Resources() {
         </section>
 
         {/* Founder Frameworks */}
-        <section className="py-12 lg:py-18 px-6 lg:px-32 bg-surface text-center">
+        <section className="py-12 lg:py-12 px-6 lg:px-32 bg-surface text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center mb-24"
+            className="flex flex-col items-center mb-12"
           >
             <span className="font-label text-green-400 text-[10px] uppercase tracking-[0.4em] mb-6 font-bold">Founder Frameworks</span>
             <h2 className="font-display font-bold text-5xl lg:text-7xl tracking-ultra-tight max-w-4xl leading-tight">
@@ -355,7 +355,7 @@ export default function Resources() {
                   <tool.icon className="text-primary w-8 h-8" strokeWidth={1.5} />
                 </div>
                 <h4 className="font-display font-bold group-hover:text-green-400 text-3xl mb-6 tracking-tight">{tool.title}</h4>
-                <p className="font-body text-on-surface-variant mb-10 opacity-50 font-light leading-relaxed">
+                <p className="font-body text-on-surface-variant mb-2 opacity-50 font-light leading-relaxed">
                   {tool.description}
                 </p>
                 {/* <a href="#" className="font-label text-[9px] uppercase tracking-[0.3em] text-primary flex items-center gap-3 group/link font-bold">
@@ -367,7 +367,7 @@ export default function Resources() {
         </section>
 
         {/* Quotes */}
-        <section className="py-12 lg:py-28 px-6 lg:px-32 bg-background-lowest border-y border-white/[0.03]">
+        <section className="py-8 lg:py-18 px-6 lg:px-32 bg-background-lowest border-y border-white/[0.03]">
           <div className="max-w-6xl mx-auto">
             <div className="flex justify-center mb-8 opacity-20">
               <Quote size={60} fill="var(--color-primary)" className="text-primary" />
@@ -382,7 +382,7 @@ export default function Resources() {
                 <p className="font-display font-medium text-3xl leading-snug italic text-on-surface mb-8 tracking-tight">
                   "The quality of your network is the ceiling of your success."
                 </p>
-                <cite className="font-label text-[9px] uppercase tracking-[0.3em] text-primary not-italic font-bold">
+                <cite className="font-label text-[9px] uppercase tracking-[0.3em] text-green-400 not-italic font-bold">
                   — Circle Member, Series C Founder
                 </cite>
               </motion.blockquote>
@@ -396,7 +396,7 @@ export default function Resources() {
                 <p className="font-display font-medium text-3xl leading-snug italic text-on-surface mb-8 tracking-tight">
                   "Clarity isn't found in the chaos; it's forged in the silence that follows it."
                 </p>
-                <cite className="font-label text-[9px] uppercase tracking-[0.3em] text-primary not-italic font-bold">
+                <cite className="font-label text-[9px] uppercase tracking-[0.3em] text-green-400 not-italic font-bold">
                   — Circle Member, Exit '22
                 </cite>
               </motion.blockquote>
