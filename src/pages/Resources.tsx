@@ -426,7 +426,7 @@ export default function Resources() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="luxury-gradient text-background-lowest font-display font-bold text-[10px] uppercase tracking-[0.4em] px-16 transition-all duration-700 shadow-2xl shadow-primary/10"
+              className="luxury-gradient text-background-lowest text-green-400 font-display font-bold text-[10px] uppercase tracking-[0.4em] px-16 transition-all duration-700 shadow-2xl shadow-primary/10"
             >
               Explore Experiences
             </motion.button>
