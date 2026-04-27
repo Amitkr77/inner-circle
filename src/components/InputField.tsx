@@ -13,17 +13,7 @@ type InputProps = {
 const InputField = ({ label, placeholder, type = "text", as, error, value, onChange }: InputProps) => {
   const [focused, setFocused] = useState(false);
 
-//   const baseStyle: React.CSSProperties = {
-//     width: "100%",
-//     background: "rgba(255,255,255,0.05)",
-//     border: `1px solid ${error ? "#ef4444" : focused ? "#10b981" : "rgba(255,255,255,0.1)"}`,
-//     borderRadius: "0.75rem",
-//     color: "rgba(19, 18, 18, 0.05)",
-//     padding: "0.75rem 1rem",
-//     outline: "none",
-//     fontSize: "0.85rem",
-//     transition: "0.2s",
-//   };
+
 
 const baseStyle: React.CSSProperties = {
   width: "100%",
@@ -56,23 +46,20 @@ const baseStyle: React.CSSProperties = {
           {...props}
         />
       ) : as === "select" ? (
-        // <select
-        //   value={value}
-        //   onChange={(e) => onChange(e.target.value)}
-        //   {...props}
-        // >
-        //   <option value="">-- Select a role --</option>
-        //   <option>Builder</option>
-        //   <option>Investor</option>
-        //   <option>Partner</option>
-        // </select>
+
         <select
   value={value}
   onChange={(e) => onChange(e.target.value)}
   {...props}
+<<<<<<< HEAD
   style={{ ...baseStyle, background: "#2a2b2dc4" }} // ✅ fix
 >
   <option value="" style={{ background: "#373b4261", color: "#fff" }}>
+=======
+  style={{ ...baseStyle, background: "rgba(255,255,255,0.05)" }} // ✅ fix
+>
+  <option value="" style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}>
+>>>>>>> 72b15134fc5458fc81c63273814d1199425a9abf
     -- Select a role --
   </option>
   <option style={{ background: "#0d1526", color: "#fff" }}>Builder</option>
