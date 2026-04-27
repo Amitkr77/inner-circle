@@ -5,7 +5,6 @@ import {
   CommunitySection,
   HowItWorks,
   ContactSection,
-  PastExpeditions,
 } from "../components/Sections";
 import ClaritySection from "../components/ClaritySection";
 import InsideRetreat from "../components/InsideRetreat";
