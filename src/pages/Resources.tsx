@@ -124,7 +124,8 @@ export default function Resources() {
           <div className="absolute inset-0 z-0">
             <img 
               className="w-full h-full object-cover opacity-[0.8] "
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbnDFLP43Fn141nKcxJbanMu6mYas6vX-2s8-gNzG-74JMQktYuYVbszGHGkJ7_1RgoVhuouFPrMG90d4m7TaYpnomQpLT_906UyIEeaq094pU2igxg-LpIQNpjoO_uMRNdYdiEDYBVdzi8FTaX4HU_fJ2wIZ5OCRzW6mFCRVwpbRDNxiedY-UphCaqzCnRQ_TohLsAt3dUQWZBLINzszW5FVQ0q9WGszV1ehZLN-bbdrijV9rpW3gWBNk7kmAb5tczz59j4-kVpQ"
+              src="d1.png"
+              // src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbnDFLP43Fn141nKcxJbanMu6mYas6vX-2s8-gNzG-74JMQktYuYVbszGHGkJ7_1RgoVhuouFPrMG90d4m7TaYpnomQpLT_906UyIEeaq094pU2igxg-LpIQNpjoO_uMRNdYdiEDYBVdzi8FTaX4HU_fJ2wIZ5OCRzW6mFCRVwpbRDNxiedY-UphCaqzCnRQ_TohLsAt3dUQWZBLINzszW5FVQ0q9WGszV1ehZLN-bbdrijV9rpW3gWBNk7kmAb5tczz59j4-kVpQ"
               alt="Cinematic wide shot founders"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background-lowest via-transparent to-transparent" />
