@@ -228,6 +228,7 @@ export default function Resources() {
 
         {/* Categories Grid */}
         <section className="bg-surface-low border-y border-white/[0.03]">
+          {/* <div className="max-w-7xl mx-auto"> */}
           <div className="grid grid-cols-2 md:grid-cols-5 bg-white/[0.05]">
             {CATEGORIES.map((cat, i) => (
               <motion.a
@@ -246,6 +247,7 @@ export default function Resources() {
               </motion.a>
             ))}
           </div>
+          {/* </div> */}
         </section>
 
         {/* Resource Library */}
