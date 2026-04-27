@@ -203,7 +203,7 @@ export default function About() {
         </motion.h2>
 
         {/* DIVIDER */}
-        <div className="w-16 h-[1px] bg-[#E9C176] mx-auto mb-10 opacity-40"></div>
+        <div className="w-16 h-[1px] bg-green-400 mx-auto mb-10 opacity-40"></div>
         {/* SUPPORT TEXT */}
         <motion.p
           variants={fadeUp}
