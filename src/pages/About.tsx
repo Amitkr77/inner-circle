@@ -76,7 +76,7 @@ export default function About() {
       </section>
 
       {/* 2. ORIGIN */}
-      <section className="py-32 px-12 md:px-24 bg-[#0B0B0B]">
+      <section className="py-16 px-12 md:px-24 bg-[#0B0B0B]">
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
 
@@ -116,7 +116,7 @@ export default function About() {
       </section>
 
       {/* 3. THE MANDATE */}
-      <section className="py-32 px-12 md:px-24 bg-[#0F0F0F] overflow-hidden">
+      <section className="py-16 px-12 md:px-24 bg-[#0F0F0F] overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
           {/* IMAGE SIDE */}
           <motion.div
@@ -181,7 +181,7 @@ export default function About() {
       </section>
 
       {/* 4. BELIEF */}
-      <section className="py-40 px-6 md:px-12 bg-[#0F0F0F] text-center">
+      <section className="py-16 px-6 md:px-12 bg-[#0F0F0F] text-center">
         {/* LABEL */}
         <motion.p
           variants={fadeUp}
@@ -217,7 +217,7 @@ export default function About() {
       </section>
 
       {/* 5. EXPERIENCE */}
-      <section className="py-32 px-4 md:px-24 bg-[#0F0F0F]">
+      <section className="py-16 px-4 md:px-24 bg-[#0F0F0F]">
         <div className="max-w-6xl mx-auto"> 
         <div className="grid md:grid-cols-12 gap-16 items-center">
           {/* LEFT SIDE */}
@@ -252,11 +252,11 @@ export default function About() {
       </section>
 
       {/* 6. PRINCIPLES */}
-      <section className="py-32 px-12 md:px-24 bg-[#0B0B0B]">
+      <section className="py-16 px-12 md:px-24 bg-[#0B0B0B]">
         <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-16">
           <motion.span
             variants={fadeUp}
             initial="hidden"
@@ -338,7 +338,7 @@ export default function About() {
       </section>
 
       {/* 7. BUILDERS */}
-      <section className="py-32 px-12 md:px-24 bg-[#0F0F0F]">
+      <section className="py-16 px-12 md:px-24 bg-[#0F0F0F]">
         <div className="max-w-4xl mx-auto">
           {/* TOP TEXT */}
           <div className="mb-20 text-center md:text-left">
@@ -407,7 +407,7 @@ export default function About() {
       </section>
 
       {/* 8. POSITIONING */}
-      <section className="py-32 px-12 md:px-24 bg-[#0B0B0B] text-center">
+      <section className="py-16 px-12 md:px-24 bg-[#0B0B0B] text-center">
         <motion.h2
           variants={fadeUp}
           initial="hidden"
@@ -437,7 +437,7 @@ export default function About() {
       </section>
 
       {/* 9. FINAL CTA */}
-      <section className="py-40 text-center bg-[#0B0B0B]">
+      <section className="py-10 text-center bg-[#0B0B0B]">
         <motion.h2
           variants={fadeUp}
           initial="hidden"
