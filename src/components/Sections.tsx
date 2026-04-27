@@ -959,26 +959,58 @@ export function ContactSection() {
   );
 }
 
+
 export function Footer() {
   return (
-    <footer className="py-20 border-t border-white/5 bg-premium-black">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          <div className="space-y-6">
+    <footer className="relative py-20 border-t border-white/5 bg-premium-black overflow-hidden">
+
+      {/* 🔥 Animated background glow */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute w-[400px] h-[400px] bg-green-500 blur-[120px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
+        <div className="absolute w-[300px] h-[300px] bg-blue-500 blur-[100px] rounded-full bottom-[-80px] right-[-80px] animate-pulse" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+        {/* 🔥 TOP GRID */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"
+        >
+
+          {/* LOGO */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="space-y-6"
+          >
             <div className="flex items-center gap-2">
               <img
-                src="/logo.png" // put your image inside public folder
+                src="/logo.png"
                 alt="AETHERIS logo"
-                className="h-16 w-44 bg-white p-2 rounded-full shadow-md"
+                className="h-16 w-44 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
               />
             </div>
+
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               The world's premier platform for hybrid travel and corporate
-              transformation. Built for those who demand excellence in every
-              aspect of life.
+              transformation.
             </p>
-          </div>
+          </motion.div>
 
+          {/* LINKS */}
           {[
             {
               title: "Platform",
@@ -993,42 +1025,56 @@ export function Footer() {
               links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
             },
           ].map((col, idx) => (
-            <div key={idx}>
+            <motion.div
+              key={idx}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
               <h5 className="font-bold mb-6 text-xs uppercase tracking-[0.2em]">
                 {col.title}
               </h5>
+
               <ul className="space-y-4">
                 {col.links.map((link) => (
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-sm text-white/40 hover:text-white transition-colors"
+                      className="text-sm text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-2 inline-block"
                     >
                       {link}
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 gap-8">
+        {/* 🔥 BOTTOM */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 gap-8"
+        >
           <p className="text-white/20 text-xs">
             © 2026 Aetheris Global Expeditions. All rights reserved.
           </p>
+
           <div className="flex items-center gap-6">
             {social.map((social) => (
               <a
                 key={social.name}
                 href={social.url}
-                className="text-xs font-bold uppercase tracking-widest text-white/30 hover:text-white transition-colors"
+                className="text-xs font-bold uppercase tracking-widest text-white/30 hover:text-green-400 transition-all duration-300 hover:scale-110"
               >
                 {social.name}
               </a>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
