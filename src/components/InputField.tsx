@@ -70,9 +70,9 @@ const baseStyle: React.CSSProperties = {
   value={value}
   onChange={(e) => onChange(e.target.value)}
   {...props}
-  style={{ ...baseStyle, background: "#0d1526" }} // ✅ fix
+  style={{ ...baseStyle, background: "#2a2b2dc4" }} // ✅ fix
 >
-  <option value="" style={{ background: "#0d1526", color: "#fff" }}>
+  <option value="" style={{ background: "#373b4261", color: "#fff" }}>
     -- Select a role --
   </option>
   <option style={{ background: "#0d1526", color: "#fff" }}>Builder</option>
