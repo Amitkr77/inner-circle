@@ -20,7 +20,7 @@ const baseStyle: React.CSSProperties = {
   background: "rgba(255,255,255,0.05)",
   border: `1px solid ${error ? "#ef4444" : focused ? "#10b981" : "rgba(255,255,255,0.1)"}`,
   borderRadius: "0.75rem",
-  color: "#333232", // ✅ FIX
+  color: "#fff", // ✅ FIX
   padding: "0.75rem 1rem",
   outline: "none",
   fontSize: "0.85rem",
@@ -34,7 +34,7 @@ const baseStyle: React.CSSProperties = {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-      <label style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.4)" }}>
+      <label style={{ fontSize: "0.65rem", color: "#fff" }}>
         {label} <span style={{ color: "#ef4444" }}>*</span>
       </label>
 
@@ -62,9 +62,9 @@ const baseStyle: React.CSSProperties = {
 >>>>>>> 72b15134fc5458fc81c63273814d1199425a9abf
     -- Select a role --
   </option>
-  <option style={{ background: "#0d1526", color: "#fff" }}>Builder</option>
-  <option style={{ background: "#0d1526", color: "#fff" }}>Investor</option>
-  <option style={{ background: "#0d1526", color: "#fff" }}>Partner</option>
+  <option style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}>Builder</option>
+  <option style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}>Investor</option>
+  <option style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}>Partner</option>
 </select>
       ) : (
         <input
