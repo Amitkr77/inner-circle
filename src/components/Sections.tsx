@@ -32,6 +32,7 @@ import {
   social,
 } from "../constants";
 import type { Experience } from "../constants";
+import ContactForm from "../components/InputField";
 export function ExperienceDetailModal({
   exp,
   isOpen,
@@ -852,69 +853,69 @@ export function StatsSection() {
 
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    roleSelection: "",
-    message: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   fullName: "",
+  //   email: "",
+  //   roleSelection: "",
+  //   message: "",
+  // });
 
-  const [errors, setErrors] = useState<any>({});
-  const [loading, setLoading] = useState(false);
+  // const [errors, setErrors] = useState<any>({});
+  // const [loading, setLoading] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  // ) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  const validate = () => {
-    const newErrors: any = {};
+  // const validate = () => {
+  //   const newErrors: any = {};
 
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
-    }
+  //   if (!formData.fullName.trim()) {
+  //     newErrors.fullName = "Full name is required";
+  //   }
 
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Invalid email";
-    }
+  //   if (!formData.email.trim()) {
+  //     newErrors.email = "Email is required";
+  //   } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+  //     newErrors.email = "Invalid email";
+  //   }
 
-    if (!formData.roleSelection) {
-      newErrors.roleSelection = "Please select an option";
-    }
+  //   if (!formData.roleSelection) {
+  //     newErrors.roleSelection = "Please select an option";
+  //   }
 
-    return newErrors;
-  };
+  //   return newErrors;
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
 
-    const validationErrors = validate();
-    setErrors(validationErrors);
+  //   const validationErrors = validate();
+  //   setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) return;
+  //   if (Object.keys(validationErrors).length > 0) return;
 
-    setLoading(true);
+  //   setLoading(true);
 
-    setTimeout(() => {
-      console.log("Form Data:", formData);
-      alert("Form submitted successfully 🚀");
+  //   setTimeout(() => {
+  //     console.log("Form Data:", formData);
+  //     alert("Form submitted successfully 🚀");
 
-      setFormData({
-        fullName: "",
-        email: "",
-        roleSelection: "",
-        message: "",
-      });
+  //     setFormData({
+  //       fullName: "",
+  //       email: "",
+  //       roleSelection: "",
+  //       message: "",
+  //     });
 
-      setLoading(false);
-    }, 1000);
-  };
+  //     setLoading(false);
+  //   }, 1000);
+  // };
 
   return (
     <section className="py-12 relative">
@@ -950,97 +951,7 @@ export function ContactSection() {
           </div>
 
           {/* RIGHT FORM */}
-          <div className="p-12 rounded-2xl bg-white/5 border border-white/10">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              
-              {/* NAME + EMAIL */}
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder="Full Name"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink text-white"
-                  />
-                  {errors.fullName && (
-                    <p className="text-red-400 text-xs mt-1">
-                      {errors.fullName}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email Address"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink text-white"
-                  />
-                  {errors.email && (
-                    <p className="text-red-400 text-xs mt-1">
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* SELECT (FIXED) */}
-              <div>
-                <select
-                  name="roleSelection"
-                  value={formData["roleSelection"]}
-                  onChange={handleChange}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink transition-colors appearance-none text-white"
-                >
-                  <option value="" className="bg-gray-900 text-white">
-                    Select Role
-                  </option>
-                  <option value="personal" className="bg-gray-900 text-white">
-                    Builder
-                  </option>
-                  <option value="corporate" className="bg-gray-900 text-white">
-                     Investor 
-                  </option>
-                  <option value="mentorship" className="bg-gray-900 text-white">
-                    Partner
-                  </option>
-                  <option value="mentorship" className="bg-gray-900 text-white">
-                    Press/Media
-                  </option>
-                </select>
-
-                {errors["Role Selection"] && (
-                  <p className="text-red-400 text-xs mt-1">
-                    {errors["Role Selection"]}
-                  </p>
-                )}
-              </div>
-
-              {/* MESSAGE */}
-              <div>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your goals..."
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 h-32 focus:outline-none focus:border-accent-pink text-white"
-                />
-              </div>
-
-              {/* BUTTON */}
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-4 text-lg font-bold bg-white text-black rounded-xl hover:opacity-90 transition disabled:opacity-50"
-              >
-                {loading ? "Sending..." : "Send Inquiry"}
-              </button>
-            </form>
-          </div>
+            <ContactForm />
 
         </div>
       </div>

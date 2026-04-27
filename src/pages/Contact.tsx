@@ -1,8 +1,9 @@
-import { useState } from "react";
-import React from "react";
+// import { useState } from "react";
+// import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroimg from "../assets/hhh.png";
+import ContactForm from "../components/InputField";
 import { useNavigate } from "react-router-dom";
 
 const fadeUp: Variants = {
@@ -39,84 +40,84 @@ const GlowDot = ({ pulse = false }: { pulse?: boolean }) => (
   />
 );
 
-const InputField = ({
-  label,
-  placeholder,
-  type = "text",
-  as,
-}: {
-  label: string;
-  placeholder: string;
-  type?: string;
-  as?: "textarea" | "select";
-}) => {
-  const [focused, setFocused] = useState(false);
-  const baseStyle: React.CSSProperties = {
-    width: "100%",
-    background: "rgba(255,255,255,0.05)",
-    border: `1px solid ${focused ? "#10b981" : "rgba(255,255,255,0.1)"}`,
-    borderRadius: "0.75rem",
-    color: "#fff",
-    padding: "0.75rem 1rem",
-    outline: "none",
-    fontFamily: "'Inter', sans-serif",
-    fontSize: "0.85rem",
-    letterSpacing: "0.01em",
-    resize: "none" as const,
-    transition: "border-color 0.2s, box-shadow 0.2s",
-    boxShadow: focused ? "0 0 0 2px rgba(16,185,129,0.1)" : "none",
-    boxSizing: "border-box" as const,
-  };
+// const InputField = ({
+//   label,
+//   placeholder,
+//   type = "text",
+//   as,
+// }: {
+//   label: string;
+//   placeholder: string;
+//   type?: string;
+//   as?: "textarea" | "select";
+// }) => {
+//   const [focused, setFocused] = useState(false);
+//   const baseStyle: React.CSSProperties = {
+//     width: "100%",
+//     background: "rgba(255,255,255,0.05)",
+//     border: `1px solid ${focused ? "#10b981" : "rgba(255,255,255,0.1)"}`,
+//     borderRadius: "0.75rem",
+//     color: "#fff",
+//     padding: "0.75rem 1rem",
+//     outline: "none",
+//     fontFamily: "'Inter', sans-serif",
+//     fontSize: "0.85rem",
+//     letterSpacing: "0.01em",
+//     resize: "none" as const,
+//     transition: "border-color 0.2s, box-shadow 0.2s",
+//     boxShadow: focused ? "0 0 0 2px rgba(16,185,129,0.1)" : "none",
+//     boxSizing: "border-box" as const,
+//   };
 
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-      <label
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "0.65rem",
-          fontWeight: 700,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,0.4)",
-        }}
-      >
-        {label}
-      </label>
-      {as === "textarea" ? (
-        <textarea
-          rows={5}
-          placeholder={placeholder}
-          style={baseStyle}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-        />
-      ) : as === "select" ? (
-        <select
-          style={{ ...baseStyle, appearance: "none", cursor: "pointer", background: "#0d1526" }}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-        >
-          <option value="builder" style={{ background: "#0d1526" }}>Builder</option>
-          <option value="investor" style={{ background: "#0d1526" }}>Investor</option>
-          <option value="partner" style={{ background: "#0d1526" }}>Partner</option>
-          <option value="press" style={{ background: "#0d1526" }}>Press / Media</option>
-        </select>
-      ) : (
-        <input
-          type={type}
-          placeholder={placeholder}
-          style={baseStyle}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-        />
-      )}
-    </div>
-  );
-};
+//   return (
+//     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+//       <label
+//         style={{
+//           fontFamily: "'Inter', sans-serif",
+//           fontSize: "0.65rem",
+//           fontWeight: 700,
+//           letterSpacing: "0.15em",
+//           textTransform: "uppercase",
+//           color: "rgba(255,255,255,0.4)",
+//         }}
+//       >
+//         {label}
+//       </label>
+//       {as === "textarea" ? (
+//         <textarea
+//           rows={5}
+//           placeholder={placeholder}
+//           style={baseStyle}
+//           onFocus={() => setFocused(true)}
+//           onBlur={() => setFocused(false)}
+//         />
+//       ) : as === "select" ? (
+//         <select
+//           style={{ ...baseStyle, appearance: "none", cursor: "pointer", background: "#0d1526" }}
+//           onFocus={() => setFocused(true)}
+//           onBlur={() => setFocused(false)}
+//         >
+//           <option value="builder" style={{ background: "#0d1526" }}>Builder</option>
+//           <option value="investor" style={{ background: "#0d1526" }}>Investor</option>
+//           <option value="partner" style={{ background: "#0d1526" }}>Partner</option>
+//           <option value="press" style={{ background: "#0d1526" }}>Press / Media</option>
+//         </select>
+//       ) : (
+//         <input
+//           type={type}
+//           placeholder={placeholder}
+//           style={baseStyle}
+//           onFocus={() => setFocused(true)}
+//           onBlur={() => setFocused(false)}
+//         />
+//       )}
+//     </div>
+//   );
+// };
 
 export default function Contact() {
   const navigate = useNavigate();
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted,] = useState(false);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 80]);
 
@@ -515,7 +516,7 @@ export default function Contact() {
             </div>
 
             {/* Right: Form */}
-            <div>
+            {/* <div>
               {submitted ? (
                 <div
                   style={{
@@ -621,7 +622,8 @@ export default function Contact() {
                   </button>
                 </div>
               )}
-            </div>
+            </div> */}
+            <ContactForm />
           </div>
         </section>
 
