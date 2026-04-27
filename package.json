@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "postbuild": "node sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -19,6 +20,7 @@
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",
     "shadergradient": "^1.3.5",
+    "sitemap": "^9.0.1",
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
