@@ -580,7 +580,7 @@ export default function Contact() {
                   </div>
                   <InputField label="Role Selection" placeholder="" as="select" />
                   <InputField
-                    label="System Message"
+                    label="Message"
                     placeholder="Describe project parameters..."
                     as="textarea"
                   />

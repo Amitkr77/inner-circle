@@ -855,7 +855,7 @@ export function ContactSection() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    interest: "",
+    roleSelection: "",
     message: "",
   });
 
@@ -884,8 +884,8 @@ export function ContactSection() {
       newErrors.email = "Invalid email";
     }
 
-    if (!formData.interest) {
-      newErrors.interest = "Please select an option";
+    if (!formData.roleSelection) {
+      newErrors.roleSelection = "Please select an option";
     }
 
     return newErrors;
@@ -908,7 +908,7 @@ export function ContactSection() {
       setFormData({
         fullName: "",
         email: "",
-        interest: "",
+        roleSelection: "",
         message: "",
       });
 
@@ -991,28 +991,31 @@ export function ContactSection() {
               {/* SELECT (FIXED) */}
               <div>
                 <select
-                  name="interest"
-                  value={formData.interest}
+                  name="roleSelection"
+                  value={formData["roleSelection"]}
                   onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-pink transition-colors appearance-none text-white"
                 >
                   <option value="" className="bg-gray-900 text-white">
-                    Select Interest
+                    Select Role
                   </option>
                   <option value="personal" className="bg-gray-900 text-white">
-                    Personal Expedition
+                    Builder
                   </option>
                   <option value="corporate" className="bg-gray-900 text-white">
-                    Corporate Offsite
+                     Investor 
                   </option>
                   <option value="mentorship" className="bg-gray-900 text-white">
-                    Mentorship Program
+                    Partner
+                  </option>
+                  <option value="mentorship" className="bg-gray-900 text-white">
+                    Press/Media
                   </option>
                 </select>
 
-                {errors.interest && (
+                {errors["Role Selection"] && (
                   <p className="text-red-400 text-xs mt-1">
-                    {errors.interest}
+                    {errors["Role Selection"]}
                   </p>
                 )}
               </div>
