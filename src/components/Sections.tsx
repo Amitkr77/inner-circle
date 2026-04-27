@@ -982,11 +982,11 @@ export function Footer() {
           {[
             {
               title: "Platform",
-              links: ["Experiences", "Corporate", "Community", "Pricing"],
+              links: ["Features", "Explore", "Book Now", "Pricing"],
             },
             {
               title: "Company",
-              links: ["About Us", "Careers", "Brand Kit", "Contact"],
+              links: ["About Us", "Blog", "Resource", "Contact"],
             },
             {
               title: "Legal",
