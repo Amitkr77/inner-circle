@@ -853,72 +853,10 @@ export function StatsSection() {
 
 
 export function ContactSection() {
-  // const [formData, setFormData] = useState({
-  //   fullName: "",
-  //   email: "",
-  //   roleSelection: "",
-  //   message: "",
-  // });
 
-  // const [errors, setErrors] = useState<any>({});
-  // const [loading, setLoading] = useState(false);
-
-  // const handleChange = (
-  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  // ) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  // const validate = () => {
-  //   const newErrors: any = {};
-
-  //   if (!formData.fullName.trim()) {
-  //     newErrors.fullName = "Full name is required";
-  //   }
-
-  //   if (!formData.email.trim()) {
-  //     newErrors.email = "Email is required";
-  //   } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-  //     newErrors.email = "Invalid email";
-  //   }
-
-  //   if (!formData.roleSelection) {
-  //     newErrors.roleSelection = "Please select an option";
-  //   }
-
-  //   return newErrors;
-  // };
-
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   const validationErrors = validate();
-  //   setErrors(validationErrors);
-
-  //   if (Object.keys(validationErrors).length > 0) return;
-
-  //   setLoading(true);
-
-  //   setTimeout(() => {
-  //     console.log("Form Data:", formData);
-  //     alert("Form submitted successfully 🚀");
-
-  //     setFormData({
-  //       fullName: "",
-  //       email: "",
-  //       roleSelection: "",
-  //       message: "",
-  //     });
-
-  //     setLoading(false);
-  //   }, 1000);
-  // };
 
   return (
-    <section className="py-12 relative">
+    <section className="py-6 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
@@ -1001,9 +939,113 @@ const footerLinks = [
 //   { name: "Twitter", url: "https://twitter.com" },
 // ];
 
+// export function Footer() {
+//   return (
+//     <footer className="relative py-6 border-t border-white/5 bg-premium-black overflow-hidden">
+      
+//       {/* 🔥 Animated background glow */}
+//       <div className="absolute inset-0 opacity-20 pointer-events-none">
+//         <div className="absolute w-[300px] h-[300px] bg-green-500 blur-[120px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
+//         <div className="absolute w-[250px] h-[250px] bg-blue-500 blur-[100px] rounded-full bottom-[-80px] right-[-80px] animate-pulse" />
+//       </div>
+
+//       <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+//         {/* 🔥 TOP GRID */}
+//         <motion.div
+//           initial="hidden"
+//           whileInView="show"
+//           viewport={{ once: true }}
+//           variants={{
+//             hidden: {},
+//             show: {
+//               transition: { staggerChildren: 0.12 },
+//             },
+//           }}
+//           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6"
+//         >
+
+//           {/* LOGO */}
+//           <motion.div variants={fadeUp} className="space-y-4">
+//             <div className="flex items-center gap-2">
+//               <img
+//                 src="/logo.png"
+//                 alt="AETHERIS logo"
+//                 className="h-14 w-40 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
+//               />
+//             </div>
+
+//             <p className="text-white/40 text-xs leading-relaxed max-w-xs">
+//               The world's premier platform for hybrid travel and corporate
+//               transformation.
+//             </p>
+//           </motion.div>
+
+//           {/* LINKS */}
+//           {footerLinks.map((col, idx) => (
+//             <motion.div key={idx} variants={fadeUp}>
+//               <h5 className="font-bold mb-2 text-xs uppercase tracking-[0.2em]">
+//                 {col.title}
+//               </h5>
+
+//               <ul className="space-y-3">
+//                 {col.links.map((link) => (
+//                   <li key={link.name}>
+//                     {link.name === "Features" ? (
+//                       <a
+//                         href="/#inside-retreat"
+//                         className="text-xs text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-1 inline-block"
+//                       >
+//                         {link.name}
+//                       </a>
+//                     ) : (
+//                       <Link
+//                         to={link.path}
+//                         className="text-xs text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-1 inline-block"
+//                       >
+//                         {link.name}
+//                       </Link>
+//                     )}
+//                   </li>
+//                 ))}
+//               </ul>
+//             </motion.div>
+//           ))}
+//         </motion.div>
+
+//         {/* 🔥 BOTTOM */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ delay: 0.2 }}
+//           className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-white/5 gap-6"
+//         >
+//           <p className="text-white/20 text-xs text-center md:text-left">
+//             © 2026 Aetheris Global Expeditions. All rights reserved.
+//           </p>
+
+//           <div className="flex items-center gap-5">
+//             {social.map((item) => (
+//               <a
+//                 key={item.name}
+//                 href={item.url}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="text-[10px] font-bold uppercase tracking-widest text-white/30 hover:text-green-400 transition-all duration-300 hover:scale-110"
+//               >
+//                 {item.name}
+//               </a>
+//             ))}
+//           </div>
+//         </motion.div>
+//       </div>
+//     </footer>
+//   );
+// }
+
 export function Footer() {
   return (
-    <footer className="relative py-12 border-t border-white/5 bg-premium-black overflow-hidden">
+    <footer className="relative py-6 border-t border-white/5 bg-premium-black overflow-hidden">
       
       {/* 🔥 Animated background glow */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -1024,7 +1066,7 @@ export function Footer() {
               transition: { staggerChildren: 0.12 },
             },
           }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6"
         >
 
           {/* LOGO */}
@@ -1046,7 +1088,7 @@ export function Footer() {
           {/* LINKS */}
           {footerLinks.map((col, idx) => (
             <motion.div key={idx} variants={fadeUp}>
-              <h5 className="font-bold mb-4 text-xs uppercase tracking-[0.2em]">
+              <h5 className="font-bold mb-2 text-xs uppercase tracking-[0.2em]">
                 {col.title}
               </h5>
 
