@@ -67,23 +67,23 @@ const LAND_DOTS: [number, number][] = [];
 // ── Smart label offset table ──
 // Pre-defined offsets so labels never stack on each other
 // [dx, dy] from pin center — positive dx = right, negative = left
-// const LABEL_OFFSETS: Record<string, [number, number]> = {
-//   "Rishikesh":     [-95, -18],
-//   "Manali":        [-72, -28],
-//   "Darjeeling":    [ 14,  -18],
-//   "Sikkim":        [ 14,   8],
-//   "Munnar":        [-80,  10],
-//   "Meghalaya":     [ 14,  -18],
-//   "Goa":           [-68,  14],
-//   "Udaipur":       [-76,  -8],
-//   "Jaipur":        [-68,  14],
-//   "Rajgir":        [ 14,  10],
-//   "Mysore":        [-72,  14],
-//   "Hyderabad":     [ 14,  -8],
-//   "Bangalore":     [ 14,  14],
-//   "Valmiki Nagar": [-90, -18],
-//   "Manipur":       [ 14,   0],
-// };
+const LABEL_OFFSETS: Record<string, [number, number]> = {
+  "Rishikesh":     [-95, -18],
+  "Manali":        [-72, -28],
+  "Darjeeling":    [ 14,  -18],
+  "Sikkim":        [ 14,   8],
+  "Munnar":        [-80,  10],
+  "Meghalaya":     [ 14,  -18],
+  "Goa":           [-68,  14],
+  "Udaipur":       [-76,  -8],
+  "Jaipur":        [-68,  14],
+  "Rajgir":        [ 14,  10],
+  "Mysore":        [-72,  14],
+  "Hyderabad":     [ 14,  -8],
+  "Bangalore":     [ 14,  14],
+  "Valmiki Nagar": [-90, -18],
+  "Manipur":       [ 14,   0],
+};
 
 export function GlobeBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -249,6 +249,32 @@ projected.forEach(({ p, i, lat, lng }) => {
     : "rgba(255,215,0,0.8)";
 
   ctx.fill();
+});
+// ── Labels (NO OVERLAP using offsets) ──
+ctx.font = "12px sans-serif";
+ctx.textBaseline = "middle";
+
+projected.forEach(({ p, label }) => {
+  const offset = LABEL_OFFSETS[label] || [10, 10];
+
+  const x = p.x + offset[0];
+  const y = p.y + offset[1];
+
+  const padding = 4;
+  const textWidth = ctx.measureText(label).width;
+
+  // background
+  ctx.fillStyle = "rgba(0,0,0,0.6)";
+  ctx.fillRect(
+    x - padding,
+    y - 8,
+    textWidth + padding * 2,
+    16
+  );
+
+  // text
+  ctx.fillStyle = "#fff";
+  ctx.fillText(label, x, y);
 });
     };
     draw();
