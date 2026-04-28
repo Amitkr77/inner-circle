@@ -17,18 +17,18 @@ const footerLinks = [
     title: "Discover",
     links: [
       { name: "Features", path: "/#inside-retreat" },
-      { name: "Retreats", path: "/retreats" },
-      { name: "Destinations", path: "/destinations" },
-      { name: "Experiences", path: "/experiences" },
+      { name: "Explore", path: "/explore" },
+      { name: "Booking Now", path: "/apply" },
+      { name: "Pricing", path: "/" },
     ],
   },
   {
     title: "Company",
     links: [
       { name: "About Us", path: "/about" },
-      { name: "Careers", path: "/careers" },
-      { name: "Press", path: "/press" },
       { name: "Blog", path: "/blog" },
+      { name: "Resources", path: "/resources" },
+      { name: "Contact", path: "/contact" },
     ],
   },
   {
@@ -37,7 +37,7 @@ const footerLinks = [
       { name: "Privacy Policy", path: "/privacy" },
       { name: "Terms of Use", path: "/terms" },
       { name: "Cookie Policy", path: "/cookies" },
-      { name: "Contact", path: "/contact" },
+     
     ],
   },
 ];
