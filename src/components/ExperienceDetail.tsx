@@ -226,8 +226,8 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                 <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/40 mb-1">
                   Starts At
                 </p>
-                <span className="text-5xl font-bold tracking-tight text-white block mb-1">
-                  ₹{exp.pricePerHead.toLocaleString("en-IN")}
+                <span className="text-4xl font-bold tracking-tight text-white block mb-1">
+                  {/* ₹{exp.pricePerHead.toLocaleString("en-IN")} */}₹ Revealing soon
                 </span>
                 <p className="text-xs uppercase tracking-widest text-white/30 font-bold mb-8">
                   Per Person · All Inclusive
