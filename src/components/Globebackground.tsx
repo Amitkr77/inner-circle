@@ -187,23 +187,24 @@ export function GlobeBackground() {
         ctx.stroke();
       }
 
-      // Land dots
-    //   LAND_DOTS.forEach(([lat, lng]) => {
-    //     const p = project(lat, lng, cx, cy, R, rotRef.current);
-    //     if (!p.visible) return;
-    //     const alpha   = 0.12 + 0.7 * Math.max(0, p.z);
-    //     const isIndia = lat >= 6 && lat <= 38 && lng >= 66 && lng <= 98;
-    //     if (isIndia) {
-    //       ctx.fillStyle = `rgba(120,220,120,${Math.min(1, alpha + 0.22)})`;
-    //       ctx.beginPath();
-    //       ctx.arc(p.x, p.y, 1.7, 0, Math.PI * 2);
-    //     } else {
-    //       ctx.fillStyle = `rgba(70,130,230,${alpha})`;
-    //       ctx.beginPath();
-    //       ctx.arc(p.x, p.y, 1.1, 0, Math.PI * 2);
-    //     }
-    //     ctx.fill();
-    //   });
+       // Land dots (ACTIVE)
+ LAND_DOTS.forEach(([lat, lng]) => {
+  const p = project(lat, lng, cx, cy, R, rotRef.current);
+  if (!p.visible) return;
+
+  const alpha = 0.2 + 0.6 * Math.max(0, p.z);
+
+  const isIndia = lat >= 6 && lat <= 38 && lng >= 66 && lng <= 98;
+
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2);
+
+  ctx.fillStyle = isIndia
+    ? "rgba(0,255,120,0.9)"   // 🔥 green India
+    : `rgba(100,180,255,${alpha})`; // blue land
+
+  ctx.fill();
+});
 
       ctx.restore(); // end clip
 
