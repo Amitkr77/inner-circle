@@ -34,7 +34,9 @@ export default function InsideRetreat() {
   ];
 
   return (
-    <div className="bg-[#050505] px-11 pt-20 pb-[100px] font-[family-name:var(--font-sans)] text-white ">
+    <div 
+     id="inside-retreat"
+     className="bg-[#050505] px-11 pt-20 pb-[100px] font-[family-name:var(--font-sans)] text-white ">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-24 grid grid-cols-2 items-end">
