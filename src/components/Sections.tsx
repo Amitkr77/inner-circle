@@ -259,7 +259,7 @@ export function Hero() {
         />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20 pt-40 text-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-20 pt-48 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -274,7 +274,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-6xl md:text-8xl font-bold leading-[1.05] mb-6 tracking-[-0.04em]"
+          className="text-6xl md:text-8xl font-bold leading-[1.05] mb-2 tracking-[-0.04em]"
         >
           Founder Retreat for <span className="italic font-light">Clarity</span>
           <br />
@@ -287,7 +287,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-2xl md:text-xl text-white/50 max-w-xl mx-auto mb-6 font-medium leading-relaxed"
+          className="text-2xl md:text-xl text-white/50 max-w-xl mx-auto mb-4 font-medium leading-relaxed"
         >
           Step away. Think clearly. Build better.
           {/*A curated startup founder retreat designed to 
@@ -298,7 +298,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2"
         >
           <Button
           onClick={() => navigate("/explore")}
