@@ -696,7 +696,11 @@ export function CommunitySection() {
           </GlassCard>
         </div>
 
-        <div className="mt-20 overflow-hidden">
+        <div className="mt-20 overflow-hidden relative">
+          {/* FADE */}
+          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-black/90 via-black/60 to-transparent z-10 pointer-events-none" />
+
           <div className="flex w-max gap-6 animate-marquee">
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
               <GlassCard
