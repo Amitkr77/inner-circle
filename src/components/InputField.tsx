@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
+// ─── Types ────────────────────────────────────────────────────────────────────
 type InputProps = {
   label: string;
   placeholder: string;
@@ -8,95 +11,6 @@ type InputProps = {
   error?: string;
   value: string;
   onChange: (val: string) => void;
-};
-
-const InputField = ({
-  label,
-  placeholder,
-  type = "text",
-  as,
-  error,
-  value,
-  onChange,
-}: InputProps) => {
-  const [focused, setFocused] = useState(false);
-
-  const baseStyle: React.CSSProperties = {
-    width: "100%",
-    background: "rgba(255,255,255,0.05)",
-    border: `1px solid ${error ? "#ef4444" : focused ? "#10b981" : "rgba(255,255,255,0.1)"}`,
-    borderRadius: "0.75rem",
-    color: "#fff", // ✅ FIX
-    padding: "0.75rem 1rem",
-    outline: "none",
-    fontSize: "0.85rem",
-    transition: "0.2s",
-  };
-  const props = {
-    style: baseStyle,
-    onFocus: () => setFocused(true),
-    onBlur: () => setFocused(false),
-  };
-
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-      <label style={{ fontSize: "0.65rem", color: "#fff" }}>
-        {label} <span style={{ color: "#ef4444" }}>*</span>
-      </label>
-
-      {as === "textarea" ? (
-        <textarea
-          placeholder={placeholder}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          {...props}
-        />
-      ) : as === "select" ? (
-        <select
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          {...props}
-          style={{ ...baseStyle, background: "rgba(255,255,255,0.05)" }} // ✅ fix
-        >
-          <option
-            value=""
-            style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}
-          >
-            -- Select a role --
-          </option>
-          <option
-            style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}
-          >
-            Builder
-          </option>
-          <option
-            style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}
-          >
-            Investor
-          </option>
-          <option
-            style={{ background: "rgba(255,255,255,0.05)", color: "#fff" }}
-          >
-            Partner
-          </option>
-        </select>
-      ) : (
-        <input
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          {...props}
-        />
-      )}
-
-      {error && (
-        <span style={{ fontSize: "0.65rem", color: "#ef4444", paddingLeft: 2 }}>
-          {error}
-        </span>
-      )}
-    </div>
-  );
 };
 
 type FormData = {
@@ -109,6 +23,80 @@ type FormData = {
 
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
+// ─── Input Field Component (Sharp Edges) ─────────────────────────────────────
+const InputField = ({
+  label,
+  placeholder,
+  type = "text",
+  as,
+  error,
+  value,
+  onChange,
+}: InputProps) => {
+  const baseClasses = `w-full bg-white/[0.02] border text-white text-[14px] px-4 py-3.5 outline-none transition-colors duration-300 placeholder:text-white/20 ${
+    error ? "border-red-500/50 focus:border-red-500/80" : "border-white/[0.08] focus:border-emerald-400/30"
+  }`;
+
+  return (
+    <div className="flex flex-col gap-2">
+      <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/60">
+        {label} <span className="text-red-500/70">*</span>
+      </label>
+
+      {as === "textarea" ? (
+        <textarea
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          rows={4}
+          className={`${baseClasses} resize-none`}
+        />
+      ) : as === "select" ? (
+        <select
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={`${baseClasses} appearance-none cursor-pointer`}
+        >
+          <option value="" disabled className="bg-[#0a0a0a] text-white/40">
+            -- Select a role --
+          </option>
+          <option value="Builder" className="bg-[#0a0a0a] text-white/70">
+            Builder
+          </option>
+          <option value="Investor" className="bg-[#0a0a0a] text-white/70">
+            Investor
+          </option>
+          <option value="Partner" className="bg-[#0a0a0a] text-white/70">
+            Partner
+          </option>
+        </select>
+      ) : (
+        <input
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={baseClasses}
+        />
+      )}
+
+      <AnimatePresence>
+        {error && (
+          <motion.span 
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            className="text-[10px] tracking-wider text-red-400 font-medium pl-1"
+          >
+            {error}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// ─── Main Form Component ─────────────────────────────────────────────────────
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<FormData>({
@@ -137,17 +125,19 @@ export default function ContactForm() {
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
+
   const submitForm = async () => {
     if (!validate()) return;
 
     try {
-      const res = await fetch("/zoho-webhook/921703489/flow/webhook/incoming?zapikey=1001.130d40f218d17232e143982f604991f7.b964238c780c061be4d333c85664a10a&isdebug=false", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        "/zoho-webhook/921703489/flow/webhook/incoming?zapikey=1001.130d40f218d17232e143982f604991f7.b964238c780c061be4d333c85664a10a&isdebug=false",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
 
       if (!res.ok) throw new Error("Failed");
 
@@ -159,64 +149,65 @@ export default function ContactForm() {
   };
 
   return (
-    <div>
+    <AnimatePresence mode="wait">
       {submitted ? (
-        <div
-          style={{
-            background: "rgba(16,185,129,0.04)",
-            border: "1px solid rgba(16,185,129,0.2)",
-            borderRadius: "2rem",
-            padding: "3rem",
-            textAlign: "center",
-          }}
+        /* ── Success State ── */
+        <motion.div
+          key="success"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          className="bg-[#0a0a0a] border border-emerald-400/20 p-12 md:p-16 flex flex-col items-center justify-center text-center min-h-[400px]"
         >
-          <h3 style={{ color: "#10b981" }}>Form Submitted Successfully</h3>
-          <p style={{ color: "rgba(255,255,255,0.5)" }}>
-            We'll get back to you soon 🚀
+          <div className="w-16 h-16 rounded-full border border-emerald-400/30 flex items-center justify-center mb-8">
+            <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+          </div>
+          <h3 className="text-2xl font-bold tracking-[-0.03em] text-white mb-4">
+            Inquiry Received.
+          </h3>
+          <p className="text-[14px] text-white/30 leading-relaxed max-w-sm mb-8">
+            Thank you for reaching out. Our experience leads typically respond within 24 hours.
           </p>
-        </div>
+          <div className="h-px w-16 bg-emerald-400/30" />
+        </motion.div>
       ) : (
-        <div
-          style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "2rem",
-            padding: "2.5rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "1.25rem",
-          }}
+        /* ── Form State ── */
+        <motion.div
+          key="form"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="bg-[#0a0a0a] border border-white/[0.06] p-8 md:p-12 flex flex-col gap-6"
         >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "1rem",
-            }}
-          >
+          {/* Top Row: Name & Email */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <InputField
-              label="Name"
-              placeholder="Enter your name"
+              label="Full Name"
+              placeholder="John Doe"
               value={form.name}
               onChange={set("name")}
               error={errors.name}
             />
             <InputField
-              label="Email"
-              placeholder="Enter your email"
+              label="Email Address"
+              placeholder="john@company.com"
               type="email"
               value={form.email}
               onChange={set("email")}
               error={errors.email}
             />
           </div>
+
+          {/* Organization */}
           <InputField
             label="Organization"
-            placeholder="Your company"
+            placeholder="Your company name"
             value={form.org}
             onChange={set("org")}
             error={errors.org}
           />
+
+          {/* Role Select */}
           <InputField
             label="Role Selection"
             placeholder=""
@@ -225,31 +216,32 @@ export default function ContactForm() {
             onChange={set("role")}
             error={errors.role}
           />
+
+          {/* Message Textarea */}
           <InputField
-            label="Message"
-            placeholder="Tell us about your goals..."
+            label="Objective"
+            placeholder="Tell us about your goals for this retreat..."
             as="textarea"
             value={form.message}
             onChange={set("message")}
             error={errors.message}
           />
 
+          {/* Submit Button (Inverted Hover) */}
           <button
+            type="button"
             onClick={submitForm}
-            style={{
-              background: "#10b981",
-              color: "#000",
-              borderRadius: "999px",
-              padding: "1rem",
-              fontWeight: "bold",
-              cursor: "pointer",
-              border: "none",
-            }}
+            className="group flex items-center justify-between w-full border border-white/[0.1] px-6 py-4 mt-2 hover:bg-white hover:text-black transition-all duration-300"
           >
-            Submit →
+            <span className="text-[12px] font-bold uppercase tracking-[0.2em]">
+              Send Inquiry
+            </span>
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
-        </div>
+
+         
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 }

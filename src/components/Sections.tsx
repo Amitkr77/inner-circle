@@ -1354,35 +1354,92 @@ export function StatsSection() {
 
 export function ContactSection() {
   return (
-    <section className="py-12 relative">
+    <section className="py-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* LEFT */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-              Ready to Upgrade <br />
-              Your Life & Team?
-            </h2>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.4em] text-emerald-400"
+            >
+              <div className="h-px w-5 bg-emerald-400" />
+              Get in touch
+            </motion.p>
 
-            <p className="text-white/60 font-light text-lg mb-12 leading-relaxed">
-              Join the waiting list for our Summer 2026 expeditions or schedule
-              a custom consultation for your corporate leadership team.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <CheckCircle2 className="w-6 h-6 text-accent-emerald" />
-                <span className="text-white/80">
-                  Exclusive early-bird access to destinations
-                </span>
+            <div className="space-y-[-0.02em] mb-10">
+              <div className="">
+                <motion.h2
+                  initial={{ y: "110%" }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+                  className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white/[0.9]"
+                >
+                  Ready to upgrade
+                </motion.h2>
               </div>
-              <div className="flex items-center gap-4">
-                <CheckCircle2 className="w-6 h-6 text-accent-emerald" />
-                <span className="text-white/80">
-                  Personal onboarding with our Experience Leads
-                </span>
+              <div className="overflow-hidden">
+                <motion.h2
+                  initial={{ y: "110%" }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.1,
+                    ease: [0.76, 0, 0.24, 1],
+                  }}
+                  className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white/15"
+                >
+                  your life & team.
+                </motion.h2>
               </div>
             </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="border-l border-emerald-400 pl-5 text-[15px] leading-[1.85] text-white/60 max-w-md mb-12"
+            >
+              Join the waiting list for our Summer 2026 expeditions or schedule
+              a custom consultation for your corporate leadership team.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="space-y-0"
+            >
+              {[
+                {
+                  num: "01",
+                  text: "Exclusive early-bird access to destinations",
+                },
+                {
+                  num: "02",
+                  text: "Personal onboarding with our Experience Leads",
+                },
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="flex items-baseline gap-5 py-5 border-b border-white/[0.06] last:border-b-0"
+                >
+                  <span className="font-mono text-[11px] text-white/50 w-6">
+                    {item.num}
+                  </span>
+                  <span className="text-[14px] font-medium text-white/50">
+                    {item.text}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
           </div>
 
           {/* RIGHT FORM */}
