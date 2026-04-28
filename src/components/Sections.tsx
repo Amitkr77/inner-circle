@@ -964,55 +964,14 @@ export function ContactSection() {
 }
 
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
-};
-
-const footerLinks = [
-  {
-    title: "Platform",
-    links: [
-      { name: "Features", path: "/#inside-retreat" },
-      { name: "Explore", path: "/explore" },
-      { name: "Book Now", path: "/apply" },
-      { name: "Pricing", path: "" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { name: "About Us", path: "/about" },
-      { name: "Blog", path: "/blog" },
-      { name: "Resource", path: "/resources" },
-      { name: "Contact", path: "/contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { name: "Privacy Policy", path: "" },
-      { name: "Terms of Service", path: "" },
-      { name: "Cookie Policy", path: "" },
-    ],
-  },
-];
-
-// // 🔥 Social links (update URLs as needed)
-// const social = [
-//   { name: "Instagram", url: "https://instagram.com" },
-//   { name: "LinkedIn", url: "https://linkedin.com" },
-//   { name: "Twitter", url: "https://twitter.com" },
-// ];
-
 export function Footer() {
   return (
-    <footer className="relative py-12 border-t border-white/5 bg-premium-black overflow-hidden">
-      
+    <footer className="relative py-20 border-t border-white/5 bg-premium-black overflow-hidden">
+
       {/* 🔥 Animated background glow */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute w-[300px] h-[300px] bg-green-500 blur-[120px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
-        <div className="absolute w-[250px] h-[250px] bg-blue-500 blur-[100px] rounded-full bottom-[-80px] right-[-80px] animate-pulse" />
+        <div className="absolute w-[400px] h-[400px] bg-green-500 blur-[120px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
+        <div className="absolute w-[300px] h-[300px] bg-blue-500 blur-[100px] rounded-full bottom-[-80px] right-[-80px] animate-pulse" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -1025,53 +984,71 @@ export function Footer() {
           variants={{
             hidden: {},
             show: {
-              transition: { staggerChildren: 0.12 },
+              transition: {
+                staggerChildren: 0.15,
+              },
             },
           }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"
         >
 
           {/* LOGO */}
-          <motion.div variants={fadeUp} className="space-y-4">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="space-y-6"
+          >
             <div className="flex items-center gap-2">
               <img
                 src="/logo.png"
                 alt="AETHERIS logo"
-                className="h-14 w-40 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
+                className="h-16 w-44 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
               />
             </div>
 
-            <p className="text-white/40 text-xs leading-relaxed max-w-xs">
+            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               The world's premier platform for hybrid travel and corporate
               transformation.
             </p>
           </motion.div>
 
           {/* LINKS */}
-          {footerLinks.map((col, idx) => (
-            <motion.div key={idx} variants={fadeUp}>
-              <h5 className="font-bold mb-4 text-xs uppercase tracking-[0.2em]">
+          {[
+            {
+              title: "Platform",
+              links: ["Features", "Explore", "Book Now", "Pricing"],
+            },
+            {
+              title: "Company",
+              links: ["About Us", "Blog", "Resource", "Contact"],
+            },
+            {
+              title: "Legal",
+              links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+            },
+          ].map((col, idx) => (
+            <motion.div
+              key={idx}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <h5 className="font-bold mb-6 text-xs uppercase tracking-[0.2em]">
                 {col.title}
               </h5>
 
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {col.links.map((link) => (
-                  <li key={link.name}>
-                    {link.name === "Features" ? (
-                      <a
-                        href="/#inside-retreat"
-                        className="text-xs text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-1 inline-block"
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link
-                        to={link.path}
-                        className="text-xs text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-1 inline-block"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
+                  <li key={link}>
+                    <a
+                      href="#"
+                      className="text-sm text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-2 inline-block"
+                    >
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -1083,23 +1060,21 @@ export function Footer() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-white/5 gap-6"
+          transition={{ delay: 0.3 }}
+          className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 gap-8"
         >
-          <p className="text-white/20 text-xs text-center md:text-left">
+          <p className="text-white/20 text-xs">
             © 2026 Aetheris Global Expeditions. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-5">
-            {social.map((item) => (
+          <div className="flex items-center gap-6">
+            {social.map((social) => (
               <a
-                key={item.name}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] font-bold uppercase tracking-widest text-white/30 hover:text-green-400 transition-all duration-300 hover:scale-110"
+                key={social.name}
+                href={social.url}
+                className="text-xs font-bold uppercase tracking-widest text-white/30 hover:text-green-400 transition-all duration-300 hover:scale-110"
               >
-                {item.name}
+                {social.name}
               </a>
             ))}
           </div>
