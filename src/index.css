@@ -79,3 +79,6 @@
 .animate-marquee {
     animation: marquee 25s linear infinite;
 }
+html {
+  scroll-behavior: smooth;
+}
