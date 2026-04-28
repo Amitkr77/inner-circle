@@ -215,7 +215,7 @@ export function GlobeBackground() {
         i,
       })).filter(l => l.p.visible && l.p.z > 0.1);
 
-projected.forEach(({ p, i, lat, lng, label }) => {
+projected.forEach(({ p, i, lat, lng }) => {
   const pulse = 1 + 0.38 * Math.sin(pulseRef.current + i * 1.1);
   const ringR = (4.5 + 2.5 * p.z) * pulse;
 
