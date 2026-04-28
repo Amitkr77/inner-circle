@@ -342,10 +342,8 @@ export function Hero() {
   );
 }
 
-// Assuming React Router based on your `to` prop
-
 export function ExperienceShowcase() {
-  const [filter, setFilter] = useState("India");
+  const [filter] = useState("India");
 
   // Mocking your data structure so the code is runnable
   // const EXPERIENCES = [
@@ -564,7 +562,7 @@ export function ExperienceShowcase() {
 
           {/* Right: Stacked Cards Container */}
           <div className="lg:col-span-5 flex flex-col gap-[2px]">
-            {stackedExps.map((exp, idx) => (
+            {stackedExps.map((exp) => (
               <motion.div
                 key={exp.id}
                 layout
