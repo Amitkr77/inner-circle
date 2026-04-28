@@ -1,5 +1,6 @@
-export default function Journal() {
+import { motion } from "framer-motion";
 
+export default function Journal() {
   const filters = [
     "All",
     "Mindset",
@@ -129,78 +130,226 @@ export default function Journal() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl overflow-hidden bg-[#050505] font-[family-name:var(--font-sans)] text-white pt-36">
-      
+    <div className="mx-auto max-w-7xl overflow-hidden bg-[#050505] font-[family-name:var(--font-sans)] text-white pt-32">
       {/* ── Hero ── */}
-      <div className="grid grid-cols-2 gap-[2px] items-end pb-[2px]">
-      
-        {/* Left */}
-        <div className="border-r border-white/[0.07] pr-12 pb-14">
-          <p className="mb-6 flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.4em] text-white/[0.4] before:block before:h-px before:w-5 shrink-0 before:bg-emerald-400">
-            The journal
-          </p>
-          <h1 className="mb-7 text-[60px] font-black leading-[0.93] tracking-[-0.04em] text-white/[0.9]">
-            Field notes &amp;
-            <br />
-            <em className="font-normal italic text-white/[0.3]">founder</em>
-            <br />
-            stories.
-          </h1>
-          <p className="mb-9 max-w-[345px] text-[15px] leading-[1.85] text-white/[0.4]">
-            Honest writing on building, thinking, and the spaces that make both
-            possible. No fluff — just what actually moves the needle.
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {filters.map((f, i) => (
-              <div
-                key={f}
-                className={`cursor-pointer rounded-[2px] border px-3.5 py-[7px] text-[9px] font-bold uppercase tracking-[0.22em] transition-all duration-200 ${
-                  i === 0
-                    ? "border-emerald-400 bg-emerald-400 text-black"
-                    : "border-white/10 text-white hover:border-white/30 hover:text-white"
-                }`}
-              >
-                {f}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right */}
-        <div className="pl-12 pb-0">
-          <div className="mb-[2px] grid grid-cols-2 gap-[2px]">
-            {stats.map((s) => (
-              <div key={s.l} className="bg-[#0d0d0d] px-6 py-6 text-center">
-                <div className="text-[32px] font-black tracking-[-0.03em] text-white/[0.85]">
-                  {s.n}
-                </div>
-                <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.28em] text-white/[0.4]">
-                  {s.l}
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 mb-3.5 text-[10px] font-bold uppercase tracking-[0.3em] text-white/[0.4]">
-            Latest this month
-          </p>
-          {latestItems.map((item) => (
-            <div
-              key={item.num}
-              className="flex cursor-pointer items-center gap-3.5 border-b border-white/[0.06] py-3.5 last:border-b-0"
+      <section className=" bg-[#050505] text-white flex flex-col lg:flex-row overflow-hidden pb-24">
+        {/* ── Left Panel: The Manifesto ── */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          className="flex-1 flex flex-col justify-start  relative border-r border-white/[0.06]"
+        >
+          <div className="space-y-6 mb-10">
+            {/* Eyebrow */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex items-center gap-4"
             >
-              <span className="min-w-[20px] text-[10px] font-bold text-white/[0.4]">
-                {item.num}
+              <div className="h-px w-8 bg-emerald-400/70" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-white/30">
+                The Journal
               </span>
-              <span className="flex-1 text-sm font-bold tracking-[-0.01em] text-white/[0.45]">
-                {item.text}
-              </span>
-              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-emerald-400">
-                {item.tag}
+            </motion.div>
+
+            {/* Headline - Absurd Scale */}
+            <div className="space-y-[-0.04em]">
+              <div className="overflow-hidden">
+                <motion.h1
+                  initial={{ y: "110%" }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.3,
+                    ease: [0.76, 0, 0.24, 1],
+                  }}
+                  className="text-[clamp(3rem,8vw,9rem)] font-black leading-[0.85] tracking-[-0.05em] text-white/90"
+                >
+                  Field notes
+                </motion.h1>
+              </div>
+              <div className="overflow-hidden flex items-center gap-4 lg:gap-6">
+                <motion.span
+                  initial={{ y: "110%" }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.4,
+                    ease: [0.76, 0, 0.24, 1],
+                  }}
+                  className="text-[clamp(3rem,8vw,9rem)] font-black leading-[0.85] tracking-[-0.05em] text-white/30"
+                >
+                  &
+                </motion.span>
+                <motion.span
+                  initial={{ y: "110%" }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.45,
+                    ease: [0.76, 0, 0.24, 1],
+                  }}
+                  className="relative text-[clamp(3rem,8vw,9rem)] font-black leading-[0.85] tracking-[-0.05em] text-white/20 italic"
+                >
+                  founder
+                  {/* Strikethrough */}
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 1.2,
+                      ease: [0.76, 0, 0.24, 1],
+                    }}
+                    className="absolute left-0 top-1/2 w-full h-[3px] md:h-[5px] bg-emerald-400/60 origin-left -rotate-[2deg]"
+                  />
+                </motion.span>
+              </div>
+              <div className="overflow-hidden">
+                <motion.h1
+                  initial={{ y: "110%" }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.5,
+                    ease: [0.76, 0, 0.24, 1],
+                  }}
+                  className="text-[clamp(3rem,8vw,9rem)] font-black leading-[0.85] tracking-[-0.05em] text-white/90"
+                >
+                  stories.
+                </motion.h1>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Meta Row */}
+          <div className="grid grid-cols-1  gap-8 border-t border-white/[0.06] pt-8">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="text-[14px] leading-[1.8] text-white/50 font-light max-w-sm"
+            >
+              Honest writing on building, thinking, and the spaces that make
+              both possible. No fluff — just what actually moves the needle.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="flex flex-wrap gap-x-2 gap-y-2 md:justify-start items-end"
+            >
+              {filters.map((f, i) => (
+                <button
+                  key={f}
+                  className={`rounded-[2px] border px-4 py-2 text-[9px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
+                    i === 0
+                      ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-400 shadow-[0_0_20px_-5px_rgba(52,211,153,0.2)]"
+                      : "border-white/[0.07] text-white/30 hover:border-white/20 hover:text-white/60"
+                  }`}
+                >
+                  {f}
+                </button>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* ── Right Panel: The Data Feed ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="w-full lg:w-[420px] xl:w-[480px] bg-white/5 border-t lg:border-t-0 border-white/[0.06] flex flex-col justify-end"
+        >
+          {/* Stats Grid - Horizontal Rows */}
+          <div className="grid grid-cols-2 border-b border-white/[0.06]">
+            {stats.map((s, i) => (
+              <div
+                key={s.l}
+                className={`p-6 lg:p-8 flex flex-col justify-center ${i % 2 !== 0 ? "border-l border-white/[0.06]" : ""} ${i < 2 ? "border-b border-white/[0.06]" : ""}`}
+              >
+                <span className="text-[28px] font-black tracking-[-0.04em] text-white/80 tabular-nums">
+                  {s.n}
+                </span>
+                <span className="mt-2 text-[9px] font-bold uppercase tracking-[0.3em] text-white/20">
+                  {s.l}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Feed Header */}
+          <div className="px-8 py-5 border-b border-white/[0.06] flex items-center justify-between">
+            <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/25">
+              Active Feed
+            </span>
+            <span className="font-mono text-[10px] text-white/15">
+              // Latest
+            </span>
+          </div>
+
+          {/* Feed List - Terminal Style */}
+          <div className="flex-1 max-h-[350px] lg:max-h-[400px] overflow-y-auto scrollbar-hide">
+            {latestItems.map((item, i) => (
+              <motion.a
+                href="#"
+                key={item.num}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8 + i * 0.1, duration: 0.5 }}
+                className="group flex items-center gap-4 px-8 py-4 border-b border-white/[0.04] hover:bg-white/[0.02] transition-all duration-200"
+              >
+                {/* Index */}
+                <span className="min-w-[28px] font-mono text-[11px] text-white/10 group-hover:text-emerald-400/50 transition-colors duration-300">
+                  {String(item.num).padStart(2, "0")}
+                </span>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-[13px] font-medium tracking-[-0.01em] text-white/40 group-hover:text-white/90 truncate transition-colors duration-300">
+                    {item.text}
+                  </p>
+                </div>
+
+                {/* Tag Pill & Arrow */}
+                <div className="flex items-center gap-2 shrink-0 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                  <span className="text-[8px] font-bold uppercase tracking-[0.15em] text-emerald-400/70 bg-emerald-400/5 border border-emerald-400/10 px-2 py-1 rounded-[1px]">
+                    {item.tag}
+                  </span>
+                  <svg
+                    className="w-3 h-3 text-white/30"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Bottom Terminal Bar */}
+          <div className="h-12 border-t border-white/[0.06] bg-[#0a0a0a] flex items-center px-8">
+            <div className="flex items-center gap-2 text-white/15">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/40 animate-pulse" />
+              <span className="font-mono text-[10px] tracking-wider">
+                SYNCED WEEKLY
               </span>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </motion.div>
+      </section>
 
       {/* ── Featured Photo Grid ── */}
       <div className="grid grid-cols-2 gap-[2px] mb-[2px]">
@@ -387,7 +536,7 @@ export default function Journal() {
 
       {/* ── Topics ── */}
       <div className="border-y border-white/[0.07] px-11 py-12 mb-[2px]">
-        <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.35em] text-white/[0.12]">
+        <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.35em] text-white/[0.5]">
           Browse by topic
         </p>
         <div className="flex flex-wrap gap-2">
@@ -406,7 +555,7 @@ export default function Journal() {
       {/* ── Newsletter ── */}
       <div className="grid grid-cols-2 gap-12 border-t border-white/[0.07] bg-[#0a0a0a] px-11 py-16 items-center">
         <div>
-          <p className="mb-3.5 text-[11px] font-bold uppercase tracking-[0.35em] text-white/[0.12]">
+          <p className="mb-3.5 text-[11px] font-bold uppercase tracking-[0.35em] text-white/[0.5]">
             Stay sharp
           </p>
           <h3 className="mb-3 text-[34px] font-black leading-[1.1] tracking-[-0.03em] text-white/[0.9]">
@@ -414,7 +563,7 @@ export default function Journal() {
             <br />
             direct to inbox.
           </h3>
-          <p className="text-[13px] leading-[1.8] text-white/[0.22]">
+          <p className="text-[13px] leading-[1.8] text-white/[0.4]">
             One email a week. Honest writing on building better, thinking
             clearer, and going further — from founders who&apos;ve done the
             work.
