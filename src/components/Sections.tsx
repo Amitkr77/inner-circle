@@ -29,7 +29,7 @@ import {
   STATS,
   LOGOS,
   // Experience,
-  social,
+  // social,
 } from "../constants";
 import type { Experience } from "../constants";
 import ContactForm from "../components/InputField";
@@ -696,11 +696,7 @@ export function CommunitySection() {
           </GlassCard>
         </div>
 
-        <div className="mt-20 overflow-hidden relative">
-          {/* FADE */}
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-black/90 via-black/60 to-transparent z-10 pointer-events-none" />
-
+        <div className="mt-20 overflow-hidden">
           <div className="flex w-max gap-6 animate-marquee">
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
               <GlassCard
@@ -954,7 +950,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* RIGHT FORM */}
+          {/*RIGHT FORM*/}
             <ContactForm />
 
         </div>
@@ -964,122 +960,122 @@ export function ContactSection() {
 }
 
 
-export function Footer() {
-  return (
-    <footer className="relative py-20 border-t border-white/5 bg-premium-black overflow-hidden">
+// export function Footer() {
+//   return (
+//     <footer className="relative py-20 border-t border-white/5 bg-premium-black overflow-hidden">
 
-      {/* 🔥 Animated background glow */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute w-[400px] h-[400px] bg-green-500 blur-[120px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
-        <div className="absolute w-[300px] h-[300px] bg-blue-500 blur-[100px] rounded-full bottom-[-80px] right-[-80px] animate-pulse" />
-      </div>
+//       {/* 🔥 Animated background glow */}
+//       <div className="absolute inset-0 opacity-20 pointer-events-none">
+//         <div className="absolute w-[400px] h-[400px] bg-green-500 blur-[120px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
+//         <div className="absolute w-[300px] h-[300px] bg-blue-500 blur-[100px] rounded-full bottom-[-80px] right-[-80px] animate-pulse" />
+//       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+//       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* 🔥 TOP GRID */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.15,
-              },
-            },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"
-        >
+//         {/* 🔥 TOP GRID */}
+//         <motion.div
+//           initial="hidden"
+//           whileInView="show"
+//           viewport={{ once: true }}
+//           variants={{
+//             hidden: {},
+//             show: {
+//               transition: {
+//                 staggerChildren: 0.15,
+//               },
+//             },
+//           }}
+//           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"
+//         >
 
-          {/* LOGO */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 40 },
-              show: { opacity: 1, y: 0 },
-            }}
-            className="space-y-6"
-          >
-            <div className="flex items-center gap-2">
-              <img
-                src="/logo.png"
-                alt="AETHERIS logo"
-                className="h-16 w-44 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+//           {/* LOGO */}
+//           <motion.div
+//             variants={{
+//               hidden: { opacity: 0, y: 40 },
+//               show: { opacity: 1, y: 0 },
+//             }}
+//             className="space-y-6"
+//           >
+//             <div className="flex items-center gap-2">
+//               <img
+//                 src="/logo.png"
+//                 alt="AETHERIS logo"
+//                 className="h-16 w-44 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
+//               />
+//             </div>
 
-            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
-              The world's premier platform for hybrid travel and corporate
-              transformation.
-            </p>
-          </motion.div>
+//             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+//               The world's premier platform for hybrid travel and corporate
+//               transformation.
+//             </p>
+//           </motion.div>
 
-          {/* LINKS */}
-          {[
-            {
-              title: "Platform",
-              links: ["Features", "Explore", "Book Now", "Pricing"],
-            },
-            {
-              title: "Company",
-              links: ["About Us", "Blog", "Resource", "Contact"],
-            },
-            {
-              title: "Legal",
-              links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
-            },
-          ].map((col, idx) => (
-            <motion.div
-              key={idx}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                show: { opacity: 1, y: 0 },
-              }}
-            >
-              <h5 className="font-bold mb-6 text-xs uppercase tracking-[0.2em]">
-                {col.title}
-              </h5>
+//           {/* LINKS */}
+//           {[
+//             {
+//               title: "Platform",
+//               links: ["Features", "Explore", "Book Now", "Pricing"],
+//             },
+//             {
+//               title: "Company",
+//               links: ["About Us", "Blog", "Resource", "Contact"],
+//             },
+//             {
+//               title: "Legal",
+//               links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+//             },
+//           ].map((col, idx) => (
+//             <motion.div
+//               key={idx}
+//               variants={{
+//                 hidden: { opacity: 0, y: 40 },
+//                 show: { opacity: 1, y: 0 },
+//               }}
+//             >
+//               <h5 className="font-bold mb-6 text-xs uppercase tracking-[0.2em]">
+//                 {col.title}
+//               </h5>
 
-              <ul className="space-y-4">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-2 inline-block"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
+//               <ul className="space-y-4">
+//                 {col.links.map((link) => (
+//                   <li key={link}>
+//                     <a
+//                       href="#"
+//                       className="text-sm text-white/40 hover:text-green-400 transition-all duration-300 hover:translate-x-2 inline-block"
+//                     >
+//                       {link}
+//                     </a>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </motion.div>
+//           ))}
+//         </motion.div>
 
-        {/* 🔥 BOTTOM */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 gap-8"
-        >
-          <p className="text-white/20 text-xs">
-            © 2026 Aetheris Global Expeditions. All rights reserved.
-          </p>
+//         {/* 🔥 BOTTOM */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ delay: 0.3 }}
+//           className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 gap-8"
+//         >
+//           <p className="text-white/20 text-xs">
+//             © 2026 Aetheris Global Expeditions. All rights reserved.
+//           </p>
 
-          <div className="flex items-center gap-6">
-            {social.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                className="text-xs font-bold uppercase tracking-widest text-white/30 hover:text-green-400 transition-all duration-300 hover:scale-110"
-              >
-                {social.name}
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </footer>
-  );
-}
+//           <div className="flex items-center gap-6">
+//             {social.map((social) => (
+//               <a
+//                 key={social.name}
+//                 href={social.url}
+//                 className="text-xs font-bold uppercase tracking-widest text-white/30 hover:text-green-400 transition-all duration-300 hover:scale-110"
+//               >
+//                 {social.name}
+//               </a>
+//             ))}
+//           </div>
+//         </motion.div>
+//       </div>
+//     </footer>
+//   );
+// }
