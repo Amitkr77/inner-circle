@@ -67,23 +67,23 @@ const LAND_DOTS: [number, number][] = [];
 // ── Smart label offset table ──
 // Pre-defined offsets so labels never stack on each other
 // [dx, dy] from pin center — positive dx = right, negative = left
-const LABEL_OFFSETS: Record<string, [number, number]> = {
-  "Rishikesh":     [-95, -18],
-  "Manali":        [-72, -28],
-  "Darjeeling":    [ 14,  -18],
-  "Sikkim":        [ 14,   8],
-  "Munnar":        [-80,  10],
-  "Meghalaya":     [ 14,  -18],
-  "Goa":           [-68,  14],
-  "Udaipur":       [-76,  -8],
-  "Jaipur":        [-68,  14],
-  "Rajgir":        [ 14,  10],
-  "Mysore":        [-72,  14],
-  "Hyderabad":     [ 14,  -8],
-  "Bangalore":     [ 14,  14],
-  "Valmiki Nagar": [-90, -18],
-  "Manipur":       [ 14,   0],
-};
+// const LABEL_OFFSETS: Record<string, [number, number]> = {
+//   "Rishikesh":     [-95, -18],
+//   "Manali":        [-72, -28],
+//   "Darjeeling":    [ 14,  -18],
+//   "Sikkim":        [ 14,   8],
+//   "Munnar":        [-80,  10],
+//   "Meghalaya":     [ 14,  -18],
+//   "Goa":           [-68,  14],
+//   "Udaipur":       [-76,  -8],
+//   "Jaipur":        [-68,  14],
+//   "Rajgir":        [ 14,  10],
+//   "Mysore":        [-72,  14],
+//   "Hyderabad":     [ 14,  -8],
+//   "Bangalore":     [ 14,  14],
+//   "Valmiki Nagar": [-90, -18],
+//   "Manipur":       [ 14,   0],
+// };
 
 export function GlobeBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -29,7 +29,7 @@ import {
   STATS,
   LOGOS,
   // Experience,
-  social,
+  // social,
 } from "../constants";
 import type { Experience } from "../constants";
 import ContactForm from "../components/InputField";
