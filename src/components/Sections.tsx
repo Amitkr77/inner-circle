@@ -9,19 +9,15 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import {
-  Compass,
   Users,
-  TrendingUp,
-  Sparkles,
   ArrowRight,
   Play,
-  Star,
   CheckCircle2,
   Utensils,
   Plane,
   Calendar,
 } from "lucide-react";
-import { Button, GlassCard } from "./UI";
+import { Button } from "./UI";
 import {
   EXPERIENCES,
   TESTIMONIALS,
@@ -1359,7 +1355,6 @@ export function StatsSection() {
 }
 
 export function ContactSection() {
-
   return (
     <section className="py-12 relative">
       <div className="max-w-7xl mx-auto px-6">
