@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Journal() {
+  const [blogs, setBlogs] = useState([]);
+  console.log(blogs);
+
+  useEffect(() => {
+    fetch(
+      "https://caster-backend.onrender.com/api/blog?organization=collabuilder",
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setBlogs(data.data);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   const filters = [
     "All",
     "Mindset",
@@ -32,25 +49,6 @@ export default function Journal() {
       num: "03",
       text: "The 90-day plan that actually sticks",
       tag: "Execution",
-    },
-  ];
-
-  const featuredCards = [
-    {
-      img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=900",
-      tag: "Mindset · Featured",
-      title: "Why most founders confuse\nmotion with progress",
-      author: "Arjun Mehta",
-      time: "6 min read",
-      date: "Apr 2025",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=900",
-      tag: "Retreats · Featured",
-      title: "What 48 hours in the Alps\ntaught me about leverage",
-      author: "Sarah Lin",
-      time: "8 min read",
-      date: "Mar 2025",
     },
   ];
 
@@ -353,37 +351,61 @@ export default function Journal() {
 
       {/* ── Featured Photo Grid ── */}
       <div className="grid grid-cols-2 gap-[2px] mb-[2px]">
-        {featuredCards.map((card) => (
+        {blogs.map((blog) => (
           <div
-            key={card.title}
+            key={blog._id}
             className="group relative h-[440px] cursor-pointer overflow-hidden"
           >
             <img
-              src={card.img}
+              src={blog.image_url}
               referrerPolicy="no-referrer"
-              alt=""
+              alt={blog.title}
               className="absolute inset-0 h-full w-full object-cover opacity-40 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-60"
             />
+
             <div className="absolute inset-0 bg-[linear-gradient(175deg,rgba(5,5,5,0)_20%,rgba(5,5,5,0.97)_100%)]" />
+
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="mb-2.5 text-[9px] font-bold uppercase tracking-[0.3em] text-emerald-400">
-                {card.tag}
-              </p>
-              <h2 className="mb-3.5 text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-white/[0.9] whitespace-pre-line">
-                {card.title}
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-3.5">
+                {blog.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/[0.18]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Title */}
+              <h2 className="mb-2 text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-white/[0.9] whitespace-pre-line">
+                {blog.title}
               </h2>
+
+              {/* Excerpt */}
+              <p className="mb-3 text-sm text-white/60 line-clamp-2">
+                {blog.excerpt}
+              </p>
+
+              {/* Meta */}
               <div className="flex items-center gap-2.5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/[0.18]">
-                  {card.author}
+                  {blog.author}
                 </span>
+
                 <span className="h-[3px] w-[3px] rounded-full bg-white/20" />
+
                 <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/[0.18]">
-                  {card.time}
+                  {Math.ceil(blog.word_count / 200)} min read
                 </span>
+
                 <span className="h-[3px] w-[3px] rounded-full bg-white/20" />
+
                 <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/[0.18]">
-                  {card.date}
+                  {new Date(blog.created_at).toLocaleDateString()}
                 </span>
+
                 <div className="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-white/15">
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <path
