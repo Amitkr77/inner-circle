@@ -77,7 +77,7 @@ export function Navbar() {
           <Link to="/" className="group flex items-center gap-3">
             <div className="rounded-full border border-white/10 bg-white p-1.5 transition-all duration-300 group-hover:border-emerald-400/30 group-hover:shadow-lg group-hover:shadow-emerald-500/10">
               <img
-                src="./logo3.png"
+                src="/logo.png"
                 alt="Logo"
                 className="h-8 w-auto object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
               />

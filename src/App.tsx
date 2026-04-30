@@ -28,7 +28,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/apply" element={<MonolithRetreat />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogDetail />} />
+        <Route path="/blog/:url_handle" element={<BlogDetail />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/experiences/:id" element={<ExperienceDetails />} />
         <Route path="/resources" element={<Resources />} />
