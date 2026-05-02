@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 type Blog = {
@@ -74,64 +74,7 @@ export default function Journal() {
     { n: "18", l: "Countries" },
   ];
 
-  const latestItems = [
-    {
-      num: "01",
-      text: "Why most founders confuse motion with progress",
-      tag: "Mindset",
-    },
-    {
-      num: "02",
-      text: "What 48 hours in the Alps taught me about leverage",
-      tag: "Retreats",
-    },
-    {
-      num: "03",
-      text: "The 90-day plan that actually sticks",
-      tag: "Execution",
-    },
-  ];
 
-  const listItems = [
-    {
-      img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=200",
-      tag: "Execution",
-      title: "The 90-day plan that actually sticks",
-      meta: "5 min · Feb 2025",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=200",
-      tag: "Mindset",
-      title: "Stop optimising. Start deciding.",
-      meta: "4 min · Jan 2025",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=200",
-      tag: "Community",
-      title: "The people in the room change everything",
-      meta: "6 min · Dec 2024",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&q=80&w=200",
-      tag: "Retreats",
-      title: "Bali 2025 — what happened, honestly",
-      meta: "7 min · Nov 2024",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=200",
-      tag: "Execution",
-      title: "How to find your actual bottleneck",
-      meta: "5 min · Oct 2024",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?auto=format&fit=crop&q=80&w=200",
-      tag: "Deep Work",
-      title: "Designing your environment for focus",
-      meta: "6 min · Sep 2024",
-    },
-  ];
-
- 
   const topics = [
     { name: "Mindset", count: 14 },
     { name: "Execution", count: 11 },
@@ -158,17 +101,17 @@ export default function Journal() {
   );
 
   const gridCards = Object.entries(groupedByTag)
-  .flatMap(([tag, items]) =>
-    items.map((item) => ({
-      img: item.image_url,
-      tag,
-      title: item.title,
-      desc: item.excerpt,
-      meta: `${Math.ceil((item.word_count || 0) / 200)} min read`,
-      slug: item.url_handle,
-    }))
-  )
-  .slice(0, 6); // keep grid clean
+    .flatMap(([tag, items]) =>
+      items.map((item) => ({
+        img: item.image_url,
+        tag,
+        title: item.title,
+        desc: item.excerpt,
+        meta: `${Math.ceil((item.word_count || 0) / 200)} min read`,
+        slug: item.url_handle,
+      })),
+    )
+    .slice(0, 6); // keep grid clean
 
   return (
     <div className="mx-auto max-w-7xl overflow-hidden bg-[#050505] font-sans text-white pt-32">

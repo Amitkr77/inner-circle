@@ -1,6 +1,5 @@
 import { useState } from "react";
-// import { ShaderGradient } from "shadergradient";
-// import { Canvas } from "@react-three/fiber";
+
 import { Link, useNavigate } from "react-router-dom";
 import {
   motion,
@@ -12,7 +11,6 @@ import {
   Users,
   ArrowRight,
   Play,
-  CheckCircle2,
   Utensils,
   Plane,
   Calendar,
@@ -23,8 +21,7 @@ import {
   TESTIMONIALS,
   STATS,
   LOGOS,
-  // Experience,
-  // social,
+  
 } from "../constants";
 import type { Experience } from "../constants";
 import ContactForm from "../components/InputField";

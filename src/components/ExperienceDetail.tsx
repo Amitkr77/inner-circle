@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowUpRight, Plane } from "lucide-react";
+import {  ArrowUpRight, Plane } from "lucide-react";
 import type { Experience } from "../constants";
 import { useNavigate } from "react-router-dom";
 
