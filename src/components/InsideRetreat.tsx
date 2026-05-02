@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function InsideRetreat() {
   const sessions = [
@@ -251,7 +252,10 @@ export default function InsideRetreat() {
               </p>
             </div>
 
-            <div className="relative z-10 mt-10 flex items-center justify-between">
+            <Link
+              to="/apply"
+              className="relative z-10 mt-10 flex items-center justify-between"
+            >
               <span className="text-[12px] font-bold uppercase tracking-[0.25em] text-black/60 group-hover:text-black/80 transition-colors">
                 Apply for a spot
               </span>
@@ -273,7 +277,7 @@ export default function InsideRetreat() {
                   />
                 </svg>
               </div>
-            </div>
+            </Link>
           </motion.a>
         </div>
       </div>

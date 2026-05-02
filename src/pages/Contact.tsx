@@ -37,8 +37,8 @@ const GlowDot = ({ pulse = false }: { pulse?: boolean }) => (
       width: 8,
       height: 8,
       borderRadius: "50%",
-      background: "#10b981",
-      boxShadow: "0 0 8px #10b981, 0 0 16px rgba(16,185,129,0.4)",
+      background: "#4ADE80",
+      boxShadow: "0 0 8px #4ADE80, 0 0 16px rgba(74, 222, 128, 0.4)",
       animation: pulse ? "pulse 2s infinite" : "none",
     }}
   />
@@ -58,8 +58,8 @@ const GlowDot = ({ pulse = false }: { pulse?: boolean }) => (
 //   const [focused, setFocused] = useState(false);
 //   const baseStyle: React.CSSProperties = {
 //     width: "100%",
-//     background: "rgba(255,255,255,0.05)",
-//     border: `1px solid ${focused ? "#10b981" : "rgba(255,255,255,0.1)"}`,
+//     background: "rgba(74, 222, 128, 0.12)",
+//     border: `1px solid ${focused ? "#4ADE80" : "rgba(74, 222, 128, 0.22)"}`,
 //     borderRadius: "0.75rem",
 //     color: "#fff",
 //     padding: "0.75rem 1rem",
@@ -69,7 +69,7 @@ const GlowDot = ({ pulse = false }: { pulse?: boolean }) => (
 //     letterSpacing: "0.01em",
 //     resize: "none" as const,
 //     transition: "border-color 0.2s, box-shadow 0.2s",
-//     boxShadow: focused ? "0 0 0 2px rgba(16,185,129,0.1)" : "none",
+//     boxShadow: focused ? "0 0 0 2px rgba(74, 222, 128, 0.12)" : "none",
 //     boxSizing: "border-box" as const,
 //   };
 
@@ -82,7 +82,7 @@ const GlowDot = ({ pulse = false }: { pulse?: boolean }) => (
 //           fontWeight: 700,
 //           letterSpacing: "0.15em",
 //           textTransform: "uppercase",
-//           color: "rgba(255,255,255,0.4)",
+//           color: "rgba(255,255,255,0.40)",
 //         }}
 //       >
 //         {label}
@@ -97,14 +97,14 @@ const GlowDot = ({ pulse = false }: { pulse?: boolean }) => (
 //         />
 //       ) : as === "select" ? (
 //         <select
-//           style={{ ...baseStyle, appearance: "none", cursor: "pointer", background: "#0d1526" }}
+//           style={{ ...baseStyle, appearance: "none", cursor: "pointer", background: "#111812" }}
 //           onFocus={() => setFocused(true)}
 //           onBlur={() => setFocused(false)}
 //         >
-//           <option value="builder" style={{ background: "#0d1526" }}>Builder</option>
-//           <option value="investor" style={{ background: "#0d1526" }}>Investor</option>
-//           <option value="partner" style={{ background: "#0d1526" }}>Partner</option>
-//           <option value="press" style={{ background: "#0d1526" }}>Press / Media</option>
+//           <option value="builder" style={{ background: "#111812" }}>Builder</option>
+//           <option value="investor" style={{ background: "#111812" }}>Investor</option>
+//           <option value="partner" style={{ background: "#111812" }}>Partner</option>
+//           <option value="press" style={{ background: "#111812" }}>Press / Media</option>
 //         </select>
 //       ) : (
 //         <input
@@ -131,8 +131,8 @@ export default function Contact() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
 
         @keyframes pulse {
-          0%, 100% { opacity: 1; box-shadow: 0 0 8px #10b981, 0 0 16px rgba(16,185,129,0.4); }
-          50% { opacity: 0.5; box-shadow: 0 0 4px #10b981; }
+          0%, 100% { opacity: 1; box-shadow: 0 0 8px #4ADE80, 0 0 16px rgba(74, 222, 128, 0.4); }
+          50% { opacity: 0.5; box-shadow: 0 0 4px #4ADE80; }
         }
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(24px); }
@@ -140,7 +140,7 @@ export default function Contact() {
         }
         .fade-up { animation: fadeUp 0.7s ease forwards; }
         ::placeholder {
-          color: rgba(255,255,255,0.2) !important;
+          color: rgba(255,255,255,0.40) !important;
           font-family: 'Inter', sans-serif;
           font-size: 0.82rem;
         }
@@ -148,7 +148,7 @@ export default function Contact() {
 
       <div
         style={{
-          background: "#070b14",
+          background: "#0A0F0C",
           minHeight: "100%",
           color: "#fff",
           fontFamily: "'Inter', sans-serif",
@@ -199,7 +199,7 @@ export default function Contact() {
               right: 0,
               height: "180px",
               background:
-                "linear-gradient(to bottom, transparent 0%, #070b14 100%)",
+                "linear-gradient(to bottom, transparent 0%, #0A0F0C 100%)",
               zIndex: 2,
             }}
           />
@@ -221,7 +221,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 style={{
-                  color: "#10b981",
+                  color: "#4ADE80",
                   fontSize: "0.65rem",
                   letterSpacing: "0.3em",
                   fontWeight: 700,
@@ -229,9 +229,9 @@ export default function Contact() {
                   marginBottom: "1.5rem",
                   display: "inline-block",
                   padding: "0.4rem 1rem",
-                  border: "1px solid rgba(16,185,129,0.3)",
+                  border: "1px solid rgba(74, 222, 128, 0.22)",
                   borderRadius: "100px",
-                  background: "rgba(16,185,129,0.05)",
+                  background: "rgba(74, 222, 128, 0.12)",
                 }}
               >
                 CONTACT · HIGH INTENT ONLY
@@ -253,7 +253,7 @@ export default function Contact() {
                 <br />
                 conversation.
                 <br />
-                <span style={{ color: "#10b981" }}>Build with intent.</span>
+                <span style={{ color: "#4ADE80" }}>Build with intent.</span>
               </motion.h1>
 
               <motion.p
@@ -262,7 +262,7 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 style={{
                   fontSize: "0.9rem",
-                  color: "rgba(255,255,255,0.45)",
+                  color: "rgba(255,255,255,0.40)",
                   lineHeight: 1.7,
                   maxWidth: 400,
                 }}
@@ -321,21 +321,21 @@ export default function Contact() {
               style={{
                 padding: "2rem",
                 borderRadius: "1.5rem",
-                background: "rgba(255,255,255,0.04)",
+                background: "rgba(74, 222, 128, 0.12)",
                 backdropFilter: "blur(16px)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: "1px solid rgba(74, 222, 128, 0.22)",
                 transition: "all 0.3s",
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLDivElement).style.borderColor =
-                  "#10b981";
+                  "#4ADE80";
                 (e.currentTarget as HTMLDivElement).style.transform =
                   "translateY(-4px)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLDivElement).style.borderColor =
-                  "rgba(255,255,255,0.08)";
+                  "rgba(74, 222, 128, 0.22)";
                 (e.currentTarget as HTMLDivElement).style.transform =
                   "translateY(0px)";
               }}
@@ -355,7 +355,7 @@ export default function Contact() {
               <p
                 style={{
                   fontSize: "0.82rem",
-                  color: "rgba(255,255,255,0.4)",
+                  color: "rgba(255,255,255,0.40)",
                   marginBottom: "1rem",
                   lineHeight: 1.6,
                   fontWeight: 300,
@@ -367,7 +367,7 @@ export default function Contact() {
               <p
                 style={{
                   fontSize: "0.82rem",
-                  color: "#10b981",
+                  color: "#4ADE80",
                   fontWeight: 600,
                 }}
               >
@@ -380,9 +380,9 @@ export default function Contact() {
         {/* ── INQUIRY FORM ── */}
         <section
           style={{
-            borderTop: "1px solid rgba(255,255,255,0.06)",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
-            background: "rgba(255,255,255,0.01)",
+            borderTop: "1px solid rgba(74, 222, 128, 0.22)",
+            borderBottom: "1px solid rgba(74, 222, 128, 0.22)",
+            background: "rgba(74, 222, 128, 0.12)",
           }}
         >
           <div
@@ -403,7 +403,7 @@ export default function Contact() {
                   fontFamily: "'Inter', sans-serif",
                   fontSize: "0.6rem",
                   letterSpacing: "0.3em",
-                  color: "#10b981",
+                  color: "#4ADE80",
                   textTransform: "uppercase",
                   fontWeight: 700,
                   marginBottom: "1rem",
@@ -429,7 +429,7 @@ export default function Contact() {
               <p
                 style={{
                   fontSize: "0.82rem",
-                  color: "rgba(255,255,255,0.4)",
+                  color: "rgba(255,255,255,0.40)",
                   lineHeight: 1.8,
                   marginBottom: "2.5rem",
                   maxWidth: 320,
@@ -460,12 +460,12 @@ export default function Contact() {
                       alignItems: "center",
                       gap: 10,
                       padding: "10px 16px",
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "rgba(74, 222, 128, 0.12)",
+                      border: "1px solid rgba(74, 222, 128, 0.22)",
                       borderRadius: "0.75rem",
                       fontSize: "0.65rem",
                       letterSpacing: "0.1em",
-                      color: "rgba(255,255,255,0.4)",
+                      color: "rgba(255,255,255,0.40)",
                       textTransform: "uppercase",
                       fontWeight: 700,
                     }}
@@ -481,7 +481,7 @@ export default function Contact() {
                   position: "relative",
                   height: 180,
                   overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(74, 222, 128, 0.22)",
                   borderRadius: "1.5rem",
                 }}
               >
@@ -501,7 +501,7 @@ export default function Contact() {
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(135deg, rgba(16,185,129,0.08) 0%, transparent 60%)",
+                      "linear-gradient(135deg, rgba(74, 222, 128, 0.12) 0%, transparent 60%)",
                   }}
                 />
                 <div
@@ -511,7 +511,7 @@ export default function Contact() {
                     left: 16,
                     fontFamily: "'Inter', sans-serif",
                     fontSize: "0.6rem",
-                    color: "#10b981",
+                    color: "#4ADE80",
                     letterSpacing: "0.1em",
                     fontWeight: 700,
                     textTransform: "uppercase",
@@ -527,8 +527,8 @@ export default function Contact() {
               {submitted ? (
                 <div
                   style={{
-                    background: "rgba(16,185,129,0.04)",
-                    border: "1px solid rgba(16,185,129,0.2)",
+                    background: "rgba(74, 222, 128, 0.12)",
+                    border: "1px solid rgba(74, 222, 128, 0.22)",
                     borderRadius: "2rem",
                     padding: "3rem",
                     textAlign: "center",
@@ -539,14 +539,14 @@ export default function Contact() {
                       width: 56,
                       height: 56,
                       borderRadius: "50%",
-                      background: "rgba(16,185,129,0.1)",
-                      border: "1px solid rgba(16,185,129,0.3)",
+                      background: "rgba(74, 222, 128, 0.12)",
+                      border: "1px solid rgba(74, 222, 128, 0.22)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       margin: "0 auto 1rem",
                       fontSize: "1.5rem",
-                      color: "#10b981",
+                      color: "#4ADE80",
                     }}
                   >
                     ✓
@@ -556,14 +556,14 @@ export default function Contact() {
                       fontFamily: "'Inter', sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 700,
-                      color: "#10b981",
+                      color: "#4ADE80",
                       letterSpacing: "-0.02em",
                       marginBottom: "0.75rem",
                     }}
                   >
                     Transmission Received
                   </h3>
-                  <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", fontWeight: 300 }}>
+                  <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.40)", fontWeight: 300 }}>
                     Your inquiry has been routed to the appropriate sector.
                     <br />
                     Expect response within 12 operating cycles.
@@ -572,8 +572,8 @@ export default function Contact() {
               ) : (
                 <div
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    background: "rgba(74, 222, 128, 0.12)",
+                    border: "1px solid rgba(74, 222, 128, 0.22)",
                     borderRadius: "2rem",
                     backdropFilter: "blur(16px)",
                     padding: "2.5rem",
@@ -596,7 +596,7 @@ export default function Contact() {
                   <button
                     onClick={() => setSubmitted(true)}
                     style={{
-                      background: "linear-gradient(135deg, #10b981, #059669)",
+                      background: "linear-gradient(135deg, #4ADE80, #22C55E)",
                       color: "#fff",
                       border: "none",
                       borderRadius: "100px",
@@ -612,16 +612,16 @@ export default function Contact() {
                       justifyContent: "center",
                       gap: 10,
                       transition: "box-shadow 0.3s, transform 0.2s",
-                      boxShadow: "0 0 20px rgba(16,185,129,0.2)",
+                      boxShadow: "0 0 20px rgba(74, 222, 128, 0.2)",
                     }}
                     onMouseEnter={(e) => {
                       (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                        "0 0 40px rgba(16,185,129,0.35)";
+                        "0 0 40px rgba(74, 222, 128, 0.4)";
                       (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                        "0 0 20px rgba(16,185,129,0.2)";
+                        "0 0 20px rgba(74, 222, 128, 0.2)";
                       (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
                     }}
                   >
@@ -652,7 +652,7 @@ export default function Contact() {
           >
             Don't just reach out.
             <br />
-            <span style={{ color: "#10b981" }}>
+            <span style={{ color: "#4ADE80" }}>
               Build something meaningful.
             </span>
           </motion.h2>
@@ -660,7 +660,7 @@ export default function Contact() {
           {/* <motion.button
             whileHover={{ scale: 1.05 }}
             style={{
-              background: "#10b981",
+              background: "#4ADE80",
               color: "#000",
               border: "none",
               borderRadius: "100px",

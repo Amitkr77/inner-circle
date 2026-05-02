@@ -686,7 +686,7 @@ export function CorporateExperience() {
     },
   ];
 
-  const LOGOS = ["META", "STRIPE", "APPLE", "GOOGLE", "NETFLIX", "SPOTIFY"];
+  // const LOGOS = ["META", "STRIPE", "APPLE", "GOOGLE", "NETFLIX", "SPOTIFY"];
 
   return (
     <section
@@ -838,11 +838,10 @@ export function CorporateExperience() {
                 </div>
               </a>
 
-              <div className="border-l border-white/[0.1] pl-6">
+              {/* <div className="border-l border-white/[0.1] pl-6">
                 <p className="text-[9px] uppercase tracking-[0.3em] text-white/50 mb-3 font-bold">
                   Trusted by world-class orgs
                 </p>
-                {/* Increased logos from 15 to 35 */}
                 <div className="flex flex-wrap gap-x-5 gap-y-2">
                   {LOGOS.map((logo) => (
                     <span
@@ -853,7 +852,7 @@ export function CorporateExperience() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

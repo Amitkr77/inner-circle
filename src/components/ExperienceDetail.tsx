@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import {  ArrowUpRight, Plane } from "lucide-react";
+import { ArrowUpRight, Plane } from "lucide-react";
 import type { Experience } from "../constants";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,7 @@ interface ExperienceDetailProps {
 
 export function ExperienceDetail({ exp }: ExperienceDetailProps) {
   const navigate = useNavigate();
-  
+
   return (
     <motion.div
       key={exp.id}
@@ -19,7 +19,6 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
       transition={{ duration: 0.6 }}
       className="min-h-screen bg-[#050505] text-white"
     >
-      
       {/* ── Navigation Header ── */}
       <div className="pt-28 px-6 md:px-11 pb-12 border-b border-white/[0.06]">
         <motion.button
@@ -38,14 +37,17 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
 
       {/* ── Hero Image (Sharp Edges, Full Bleed) ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-11 pt-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden border border-white/[0.06]"
         >
           <img
-            src={exp.image || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=2070'}
+            src={
+              exp.image ||
+              "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=2070"
+            }
             alt={exp.title}
             className="w-full h-full object-cover opacity-70 scale-105 hover:scale-100 transition-transform duration-[2s] ease-out"
             referrerPolicy="no-referrer"
@@ -73,10 +75,14 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
               </span>
             </div>
             <div className="overflow-hidden">
-              <motion.h1 
+              <motion.h1
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.2,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
                 className="text-[clamp(2.5rem,6vw,6rem)] font-black leading-[0.88] tracking-[-0.04em] text-white max-w-4xl"
               >
                 {exp.title}
@@ -89,10 +95,8 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
       {/* ── Main Content Grid ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-11 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-[2px]">
-          
           {/* LEFT COLUMN — Content */}
           <div className="lg:col-span-8 border-r border-white/[0.06] pr-0 lg:pr-16">
-            
             {/* Description */}
             <section className="mb-20">
               <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.3em] text-emerald-400/50">
@@ -118,7 +122,9 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                       transition={{ delay: 0.05 * idx }}
                       className="bg-white/[0.02] border border-white/[0.04] p-6 flex items-start gap-4 hover:bg-white/[0.03] transition-colors"
                     >
-                      <span className="text-emerald-400/50 font-mono text-sm mt-0.5">—</span>
+                      <span className="text-emerald-400/50 font-mono text-sm mt-0.5">
+                        —
+                      </span>
                       <span className="text-[14px] font-medium text-white/60 leading-relaxed">
                         {h}
                       </span>
@@ -149,9 +155,9 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                     >
                       {/* Sharp Dot Marker (No Glow) */}
                       <div className="absolute -left-[5px] top-1.5 w-[10px] h-[10px] bg-[#050505] border-2 border-white/20 group-hover:border-emerald-400 transition-colors" />
-                      
+
                       <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/25 block mb-2">
-                        Day {String(item.day).padStart(2, '0')}
+                        Day {String(item.day).padStart(2, "0")}
                       </span>
                       <h4 className="text-[20px] font-bold text-white/80 tracking-[-0.02em] mb-3 group-hover:text-white transition-colors">
                         {item.title}
@@ -159,14 +165,19 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                       <p className="text-[14px] text-white/30 font-light leading-[1.75] mb-4 max-w-xl">
                         {item.desc}
                       </p>
-                      
+
                       {/* Meals (Typographic) */}
                       {item.meals && item.meals.length > 0 && (
                         <div className="flex items-center gap-3">
-                          <span className="text-[9px] uppercase tracking-[0.3em] text-white/15 font-bold">Meals:</span>
+                          <span className="text-[9px] uppercase tracking-[0.3em] text-white/15 font-bold">
+                            Meals:
+                          </span>
                           <div className="flex gap-2">
                             {item.meals.map((meal, mIdx) => (
-                              <span key={mIdx} className="text-[10px] font-bold uppercase tracking-widest text-white/25 bg-white/[0.03] px-2.5 py-1 border border-white/[0.05]">
+                              <span
+                                key={mIdx}
+                                className="text-[10px] font-bold uppercase tracking-widest text-white/25 bg-white/[0.03] px-2.5 py-1 border border-white/[0.05]"
+                              >
                                 {meal}
                               </span>
                             ))}
@@ -193,7 +204,6 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
           {/* RIGHT COLUMN — Data Panel & Booking */}
           <div className="lg:col-span-4">
             <div className="sticky top-28 space-y-[2px]">
-              
               {/* Booking Card (Sharp Spec Sheet) */}
               <div className="bg-[#0a0a0a] border border-white/[0.08] p-8 md:p-10">
                 <div className="mb-8 pb-8 border-b border-white/[0.06]">
@@ -204,7 +214,9 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                     <span className="text-[42px] font-black tracking-[-0.04em] text-white leading-none">
                       ₹{exp.pricePerHead.toLocaleString("en-IN")}
                     </span>
-                    <span className="text-[11px] text-white/20 font-mono">/ pax</span>
+                    <span className="text-[11px] text-white/20 font-mono">
+                      / pax
+                    </span>
                   </div>
                   <p className="text-[11px] uppercase tracking-[0.2em] text-white/20 mt-2 font-bold">
                     All Inclusive
@@ -214,12 +226,21 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                 {/* Meta Data List */}
                 <div className="mb-10 space-y-0">
                   {[
-                    { label: "Duration", value: `${exp.duration} · ${exp.nights} Nights` },
-                    { label: "Group Size", value: `Max ${exp.groupSize} Founders` },
+                    {
+                      label: "Duration",
+                      value: `${exp.duration} · ${exp.nights} Nights`,
+                    },
+                    {
+                      label: "Group Size",
+                      value: `Max ${exp.groupSize} Founders`,
+                    },
                     { label: "Location", value: exp.location },
                     { label: "Vibe", value: exp.vibe },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-center py-4 border-b border-white/[0.05] last:border-b-0">
+                    <div
+                      key={idx}
+                      className="flex justify-between items-center py-4 border-b border-white/[0.05] last:border-b-0"
+                    >
                       <span className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-bold">
                         {item.label}
                       </span>
@@ -231,7 +252,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                 </div>
 
                 {/* CTA */}
-                <a 
+                <a
                   href={`/apply?exp=${exp.id}`}
                   className="group flex items-center justify-between w-full border border-white/[0.1] px-6 py-4 hover:bg-white hover:text-black transition-all duration-300 mb-4"
                 >
@@ -248,15 +269,20 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
               {/* Testimonial (No Stars) */}
               <div className="bg-[#080808] border border-white/[0.06] p-8">
                 <p className="text-[15px] leading-[1.8] text-white/30 font-light italic mb-6">
-                  "Every detail was obsessively curated. Returned with clarity we've never had before."
+                  "Every detail was obsessively curated. Returned with clarity
+                  we've never had before."
                 </p>
                 <div className="flex items-center justify-between pt-6 border-t border-white/[0.06]">
                   <div>
-                    <span className="block text-[12px] font-bold text-white/60">Sarah Chen</span>
-                    <span className="text-[10px] text-white/20 font-mono uppercase tracking-wider">Stripe</span>
+                    <span className="block text-[12px] font-bold text-white/60">
+                      Sarah Chen
+                    </span>
+                    <span className="text-[10px] text-white/20 font-mono uppercase tracking-wider">
+                      Stripe
+                    </span>
                   </div>
                   <div className="flex gap-0.5">
-                    {[1,2,3,4,5].map(i => (
+                    {[1, 2, 3, 4, 5].map((i) => (
                       <div key={i} className="w-1 h-4 bg-emerald-400/30" />
                     ))}
                   </div>
@@ -270,10 +296,8 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
               >
                 View All Expeditions
               </button>
-
             </div>
           </div>
-
         </div>
       </div>
     </motion.div>
