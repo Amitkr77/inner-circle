@@ -212,7 +212,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                   </p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-[32px] font-black tracking-[-0.04em] text-white leading-none">
-                      {/* ₹{exp.pricePerHead.toLocaleString("en-IN")} */}₹ Reveiling Soon
+                      {/* ₹{exp.pricePerHead.toLocaleString("en-IN")} */}₹ Revealing Soon
                     </span>
                     <span className="text-[11px] text-white/20 font-mono">
                       / pax
