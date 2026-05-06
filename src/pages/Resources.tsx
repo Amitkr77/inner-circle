@@ -1,10 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion} from "framer-motion";
+// import { useRef } from "react";
 import {
-  // ChevronLeft,
-  // ChevronRight,
-  // ArrowRight,
   Brain,
   Network,
   Users,
@@ -15,6 +13,7 @@ import {
   LayoutGrid,
   Quote,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* ================= DATA ================= */
 
@@ -121,15 +120,43 @@ const FRAMEWORKS = [
   },
 ];
 
+// const drawLine = {
+//   hidden: { scaleX: 0 },
+//   show: {
+//     scaleX: 1,
+//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+//   },
+// };
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 /* ================= COMPONENT ================= */
 
 export default function Resources() {
-  return (
-    <div className="min-h-screen bg-[#0A0F0C] selection:bg-[rgba(74,222,128,0.12)] selection:text-[#0A0F0C]">
-      {/* Navbar */}
+  // const heroRef = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: heroRef,
+  //   offset: ["start start", "end start"],
+  // });
 
+  // const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  // const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+
+  return (
+    <div className="min-h-screen bg-white selection:bg-emerald-100 selection:text-emerald-900">
       <main>
-        {/* Hero Section */}
+        {/* ─── Hero Section ─── */}
         <section className="relative min-h-[100vh] flex flex-col justify-end px-6 pb-16 lg:px-24 lg:pb-24 overflow-hidden bg-[#0A0F0C]">
           {/* Background Image - Slow cinematic drift */}
           <div className="absolute inset-0 z-0">
@@ -300,101 +327,124 @@ export default function Resources() {
           </div>
         </section>
 
-        {/* Featured Insights */}
+        {/* ─── Featured Insights ─── */}
         <section
           id="features"
-          className="py-16 lg:py-26 px-6 lg:px-32 bg-[#111812]"
+          className="py-14 sm:py-16 lg:py-24 px-5 sm:px-6 lg:px-24 xl:px-32 bg-neutral-50"
         >
-          <div className="mb-24 flex items-baseline justify-between border-b border-[rgba(74,222,128,0.22)] pb-8">
+          <div className="mb-12 sm:mb-20 lg:mb-24 flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-6 border-b border-neutral-200 pb-6 sm:pb-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="font-label text-[#4ADE80] text-[10px] uppercase tracking-[0.3em] block mb-4 font-bold">
+              <span className="text-emerald-600 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
                 The Vanguard
               </span>
-              <h2 className="font-display font-bold text-4xl lg:text-5xl tracking-ultra-tight text-[rgba(255,255,255,0.90)]">
+              <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl tracking-[-0.03em] text-neutral-900">
                 Featured Insights
               </h2>
             </motion.div>
-            <a
+            <motion.a
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               href="#"
-              className="font-label text-[10px] uppercase tracking-widest text-[rgba(255,255,255,0.40)] hover:text-[#4ADE80] transition-colors border border-[rgba(74,222,128,0.22)] hover:border-[#4ADE80] px-4 py-2 font-bold"
+              className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-widest text-neutral-400 hover:text-emerald-600 transition-colors border border-neutral-200 hover:border-emerald-500 px-4 py-2 font-bold whitespace-nowrap"
             >
               View All Insights
-            </a>
+            </motion.a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 lg:gap-20">
             {/* Major Feature */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="md:col-span-8 group cursor-pointer"
             >
-              <div className="aspect-[16/8] overflow-hidden mb-6 bg-[#1D2820] relative border border-[rgba(74,222,128,0.22)]">
+              <div className="aspect-[16/8] sm:aspect-[16/8] overflow-hidden mb-5 sm:mb-6 bg-neutral-100 relative border border-neutral-200 rounded-sm">
                 <img
-                  className="w-full h-full object-cover grayscale brightness-50 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-1000"
+                  className="w-full h-full object-cover grayscale-[30%] brightness-90 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 ease-out"
                   src={FEATURED_INSIGHTS[0].image}
                   alt={FEATURED_INSIGHTS[0].title}
                 />
-                <div className="absolute top-8 left-8 bg-[#0A0F0C]/90 backdrop-blur-md px-4 py-2 border border-[rgba(74,222,128,0.22)] text-[9px] font-label text-[#4ADE80] tracking-widest uppercase font-bold">
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute top-5 sm:top-8 left-5 sm:left-8 bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 border border-emerald-500/20 text-[9px] tracking-widest uppercase font-bold text-emerald-600"
+                >
                   {FEATURED_INSIGHTS[0].category}
-                </div>
+                </motion.div>
               </div>
-              <h3 className="font-display font-bold text-3xl lg:text-4xl mb-6 tracking-ultra-tight text-[rgba(255,255,255,0.90)] group-hover:text-[#4ADE80] transition-colors duration-500">
+              <h3 className="font-bold text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6 tracking-[-0.02em] sm:tracking-[-0.03em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
                 {FEATURED_INSIGHTS[0].title}
               </h3>
-              <p className="font-body text-[rgba(255,255,255,0.40)] opacity-60 max-w-xl leading-relaxed text-lg font-light">
+              <p className="text-neutral-500 max-w-xl leading-relaxed text-[15px] sm:text-base lg:text-lg font-light">
                 {FEATURED_INSIGHTS[0].description}
               </p>
             </motion.div>
 
             {/* Side features */}
-            <div className="md:col-span-4 flex flex-col gap-16 lg:gap-20 pt-10">
+            <div className="md:col-span-4 flex flex-col gap-12 sm:gap-14 lg:gap-20 pt-6 sm:pt-10">
               {FEATURED_INSIGHTS.slice(1).map((item, i) => (
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.2 }}
+                  transition={{
+                    delay: i * 0.15,
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   key={item.title}
                   className="group cursor-pointer"
                 >
-                  <span className="font-label text-[#4ADE80] text-[12px] uppercase tracking-[0.3em] block mb-4 font-bold">
+                  <span className="text-emerald-600 text-[11px] sm:text-[12px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
                     {item.category}
                   </span>
-                  <h3 className="font-display font-bold text-2xl mb-4 tracking-tight text-[rgba(255,255,255,0.90)] group-hover:text-[#4ADE80] transition-colors duration-500">
+                  <h3 className="font-bold text-xl sm:text-2xl mb-3 sm:mb-4 tracking-[-0.02em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
                     {item.title}
                   </h3>
-                  <p className="font-body text-sm text-[rgba(255,255,255,0.40)] opacity-60 leading-relaxed font-light">
+                  <p className="text-sm text-neutral-400 leading-relaxed font-light">
                     {item.description}
                   </p>
-                  <div className="mt-6 w-0 group-hover:w-12 h-[1px] bg-[#4ADE80] transition-all duration-500" />
+                  <div className="mt-5 sm:mt-6 w-0 group-hover:w-12 h-px bg-emerald-500 transition-all duration-500 ease-out" />
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Categories Grid */}
-        <section className="bg-[#172019] border-y border-[rgba(74,222,128,0.22)]">
-          <div className="bg-[rgba(74,222,128,0.12)]">
-            <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 ">
+        {/* ─── Categories Grid ─── */}
+        <section className=" border-y border-neutral-200">
+          <div className="">
+            <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5">
               {CATEGORIES.map((cat, i) => (
                 <motion.a
                   key={cat.label}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                  whileHover={{ y: -2 }}
                   href="#"
-                  className="bg-[#172019] py-12 lg:py-16 px-6 lg:px-10 flex flex-col items-center text-center border-r border-b border-[rgba(74,222,128,0.22)] hover:bg-[#111812] transition-all group duration-500"
+                  className="bg-white py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-10 flex flex-col items-center text-center border-r border-b border-neutral-200 last:border-r-0  transition-all duration-500 group"
                 >
-                  <cat.icon className="w-8 h-8 lg:w-10 lg:h-10 text-[rgba(255,255,255,0.40)] group-hover:text-[#4ADE80] mb-6 transition-colors" />
-                  <span className="font-label text-[10px] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.60)] group-hover:text-[#4ADE80] transition-colors font-bold">
+                  <motion.div
+                    whileHover={{ rotate: 6, scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  >
+                    <cat.icon
+                      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-neutral-400 group-hover:text-emerald-600 mb-4 sm:mb-6 transition-colors duration-300"
+                      strokeWidth={1.5}
+                    />
+                  </motion.div>
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-neutral-500 group-hover:text-emerald-600 transition-colors font-bold">
                     {cat.label}
                   </span>
                 </motion.a>
@@ -403,159 +453,216 @@ export default function Resources() {
           </div>
         </section>
 
-        {/* Resource Library */}
-        <section className="py-24 lg:py-24 px-6 lg:px-32 bg-[#0A0F0C]">
-          <div className="flex justify-between items-end mb-24 border-b border-[rgba(74,222,128,0.22)] pb-12">
-            <div className="max-w-2xl">
-              <span className="font-label text-[#4ADE80] text-[10px] uppercase tracking-[0.3em] block mb-4 font-bold">
+        {/* ─── Resource Library ─── */}
+        <section className="py-16 sm:py-20 lg:py-24 px-5 sm:px-6 lg:px-24 xl:px-32 bg-white">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 sm:mb-20 lg:mb-24 gap-6 border-b border-neutral-200 pb-8 sm:pb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-2xl"
+            >
+              <span className="text-emerald-600 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
                 The Archive
               </span>
-              <h2 className="font-display font-bold text-4xl lg:text-5xl tracking-ultra-tight text-[rgba(255,255,255,0.90)]">
+              <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl tracking-[-0.03em] text-neutral-900">
                 Resource Library
               </h2>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-            {RESOURCE_CARDS.map((card, i) => (
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12 lg:gap-14 xl:gap-16"
+          >
+            {RESOURCE_CARDS.map((card) => (
               <motion.div
                 key={card.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                variants={fadeUp}
                 className="group cursor-pointer"
               >
-                <div className="h-[400px] lg:h-[420px] bg-[#172019] mb-8 overflow-hidden relative border border-[rgba(74,222,128,0.22)] transition-transform duration-700 group-hover:-translate-y-2">
+                <div className="h-[320px] sm:h-[380px] lg:h-[420px] bg-neutral-100 mb-6 sm:mb-8 overflow-hidden relative border border-neutral-200 rounded-sm transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:shadow-emerald-500/5 group-hover:border-neutral-300">
                   <img
-                    className="w-full h-full object-cover grayscale opacity-30 group-hover:opacity-50 transition-all duration-1000 group-hover:scale-105"
+                    className="w-full h-full object-cover grayscale-[40%]  transition-all duration-1000 ease-out group-hover:scale-105"
                     src={card.image}
                     alt={card.title}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F0C]/80 to-transparent" />
-                  <div className="absolute bottom-10 left-10">
-                    <span
-                      className={`px-3 py-1 text-[8px] font-bold uppercase group-hover:text-[#4ADE80] group-hover:border-[#4ADE80] tracking-widest ${
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent" /> */}
+                  <div className="absolute bottom-6 sm:bottom-10 left-6 sm:left-10">
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
+                      className={`inline-block px-3 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-widest transition-all duration-300 ${
                         card.tag === "Article"
-                          ? "bg-[#4ADE80] text-[#0A0F0C] border border-[rgba(74,222,128,0.22)]"
-                          : "bg-[rgba(74,222,128,0.12)] backdrop-blur-md text-[rgba(255,255,255,0.90)] border border-[rgba(74,222,128,0.22)]"
+                          ? "bg-emerald-600 text-white border border-emerald-600 group-hover:bg-emerald-500"
+                          : "bg-white/90 backdrop-blur-md text-neutral-700 border border-neutral-200 group-hover:border-emerald-500/30 group-hover:text-emerald-700"
                       }`}
                     >
                       {card.tag}
-                    </span>
+                    </motion.span>
                   </div>
                 </div>
-                <div className="px-2">
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="font-label text-[9px] text-[#4ADE80] tracking-[0.2em] uppercase font-bold">
+                <div className="px-1 sm:px-2">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <span className="text-[9px] sm:text-[10px] text-emerald-600 tracking-[0.15em] sm:tracking-[0.2em] uppercase font-bold">
                       {card.category}
                     </span>
-                    <span className="w-1 h-1 bg-[rgba(74,222,128,0.22)] rounded-full" />
-                    <span className="font-label text-[9px] text-[rgba(255,255,255,0.40)] uppercase tracking-widest">
+                    <span className="w-1 h-1 bg-neutral-300 rounded-full" />
+                    <span className="text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-widest">
                       {card.readTime}
                     </span>
                   </div>
-                  <h3 className="font-display font-bold text-2xl tracking-tight text-[rgba(255,255,255,0.90)] group-hover:text-[#4ADE80] transition-colors duration-500">
+                  <h3 className="font-bold text-xl sm:text-2xl tracking-[-0.02em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
                     {card.title}
                   </h3>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-16 border-t border-[rgba(74,222,128,0.22)]">
+          {/* Mini Articles */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-12 lg:gap-14 xl:gap-16 pt-12 sm:pt-16 border-t border-neutral-200"
+          >
             {MINI_ARTICLES.map((article, i) => (
               <motion.div
                 key={article.title}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5 + i * 0.1 }}
+                transition={{ delay: 0.4 + i * 0.12, duration: 0.6 }}
                 className="group cursor-pointer"
               >
-                <span className="font-label text-[9px] text-[#4ADE80] tracking-widest uppercase mb-4 block font-bold">
+                <span className="text-[9px] sm:text-[10px] text-emerald-600 tracking-[0.15em] sm:tracking-widest uppercase mb-3 sm:mb-4 block font-bold">
                   {article.category}
                 </span>
-                <h3 className="font-display font-bold text-xl mb-3 tracking-tight text-[rgba(255,255,255,0.90)] group-hover:text-[#4ADE80] transition-colors duration-500">
+                <h3 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 tracking-[-0.02em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
                   {article.title}
                 </h3>
-                <p className="text-xs text-[rgba(255,255,255,0.40)] opacity-50 font-light leading-relaxed">
+                <p className="text-[12px] sm:text-xs text-neutral-400 font-light leading-relaxed">
                   {article.description}
                 </p>
+                <div className="mt-4 w-0 group-hover:w-8 h-px bg-emerald-500 transition-all duration-500" />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
-        {/* Founder Frameworks */}
-        <section className="py-12 lg:py-12 px-6 lg:px-32 bg-[#111812] text-center">
+        {/* ─── Founder Frameworks ─── */}
+        <section className="py-12 sm:py-16 lg:py-20 px-5 sm:px-6 lg:px-24 xl:px-32  bg-gradient-to-b from-emerald-50/80 to-transparent  text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center mb-12"
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center mb-10 sm:mb-12"
           >
-            <span className="font-label text-[#4ADE80] text-[10px] uppercase tracking-[0.4em] mb-6 font-bold">
+            <span className="text-emerald-600 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5 sm:mb-6 font-bold">
               Founder Frameworks
             </span>
-            <h2 className="font-display font-bold text-5xl lg:text-7xl tracking-ultra-tight max-w-4xl leading-tight text-[rgba(255,255,255,0.90)]">
-              High-Value Tools for <br />
-              High-Stakes Decisions.
+            <h2 className="font-bold text-4xl sm:text-5xl lg:text-7xl tracking-[-0.03em] max-w-4xl leading-tight text-neutral-900">
+              High-Value Tools for
+              <br className="hidden sm:block" /> High-Stakes Decisions.
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 text-left"
+          >
             {FRAMEWORKS.map((tool, i) => (
               <motion.div
                 key={tool.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                variants={fadeUp}
                 whileHover={{
-                  borderColor: "rgba(74, 222, 128, 0.22)",
-                  scale: 1.02,
+                  y: -6,
+                  borderColor: "rgba(5, 150, 105, 0.3)",
+                  boxShadow: "0 20px 60px -20px rgba(5, 150, 105, 0.12)",
                 }}
-                className="p-12 lg:p-16 border border-[rgba(74,222,128,0.22)] transition-all duration-700 group  rounded-lg cursor-pointer"
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="p-8 sm:p-12 lg:p-14 xl:p-16 border border-neutral-200 bg-white transition-all duration-500 group rounded-sm cursor-pointer"
               >
-                <div className="w-16 h-16 flex items-center justify-center border  bg-[#1D2820] rounded-sm mb-12 border-[#4ADE80] transition-colors">
+                <motion.div
+                  whileHover={{ rotate: 6, scale: 1.08 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center border bg-neutral-50 rounded-sm mb-8 sm:mb-12 border-emerald-500/30 group-hover:bg-emerald-50 transition-colors duration-300"
+                >
                   <tool.icon
-                    className="text-[#4ADE80] w-8 h-8"
+                    className="text-emerald-600 w-7 h-7 sm:w-8 sm:h-8"
                     strokeWidth={1.5}
                   />
-                </div>
-                <h4 className="font-display font-bold group-hover:text-[#4ADE80] text-3xl mb-6 tracking-tight text-[rgba(255,255,255,0.90)]">
+                </motion.div>
+                <h4 className="font-bold group-hover:text-emerald-600 text-2xl sm:text-3xl mb-4 sm:mb-6 tracking-[-0.02em] text-neutral-900 transition-colors duration-300">
                   {tool.title}
                 </h4>
-                <p className="font-body text-[rgba(255,255,255,0.40)] mb-2 opacity-50 font-light leading-relaxed">
+                <p className="text-neutral-400 sm:text-[15px] font-light leading-relaxed">
                   {tool.description}
                 </p>
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.6 + i * 0.15,
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="mt-6 sm:mt-8 h-px w-8 bg-emerald-500/40 origin-left"
+                />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
-        {/* Quotes */}
-        <section className="py-8 lg:py-18 px-6 lg:px-32 bg-[#0A0F0C] border-y border-[rgba(74,222,128,0.22)]">
+        {/* ─── Quotes ─── */}
+        <section className="py-10 sm:py-14 lg:py-20 px-5 sm:px-6 lg:px-24 xl:px-32 bg-white border-y border-neutral-200">
           <div className="max-w-6xl mx-auto">
-            <div className="flex justify-center mb-8 opacity-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 0.15, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex justify-center mb-6 sm:mb-8"
+            >
               <Quote
-                size={60}
-                fill="#4ADE80"
-                className="text-[#4ADE80]"
+                size={48}
+                className="text-emerald-600"
+                fill="currentColor"
               />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 lg:gap-32">
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 xl:gap-32">
               <motion.blockquote
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="relative"
               >
-                <p className="font-display font-medium text-3xl leading-snug italic text-[rgba(255,255,255,0.90)] mb-8 tracking-tight">
-                  "The quality of your network is the ceiling of your success."
+                <p className="font-medium text-2xl sm:text-3xl leading-snug italic text-neutral-800 mb-6 sm:mb-8 tracking-[-0.02em]">
+                  &ldquo;The quality of your network is the ceiling of your
+                  success.&rdquo;
                 </p>
-                <cite className="font-label text-[9px] uppercase tracking-[0.3em] text-[#4ADE80] not-italic font-bold">
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.3,
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="h-px w-8 bg-emerald-500/40 mb-4 origin-left"
+                />
+                <cite className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-emerald-600 not-italic font-bold">
                   — Circle Member, Series C Founder
                 </cite>
               </motion.blockquote>
@@ -564,51 +671,81 @@ export default function Resources() {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="relative"
               >
-                <p className="font-display font-medium text-3xl leading-snug italic text-[rgba(255,255,255,0.90)] mb-8 tracking-tight">
-                  "Clarity isn't found in the chaos; it's forged in the silence
-                  that follows it."
+                <p className="font-medium text-2xl sm:text-3xl leading-snug italic text-neutral-800 mb-6 sm:mb-8 tracking-[-0.02em]">
+                  &ldquo;Clarity isn&apos;t found in the chaos; it&apos;s forged
+                  in the silence that follows it.&rdquo;
                 </p>
-                <cite className="font-label text-[9px] uppercase tracking-[0.3em] text-[#4ADE80] not-italic font-bold">
-                  — Circle Member, Exit '22
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.3,
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="h-px w-8 bg-emerald-500/40 mb-4 origin-left"
+                />
+                <cite className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-emerald-600 not-italic font-bold">
+                  — Circle Member, Exit &apos;22
                 </cite>
               </motion.blockquote>
             </div>
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-10 lg:py-14 px-6 lg:px-32 bg-[#0A0F0C] text-center relative overflow-hidden">
-          <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-[#4ADE80]/20 rounded-full blur-3xl" />
+        {/* ─── Final CTA ─── */}
+        <section className="py-16 sm:py-20 lg:py-28 px-5 sm:px-6 lg:px-24 xl:px-32 bg-white text-center relative overflow-hidden">
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] rounded-full bg-emerald-500/[0.03] blur-3xl" />
           </div>
 
-          <div className="relative z-2 max-w-4xl mx-auto">
+          <div className="relative z-10 max-w-4xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-display font-bold text-6xl md:text-8xl tracking-ultra-tight mb-12 leading-[0.9] text-[rgba(255,255,255,0.90)]"
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="font-bold text-5xl sm:text-6xl md:text-8xl tracking-[-0.04em] mb-10 sm:mb-12 leading-[0.9] text-neutral-900"
             >
-              Experience <br />
+              Experience
+              <br />
               The Unseen.
             </motion.h2>
 
-            <motion.button
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-[#4ADE80] text-[#0A0F0C] font-display font-bold text-[10px] uppercase tracking-[0.4em] px-16 transition-all duration-700 shadow-2xl shadow-[rgba(74,222,128,0.10)]"
+              transition={{ delay: 0.2, duration: 0.6 }}
             >
-              Explore Experiences
-            </motion.button>
+              <Link to="/apply">
+                {" "}
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative overflow-hidden border border-emerald-300  text-black font-bold hover:border-white text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] px-10 sm:px-16 py-4 sm:py-5 transition-all duration-700 shadow-lg shadow-neutral-900/10 group"
+                >
+                  <span className="absolute inset-0 bg-emerald-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                    Explore Experiences
+                  </span>
+                </motion.button>
+              </Link>
+            </motion.div>
 
-            <p className="mt-12 font-label text-[9px] text-[rgba(255,255,255,0.40)] uppercase tracking-[0.4em] font-medium">
-              Restricted Access • Verified Founders Only
-            </p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="mt-8 sm:mt-12 text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-[0.3em] sm:tracking-[0.4em] font-medium"
+            >
+              Restricted Access &bull; Verified Founders Only
+            </motion.p>
           </div>
         </section>
       </main>

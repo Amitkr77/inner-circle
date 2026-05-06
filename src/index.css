@@ -16,7 +16,7 @@
 
 @layer base {
     body {
-        @apply bg-premium-black text-white antialiased selection:bg-accent-emerald selection:text-white overflow-x-hidden;
+        @apply  text-black antialiased selection:bg-accent-emerald selection:text-white overflow-x-hidden;
         font-family: var(--font-sans);
     }
 }

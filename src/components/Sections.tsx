@@ -16,13 +16,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { Button } from "./UI";
-import {
-  EXPERIENCES,
-  TESTIMONIALS,
-  STATS,
-  LOGOS,
-  
-} from "../constants";
+import { EXPERIENCES, TESTIMONIALS } from "../constants";
 import type { Experience } from "../constants";
 import ContactForm from "../components/InputField";
 export function ExperienceDetailModal({
@@ -342,49 +336,6 @@ export function Hero() {
 export function ExperienceShowcase() {
   const [filter] = useState("India");
 
-  // Mocking your data structure so the code is runnable
-  // const EXPERIENCES = [
-  //   {
-  //     id: "1",
-  //     category: "India",
-  //     image:
-  //       "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=2070",
-  //     title: "The Himalayan Reset",
-  //     location: "Rishikesh",
-  //     vibe: "Deep Work",
-  //     duration: "5 Days",
-  //     nights: 4,
-  //     groupSize: 12,
-  //     pricePerHead: 150000,
-  //   },
-  //   {
-  //     id: "2",
-  //     category: "India",
-  //     image:
-  //       "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&q=80&w=2070",
-  //     title: "Coastal Clarity",
-  //     location: "Goa",
-  //     vibe: "Networking",
-  //     duration: "3 Days",
-  //     nights: 2,
-  //     groupSize: 15,
-  //     pricePerHead: 85000,
-  //   },
-  //   {
-  //     id: "3",
-  //     category: "India",
-  //     image:
-  //       "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=2070",
-  //     title: "Rajasthan Architecture",
-  //     location: "Jodhpur",
-  //     vibe: "Cultural",
-  //     duration: "4 Days",
-  //     nights: 3,
-  //     groupSize: 10,
-  //     pricePerHead: 120000,
-  //   },
-  // ];
-
   const filteredExperiences = EXPERIENCES.filter(
     (exp) => exp.category === filter,
   );
@@ -396,11 +347,15 @@ export function ExperienceShowcase() {
   return (
     <section
       id="explore"
-      className="bg-[#050505] py-18 md:py-28 border-t border-white/[0.08] overflow-hidden"
+      className="relative bg-[#FDFCF8] py-16 md:py-28 border-t border-[#0A0A0A]/[0.06] overflow-hidden selection:bg-emerald-200 selection:text-emerald-900"
     >
+      {/* Premium Ambient Gradients */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(6,78,59,0.05),_transparent_50%)]" />
+      <div className="pointer-events-none absolute top-0 left-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_top_left,_rgba(6,78,59,0.04),_transparent_50%)]" />
+
       <div className="max-w-7xl mx-auto px-6 md:px-11">
         {/* ── Header ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 md:items-end gap-8 border-b border-white/[0.1] pb-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:items-end gap-8 border-b border-[#0A0A0A]/[0.06] pb-12 md:pb-16 mb-12 md:mb-20">
           {/* Left: The Title */}
           <div>
             <motion.p
@@ -421,7 +376,7 @@ export function ExperienceShowcase() {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white"
+                className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-[#0A0A0A]"
               >
                 Curated Expeditions.
               </motion.h2>
@@ -438,7 +393,7 @@ export function ExperienceShowcase() {
                   delay: 0.1,
                   ease: [0.76, 0, 0.24, 1],
                 }}
-                className="text-[clamp(1.5rem,3vw,2.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white/[0.3]"
+                className="text-[clamp(1.5rem,3vw,2.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-emerald-900/60"
               >
                 India.
               </motion.p>
@@ -451,19 +406,19 @@ export function ExperienceShowcase() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="md:pb-2 md:pl-14 border-l border-white/[0.08] flex flex-col gap-4 place-items-end"
+            className="md:pb-2 md:pl-14 border-l border-[#0A0A0A]/[0.08] flex flex-col gap-4 place-items-end"
           >
             {/* Static Data Readout (Replaces the lonely single button) */}
             <div className="flex items-center gap-3">
               <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-emerald-400 border-b border-emerald-400/30 pb-0.5">
                 India
               </span>
-              <span className="font-mono text-[12px] uppercase tracking-[0.3em] text-white/50 bg-black/50 backdrop-blur-sm px-3 py-1.5 border border-white/[0.08]">
+              <span className="font-mono text-[12px] uppercase tracking-[0.3em] text-black/50  bg-gradient-to-b from-emerald-50/80 to-transparent backdrop-blur-sm px-3 py-1.5 border border-emerald-400/20">
                 :Active Region
               </span>
             </div>
 
-            <p className="text-[15px] leading-[1.75] text-white/50 max-w-[350px] text-right">
+            <p className="text-[15px] leading-[1.75] text-black/50 max-w-[350px] text-right">
               Breathtaking landscapes, luxury stays, and expert-led workshops
               designed for builders.
             </p>
@@ -471,14 +426,14 @@ export function ExperienceShowcase() {
         </div>
 
         {/* ── The Asymmetric Magazine Grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[2px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-px">
           {/* Left: The Featured Massive Card */}
           {featuredExp && (
             <motion.div
               layout
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="lg:col-span-7 relative h-[500px] lg:h-[700px] overflow-hidden bg-neutral-900 border border-white/[0.06] group cursor-pointer"
+              className="lg:col-span-7 relative h-[450px] sm:h-[550px] lg:h-[700px] overflow-hidden bg-neutral-100 group cursor-pointer"
             >
               <Link
                 to={`/experiences/${featuredExp.id}`}
@@ -496,10 +451,10 @@ export function ExperienceShowcase() {
               <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 z-10 pointer-events-none">
                 {/* Top Stamps */}
                 <div className="flex items-start justify-between">
-                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/50 bg-black/50 backdrop-blur-sm px-4 py-2 border border-white/[0.08]">
+                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-black/50 bg-white/50 backdrop-blur-sm px-4 py-2 border border-white/[0.08]">
                     {featuredExp.vibe}
                   </span>
-                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/50 bg-black/50 backdrop-blur-sm px-4 py-2 border border-white/[0.08]">
+                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-black/50 bg-white/50 backdrop-blur-sm px-4 py-2 border border-white/[0.08]">
                     {featuredExp.duration} • {featuredExp.nights} Nights
                   </span>
                 </div>
@@ -558,19 +513,20 @@ export function ExperienceShowcase() {
           )}
 
           {/* Right: Stacked Cards Container */}
-          <div className="lg:col-span-5 flex flex-col gap-[2px]">
+          <div className="lg:col-span-5 flex flex-col gap-[0.5px]">
             {stackedExps.map((exp) => (
               <motion.div
                 key={exp.id}
                 layout
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="relative flex-1 min-h-[350px] overflow-hidden bg-neutral-900 border border-white/[0.06] group cursor-pointer"
+                className="relative flex-1 min-h-[350px] overflow-hidden bg-neutral-900  group cursor-pointer"
               >
                 <Link
                   to={`/experiences/${exp.id}`}
                   className="absolute inset-0 z-20"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
                 <img
                   src={exp.image}
@@ -578,7 +534,6 @@ export function ExperienceShowcase() {
                   className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-[1.5s] ease-out"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
 
                 <div className="absolute inset-0 flex flex-col justify-between p-8 z-10 pointer-events-none">
                   <div className="flex justify-end">
@@ -597,7 +552,7 @@ export function ExperienceShowcase() {
                           {exp.title}
                         </h3>
                       </div>
-                      <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-emerald-400/30 transition-all duration-500 shrink-0">
+                      <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-emerald-400/30 transition-all duration-500 shrink-0">
                         <svg
                           className="w-3.5 h-3.5 text-emerald-400/70 -rotate-45"
                           fill="none"
@@ -615,11 +570,11 @@ export function ExperienceShowcase() {
                     </div>
 
                     <div className="flex items-center gap-5 pt-5 border-t border-white/[0.1]">
-                      <span className="text-[11px] font-bold text-white/50">
+                      <span className="text-[11px] font-bold text-white">
                         {exp.groupSize} Founders
                       </span>
-                      <div className="h-4 w-px bg-white/[0.08]" />
-                      <span className="text-[11px] font-bold text-white/50">
+                      <div className="h-4 w-px bg-white/[0.5]" />
+                      <span className="text-[11px] font-bold text-white">
                         Revealing Soon
                       </span>
                     </div>
@@ -640,14 +595,14 @@ export function ExperienceShowcase() {
         >
           <a
             href="/explore"
-            className="group inline-flex items-center gap-4 border border-white/[0.1] px-8 py-4 hover:border-emerald-400/30 hover:bg-emerald-400/5 transition-all duration-300"
+            className="group inline-flex items-center gap-4 border  px-8 py-4 border-emerald-400/30 bg-emerald-400/5 transition-all duration-300"
           >
-            <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-white/60 group-hover:text-white transition-colors">
+            <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-emerald-400 group-hover:text-emerald-400 transition-colors">
               View all expeditions
             </span>
-            <div className="w-8 h-8 rounded-full border border-current flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full border border-emerald-400/30 flex items-center justify-center">
               <svg
-                className="w-3 h-3 -rotate-45 text-white/60 group-hover:text-emerald-400 transition-colors"
+                className="w-3 h-3 -rotate-45 text-emerald-400 transition-colors"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -686,38 +641,38 @@ export function CorporateExperience() {
     },
   ];
 
-  // const LOGOS = ["META", "STRIPE", "APPLE", "GOOGLE", "NETFLIX", "SPOTIFY"];
-
   return (
     <section
       id="corporate"
-      className="bg-[#050505] py-18 md:py-28 border-t border-white/[0.08] overflow-hidden"
+      className=" bg-gradient-to-b from-emerald-50/80 to-transparente py-18 md:py-28 border-t border-white/[0.08] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-11">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-[2px]">
-          {/* ── Left: The Architectural Image ── */}
+          {/* ── Left Image ── */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="lg:col-span-5 relative h-[500px] lg:h-auto bg-neutral-900 overflow-hidden border border-white/[0.08]"
+            className="lg:col-span-5 relative h-[500px] lg:h-auto bg-neutral-900 overflow-hidden"
           >
-            {/* Increased image opacity from 70 to 85 */}
             <img
               src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070"
               alt="Corporate Team Alignment"
-              className="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-[1.5s] ease-out"
+              className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-[1.5s] ease-out"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#050505]/80 lg:to-[#050505]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent lg:from-transparent" />
 
-            <div className="absolute top-6 left-6 w-16 h-16 border-t border-l border-white/[0.5] z-10" />
+            {/* Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
+            {/* Corner detail */}
+            <div className="absolute top-6 left-6 w-16 h-16 border-t border-l border-white/40 z-10" />
+
+            {/* Badge */}
             <div className="absolute bottom-6 left-6 z-10 hidden lg:block">
-              <div className="bg-black/70 backdrop-blur-sm border border-white/[0.2] px-4 py-2">
-                <span className="font-mono text-[10px] tracking-[0.3em] text-white/60 uppercase">
+              <div className="bg-black/70 backdrop-blur-sm border border-white/20 px-4 py-2">
+                <span className="font-mono text-[10px] tracking-[0.3em] text-white/70 uppercase">
                   Enterprise Tier
                 </span>
               </div>
@@ -725,7 +680,7 @@ export function CorporateExperience() {
           </motion.div>
 
           {/* ── Right: The Specification Sheet ── */}
-          <div className="lg:col-span-7 bg-[#0a0a0a] border border-white/[0.08] p-8 md:p-16 flex flex-col justify-center">
+          <div className="lg:col-span-7  border border-white/[0.08] p-8 md:p-16 flex flex-col justify-center">
             {/* Eyebrow - Increased from 50 to 80 */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -748,7 +703,7 @@ export function CorporateExperience() {
                   whileInView={{ y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                  className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white"
+                  className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-black"
                 >
                   Offsites designed
                 </motion.h2>
@@ -763,12 +718,12 @@ export function CorporateExperience() {
                     delay: 0.1,
                     ease: [0.76, 0, 0.24, 1],
                   }}
-                  className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white/40"
+                  className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-black/40"
                 >
                   for high-scale
                 </motion.h2>
               </div>
-              <div className="overflow-hidden">
+              <div className="">
                 <motion.h2
                   initial={{ y: "110%" }}
                   whileInView={{ y: 0 }}
@@ -778,7 +733,7 @@ export function CorporateExperience() {
                     delay: 0.2,
                     ease: [0.76, 0, 0.24, 1],
                   }}
-                  className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white"
+                  className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-black"
                 >
                   teams.
                 </motion.h2>
@@ -794,18 +749,18 @@ export function CorporateExperience() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + idx * 0.1, duration: 0.6 }}
-                  className="group flex items-baseline gap-6 py-7 border-b border-white/[0.1] cursor-default hover:bg-white/[0.02] -mx-4 px-4 transition-colors duration-300"
+                  className="group flex items-baseline gap-6 py-7 border-b border-black/[0.1] cursor-default hover:bg-white/[0.02] -mx-4 px-4 transition-colors duration-300"
                 >
                   {/* Increased from 15 to 40 */}
-                  <span className="font-mono text-[11px] text-white/40 min-w-[24px] group-hover:text-emerald-400 transition-colors duration-300">
+                  <span className="font-mono text-[11px] text-black/40 min-w-[24px] group-hover:text-emerald-400 transition-colors duration-300">
                     {item.id}
                   </span>
                   {/* Increased from 70 to solid white */}
-                  <h4 className="flex-1 text-[18px] font-bold tracking-[-0.02em] text-white group-hover:text-emerald-400 transition-colors duration-300">
+                  <h4 className="flex-1 text-[18px] font-bold tracking-[-0.02em] text-black group-hover:text-emerald-400 transition-colors duration-300">
                     {item.title}
                   </h4>
                   {/* Increased from 25 to 50 - THE CRITICAL FIX */}
-                  <p className="hidden md:block text-[14px] text-white/50 max-w-xs text-right group-hover:text-white/70 transition-colors duration-300">
+                  <p className="hidden md:block text-[14px] text-black/50 max-w-xs text-right group-hover:text-black/70 transition-colors duration-300">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -816,14 +771,14 @@ export function CorporateExperience() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
               <a
                 href="/contact"
-                className="group inline-flex items-center gap-3 border border-white/[0.15] px-7 py-4 hover:border-emerald-400/50 hover:bg-emerald-400/5 transition-all duration-300 w-fit"
+                className="group inline-flex items-center gap-3 border px-7 py-4 border-emerald-400/50 bg-emerald-400/5 transition-all duration-300 w-fit"
               >
-                <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-white/80 group-hover:text-white transition-colors">
+                <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-black/80 group-hover:text-black transition-colors">
                   Enquire now
                 </span>
-                <div className="w-8 h-8 rounded-full border border-current flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full border border-emerald-400/50 bg-emerald-400/5 flex items-center justify-center">
                   <svg
-                    className="w-3 h-3 -rotate-45 text-white/80 group-hover:text-emerald-400 transition-colors"
+                    className="w-3 h-3 -rotate-45 text-emerald-400 transition-colors"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -837,22 +792,6 @@ export function CorporateExperience() {
                   </svg>
                 </div>
               </a>
-
-              {/* <div className="border-l border-white/[0.1] pl-6">
-                <p className="text-[9px] uppercase tracking-[0.3em] text-white/50 mb-3 font-bold">
-                  Trusted by world-class orgs
-                </p>
-                <div className="flex flex-wrap gap-x-5 gap-y-2">
-                  {LOGOS.map((logo) => (
-                    <span
-                      key={logo}
-                      className="font-mono text-[11px] tracking-widest text-emerald-400 border border-emerald-400/20 px-3 py-1 "
-                    >
-                      {logo}
-                    </span>
-                  ))}
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
@@ -865,20 +804,26 @@ export function CommunitySection() {
   return (
     <section
       id="community"
-      className="bg-[#050505] py-18 md:py-28 overflow-hidden relative"
+      className=" bg-gradient-to-b from-emerald-50/80 to-transparent py-16 sm:py-20  overflow-hidden relative"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-11">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11">
         {/* ── Header ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 md:items-end gap-8 md:gap-0 mb-20 border-b border-white/[0.06] pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:items-end gap-8 md:gap-0 mb-14 sm:mb-20 border-b border-neutral-200 pb-10 sm:pb-16">
           <div>
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.4em] text-emerald-400"
+              className="mb-5 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600"
             >
-              <div className="h-px w-5 bg-emerald-400" />
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="h-px w-5 bg-emerald-600 origin-left"
+              />
               Network Effect
             </motion.p>
 
@@ -888,7 +833,7 @@ export function CommunitySection() {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white/[0.9]"
+                className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-neutral-900"
               >
                 More than a trip.
               </motion.h2>
@@ -903,7 +848,7 @@ export function CommunitySection() {
                   delay: 0.1,
                   ease: [0.76, 0, 0.24, 1],
                 }}
-                className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white/20 hover:text-emerald-400 transition-colors duration-500"
+                className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-emerald-500 transition-colors duration-500 cursor-default"
               >
                 A lifelong network.
               </motion.h2>
@@ -911,13 +856,13 @@ export function CommunitySection() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
             className="md:pb-2 md:pl-14"
           >
-            <p className="border-l border-emerald-400 pl-5 text-[15px] leading-[1.85] text-white/50">
+            <p className="border-l border-emerald-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500">
               Skip the small talk. This is where builders connect through depth,
               shared pressure, and unfiltered conversations.
             </p>
@@ -932,25 +877,25 @@ export function CommunitySection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="lg:col-span-8 relative min-h-[500px] lg:min-h-[650px] overflow-hidden bg-black group cursor-default"
+            className="lg:col-span-8 relative min-h-[400px] sm:min-h-[500px] lg:min-h-[650px] overflow-hidden bg-neutral-900 group cursor-default rounded-sm lg:rounded-none lg:rounded-l-sm"
           >
             {/* The Image - Slow Cinematic Zoom */}
             <img
               src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=2070"
               alt="Workshop session"
               referrerPolicy="no-referrer"
-              className="absolute inset-0 w-full h-full object-cover opacity-70 scale-105 group-hover:scale-110 transition-transform duration-[2s] ease-out"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 group-hover:scale-110 transition-transform duration-[2s] ease-out"
             />
 
             {/* Multi-layer Gradients for Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/50 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/50 to-neutral-900/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/70 via-transparent to-neutral-900/90" />
 
             {/* Content Layer */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-16">
+            <div className="relative z-10 h-full flex flex-col justify-end p-8 sm:p-10 md:p-16">
               {/* Micro-detail top */}
-              <div className="absolute top-8 left-8 md:top-16 md:left-16 flex items-center gap-3">
-                <div className="w-8 h-px bg-emerald-400/60" />
+              <div className="absolute top-8 left-8 sm:top-10 sm:left-10 md:top-16 md:left-16 flex items-center gap-3">
+                <div className="w-8 h-px bg-emerald-400/80" />
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/50">
                   Session Type: Mentorship
                 </span>
@@ -967,11 +912,13 @@ export function CommunitySection() {
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
-                  className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white mb-6 text-3xl md:text-4xl lg:text-5xl xl:text-7xl group-hover:text-emerald-400 transition-colors duration-500"
+                  className="text-[clamp(1.8rem,4vw,3.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white mb-6 group-hover:text-emerald-400 transition-colors duration-500"
                 >
                   Expert-Led
                   <br />
-                  <span className="text-white/30">Mentorship.</span>
+                  <span className="text-white/30 group-hover:text-emerald-400/50 transition-colors duration-500">
+                    Mentorship.
+                  </span>
                 </motion.h3>
 
                 <motion.p
@@ -979,7 +926,7 @@ export function CommunitySection() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  className="text-[15px] leading-[1.8] text-white/40 mb-10 max-w-md"
+                  className="text-[14px] sm:text-[15px] leading-[1.8] text-white/50 mb-10 max-w-md"
                 >
                   Every expedition features sessions with billion-dollar
                   founders and world-class psychologists to help you rewire your
@@ -993,27 +940,33 @@ export function CommunitySection() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="flex items-center gap-5 pt-8 border-t border-white/[0.08] max-w-md"
+                className="flex items-center gap-5 pt-8 border-t border-white/[0.1] max-w-md"
               >
                 <div className="flex -space-x-3">
                   {[1, 2, 3, 4].map((i) => (
-                    <div
+                    <motion.div
                       key={i}
-                      className="w-11 h-11 rounded-full bg-neutral-800 border-2 border-black overflow-hidden grayscale hover:grayscale-0 transition-all duration-700"
+                      whileHover={{ scale: 1.15, zIndex: 50 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-neutral-700 border-2 border-neutral-900 overflow-hidden grayscale hover:grayscale-0 transition-all duration-700"
                     >
                       <img
                         src={`https://i.pravatar.cc/150?u=${i * 10}`}
                         alt="Mentor"
                         className="w-full h-full object-cover"
                       />
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
                 <div className="ml-2">
-                  <span className="text-[13px] font-bold text-emerald-400/70">
+                  <span className="text-[13px] font-bold text-emerald-400/80">
                     +15
                   </span>
-                  <span className="block text-[9px] uppercase tracking-[0.3em] text-white/50 font-bold mt-0.5">
+                  <span className="block text-[9px] uppercase tracking-[0.3em] text-white/40 font-bold mt-0.5">
                     Active Mentors
                   </span>
                 </div>
@@ -1027,61 +980,81 @@ export function CommunitySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-4 bg-[#0a0a0a] relative overflow-hidden flex flex-col justify-between p-10 md:p-14"
+            className="lg:col-span-4  relative overflow-hidden flex flex-col justify-between p-8 sm:p-10 transition-colors duration-500 rounded-sm lg:rounded-none lg:rounded-r-sm"
           >
             {/* Ghosted Background Number */}
-            <span className="absolute -bottom-6 -right-4 text-[10rem] font-black leading-none text-white/[0.015] select-none pointer-events-none">
+            <span className="absolute -bottom-6 -right-4 text-[10rem] font-black leading-none text-emerald-900/[0.3] select-none pointer-events-none">
               03
             </span>
 
             <div className="relative z-10">
               <div className="mb-8 flex items-center gap-3">
-                <div className="h-px w-5 bg-emerald-400" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/50">
+                <div className="h-px w-5 bg-emerald-600" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-neutral-400">
                   Infrastructure
                 </span>
               </div>
 
-              <h3 className="text-[clamp(1.3rem,2vw,22px)] font-extrabold tracking-[-0.03em] text-white/85 leading-tight mb-4">
+              <motion.h3
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="text-5xl font-extrabold tracking-[-0.03em] text-emerald-500 leading-tight mb-4"
+              >
                 High-Stakes
                 <br />
                 Networking.
-              </h3>
-              <p className="text-[15px] leading-[1.8] text-white/50">
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-[14px] sm:text-[15px] leading-[1.8] text-neutral-500"
+              >
                 Curated dinners and challenges designed to bypass surface-level
                 conversation.
-              </p>
+              </motion.p>
             </div>
 
             <div className="relative z-10 mt-12">
-              <div className="h-px w-full bg-white/[0.04] mb-6" />
+              <div className="h-px w-full bg-neutral-200 mb-6" />
 
               {[
                 { label: "Weekly Workshops", val: "Online", id: "01" },
                 { label: "Private Discord", val: "Exclusive", id: "02" },
                 { label: "Asset Access", val: "Included", id: "03" },
               ].map((item, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="group flex items-center justify-between py-5 border-b border-white/[0.05] last:border-b-0 cursor-default"
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.3 + idx * 0.1,
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="group/item flex items-center justify-between py-4 sm:py-5 border-b border-neutral-200 last:border-b-0 cursor-default"
                 >
-                  <div className="flex items-center gap-5">
-                    <span className="font-mono text-[10px] text-white/50 w-4">
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <span className="font-mono text-[10px] text-neutral-400 w-4">
                       {item.id}
                     </span>
-                    <span className="text-[11px] uppercase tracking-[0.2em] text-white/50 group-hover:text-white/70 transition-colors duration-300">
+                    <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 group-hover/item:text-neutral-800 transition-colors duration-300">
                       {item.label}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="text-[12px] font-bold tracking-[-0.02em] text-white/70">
+                    <span className="text-[12px] font-bold tracking-[-0.02em] text-neutral-700 group-hover/item:text-neutral-900 transition-colors duration-300">
                       {item.val}
                     </span>
                     {/* Animated expanding bar on hover */}
-                    <div className="w-0 h-px bg-emerald-400/50 group-hover:w-4 transition-all duration-300" />
+                    <div className="w-0 h-px bg-emerald-500/70 group-hover/item:w-4 transition-all duration-300" />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -1089,37 +1062,37 @@ export function CommunitySection() {
       </div>
 
       {/* ── High-Contrast Editorial Ticker ── */}
-      <div className="mt-24 bg-[#080808] relative overflow-hidden select-none border-t border-b border-white/[0.06]">
+      <div className="mt-16 sm:mt-24  relative overflow-hidden select-none ">
         {/* Shorter edge fades so more text is readable */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#080808] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#080808] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-24 sm:w-32 bg-gradient-to-r from-neutral-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 sm:w-32 bg-gradient-to-l from-neutral-50 to-transparent z-10 pointer-events-none" />
 
-        <div className="py-14 md:py-20 space-y-12">
+        <div className="py-10 sm:py-14 md:py-20 space-y-10 sm:space-y-12">
           {/* Track 1: The Quotes (Moves Left) */}
           <div className="flex whitespace-nowrap">
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
               transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-              className="flex shrink-0 gap-16 md:gap-24 pr-16 md:pr-24"
+              className="flex shrink-0 gap-14 sm:gap-16 md:gap-24 pr-14 sm:pr-16 md:pr-24"
             >
               {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
                 <div
                   key={`q-${i}`}
-                  className="flex items-center gap-6 min-w-max"
+                  className="flex items-center gap-5 sm:gap-6 min-w-max"
                 >
                   {/* Emerald Vertical Accent */}
-                  <div className="h-10 w-[2px] bg-emerald-400/60 shrink-0" />
+                  <div className="h-10 w-[2px] bg-emerald-500/70 shrink-0" />
 
                   <div className="flex flex-col">
-                    <span className="text-lg md:text-xl font-medium text-white/75 leading-snug">
-                      "{t.content}"
+                    <span className="text-base sm:text-lg md:text-xl font-medium text-neutral-700 leading-snug">
+                      &ldquo;{t.content}&rdquo;
                     </span>
                     <div className="flex items-center gap-3 mt-2">
-                      <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400/80">
+                      <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">
                         {t.name}
                       </span>
                       {t.company && (
-                        <span className="text-[10px] uppercase tracking-[0.15em] text-white/20 font-mono">
+                        <span className="text-[10px] uppercase tracking-[0.15em] text-neutral-300 font-mono">
                           {t.company}
                         </span>
                       )}
@@ -1135,19 +1108,19 @@ export function CommunitySection() {
             <motion.div
               animate={{ x: ["-50%", "0%"] }}
               transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              className="flex shrink-0 gap-12 md:gap-20 pl-12 md:pl-20"
+              className="flex shrink-0 gap-10 sm:gap-12 md:gap-20 pl-10 sm:pl-12 md:pl-20"
             >
               {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
                 <div
                   key={`r-${i}`}
-                  className="flex items-center gap-5 min-w-max"
+                  className="flex items-center gap-4 sm:gap-5 min-w-max"
                 >
-                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/30">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-neutral-400">
                     {t.role || "Founder"}
                   </span>
-                  <span className="w-1 h-1 rounded-full bg-white/10 shrink-0" />
-                  <span className="text-sm md:text-base font-light text-white/50 leading-snug">
-                    "{t.content}"
+                  <span className="w-1 h-1 rounded-full bg-neutral-300 shrink-0" />
+                  <span className="text-sm md:text-base font-light text-neutral-500 leading-snug">
+                    &ldquo;{t.content}&rdquo;
                   </span>
                 </div>
               ))}
@@ -1186,64 +1159,137 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-[#050505] py-18 md:py-28 overflow-hidden"
+      className=" bg-gradient-to-b from-emerald-50/80 to-transparent py-16 sm:py-20 md:py-28 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-11">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-11">
         {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20 md:mb-28 border-b border-white/[0.1] "
+          className="text-center mb-14 sm:mb-20 md:mb-28 relative"
         >
-          <p className="mb-5 inline-block text-[11px] font-bold uppercase tracking-[0.4em] text-emerald-400/70">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-4 sm:mb-5 inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-500"
+          >
             The Journey
-          </p>
-          <h2 className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white mx-auto max-w-3xl">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="text-[clamp(1.75rem,5vw,4.5rem)] font-black leading-[0.95] tracking-[-0.04em] text-neutral-900 mx-auto max-w-3xl"
+          >
             Simple process.{" "}
-            <span className="text-white/30">Profound results.</span>
-          </h2>
+            <span className="text-neutral-300">Profound results.</span>
+          </motion.h2>
+
+          {/* Animated underline */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-10 mx-auto h-px bg-neutral-200 origin-left"
+            style={{ maxWidth: "200px" }}
+          />
         </motion.div>
 
         {/* ── The 4-Column Matrix ── */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
           {steps.map((step, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                delay: idx * 0.15,
-                duration: 0.7,
+                delay: idx * 0.12,
+                duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-              className="group relative border-r border-white/[0.1] last:border-r-0 h-[450px] lg:h-[550px] flex flex-col justify-end p-8 lg:p-10"
+              whileHover={{ y: -6 }}
+              className="group relative border-b sm:border-b-0 sm:border-r border-neutral-200 last:border-r-0 last:border-b-0 min-h-[320px] sm:h-[420px] lg:h-[520px] flex flex-col justify-end p-7 sm:p-8 lg:p-10 cursor-default transition-colors duration-500 hover:bg-neutral-50/80"
             >
-              {/* Vertical Divider Hover Effect */}
-              <div className="absolute inset-y-0 right-0 w-px bg-transparent group-hover:bg-emerald-400/50 transition-colors duration-500 z-20" />
+              {/* Vertical Divider Hover Glow */}
+              <motion.div
+                initial={{ scaleY: 0 }}
+                whileHover={{ scaleY: 1 }}
+                className="absolute inset-y-0 right-0 w-px bg-emerald-400 origin-top z-20 hidden sm:block"
+                style={{
+                  transform: "scaleY(0)",
+                  transition: "transform 0.5s cubic-bezier(0.22,1,0.36,1)",
+                }}
+              />
+              <div
+                className="absolute inset-y-0 right-0 w-px bg-transparent group-hover:bg-emerald-400/60 transition-all duration-500 z-20 hidden sm:block"
+                style={{ transform: "scaleY(0)", transformOrigin: "top" }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLDivElement).style.transform = "scaleY(1)";
+                }}
+              />
 
-              {/* Massive Background Number - UPPED OPACITY */}
-              <div className="absolute top-[-20px] left-[-10px] lg:left-[20px] pointer-events-none select-none">
-                <span className="text-[10rem] lg:text-[14rem] font-black leading-none text-white/[0.1] group-hover:text-emerald-400 transition-colors duration-700">
+              {/* Massive Background Number */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  delay: idx * 0.12 + 0.2,
+                  ease: "easeOut",
+                }}
+                className="absolute top-[-16px] left-[-8px] lg:left-[16px] pointer-events-none select-none"
+              >
+                <span className="text-[8rem] sm:text-[10rem] lg:text-[14rem] font-black leading-none text-emerald-100 group-hover:text-emerald-400 transition-colors duration-700">
                   {step.num}
                 </span>
+              </motion.div>
+
+              {/* The Horizontal Line — animates width on hover */}
+              <div className="absolute top-1/2 left-0 right-0 z-0 flex items-center">
+                <div className="h-px bg-neutral-100 w-full transition-colors duration-500 group-hover:bg-emerald-200" />
+                <motion.div
+                  className="absolute left-0 h-px bg-emerald-400"
+                  initial={{ width: "0%" }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                />
               </div>
 
-              {/* The Continuous Horizontal Line - UPPED OPACITY */}
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-white/[0.08] z-0" />
-
-              {/* Bottom Content Block - UPPED OPACITY ON BORDER */}
-              <div className="relative z-10 border-t border-white/[0.12] pt-8 -mx-2 px-2">
-                <div className="flex items-center gap-3 mb-5">
-                  {/* UPPED OPACITY ON LABEL */}
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-emerald-400/60">
+              {/* Bottom Content Block */}
+              <div className="relative z-10 border-t border-neutral-200 group-hover:border-emerald-400/40 pt-6 sm:pt-8 transition-colors duration-500 -mx-1 px-1">
+                {/* STEP label — slides in from left */}
+                <motion.div
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: idx * 0.12 + 0.3,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="flex items-center gap-3 mb-4 sm:mb-5"
+                >
+                  <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-emerald-500/80">
                     STEP {step.num}
                   </span>
                   {idx < 3 && (
-                    <svg
-                      className="hidden lg:block w-4 h-4 text-white/20 absolute top-9 right-5 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all duration-500"
+                    <motion.svg
+                      initial={{ opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.4,
+                        delay: idx * 0.12 + 0.45,
+                      }}
+                      className="hidden lg:block w-4 h-4 text-neutral-300 absolute top-[2.15rem] right-3 group-hover:text-emerald-500 group-hover:translate-x-2 transition-all duration-500"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -1254,95 +1300,101 @@ export function HowItWorks() {
                         strokeLinejoin="round"
                         d="M17 8l4 4m0 0l-4 4m4-4H3"
                       />
-                    </svg>
+                    </motion.svg>
                   )}
-                </div>
+                </motion.div>
 
-                {/* UPPED OPACITY ON TITLE */}
-                <h3 className="text-2xl lg:text-3xl font-extrabold tracking-[-0.03em] text-white group-hover:text-emerald-400 transition-colors duration-300 mb-4">
+                {/* Title — mask reveal */}
+                <motion.h3
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: idx * 0.12 + 0.35,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-[-0.03em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-300 mb-3 sm:mb-4"
+                >
                   {step.title}
-                </h3>
+                </motion.h3>
 
-                {/* UPPED OPACITY ON DESCRIPTION - THE MAIN FIX */}
-                <p className="text-[14px] lg:text-[15px] leading-[1.75] text-white/50 group-hover:text-white/80 transition-colors duration-300">
+                {/* Description — fade up */}
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: idx * 0.12 + 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="text-[13px] sm:text-[14px] lg:text-[15px] leading-[1.7] sm:leading-[1.75] text-neutral-400 group-hover:text-neutral-600 transition-colors duration-300 max-w-[280px] lg:max-w-none"
+                >
                   {step.desc}
-                </p>
+                </motion.p>
+
+                {/* Hover accent dot — bottom left */}
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  className="mt-5 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[10px] font-mono tracking-widest text-emerald-500/70 uppercase">
+                    Active
+                  </span>
+                </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* ── Bottom Progression Indicator - UPPED OPACITY */}
-        <div className="mt-12 flex items-center justify-between px-2">
-          <span className="font-mono text-[11px] text-white/40 tracking-widest">
+        {/* ── Bottom Progression Indicator ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 px-1 sm:px-2"
+        >
+          <motion.span
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="font-mono text-[10px] sm:text-[11px] text-neutral-400 tracking-widest"
+          >
             PROGRESSION: 01 — 04
-          </span>
-          <div className="flex items-center gap-2">
-            <div className="w-12 h-px bg-white/20" />
-            <div className="w-12 h-px bg-emerald-400/40" />
-            <div className="w-12 h-px bg-emerald-400/60" />
-            <div className="w-12 h-px bg-emerald-400" />
+          </motion.span>
+
+          <div className="flex items-center gap-1.5 sm:gap-2 order-last sm:order-none">
+            {[10, 30, 55, 100].map((opacity, i) => (
+              <motion.div
+                key={i}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.6 + i * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="w-8 sm:w-12 h-px bg-emerald-500 origin-left"
+                style={{ opacity: opacity / 100 }}
+              />
+            ))}
           </div>
-          <span className="font-mono text-[11px] text-emerald-400 tracking-widest font-bold">
+
+          <motion.span
+            initial={{ opacity: 0, x: 10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="font-mono text-[10px] sm:text-[11px] text-emerald-500 tracking-widest font-bold"
+          >
             OUTPUT ACHIEVED
-          </span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function StatsSection() {
-  return (
-    <section className="py-20 relative px-6">
-      {/* Background Image 
-      <div
-        className="absolute inset-0 -z-10 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/your-image.jpg')",
-        }}
-      />*/}
-
-      {/* Gradient Background */}
-      <div className="absolute inset-0 -z-10 bg-[#0b0f1a]">
-        <div
-          className="absolute inset-0 
-            bg-[radial-gradient(circle_at_30%_40%,#94ffd1,transparent_40%),radial-gradient(circle_at_70%_60%,#7297f7,transparent_40%),radial-gradient(circle_at_50%_80%,#ffffff,transparent_30%)]
-            opacity-80 blur-2xl animate-gradientMove"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-black/30" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto glass-immersive rounded-2xl p-10 flex flex-col lg:flex-row items-center justify-between gap-12 backdrop-blur-2xl">
-        {/* Stats */}
-        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-16">
-          {STATS.map((stat, idx) => (
-            <div key={idx} className="flex flex-col gap-1">
-              <div className="text-3xl font-bold flex items-baseline">
-                <span>{stat.value}</span>
-                <span className="text-accent-red text-xl ml-0.5">
-                  {stat.suffix}
-                </span>
-              </div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/80 font-bold">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Logos */}
-        <div className="flex flex-wrap items-center justify-center gap-10 opacity-30 grayscale invert brightness-200">
-          {LOGOS.slice(0, 4).map((logo) => (
-            <span
-              key={logo}
-              className="text-xl font-black tracking-tighter uppercase"
-            >
-              {logo}
-            </span>
-          ))}
-        </div>
+          </motion.span>
+        </motion.div>
       </div>
     </section>
   );
@@ -1350,9 +1402,9 @@ export function StatsSection() {
 
 export function ContactSection() {
   return (
-    <section className="py-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className="  bg-gradient-to-b from-emerald-50/80 to-transparent py-16 sm:py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 sm:gap-16 lg:gap-20 items-center">
           {/* LEFT */}
           <div>
             <motion.p
@@ -1360,25 +1412,31 @@ export function ContactSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.4em] text-emerald-400"
+              className="mb-5 sm:mb-6 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600"
             >
-              <div className="h-px w-5 bg-emerald-400" />
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="h-px w-5 bg-emerald-600 origin-left"
+              />
               Get in touch
             </motion.p>
 
-            <div className="space-y-[-0.02em] mb-10">
+            <div className="mb-8 sm:mb-10">
               <div className="">
                 <motion.h2
                   initial={{ y: "110%" }}
                   whileInView={{ y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                  className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white/[0.9]"
+                  className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-neutral-900"
                 >
                   Ready to upgrade
                 </motion.h2>
               </div>
-              <div className="overflow-hidden">
+              <div className="">
                 <motion.h2
                   initial={{ y: "110%" }}
                   whileInView={{ y: 0 }}
@@ -1388,7 +1446,7 @@ export function ContactSection() {
                     delay: 0.1,
                     ease: [0.76, 0, 0.24, 1],
                   }}
-                  className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white/15"
+                  className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-emerald-500 transition-colors duration-500 cursor-default"
                 >
                   your life & team.
                 </motion.h2>
@@ -1396,19 +1454,19 @@ export function ContactSection() {
             </div>
 
             <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="border-l border-emerald-400 pl-5 text-[15px] leading-[1.85] text-white/60 max-w-md mb-12"
+              className="border-l border-emerald-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500 max-w-md mb-10 sm:mb-12"
             >
               Join the waiting list for our Summer 2026 expeditions or schedule
               a custom consultation for your corporate leadership team.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.8 }}
               className="space-y-0"
@@ -1422,19 +1480,51 @@ export function ContactSection() {
                   num: "02",
                   text: "Personal onboarding with our Experience Leads",
                 },
-              ].map((item) => (
-                <div
+              ].map((item, idx) => (
+                <motion.div
                   key={item.num}
-                  className="flex items-baseline gap-5 py-5 border-b border-white/[0.06] last:border-b-0"
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.7 + idx * 0.1,
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="group/item flex items-baseline gap-4 sm:gap-5 py-4 sm:py-5 border-b border-neutral-200 last:border-b-0 cursor-default"
                 >
-                  <span className="font-mono text-[11px] text-white/50 w-6">
+                  <span className="font-mono text-[10px] sm:text-[11px] text-neutral-400 w-5 sm:w-6 group-hover/item:text-emerald-600 transition-colors duration-300">
                     {item.num}
                   </span>
-                  <span className="text-[14px] font-medium text-white/50">
+                  <span className="text-[13px] sm:text-[14px] font-medium text-neutral-400 group-hover/item:text-neutral-700 group-hover/item:translate-x-1 transition-all duration-300">
                     {item.text}
                   </span>
-                </div>
+                  {/* Expanding accent bar */}
+                  <span className="ml-auto w-0 h-px bg-emerald-500/60 group-hover/item:w-6 transition-all duration-500" />
+                </motion.div>
               ))}
+            </motion.div>
+
+            {/* Bottom micro-detail */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1, duration: 0.6 }}
+              className="mt-8 sm:mt-10 flex items-center gap-2 text-neutral-300"
+            >
+              <motion.div
+                animate={{ x: [0, 4, 0] }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="h-px w-3 bg-emerald-500 origin-left "
+              />
+              <span className="text-[10px] font-bold text-black/60 uppercase tracking-[0.3em]">
+                Limited to 24 per cohort
+              </span>
             </motion.div>
           </div>
 

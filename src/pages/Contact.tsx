@@ -1,5 +1,3 @@
-// import { useState } from "react";
-// import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroimg from "../assets/hhh.png";
@@ -11,10 +9,28 @@ const fadeUp: Variants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+// const scaleIn: Variants = {
+//   hidden: { opacity: 0, scale: 0.95 },
+//   show: {
+//     opacity: 1,
+//     scale: 1,
+//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+//   },
+// };
+
+const stagger: Variants = {
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const drawLine: Variants = {
+  hidden: { scaleX: 0 },
+  show: {
+    scaleX: 1,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -22,660 +38,377 @@ const IMAGES = {
   hero: heroimg,
   support:
     "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?w=600&q=80",
-  partnership:
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
-  press:
-    "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
-  network:
-    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80",
 };
 
-const GlowDot = ({ pulse = false }: { pulse?: boolean }) => (
-  <span
-    style={{
-      display: "inline-block",
-      width: 8,
-      height: 8,
-      borderRadius: "50%",
-      background: "#4ADE80",
-      boxShadow: "0 0 8px #4ADE80, 0 0 16px rgba(74, 222, 128, 0.4)",
-      animation: pulse ? "pulse 2s infinite" : "none",
-    }}
-  />
-);
-
-// const InputField = ({
-//   label,
-//   placeholder,
-//   type = "text",
-//   as,
-// }: {
-//   label: string;
-//   placeholder: string;
-//   type?: string;
-//   as?: "textarea" | "select";
-// }) => {
-//   const [focused, setFocused] = useState(false);
-//   const baseStyle: React.CSSProperties = {
-//     width: "100%",
-//     background: "rgba(74, 222, 128, 0.12)",
-//     border: `1px solid ${focused ? "#4ADE80" : "rgba(74, 222, 128, 0.22)"}`,
-//     borderRadius: "0.75rem",
-//     color: "#fff",
-//     padding: "0.75rem 1rem",
-//     outline: "none",
-//     fontFamily: "'Inter', sans-serif",
-//     fontSize: "0.85rem",
-//     letterSpacing: "0.01em",
-//     resize: "none" as const,
-//     transition: "border-color 0.2s, box-shadow 0.2s",
-//     boxShadow: focused ? "0 0 0 2px rgba(74, 222, 128, 0.12)" : "none",
-//     boxSizing: "border-box" as const,
-//   };
-
-//   return (
-//     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-//       <label
-//         style={{
-//           fontFamily: "'Inter', sans-serif",
-//           fontSize: "0.65rem",
-//           fontWeight: 700,
-//           letterSpacing: "0.15em",
-//           textTransform: "uppercase",
-//           color: "rgba(255,255,255,0.40)",
-//         }}
-//       >
-//         {label}
-//       </label>
-//       {as === "textarea" ? (
-//         <textarea
-//           rows={5}
-//           placeholder={placeholder}
-//           style={baseStyle}
-//           onFocus={() => setFocused(true)}
-//           onBlur={() => setFocused(false)}
-//         />
-//       ) : as === "select" ? (
-//         <select
-//           style={{ ...baseStyle, appearance: "none", cursor: "pointer", background: "#111812" }}
-//           onFocus={() => setFocused(true)}
-//           onBlur={() => setFocused(false)}
-//         >
-//           <option value="builder" style={{ background: "#111812" }}>Builder</option>
-//           <option value="investor" style={{ background: "#111812" }}>Investor</option>
-//           <option value="partner" style={{ background: "#111812" }}>Partner</option>
-//           <option value="press" style={{ background: "#111812" }}>Press / Media</option>
-//         </select>
-//       ) : (
-//         <input
-//           type={type}
-//           placeholder={placeholder}
-//           style={baseStyle}
-//           onFocus={() => setFocused(true)}
-//           onBlur={() => setFocused(false)}
-//         />
-//       )}
-//     </div>
-//   );
-// };
+const CONTACT_CARDS = [
+  {
+    title: "Retreat Applications",
+    desc: "Skip the conversation. Apply directly for the next retreat.",
+    action: "Apply Now →",
+    onClick: "/apply",
+    isNav: true,
+  },
+  {
+    title: "Partnerships",
+    desc: "Collaborate, contribute, or build together.",
+    action: "hello@collabuilder.com",
+    onClick: "mailto:hello@collabuilder.com",
+    isNav: false,
+  },
+  {
+    title: "Mentors & Investors",
+    desc: "A high-trust network for founders, mentors, and investors to collaborate deeply.",
+    action: "Launching Soon",
+    onClick: "#contact",
+    isNav: false,
+  },
+];
 
 export default function Contact() {
   const navigate = useNavigate();
-  // const [submitted,] = useState(false);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 80]);
+  const heroY = useTransform(scrollY, [0, 500], [0, 80]);
+  const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+
+  const handleCardClick = (item: (typeof CONTACT_CARDS)[0]) => {
+    if (item.isNav) {
+      navigate(item.onClick);
+    } else if (item.onClick.startsWith("mailto:")) {
+      window.location.href = item.onClick;
+    } else if (item.onClick.startsWith("#")) {
+      document
+        .getElementById(item.onClick.slice(1))
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; box-shadow: 0 0 8px #4ADE80, 0 0 16px rgba(74, 222, 128, 0.4); }
-          50% { opacity: 0.5; box-shadow: 0 0 4px #4ADE80; }
-        }
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-up { animation: fadeUp 0.7s ease forwards; }
-        ::placeholder {
-          color: rgba(255,255,255,0.40) !important;
-          font-family: 'Inter', sans-serif;
-          font-size: 0.82rem;
-        }
-      `}</style>
-
-      <div
-        style={{
-          background: "#0A0F0C",
-          minHeight: "100%",
-          color: "#fff",
-          fontFamily: "'Inter', sans-serif",
-          overflowX: "hidden",
-        }}
-      >
-        {/* ── HERO SECTION ── */}
-        <section
-          style={{
-            position: "relative",
-            width: "100%",
-            minHeight: "100vh",
-            display: "flex",
-            alignItems: "flex-start", // 👈 top align
-            justifyContent: "flex-start",
-            overflow: "hidden",
-            paddingTop: "6rem", // ✅ upper padding add
-          }}
-        >
-          {/* Background image */}
-          <motion.div
-            style={{
-              position: "absolute",
-              inset: 0,
-              y: y1,
-              zIndex: 0,
-            }}
-          >
-            <img
-              src={IMAGES.hero}
-              alt="Hero background"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "top",
-                display: "block",
-              }}
-            />
-          </motion.div>
-
-          {/* Bottom fade */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: "180px",
-              background:
-                "linear-gradient(to bottom, transparent 0%, #0A0F0C 100%)",
-              zIndex: 2,
-            }}
+    <div className="bg-white text-neutral-900 overflow-x-hidden">
+      {/* ── HERO SECTION ── */}
+      <section className="relative w-full min-h-[90vh] sm:min-h-[100vh] flex items-start justify-start overflow-hidden pt-20 sm:pt-28 md:pt-32">
+        {/* Background image with parallax */}
+        <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
+          <img
+            src={IMAGES.hero}
+            alt="Hero background"
+            className="w-full h-full object-cover object-top block "
           />
+        </motion.div>
 
-          {/* Content */}
-          <div
-            style={{
-              position: "relative",
-              zIndex: 3,
-              maxWidth: 1152,
-              width: "100%",
-              margin: "0 auto",
-              padding: "4rem 2rem 6rem", // ✅ balanced spacing
-            }}
-          >
-            <div style={{ maxWidth: 560 }}>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                style={{
-                  color: "#4ADE80",
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.3em",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "1.5rem",
-                  display: "inline-block",
-                  padding: "0.4rem 1rem",
-                  border: "1px solid rgba(74, 222, 128, 0.22)",
-                  borderRadius: "100px",
-                  background: "rgba(74, 222, 128, 0.12)",
-                }}
-              >
-                CONTACT · HIGH INTENT ONLY
-              </motion.p>
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-44 bg-gradient-to-t from-black to-transparent z-[2]" />
 
+        {/* Top rule */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute top-0 left-0 right-0 h-px bg-emerald-500/20 origin-left z-[3]"
+        />
+
+        {/* Content */}
+        <motion.div
+          style={{ opacity: heroOpacity }}
+          className="relative z-[3] max-w-[1152px] w-full mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20"
+        >
+          <div className="max-w-[560px]">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] font-bold uppercase text-emerald-600 mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 border border-emerald-500/20 rounded-full bg-emerland/50"
+            >
+              Contact · High Intent Only
+            </motion.p>
+
+            <div className="overflow-hidden">
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                style={{
-                  fontSize: "clamp(2.8rem, 6vw, 5rem)",
-                  fontWeight: 700,
-                  lineHeight: 1.05,
-                  color: "#fff",
-                  marginBottom: "1.5rem",
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.1,
+                  ease: [0.76, 0, 0.24, 1],
                 }}
+                className="text-[clamp(2.4rem,6vw,5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-neutral-100 mb-1"
               >
                 Start the
-                <br />
-                conversation.
-                <br />
-                <span style={{ color: "#4ADE80" }}>Build with intent.</span>
               </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                style={{
-                  fontSize: "0.9rem",
-                  color: "rgba(255,255,255,0.40)",
-                  lineHeight: 1.7,
-                  maxWidth: 400,
-                }}
-              >
-                Whether you're applying, partnering, or exploring — reach out
-                with clarity. We respond to meaningful conversations only.
-              </motion.p>
             </div>
-          </div>
-        </section>
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.18,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
+                className="text-[clamp(2.4rem,6vw,5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-neutral-100 mb-1"
+              >
+                conversation.
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.26,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
+                className="text-[clamp(2.4rem,6vw,5rem)] font-bold leading-[1.05] tracking-[-0.04em]"
+              >
+                <span className="text-emerald-600">Build with intent.</span>
+              </motion.h1>
+            </div>
 
-        {/* ── CONTACT CARDS ── */}
-        <section
-          style={{
-            maxWidth: 1152,
-            margin: "0 auto",
-            padding: "6rem 2rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "2rem",
-          }}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="text-[14px] sm:text-[15px] text-neutral-200 leading-[1.7] max-w-[400px] mt-5 sm:mt-6"
+            >
+              Whether you&apos;re applying, partnering, or exploring — reach out
+              with clarity. We respond to meaningful conversations only.
+            </motion.p>
+
+            {/* Scroll indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+              className="mt-12 sm:mt-16 flex items-center gap-3"
+            >
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-px h-10 bg-gradient-to-b from-transparent to-emerald-500"
+              />
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-neutral-300">
+                Scroll
+              </span>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── CONTACT CARDS ── */}
+      <section className="max-w-[1152px] mx-auto px-5 sm:px-6 md:px-8 py-14 sm:py-20 md:py-24">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
         >
-          {[
-            {
-              title: "Retreat Applications",
-              desc: "Skip the conversation. Apply directly for the next retreat.",
-              action: "Apply Now →",
-              onClick: () => navigate("/apply"),
-            },
-            {
-              title: "Partnerships",
-              desc: "Collaborate, contribute, or build together.",
-              action: "hello@collabuilder.com",
-              onClick: () =>
-                (window.location.href = "mailto:hello@collabuilder.com"),
-            },
-            {
-              title: "Mentors & Investors",
-              desc: "A high-trust network designed for founders, mentors, and investors to collaborate deeply.",
-              action: "Launching Soon",
-              onClick: () => {
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              },
-            },
-          ].map((item, i) => (
+          {CONTACT_CARDS.map((item, i) => (
             <motion.div
               key={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
               variants={fadeUp}
-              whileHover={{ y: -5 }}
-              onClick={item.onClick}
-              style={{
-                padding: "2rem",
-                borderRadius: "1.5rem",
-                background: "rgba(74, 222, 128, 0.12)",
-                backdropFilter: "blur(16px)",
-                border: "1px solid rgba(74, 222, 128, 0.22)",
-                transition: "all 0.3s",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderColor =
-                  "#4ADE80";
-                (e.currentTarget as HTMLDivElement).style.transform =
-                  "translateY(-4px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderColor =
-                  "rgba(74, 222, 128, 0.22)";
-                (e.currentTarget as HTMLDivElement).style.transform =
-                  "translateY(0px)";
-              }}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              onClick={() => handleCardClick(item)}
+              className="relative p-6 sm:p-7 md:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 cursor-pointer transition-all duration-500 hover:border-emerald-500/40 hover:bg-emerald-50/30 hover:shadow-lg hover:shadow-emerald-500/[0.04] group overflow-hidden"
             >
-              <h3
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "1rem",
-                  fontWeight: 600,
-                  color: "#fff",
-                  marginBottom: "0.5rem",
-                }}
-              >
+              {/* Hover accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-emerald-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+              <h3 className="text-[15px] sm:text-base font-semibold text-neutral-900 mb-2 sm:mb-2.5 tracking-[-0.01em]">
                 {item.title}
               </h3>
 
-              <p
-                style={{
-                  fontSize: "0.82rem",
-                  color: "rgba(255,255,255,0.40)",
-                  marginBottom: "1rem",
-                  lineHeight: 1.6,
-                  fontWeight: 300,
-                }}
-              >
+              <p className="text-[13px] sm:text-[14px] text-neutral-400 mb-5 sm:mb-6 leading-[1.65] font-light">
                 {item.desc}
               </p>
 
-              <p
-                style={{
-                  fontSize: "0.82rem",
-                  color: "#4ADE80",
-                  fontWeight: 600,
-                }}
-              >
-                {item.action}
-              </p>
+              <div className="flex items-center gap-2">
+                <span className="text-[12px] sm:text-[13px] text-emerald-600 font-semibold group-hover:translate-x-1 transition-transform duration-300">
+                  {item.action}
+                </span>
+                <div className="w-0 group-hover:w-4 h-px bg-emerald-500 transition-all duration-300" />
+              </div>
             </motion.div>
           ))}
-        </section>
+        </motion.div>
+      </section>
 
-        {/* ── INQUIRY FORM ── */}
-        <section
-          style={{
-            borderTop: "1px solid rgba(74, 222, 128, 0.22)",
-            borderBottom: "1px solid rgba(74, 222, 128, 0.22)",
-            background: "rgba(74, 222, 128, 0.12)",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: 1200,
-              margin: "0 auto",
-              padding: "5rem 2rem",
-              display: "grid",
-              gridTemplateColumns: "1fr 1.4fr",
-              gap: "5rem",
-              alignItems: "start",
-            }}
+      {/* ── INQUIRY FORM ── */}
+      <section
+        id="contact"
+        className="border-y border-neutral-200 bg-neutral-50"
+      >
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 md:px-8 py-14 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-10 sm:gap-12 lg:gap-20 items-start">
+          {/* Left side */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Left side */}
-            <div>
-              <div
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.6rem",
-                  letterSpacing: "0.3em",
-                  color: "#4ADE80",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  marginBottom: "1rem",
-                }}
-              >
-                ⬡ TRANSMISSION PROTOCOL
-              </div>
-              <h2
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
-                  fontWeight: 700,
-                  color: "#fff",
-                  lineHeight: 1.05,
-                  marginBottom: "1.5rem",
-                  letterSpacing: "-0.04em",
-                }}
-              >
-                THE BUILD
-                <br />
-                INQUIRY
-              </h2>
-              <p
-                style={{
-                  fontSize: "0.82rem",
-                  color: "rgba(255,255,255,0.40)",
-                  lineHeight: 1.8,
-                  marginBottom: "2.5rem",
-                  maxWidth: 320,
-                  fontWeight: 300,
-                }}
-              >
-                Transmit your project specifications. Our intake engine will
-                route your request to the appropriate sector within 12 standard
-                operating cycles.
-              </p>
+            <p className="text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] text-emerald-600 uppercase font-bold mb-4 sm:mb-5">
+              ⬡ Transmission Protocol
+            </p>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                  marginBottom: "2.5rem",
-                }}
+            <div className=" mb-1">
+              <motion.h2
+                initial={{ y: "110%" }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+                className="text-[clamp(1.8rem,3vw,2.8rem)] font-bold leading-[1.05] tracking-[-0.04em] text-neutral-900"
               >
-                {[
-                  { label: "Foundry Queue: Minimal Latency", pulse: true },
-                  // { label: "Global Network Status: Operational", pulse: false },
-                ].map((s) => (
-                  <div
-                    key={s.label}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 10,
-                      padding: "10px 16px",
-                      background: "rgba(74, 222, 128, 0.12)",
-                      border: "1px solid rgba(74, 222, 128, 0.22)",
-                      borderRadius: "0.75rem",
-                      fontSize: "0.65rem",
-                      letterSpacing: "0.1em",
-                      color: "rgba(255,255,255,0.40)",
-                      textTransform: "uppercase",
-                      fontWeight: 700,
-                    }}
-                  >
-                    <GlowDot pulse={s.pulse} />
-                    {s.label}
-                  </div>
-                ))}
-              </div>
-
-              <div
-                style={{
-                  position: "relative",
-                  height: 180,
-                  overflow: "hidden",
-                  border: "1px solid rgba(74, 222, 128, 0.22)",
-                  borderRadius: "1.5rem",
+                The Build
+              </motion.h2>
+            </div>
+            <div className="">
+              <motion.h2
+                initial={{ y: "110%" }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.08,
+                  ease: [0.76, 0, 0.24, 1],
                 }}
+                className="text-[clamp(1.8rem,3vw,2.8rem)] font-bold leading-[1.05] tracking-[-0.04em] text-neutral-900"
               >
-                <img
-                  src={IMAGES.support}
-                  alt="engineering workspace"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    opacity: 0.3,
-                    filter: "grayscale(60%)",
-                  }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(135deg, rgba(74, 222, 128, 0.12) 0%, transparent 60%)",
-                  }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 12,
-                    left: 16,
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "0.6rem",
-                    color: "#4ADE80",
-                    letterSpacing: "0.1em",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  FORGE_NODE_01 // ONLINE
-                </div>
-              </div>
+                Inquiry
+              </motion.h2>
             </div>
 
-            {/* Right: Form */}
-            {/* <div>
-              {submitted ? (
-                <div
-                  style={{
-                    background: "rgba(74, 222, 128, 0.12)",
-                    border: "1px solid rgba(74, 222, 128, 0.22)",
-                    borderRadius: "2rem",
-                    padding: "3rem",
-                    textAlign: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: "50%",
-                      background: "rgba(74, 222, 128, 0.12)",
-                      border: "1px solid rgba(74, 222, 128, 0.22)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      margin: "0 auto 1rem",
-                      fontSize: "1.5rem",
-                      color: "#4ADE80",
-                    }}
-                  >
-                    ✓
-                  </div>
-                  <h3
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "1.5rem",
-                      fontWeight: 700,
-                      color: "#4ADE80",
-                      letterSpacing: "-0.02em",
-                      marginBottom: "0.75rem",
-                    }}
-                  >
-                    Transmission Received
-                  </h3>
-                  <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.40)", fontWeight: 300 }}>
-                    Your inquiry has been routed to the appropriate sector.
-                    <br />
-                    Expect response within 12 operating cycles.
-                  </p>
-                </div>
-              ) : (
-                <div
-                  style={{
-                    background: "rgba(74, 222, 128, 0.12)",
-                    border: "1px solid rgba(74, 222, 128, 0.22)",
-                    borderRadius: "2rem",
-                    backdropFilter: "blur(16px)",
-                    padding: "2.5rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1.25rem",
-                  }}
-                >
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
-                    <InputField label="Name" placeholder="Identify self" />
-                    <InputField label="Organization" placeholder="Entity name" />
-                  </div>
-                  <InputField label="Role Selection" placeholder="" as="select" />
-                  <InputField
-                    label="Message"
-                    placeholder="Describe project parameters..."
-                    as="textarea"
-                  />
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-[13px] sm:text-[14px] text-neutral-400 leading-[1.8] mt-5 sm:mt-6 mb-8 sm:mb-10 max-w-[320px] font-light"
+            >
+              Transmit your project specifications. Our intake engine will route
+              your request to the appropriate sector within 12 standard
+              operating cycles.
+            </motion.p>
 
-                  <button
-                    onClick={() => setSubmitted(true)}
-                    style={{
-                      background: "linear-gradient(135deg, #4ADE80, #22C55E)",
-                      color: "#fff",
-                      border: "none",
-                      borderRadius: "100px",
-                      padding: "1.1rem 2rem",
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "0.7rem",
-                      fontWeight: 900,
-                      letterSpacing: "0.2em",
-                      textTransform: "uppercase",
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 10,
-                      transition: "box-shadow 0.3s, transform 0.2s",
-                      boxShadow: "0 0 20px rgba(74, 222, 128, 0.2)",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                        "0 0 40px rgba(74, 222, 128, 0.4)";
-                      (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                        "0 0 20px rgba(74, 222, 128, 0.2)";
-                      (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
-                    }}
-                  >
-                    SUBMIT TRANSMISSION →
-                  </button>
-                </div>
-              )}
-            </div> */}
+            {/* Status indicator */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="flex flex-col gap-3 mb-8 sm:mb-10"
+            >
+              <div className="flex items-center gap-2.5 px-4 py-2.5 bg-emerald-50 border border-emerald-500/20 rounded-xl">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                <span className="text-[10px] sm:text-[11px] tracking-[0.1em] text-neutral-500 uppercase font-bold">
+                  Foundry Queue: Minimal Latency
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Image card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              className="relative h-36 sm:h-40 md:h-44 overflow-hidden border border-neutral-200 rounded-2xl group/img"
+            >
+              <img
+                src={IMAGES.support}
+                alt="Engineering workspace"
+                className="w-full h-full object-cover grayscale-[40%]  group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.06] to-transparent" />
+              <div className="absolute bottom-3 left-4 text-[10px] text-white tracking-[0.1em] font-bold uppercase">
+                Forge_Node_01 // Online
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right: Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
             <ContactForm />
-          </div>
-        </section>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* ── CTA SECTION ── */}
-        <section style={{ padding: "2rem 2rem", textAlign: "center" }}>
-          <motion.h2
-            initial="hidden"
-            whileInView="show"
-            variants={fadeUp}
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 700,
-              color: "#fff",
-              letterSpacing: "-0.04em",
-              marginBottom: "2rem",
-              lineHeight: 1.1,
-            }}
+      {/* ── CTA SECTION ── */}
+      <section className="px-5 sm:px-6 md:px-8 py-16 sm:py-20 md:py-28 text-center relative overflow-hidden">
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-emerald-500/[0.03] blur-3xl" />
+        </div>
+
+        <div className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center justify-center gap-4 mb-8 sm:mb-10"
           >
-            Don't just reach out.
-            <br />
-            <span style={{ color: "#4ADE80" }}>
-              Build something meaningful.
+            <motion.div
+              variants={drawLine}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="h-px w-8 bg-emerald-500/60 origin-right block"
+            />
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-emerald-600">
+              Final Word
             </span>
-          </motion.h2>
+            <motion.div
+              variants={drawLine}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="h-px w-8 bg-emerald-500/60 origin-left block"
+            />
+          </motion.div>
 
-          {/* <motion.button
-            whileHover={{ scale: 1.05 }}
-            style={{
-              background: "#4ADE80",
-              color: "#000",
-              border: "none",
-              borderRadius: "100px",
-              padding: "1rem 2.5rem",
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "0.85rem",
-              fontWeight: 700,
-              cursor: "pointer",
-              letterSpacing: "0.05em",
-            }}
-          >
-            Start the conversation →
-          </motion.button> */}
-        </section>
-      </div>
-    </>
+          <div className="">
+            <motion.h2
+              initial={{ y: "110%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+              className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-[-0.04em] text-neutral-900 leading-[1.1] mb-1"
+            >
+              Don&apos;t just reach out.
+            </motion.h2>
+          </div>
+          <div className="">
+            <motion.h2
+              initial={{ y: "110%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.9,
+                delay: 0.1,
+                ease: [0.76, 0, 0.24, 1],
+              }}
+              className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-[-0.04em] leading-[1.1]"
+            >
+              <span className="text-emerald-600">
+                Build something meaningful.
+              </span>
+            </motion.h2>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

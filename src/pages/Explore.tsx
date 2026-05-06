@@ -10,6 +10,23 @@ const DURATIONS = ["All", "3–5 Days", "6–8 Days", "9+ Days"];
 const VIBES = ["All", "Adventure", "Wellness", "Luxury", "Cultural", "Coastal"];
 const SORT_OPTIONS = ["Recommended", "Price: Low", "Price: High", "Duration"];
 
+// const fadeUp = {
+//   hidden: { opacity: 0, y: 40 },
+//   show: {
+//     opacity: 1,
+//     y: 0,
+//     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+//   },
+// };
+
+// const drawLine = {
+//   hidden: { scaleX: 0 },
+//   show: {
+//     scaleX: 1,
+//     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+//   },
+// };
+
 // ─── Explore Page ────────────────────────────────────────────────────────────
 export default function Explore() {
   const [search, setSearch] = useState("");
@@ -38,167 +55,272 @@ export default function Explore() {
   });
 
   // Sorting
-  if (sortBy === "Price: Low") filtered = [...filtered].sort((a, b) => a.pricePerHead - b.pricePerHead);
-  if (sortBy === "Price: High") filtered = [...filtered].sort((a, b) => b.pricePerHead - a.pricePerHead);
-  if (sortBy === "Duration") filtered = [...filtered].sort((a, b) => a.nights - b.nights);
+  if (sortBy === "Price: Low")
+    filtered = [...filtered].sort((a, b) => a.pricePerHead - b.pricePerHead);
+  if (sortBy === "Price: High")
+    filtered = [...filtered].sort((a, b) => b.pricePerHead - a.pricePerHead);
+  if (sortBy === "Duration")
+    filtered = [...filtered].sort((a, b) => a.nights - b.nights);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans">
-      
-      {/* ── Hero Header (No Image, Pure Typography) ── */}
-      <section className="pt-32 md:pt-40 pb-16 border-b border-white/[0.08]">
-        <div className="max-w-7xl mx-auto px-6 md:px-11 grid grid-cols-1 md:grid-cols-2 md:items-end gap-8 md:gap-0">
+    <div className="min-h-screen bg-white text-neutral-900 font-sans">
+      {/* ── Hero Header ── */}
+      <section className="pt-28 sm:pt-32 md:pt-40 pb-12 sm:pb-16 border-b border-neutral-200">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 grid grid-cols-1 md:grid-cols-2 md:items-end gap-8 md:gap-0">
           <div>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.4em] text-emerald-400/50"
+              className="mb-5 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600/70"
             >
-              <div className="h-px w-5 bg-emerald-400/50" />
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="h-px w-5 bg-emerald-600/70 origin-left"
+              />
               The Catalog
             </motion.p>
             <div className="overflow-hidden">
-              <motion.h1 
+              <motion.h1
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="text-[clamp(2.5rem,6vw,6rem)] font-black leading-[0.88] tracking-[-0.04em] text-white"
+                className="text-[clamp(2.2rem,6vw,6rem)] font-black leading-[0.88] tracking-[-0.04em] text-neutral-900"
               >
                 All
               </motion.h1>
             </div>
             <div className="overflow-hidden">
-              <motion.h1 
+              <motion.h1
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
-                className="text-[clamp(2.5rem,6vw,6rem)] font-black leading-[0.88] tracking-[-0.04em] text-white/20"
+                transition={{
+                  duration: 0.8,
+                  delay: 0.1,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
+                className="text-[clamp(2.2rem,6vw,6rem)] font-black leading-[0.88] tracking-[-0.04em] text-emerald-500 transition-colors duration-500 cursor-default"
               >
                 expeditions.
               </motion.h1>
             </div>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             className="md:pb-2 md:pl-14"
           >
-            <p className="border-l border-white/10 pl-5 text-[15px] leading-[1.85] text-white/40">
-              Every destination curated for founders, leaders, and high-impact thinkers. No tourists.
+            <p className="border-l border-emerald-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500">
+              Every destination curated for founders, leaders, and high-impact
+              thinkers. No tourists.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Search & Filter Bar (Sharp Edges) ── */}
-      <div className="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-sm border-b border-white/[0.08]">
-        <div className="max-w-7xl mx-auto px-6 md:px-11 py-5 flex flex-col md:flex-row gap-4 items-center">
-          
-          {/* Search Input (Sharp Square) */}
+      {/* ── Search & Filter Bar ── */}
+      <motion.div
+        initial={{ y: -10 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="sticky top-[2px] sm:top-[2px] z-50 bg-white/90 backdrop-blur-xl border-b border-neutral-200"
+      >
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 py-4 sm:py-5 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center">
+          {/* Search Input */}
           <div className="relative flex-1 w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-300" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search destinations, vibes..."
-              className="w-full bg-white/[0.03] border border-white/[0.08] px-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-emerald-400/30 transition placeholder:text-white/15"
+              className="w-full bg-neutral-50 border border-neutral-200 px-10 pr-10 py-3 text-[13px] sm:text-[14px] text-neutral-900 focus:outline-none focus:border-emerald-500/40 focus:ring-1 focus:ring-emerald-500/10 transition-all placeholder:text-neutral-300 rounded-sm"
             />
-            {search && (
-              <button onClick={() => setSearch("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20 hover:text-white">
-                <X className="w-4 h-4" />
-              </button>
-            )}
+            <AnimatePresence>
+              {search && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  onClick={() => setSearch("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-neutral-600 transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </motion.button>
+              )}
+            </AnimatePresence>
           </div>
 
-          {/* Sort Select (Sharp Square) */}
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-[12px] text-white/50 focus:outline-none focus:border-emerald-400/30 appearance-none cursor-pointer min-w-[160px]"
-          >
-            {SORT_OPTIONS.map((s) => (
-              <option key={s} className="bg-[#0a0a0a]">{s}</option>
-            ))}
-          </select>
+          {/* Sort Select */}
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="bg-neutral-50 border border-neutral-200 px-4 py-3 pr-10 text-[12px] sm:text-[13px] text-neutral-600 focus:outline-none focus:border-emerald-500/40 appearance-none cursor-pointer min-w-[150px] sm:min-w-[160px] rounded-sm"
+            >
+              {SORT_OPTIONS.map((s) => (
+                <option key={s} className="bg-white text-neutral-700">
+                  {s}
+                </option>
+              ))}
+            </select>
+            <svg
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
 
-          {/* Filter Toggle (Terminal Style) */}
-          <button
+          {/* Filter Toggle */}
+          <motion.button
+            whileTap={{ scale: 0.97 }}
             onClick={() => setFiltersOpen((p) => !p)}
-            className={`flex items-center gap-2 px-5 py-3 border text-[11px] uppercase font-bold tracking-[0.2em] transition-all duration-300 ${
+            className={`flex items-center gap-2 px-4 sm:px-5 py-3 border text-[10px] sm:text-[11px] uppercase font-bold tracking-[0.2em] transition-all duration-300 rounded-sm ${
               filtersOpen
-                ? "border-emerald-400/50 text-emerald-400 bg-emerald-400/5"
-                : "border-white/[0.08] text-white/30 hover:border-white/20"
+                ? "border-emerald-500/40 text-emerald-600 bg-emerald-50"
+                : "border-neutral-200 text-neutral-400 hover:border-neutral-300 hover:text-neutral-600 bg-neutral-50"
             }`}
           >
             Filters
-          </button>
+          </motion.button>
         </div>
 
-        {/* Expandable Filter Terminal */}
+        {/* Expandable Filter Panel */}
         <AnimatePresence>
           {filtersOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden border-t border-white/[0.06]"
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="overflow-hidden border-t border-neutral-100"
             >
-              <div className="max-w-7xl mx-auto px-6 md:px-11 py-6 grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#080808]">
+              <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 py-5 sm:py-6 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 bg-neutral-50/80">
                 {/* Duration Row */}
-                <div>
-                  <span className="block text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.4 }}
+                >
+                  <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-400 font-bold mb-3 sm:mb-4">
                     Duration
                   </span>
                   <div className="flex flex-wrap gap-2">
-                    {DURATIONS.map((d) => (
-                      <FilterPill key={d} label={d} active={activeDuration === d} onClick={() => setActiveDuration(d)} />
+                    {DURATIONS.map((d, i) => (
+                      <motion.div
+                        key={d}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.12 + i * 0.04, duration: 0.3 }}
+                      >
+                        <FilterPill
+                          label={d}
+                          active={activeDuration === d}
+                          onClick={() => setActiveDuration(d)}
+                        />
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
                 {/* Vibe Row */}
-                <div>
-                  <span className="block text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.4 }}
+                >
+                  <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-400 font-bold mb-3 sm:mb-4">
                     Vibe
                   </span>
                   <div className="flex flex-wrap gap-2">
-                    {VIBES.map((v) => (
-                      <FilterPill key={v} label={v} active={activeVibe === v} onClick={() => setActiveVibe(v)} />
+                    {VIBES.map((v, i) => (
+                      <motion.div
+                        key={v}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.15 + i * 0.04, duration: 0.3 }}
+                      >
+                        <FilterPill
+                          label={v}
+                          active={activeVibe === v}
+                          onClick={() => setActiveVibe(v)}
+                        />
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* ── Results Count ── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-11 pt-12 pb-6 flex items-center justify-between">
-        <p className="text-[12px] text-white/30 uppercase tracking-[0.2em] font-bold">
-          {filtered.length} Expedition{filtered.length !== 1 ? "s" : ""} Found
-        </p>
-        <div className="h-px flex-1 mx-8 bg-white/[0.04]" />
-        <p className="text-[12px] text-white/15 uppercase tracking-[0.2em] font-mono">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 pt-10 sm:pt-12 pb-5 sm:pb-6 flex items-center justify-between">
+        <motion.p
+          key={filtered.length}
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-[11px] sm:text-[12px] text-neutral-400 uppercase tracking-[0.2em] font-bold"
+        >
+          {filtered.length} Expedition{filtered.length !== 1 ? "s" : ""}{" "}
+          Found
+        </motion.p>
+        <div className="h-px flex-1 mx-6 sm:mx-8 bg-neutral-100" />
+        <p className="text-[11px] sm:text-[12px] text-neutral-300 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono hidden sm:block">
           SORT: {sortBy.toUpperCase()}
         </p>
       </div>
 
       {/* ── Grid ── */}
-      <section className="max-w-7xl mx-auto px-6 md:px-11 pb-32">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 pb-20 sm:pb-32">
         {filtered.length === 0 ? (
-          <div className="text-center py-32 border border-white/[0.06]">
-            <Plane className="w-10 h-10 mx-auto mb-4 text-white/10" />
-            <p className="text-lg font-light text-white/20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-24 sm:py-32 border border-neutral-200 rounded-sm"
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Plane className="w-10 h-10 mx-auto mb-5 text-neutral-200" />
+            </motion.div>
+            <p className="text-base sm:text-lg font-light text-neutral-300">
               No expeditions match your query.
             </p>
-          </div>
+            <button
+              onClick={() => {
+                setSearch("");
+                setActiveDuration("All");
+                setActiveVibe("All");
+              }}
+              className="mt-5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-600 hover:text-emerald-700 transition-colors"
+            >
+              Clear all filters
+            </button>
+          </motion.div>
         ) : (
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px]">
+          <motion.div
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-[2px]"
+          >
             <AnimatePresence mode="popLayout">
               {filtered.map((exp, idx) => (
                 <ExploreCard key={exp.id} exp={exp} idx={idx} />
@@ -211,92 +333,151 @@ export default function Explore() {
   );
 }
 
-// ─── Filter Pill (Sharp Edge) ────────────────────────────────────────────────
-function FilterPill({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+// ─── Filter Pill ─────────────────────────────────────────────────────────────
+function FilterPill({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className={`px-4 py-2 text-[10px] uppercase font-bold tracking-[0.2em] border transition-all duration-200 ${
+      className={`px-3.5 sm:px-4 py-2 text-[10px] sm:text-[11px] uppercase font-bold tracking-[0.15em] sm:tracking-[0.2em] border transition-all duration-200 rounded-sm ${
         active
-          ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-400"
-          : "border-white/[0.06] text-white/30 hover:border-white/20 hover:text-white/50"
+          ? "border-emerald-500/40 bg-emerald-50 text-emerald-600 shadow-sm shadow-emerald-500/[0.06]"
+          : "border-neutral-200 text-neutral-400 hover:border-neutral-300 hover:text-neutral-600 bg-white"
       }`}
     >
       {label}
-    </button>
+    </motion.button>
   );
 }
 
-// ─── Explore Card (Architectural) ────────────────────────────────────────────
+// ─── Explore Card ────────────────────────────────────────────────────────────
 function ExploreCard({ exp, idx }: { exp: Experience; idx: number }) {
   return (
-    <Link to={`/experiences/${exp.id}`} className="block h-[550px] lg:h-[650px] relative overflow-hidden bg-[#0a0a0a] border border-white/[0.06] group">
+    <Link
+      to={`/experiences/${exp.id}`}
+      className="block h-[480px] sm:h-[550px] lg:h-[650px] relative overflow-hidden bg-neutral-100 border border-neutral-200 group rounded-sm sm:rounded-none"
+    >
       <motion.div
         layout
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 30 }}
-        transition={{ duration: 0.5, delay: idx * 0.05 }}
+        exit={{ opacity: 0, scale: 0.96 }}
+        transition={{
+          duration: 0.5,
+          delay: idx * 0.05,
+          ease: [0.22, 1, 0.36, 1],
+        }}
         className="relative w-full h-full"
       >
         {/* Image */}
         <img
           src={exp.image}
           alt={exp.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-90 transition-all duration-[1.5s] ease-out"
+          className="absolute inset-0 w-full h-full object-cover  group-hover:scale-105  transition-all duration-[1.5s] ease-out"
           referrerPolicy="no-referrer"
         />
-        {/* Hard Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
+        {/* Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-        {/* Top Stamps (Sharp Edges) */}
-        <div className="absolute top-6 left-6 right-6 z-10 flex items-start justify-between">
-          <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/40 bg-black/60 backdrop-blur-sm px-3 py-1.5 border border-white/[0.08]">
+        {/* Top Stamps */}
+        <div className="absolute top-5 sm:top-6 left-5 sm:left-6 right-5 sm:right-6 z-10 flex items-start justify-between">
+          <motion.span
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 + idx * 0.05, duration: 0.4 }}
+            className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-neutral-500 bg-white/80 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 border border-neutral-200 rounded-sm"
+          >
             {exp.vibe}
-          </span>
-          <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-emerald-400/70 bg-black/60 backdrop-blur-sm px-3 py-1.5 border border-emerald-400/20">
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 + idx * 0.05, duration: 0.4 }}
+            className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-emerald-600/80 bg-white/80 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 border border-emerald-500/20 rounded-sm"
+          >
             {exp.duration} • {exp.nights}N
-          </span>
+          </motion.span>
         </div>
 
-        {/* Bottom Content (Anchored) */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 p-8 flex flex-col justify-end h-full">
-          
+        {/* Bottom Content */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 p-6 sm:p-8 flex flex-col justify-end h-full">
           <div className="mt-auto">
             {/* Location */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-5 bg-emerald-400/60" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-emerald-400/70 font-bold">
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 + idx * 0.05, duration: 0.5 }}
+              className="flex items-center gap-3 mb-3 sm:mb-4"
+            >
+              <motion.div
+                // variants={drawLine}
+                initial="hidden"
+                animate="show"
+                transition={{ delay: 0.35 + idx * 0.05 }}
+                className="h-px w-5 bg-emerald-500/60 origin-left block"
+              />
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-emerald-300/70 font-bold">
                 {exp.location}
               </span>
-            </div>
+            </motion.div>
 
             {/* Title */}
-            <h3 className="text-[clamp(1.5rem,2.5vw,2.5rem)] font-black tracking-[-0.03em] text-white leading-[0.95] mb-8">
+            <motion.h3
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 + idx * 0.05, duration: 0.5 }}
+              className="text-[clamp(1.3rem,2.5vw,2.5rem)] font-black tracking-[-0.03em] text-white leading-[0.95] mb-6 sm:mb-8  transition-colors duration-300"
+            >
               {exp.title}
-            </h3>
+            </motion.h3>
 
             {/* Bottom Data Row */}
-            <div className="flex items-center justify-between pt-6 border-t border-white/[0.1]">
-              <div className="flex items-center gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 + idx * 0.05, duration: 0.5 }}
+              className="flex items-center justify-between pt-5 sm:pt-6 border-t border-neutral-200/80"
+            >
+              <div className="flex items-center gap-4 sm:gap-6">
                 <div>
-                  <span className="block text-[9px] uppercase tracking-[0.3em] text-white/20 mb-1 font-bold">Group Size</span>
-                  <span className="text-[13px] font-bold text-white/60">{exp.groupSize} Founders</span>
+                  <span className="block text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-300 mb-0.5 sm:mb-1 font-bold">
+                    Group Size
+                  </span>
+                  <span className="text-[12px] sm:text-[13px] font-bold text-neutral-500">
+                    {exp.groupSize} Founders
+                  </span>
                 </div>
-                <div className="h-8 w-px bg-white/[0.06]" />
+                <div className="h-6 sm:h-8 w-px bg-neutral-200" />
                 <div>
-                  <span className="block text-[9px] uppercase tracking-[0.3em] text-white/20 mb-1 font-bold">Starting At</span>
-                  <span className="text-[13px] font-bold text-white/60">Revealing Soon</span>
+                  <span className="block text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-300 mb-0.5 sm:mb-1 font-bold">
+                    Starting At
+                  </span>
+                  <span className="text-[12px] sm:text-[13px] font-bold text-neutral-500">
+                    Revealing Soon
+                  </span>
                 </div>
               </div>
 
-              {/* Arrow Indicator */}
-              <div className="w-12 h-12 rounded-full border border-white/[0.08] flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-emerald-400/30 transition-all duration-500 shrink-0">
-                <ArrowUpRight className="w-5 h-5 text-emerald-400/70 -rotate-0" />
-              </div>
-            </div>
+              {/* Arrow */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-200 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-emerald-500/30 group-hover:bg-emerald-50/50 transition-all duration-500 shrink-0"
+              >
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600/70" />
+              </motion.div>
+            </motion.div>
           </div>
-
         </div>
       </motion.div>
     </Link>
