@@ -10,8 +10,13 @@ import ClaritySection from "../components/ClaritySection";
 import InsideRetreat from "../components/InsideRetreat";
 
 export default function Home() {
+ 
+
   return (
     <div>
+    
+
+      {/* <Test/> */}
       <Hero />
       <ClaritySection />
       <ExperienceShowcase />

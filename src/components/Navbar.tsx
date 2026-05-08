@@ -48,7 +48,7 @@ export function Navbar() {
       {/* ── Scroll Progress Bar ── */}
       {/* <div className="fixed top-0 left-0 right-0 z-[1000] h-[2px] bg-neutral-100">
         <motion.div
-          className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 origin-left"
+          className="h-full bg-gradient-to-r from-orange-500 to-orange-400 origin-left"
           style={{ width: `${scrollProgress}%` }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         />
@@ -71,7 +71,7 @@ export function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05, rotate: 3 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="rounded-full border border-neutral-200 bg-white p-1 sm:p-1.5 transition-all duration-300 group-hover:border-emerald-500/30 group-hover:shadow-lg group-hover:shadow-emerald-500/[0.08]"
+              className="rounded-full border border-neutral-200 bg-white p-1 sm:p-1.5 transition-all duration-300 group-hover:border-orange-500/30 group-hover:shadow-lg group-hover:shadow-orange-500/[0.08]"
             >
               <img
                 src="/logo.png"
@@ -96,7 +96,7 @@ export function Navbar() {
                     to={item.to}
                     className={`group relative flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-300 py-1 ${
                       active
-                        ? "text-emerald-600"
+                        ? "text-orange-600"
                         : "text-neutral-400 hover:text-neutral-900"
                     }`}
                   >
@@ -106,7 +106,7 @@ export function Navbar() {
                     )}
                     {/* Underline */}
                     <span
-                      className={`absolute -bottom-0.5 left-0 h-px bg-emerald-500 transition-all duration-400 ease-out ${
+                      className={`absolute -bottom-0.5 left-0 h-px bg-orange-500 transition-all duration-400 ease-out ${
                         active ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
@@ -119,7 +119,7 @@ export function Navbar() {
                         stiffness: 400,
                         damping: 15,
                       }}
-                      className="absolute -bottom-3 left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-emerald-500"
+                      className="absolute -bottom-3 left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-orange-500"
                     />
                   </Link>
                 </motion.div>
@@ -138,10 +138,10 @@ export function Navbar() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  className="group relative overflow-hidden rounded-full bg-emerald-600 px-6 sm:px-7 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.18em] text-white shadow-md shadow-neutral-900/10 transition-shadow duration-300 hover:shadow-lg hover:shadow-neutral-900/15"
+                  className="group relative overflow-hidden rounded-full bg-orange-600 px-6 sm:px-7 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.18em] text-white shadow-md shadow-neutral-900/10 transition-shadow duration-300 hover:shadow-lg hover:shadow-neutral-900/15"
                 >
-                  {/* Emerald hover sweep */}
-                  <span className="absolute inset-0 bg-emerald-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                  {/* orange hover sweep */}
+                  <span className="absolute inset-0 bg-orange-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
                   <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
                     Book Now
                     <ArrowUpRight className="h-2.5 w-2.5 sm:h-3 sm:w-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -227,7 +227,7 @@ export function Navbar() {
                         to={item.to}
                         className={`flex items-center justify-between rounded-xl px-4 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-200 ${
                           active
-                            ? "bg-emerald-50 text-emerald-600 border border-emerald-500/15"
+                            ? "bg-orange-50 text-orange-600 border border-orange-500/15"
                             : "text-neutral-400 hover:bg-neutral-50 hover:text-neutral-900 border border-transparent"
                         }`}
                       >
@@ -242,7 +242,7 @@ export function Navbar() {
                                 stiffness: 400,
                                 damping: 15,
                               }}
-                              className="h-1.5 w-1.5 rounded-full bg-emerald-500"
+                              className="h-1.5 w-1.5 rounded-full bg-orange-500"
                             />
                           )}
                           {item.external && (
@@ -262,7 +262,7 @@ export function Navbar() {
               >
                 <Link to="/apply" className="block">
                   <button className="group relative w-full overflow-hidden rounded-full bg-neutral-900 py-3.5 sm:py-4 text-[11px] sm:text-[12px] font-black uppercase tracking-[0.18em] sm:tracking-[0.2em] text-white shadow-md shadow-neutral-900/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98]">
-                    <span className="absolute inset-0 bg-emerald-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                    <span className="absolute inset-0 bg-orange-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       Book Now
                       <ArrowUpRight className="h-3 w-3" />
@@ -278,7 +278,7 @@ export function Navbar() {
                 transition={{ delay: 0.5, duration: 0.4 }}
                 className="mt-6 sm:mt-8 flex items-center justify-center gap-2 text-neutral-300"
               >
-                <div className="w-1 h-1 rounded-full bg-emerald-500/50" />
+                <div className="w-1 h-1 rounded-full bg-orange-500/50" />
                 <span className="text-[9px] font-bold uppercase tracking-[0.25em]">
                   High-Intent Only
                 </span>

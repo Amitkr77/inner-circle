@@ -66,7 +66,7 @@ export function ExperienceDetailModal({
 
               <div className="p-8 md:p-12 overflow-y-auto max-h-[70vh] lg:max-h-none">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="bg-accent-emerald/20 px-3 py-1 rounded-full text-[10px] font-bold text-accent-emerald uppercase tracking-widest">
+                  <span className="bg-accent-orange/20 px-3 py-1 rounded-full text-[10px] font-bold text-accent-orange uppercase tracking-widest">
                     {exp.vibe}
                   </span>
                   <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold">
@@ -81,7 +81,7 @@ export function ExperienceDetailModal({
 
                 <div className="grid grid-cols-2 gap-6 mb-10">
                   <div className="glass-immersive p-4 rounded-2xl flex items-center gap-4">
-                    <Calendar className="w-5 h-5 text-accent-emerald" />
+                    <Calendar className="w-5 h-5 text-accent-orange" />
                     <div>
                       <p className="text-[10px] uppercase text-white/40 tracking-widest">
                         Duration
@@ -90,7 +90,7 @@ export function ExperienceDetailModal({
                     </div>
                   </div>
                   <div className="glass-immersive p-4 rounded-2xl flex items-center gap-4">
-                    <Utensils className="w-5 h-5 text-accent-emerald" />
+                    <Utensils className="w-5 h-5 text-accent-orange" />
                     <div>
                       <p className="text-[10px] uppercase text-white/40 tracking-widest">
                         Meals
@@ -102,7 +102,7 @@ export function ExperienceDetailModal({
 
                 <div className="mb-10">
                   <h3 className="text-lg font-bold mb-6 flex items-center gap-3">
-                    <Plane className="w-5 h-5 text-accent-emerald" /> Trip
+                    <Plane className="w-5 h-5 text-accent-orange" /> Trip
                     Itinerary
                   </h3>
                   <div className="space-y-6">
@@ -112,8 +112,8 @@ export function ExperienceDetailModal({
                           key={idx}
                           className="relative pl-8 border-l border-white/10 py-1"
                         >
-                          <div className="absolute top-2 -left-[5px] w-2.5 h-2.5 rounded-full bg-accent-emerald shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                          <span className="text-[10px] uppercase font-bold text-accent-emerald block mb-1">
+                          <div className="absolute top-2 -left-[5px] w-2.5 h-2.5 rounded-full bg-accent-orange shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+                          <span className="text-[10px] uppercase font-bold text-accent-orange block mb-1">
                             Day {item.day}
                           </span>
                           <h4 className="font-bold text-white mb-2">
@@ -185,7 +185,7 @@ export function PastExpeditions() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-accent-emerald mb-4">
+            <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-accent-orange mb-4">
               Past Memories
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -212,7 +212,7 @@ export function PastExpeditions() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-premium-black to-transparent" />
               <div className="absolute bottom-8 left-8">
-                <p className="text-[10px] font-bold text-accent-emerald uppercase tracking-widest mb-2">
+                <p className="text-[10px] font-bold text-accent-orange uppercase tracking-widest mb-2">
                   {event.location}
                 </p>
                 <h4 className="text-2xl font-bold mb-4">{event.title}</h4>
@@ -252,7 +252,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="inline-flex items-center gap-3 px-4 py-3 rounded-full glass-immersive text-sm font-bold tracking-[0.1em] text-white/80 uppercase mb-8"
         >
-          <span className="glow-dot h-2 w-2 rounded-full bg-accent-emerald" />
+          <span className="glow-dot h-2 w-2 rounded-full bg-accent-orange" />
           India expeditions now open
         </motion.div>
 
@@ -347,7 +347,7 @@ export function ExperienceShowcase() {
   return (
     <section
       id="explore"
-      className="relative bg-[#FDFCF8] py-16 md:py-28 border-t border-[#0A0A0A]/[0.06] overflow-hidden selection:bg-emerald-200 selection:text-emerald-900"
+      className="relative bg-[#FDFCF8] py-16 md:py-28 border-t border-[#0A0A0A]/[0.06] overflow-hidden selection:bg-orange-200 selection:text-orange-900"
     >
       {/* Premium Ambient Gradients */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(6,78,59,0.05),_transparent_50%)]" />
@@ -363,9 +363,9 @@ export function ExperienceShowcase() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.4em] text-emerald-400/70"
+              className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.4em] text-orange-400/70"
             >
-              <div className="h-px w-5 bg-emerald-400/70" />
+              <div className="h-px w-5 bg-orange-400/70" />
               The Collection
             </motion.p>
 
@@ -393,7 +393,7 @@ export function ExperienceShowcase() {
                   delay: 0.1,
                   ease: [0.76, 0, 0.24, 1],
                 }}
-                className="text-[clamp(1.5rem,3vw,2.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-emerald-900/60"
+                className="text-[clamp(1.5rem,3vw,2.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-orange-900/60"
               >
                 India.
               </motion.p>
@@ -410,10 +410,10 @@ export function ExperienceShowcase() {
           >
             {/* Static Data Readout (Replaces the lonely single button) */}
             <div className="flex items-center gap-3">
-              <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-emerald-400 border-b border-emerald-400/30 pb-0.5">
+              <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-orange-400 border-b border-orange-400/30 pb-0.5">
                 India
               </span>
-              <span className="font-mono text-[12px] uppercase tracking-[0.3em] text-black/50  bg-gradient-to-b from-emerald-50/80 to-transparent backdrop-blur-sm px-3 py-1.5 border border-emerald-400/20">
+              <span className="font-mono text-[12px] uppercase tracking-[0.3em] text-black/50  bg-gradient-to-b from-orange-50/80 to-transparent backdrop-blur-sm px-3 py-1.5 border border-orange-400/20">
                 :Active Region
               </span>
             </div>
@@ -463,7 +463,7 @@ export function ExperienceShowcase() {
                 <div>
                   <div className="flex items-end justify-between mb-8">
                     <div>
-                      <p className="text-[11px] uppercase tracking-[0.3em] text-emerald-400/70 mb-3 font-bold">
+                      <p className="text-[11px] uppercase tracking-[0.3em] text-orange-400/70 mb-3 font-bold">
                         {featuredExp.location}
                       </p>
                       <h3 className="text-[clamp(2rem,3.5vw,3.5rem)] font-black tracking-[-0.03em] text-white leading-[0.9]">
@@ -471,9 +471,9 @@ export function ExperienceShowcase() {
                       </h3>
                     </div>
 
-                    <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-emerald-400/30 transition-all duration-500 shrink-0 mb-2">
+                    <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-orange-400/30 transition-all duration-500 shrink-0 mb-2">
                       <svg
-                        className="w-5 h-5 text-emerald-400/70 -rotate-45"
+                        className="w-5 h-5 text-orange-400/70 -rotate-45"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -545,16 +545,16 @@ export function ExperienceShowcase() {
                   <div>
                     <div className="flex items-end justify-between mb-6">
                       <div>
-                        <p className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/60 mb-2 font-bold">
+                        <p className="text-[10px] uppercase tracking-[0.3em] text-orange-400/60 mb-2 font-bold">
                           {exp.location} • {exp.vibe}
                         </p>
                         <h3 className="text-[clamp(1.5rem,2.5vw,2.2rem)] font-black tracking-[-0.03em] text-white leading-[0.95]">
                           {exp.title}
                         </h3>
                       </div>
-                      <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-emerald-400/30 transition-all duration-500 shrink-0">
+                      <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-orange-400/30 transition-all duration-500 shrink-0">
                         <svg
-                          className="w-3.5 h-3.5 text-emerald-400/70 -rotate-45"
+                          className="w-3.5 h-3.5 text-orange-400/70 -rotate-45"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -595,14 +595,14 @@ export function ExperienceShowcase() {
         >
           <a
             href="/explore"
-            className="group inline-flex items-center gap-4 border  px-8 py-4 border-emerald-400/30 bg-emerald-400/5 transition-all duration-300"
+            className="group inline-flex items-center gap-4 border  px-8 py-4 border-orange-400/30 bg-orange-400/5 transition-all duration-300"
           >
-            <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-emerald-400 group-hover:text-emerald-400 transition-colors">
+            <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-orange-400 group-hover:text-orange-400 transition-colors">
               View all expeditions
             </span>
-            <div className="w-8 h-8 rounded-full border border-emerald-400/30 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full border border-orange-400/30 flex items-center justify-center">
               <svg
-                className="w-3 h-3 -rotate-45 text-emerald-400 transition-colors"
+                className="w-3 h-3 -rotate-45 text-orange-400 transition-colors"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -644,7 +644,7 @@ export function CorporateExperience() {
   return (
     <section
       id="corporate"
-      className=" bg-gradient-to-b from-emerald-50/80 to-transparente py-18 md:py-28 border-t border-white/[0.08] overflow-hidden"
+      className=" bg-gradient-to-b from-orange-50/80 to-transparente py-18 md:py-28 border-t border-white/[0.08] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-11">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-[2px]">
@@ -689,8 +689,8 @@ export function CorporateExperience() {
               transition={{ duration: 0.6 }}
               className="mb-6 flex items-center gap-3"
             >
-              <div className="h-px w-5 bg-emerald-400/80" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-emerald-400/80">
+              <div className="h-px w-5 bg-orange-400/80" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-orange-400/80">
                 Corporate Solutions
               </span>
             </motion.div>
@@ -752,11 +752,11 @@ export function CorporateExperience() {
                   className="group flex items-baseline gap-6 py-7 border-b border-black/[0.1] cursor-default hover:bg-white/[0.02] -mx-4 px-4 transition-colors duration-300"
                 >
                   {/* Increased from 15 to 40 */}
-                  <span className="font-mono text-[11px] text-black/40 min-w-[24px] group-hover:text-emerald-400 transition-colors duration-300">
+                  <span className="font-mono text-[11px] text-black/40 min-w-[24px] group-hover:text-orange-400 transition-colors duration-300">
                     {item.id}
                   </span>
                   {/* Increased from 70 to solid white */}
-                  <h4 className="flex-1 text-[18px] font-bold tracking-[-0.02em] text-black group-hover:text-emerald-400 transition-colors duration-300">
+                  <h4 className="flex-1 text-[18px] font-bold tracking-[-0.02em] text-black group-hover:text-orange-400 transition-colors duration-300">
                     {item.title}
                   </h4>
                   {/* Increased from 25 to 50 - THE CRITICAL FIX */}
@@ -771,14 +771,14 @@ export function CorporateExperience() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
               <a
                 href="/contact"
-                className="group inline-flex items-center gap-3 border px-7 py-4 border-emerald-400/50 bg-emerald-400/5 transition-all duration-300 w-fit"
+                className="group inline-flex items-center gap-3 border px-7 py-4 border-orange-400/50 bg-orange-400/5 transition-all duration-300 w-fit"
               >
                 <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-black/80 group-hover:text-black transition-colors">
                   Enquire now
                 </span>
-                <div className="w-8 h-8 rounded-full border border-emerald-400/50 bg-emerald-400/5 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full border border-orange-400/50 bg-orange-400/5 flex items-center justify-center">
                   <svg
-                    className="w-3 h-3 -rotate-45 text-emerald-400 transition-colors"
+                    className="w-3 h-3 -rotate-45 text-orange-400 transition-colors"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -804,7 +804,7 @@ export function CommunitySection() {
   return (
     <section
       id="community"
-      className=" bg-gradient-to-b from-emerald-50/80 to-transparent py-16 sm:py-20  overflow-hidden relative"
+      className=" bg-gradient-to-b from-orange-50/80 to-transparent py-16 sm:py-20  overflow-hidden relative"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11">
         {/* ── Header ── */}
@@ -815,14 +815,14 @@ export function CommunitySection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-5 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600"
+              className="mb-5 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-orange-600"
             >
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="h-px w-5 bg-emerald-600 origin-left"
+                className="h-px w-5 bg-orange-600 origin-left"
               />
               Network Effect
             </motion.p>
@@ -848,7 +848,7 @@ export function CommunitySection() {
                   delay: 0.1,
                   ease: [0.76, 0, 0.24, 1],
                 }}
-                className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-emerald-500 transition-colors duration-500 cursor-default"
+                className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-orange-500 transition-colors duration-500 cursor-default"
               >
                 A lifelong network.
               </motion.h2>
@@ -862,7 +862,7 @@ export function CommunitySection() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="md:pb-2 md:pl-14"
           >
-            <p className="border-l border-emerald-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500">
+            <p className="border-l border-orange-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500">
               Skip the small talk. This is where builders connect through depth,
               shared pressure, and unfiltered conversations.
             </p>
@@ -895,7 +895,7 @@ export function CommunitySection() {
             <div className="relative z-10 h-full flex flex-col justify-end p-8 sm:p-10 md:p-16">
               {/* Micro-detail top */}
               <div className="absolute top-8 left-8 sm:top-10 sm:left-10 md:top-16 md:left-16 flex items-center gap-3">
-                <div className="w-8 h-px bg-emerald-400/80" />
+                <div className="w-8 h-px bg-orange-400/80" />
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/50">
                   Session Type: Mentorship
                 </span>
@@ -912,11 +912,11 @@ export function CommunitySection() {
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
-                  className="text-[clamp(1.8rem,4vw,3.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white mb-6 group-hover:text-emerald-400 transition-colors duration-500"
+                  className="text-[clamp(1.8rem,4vw,3.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white mb-6 group-hover:text-orange-400 transition-colors duration-500"
                 >
                   Expert-Led
                   <br />
-                  <span className="text-white/30 group-hover:text-emerald-400/50 transition-colors duration-500">
+                  <span className="text-white/30 group-hover:text-orange-400/50 transition-colors duration-500">
                     Mentorship.
                   </span>
                 </motion.h3>
@@ -963,7 +963,7 @@ export function CommunitySection() {
                   ))}
                 </div>
                 <div className="ml-2">
-                  <span className="text-[13px] font-bold text-emerald-400/80">
+                  <span className="text-[13px] font-bold text-orange-400/80">
                     +15
                   </span>
                   <span className="block text-[9px] uppercase tracking-[0.3em] text-white/40 font-bold mt-0.5">
@@ -983,13 +983,13 @@ export function CommunitySection() {
             className="lg:col-span-4  relative overflow-hidden flex flex-col justify-between p-8 sm:p-10 transition-colors duration-500 rounded-sm lg:rounded-none lg:rounded-r-sm"
           >
             {/* Ghosted Background Number */}
-            <span className="absolute -bottom-6 -right-4 text-[10rem] font-black leading-none text-emerald-900/[0.3] select-none pointer-events-none">
+            <span className="absolute -bottom-6 -right-4 text-[10rem] font-black leading-none text-orange-900/[0.3] select-none pointer-events-none">
               03
             </span>
 
             <div className="relative z-10">
               <div className="mb-8 flex items-center gap-3">
-                <div className="h-px w-5 bg-emerald-600" />
+                <div className="h-px w-5 bg-orange-600" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-neutral-400">
                   Infrastructure
                 </span>
@@ -1000,7 +1000,7 @@ export function CommunitySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-5xl font-extrabold tracking-[-0.03em] text-emerald-500 leading-tight mb-4"
+                className="text-5xl font-extrabold tracking-[-0.03em] text-orange-500 leading-tight mb-4"
               >
                 High-Stakes
                 <br />
@@ -1052,7 +1052,7 @@ export function CommunitySection() {
                       {item.val}
                     </span>
                     {/* Animated expanding bar on hover */}
-                    <div className="w-0 h-px bg-emerald-500/70 group-hover/item:w-4 transition-all duration-300" />
+                    <div className="w-0 h-px bg-orange-500/70 group-hover/item:w-4 transition-all duration-300" />
                   </div>
                 </motion.div>
               ))}
@@ -1080,15 +1080,15 @@ export function CommunitySection() {
                   key={`q-${i}`}
                   className="flex items-center gap-5 sm:gap-6 min-w-max"
                 >
-                  {/* Emerald Vertical Accent */}
-                  <div className="h-10 w-[2px] bg-emerald-500/70 shrink-0" />
+                  {/* orange Vertical Accent */}
+                  <div className="h-10 w-[2px] bg-orange-500/70 shrink-0" />
 
                   <div className="flex flex-col">
                     <span className="text-base sm:text-lg md:text-xl font-medium text-neutral-700 leading-snug">
                       &ldquo;{t.content}&rdquo;
                     </span>
                     <div className="flex items-center gap-3 mt-2">
-                      <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">
+                      <span className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">
                         {t.name}
                       </span>
                       {t.company && (
@@ -1159,7 +1159,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className=" bg-gradient-to-b from-emerald-50/80 to-transparent py-16 sm:py-20 md:py-28 overflow-hidden"
+      className=" bg-gradient-to-b from-orange-50/80 to-transparent py-16 sm:py-20 md:py-28 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-11">
         {/* ── Header ── */}
@@ -1175,7 +1175,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-4 sm:mb-5 inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-500"
+            className="mb-4 sm:mb-5 inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-orange-500"
           >
             The Journey
           </motion.p>
@@ -1221,14 +1221,14 @@ export function HowItWorks() {
               <motion.div
                 initial={{ scaleY: 0 }}
                 whileHover={{ scaleY: 1 }}
-                className="absolute inset-y-0 right-0 w-px bg-emerald-400 origin-top z-20 hidden sm:block"
+                className="absolute inset-y-0 right-0 w-px bg-orange-400 origin-top z-20 hidden sm:block"
                 style={{
                   transform: "scaleY(0)",
                   transition: "transform 0.5s cubic-bezier(0.22,1,0.36,1)",
                 }}
               />
               <div
-                className="absolute inset-y-0 right-0 w-px bg-transparent group-hover:bg-emerald-400/60 transition-all duration-500 z-20 hidden sm:block"
+                className="absolute inset-y-0 right-0 w-px bg-transparent group-hover:bg-orange-400/60 transition-all duration-500 z-20 hidden sm:block"
                 style={{ transform: "scaleY(0)", transformOrigin: "top" }}
                 onMouseEnter={(e) => {
                   (e.target as HTMLDivElement).style.transform = "scaleY(1)";
@@ -1247,16 +1247,16 @@ export function HowItWorks() {
                 }}
                 className="absolute top-[-16px] left-[-8px] lg:left-[16px] pointer-events-none select-none"
               >
-                <span className="text-[8rem] sm:text-[10rem] lg:text-[14rem] font-black leading-none text-emerald-100 group-hover:text-emerald-400 transition-colors duration-700">
+                <span className="text-[8rem] sm:text-[10rem] lg:text-[14rem] font-black leading-none text-orange-100 group-hover:text-orange-400 transition-colors duration-700">
                   {step.num}
                 </span>
               </motion.div>
 
               {/* The Horizontal Line — animates width on hover */}
               <div className="absolute top-1/2 left-0 right-0 z-0 flex items-center">
-                <div className="h-px bg-neutral-100 w-full transition-colors duration-500 group-hover:bg-emerald-200" />
+                <div className="h-px bg-neutral-100 w-full transition-colors duration-500 group-hover:bg-orange-200" />
                 <motion.div
-                  className="absolute left-0 h-px bg-emerald-400"
+                  className="absolute left-0 h-px bg-orange-400"
                   initial={{ width: "0%" }}
                   whileHover={{ width: "100%" }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -1264,7 +1264,7 @@ export function HowItWorks() {
               </div>
 
               {/* Bottom Content Block */}
-              <div className="relative z-10 border-t border-neutral-200 group-hover:border-emerald-400/40 pt-6 sm:pt-8 transition-colors duration-500 -mx-1 px-1">
+              <div className="relative z-10 border-t border-neutral-200 group-hover:border-orange-400/40 pt-6 sm:pt-8 transition-colors duration-500 -mx-1 px-1">
                 {/* STEP label — slides in from left */}
                 <motion.div
                   initial={{ opacity: 0, x: -16 }}
@@ -1277,7 +1277,7 @@ export function HowItWorks() {
                   }}
                   className="flex items-center gap-3 mb-4 sm:mb-5"
                 >
-                  <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-emerald-500/80">
+                  <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-orange-500/80">
                     STEP {step.num}
                   </span>
                   {idx < 3 && (
@@ -1289,7 +1289,7 @@ export function HowItWorks() {
                         duration: 0.4,
                         delay: idx * 0.12 + 0.45,
                       }}
-                      className="hidden lg:block w-4 h-4 text-neutral-300 absolute top-[2.15rem] right-3 group-hover:text-emerald-500 group-hover:translate-x-2 transition-all duration-500"
+                      className="hidden lg:block w-4 h-4 text-neutral-300 absolute top-[2.15rem] right-3 group-hover:text-orange-500 group-hover:translate-x-2 transition-all duration-500"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -1314,7 +1314,7 @@ export function HowItWorks() {
                     delay: idx * 0.12 + 0.35,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-[-0.03em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-300 mb-3 sm:mb-4"
+                  className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-[-0.03em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-300 mb-3 sm:mb-4"
                 >
                   {step.title}
                 </motion.h3>
@@ -1339,8 +1339,8 @@ export function HowItWorks() {
                   initial={{ scale: 0, opacity: 0 }}
                   className="mt-5 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[10px] font-mono tracking-widest text-emerald-500/70 uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                  <span className="text-[10px] font-mono tracking-widest text-orange-500/70 uppercase">
                     Active
                   </span>
                 </motion.div>
@@ -1379,7 +1379,7 @@ export function HowItWorks() {
                   delay: 0.6 + i * 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="w-8 sm:w-12 h-px bg-emerald-500 origin-left"
+                className="w-8 sm:w-12 h-px bg-orange-500 origin-left"
                 style={{ opacity: opacity / 100 }}
               />
             ))}
@@ -1390,7 +1390,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="font-mono text-[10px] sm:text-[11px] text-emerald-500 tracking-widest font-bold"
+            className="font-mono text-[10px] sm:text-[11px] text-orange-500 tracking-widest font-bold"
           >
             OUTPUT ACHIEVED
           </motion.span>
@@ -1402,7 +1402,7 @@ export function HowItWorks() {
 
 export function ContactSection() {
   return (
-    <section className="  bg-gradient-to-b from-emerald-50/80 to-transparent py-16 sm:py-20 md:py-28">
+    <section className="  bg-gradient-to-b from-orange-50/80 to-transparent py-16 sm:py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 sm:gap-16 lg:gap-20 items-center">
           {/* LEFT */}
@@ -1412,14 +1412,14 @@ export function ContactSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-5 sm:mb-6 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600"
+              className="mb-5 sm:mb-6 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-orange-600"
             >
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="h-px w-5 bg-emerald-600 origin-left"
+                className="h-px w-5 bg-orange-600 origin-left"
               />
               Get in touch
             </motion.p>
@@ -1446,7 +1446,7 @@ export function ContactSection() {
                     delay: 0.1,
                     ease: [0.76, 0, 0.24, 1],
                   }}
-                  className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-emerald-500 transition-colors duration-500 cursor-default"
+                  className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-orange-500 transition-colors duration-500 cursor-default"
                 >
                   your life & team.
                 </motion.h2>
@@ -1458,7 +1458,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="border-l border-emerald-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500 max-w-md mb-10 sm:mb-12"
+              className="border-l border-orange-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500 max-w-md mb-10 sm:mb-12"
             >
               Join the waiting list for our Summer 2026 expeditions or schedule
               a custom consultation for your corporate leadership team.
@@ -1493,14 +1493,14 @@ export function ContactSection() {
                   }}
                   className="group/item flex items-baseline gap-4 sm:gap-5 py-4 sm:py-5 border-b border-neutral-200 last:border-b-0 cursor-default"
                 >
-                  <span className="font-mono text-[10px] sm:text-[11px] text-neutral-400 w-5 sm:w-6 group-hover/item:text-emerald-600 transition-colors duration-300">
+                  <span className="font-mono text-[10px] sm:text-[11px] text-neutral-400 w-5 sm:w-6 group-hover/item:text-orange-600 transition-colors duration-300">
                     {item.num}
                   </span>
                   <span className="text-[13px] sm:text-[14px] font-medium text-neutral-400 group-hover/item:text-neutral-700 group-hover/item:translate-x-1 transition-all duration-300">
                     {item.text}
                   </span>
                   {/* Expanding accent bar */}
-                  <span className="ml-auto w-0 h-px bg-emerald-500/60 group-hover/item:w-6 transition-all duration-500" />
+                  <span className="ml-auto w-0 h-px bg-orange-500/60 group-hover/item:w-6 transition-all duration-500" />
                 </motion.div>
               ))}
             </motion.div>
@@ -1520,7 +1520,7 @@ export function ContactSection() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="h-px w-3 bg-emerald-500 origin-left "
+                className="h-px w-3 bg-orange-500 origin-left "
               />
               <span className="text-[10px] font-bold text-black/60 uppercase tracking-[0.3em]">
                 Limited to 24 per cohort

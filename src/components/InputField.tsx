@@ -36,7 +36,7 @@ const InputField = ({
   const baseClasses = `w-full border text-neutral-900 text-[13px] sm:text-[14px] px-4 py-3.5 outline-none transition-all duration-300 placeholder:text-neutral-400  ${
     error
       ? "border-red-400 focus:border-red-500 focus:ring-1 focus:ring-red-500/20"
-      : "border-neutral-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 hover:border-neutral-300"
+      : "border-neutral-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 hover:border-neutral-300"
   }`;
 
   return (
@@ -58,9 +58,13 @@ const InputField = ({
           <select
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            className={`${baseClasses} appearance-none cursor-pointer pr-10 hover:bg-emerald-50`}
+            className={`${baseClasses} appearance-none cursor-pointer pr-10 hover:bg-orange-50`}
           >
-            <option value="" disabled className="bg-white text-neutral-400 bg-emerald-50 ">
+            <option
+              value=""
+              disabled
+              className="bg-white text-neutral-400 bg-orange-50 "
+            >
               -- Select a role --
             </option>
             <option value="Builder" className="bg-white text-neutral-700">
@@ -186,9 +190,9 @@ export default function ContactForm() {
               stiffness: 200,
               damping: 15,
             }}
-            className="w-16 h-16 rounded-full border-2 border-emerald-500/30 bg-emerald-50 flex items-center justify-center mb-8"
+            className="w-16 h-16 rounded-full border-2 border-orange-500/30 bg-orange-50 flex items-center justify-center mb-8"
           >
-            <CheckCircle2 className="w-8 h-8 text-emerald-500" />
+            <CheckCircle2 className="w-8 h-8 text-orange-500" />
           </motion.div>
           <motion.h3
             initial={{ opacity: 0, y: 10 }}
@@ -287,7 +291,7 @@ export default function ContactForm() {
             onClick={submitForm}
             whileHover={{ scale: 1.005 }}
             whileTap={{ scale: 0.995 }}
-            className="group flex items-center justify-between w-full border-2 border-emerald-400 hover:border-white text-neutral-900 px-6 py-4 mt-2 bg-transparent hover:bg-emerald-400/50 hover:text-white transition-all duration-300 relative z-10"
+            className="group flex items-center justify-between w-full border-2 border-orange-400 hover:border-white text-neutral-900 px-6 py-4 mt-2 bg-transparent hover:bg-orange-400/50 hover:text-white transition-all duration-300 relative z-10"
           >
             <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em]">
               Send Inquiry

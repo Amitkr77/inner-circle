@@ -103,7 +103,7 @@ export default function Contact() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute top-0 left-0 right-0 h-px bg-emerald-500/20 origin-left z-[3]"
+          className="absolute top-0 left-0 right-0 h-px bg-orange-500/20 origin-left z-[3]"
         />
 
         {/* Content */}
@@ -116,7 +116,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-block text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] font-bold uppercase text-emerald-600 mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 border border-emerald-500/20 rounded-full bg-emerland/50"
+              className="inline-block text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] font-bold uppercase text-orange-600 mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 border border-orange-500/20 rounded-full bg-emerland/50"
             >
               Contact · High Intent Only
             </motion.p>
@@ -160,7 +160,7 @@ export default function Contact() {
                 }}
                 className="text-[clamp(2.4rem,6vw,5rem)] font-bold leading-[1.05] tracking-[-0.04em]"
               >
-                <span className="text-emerald-600">Build with intent.</span>
+                <span className="text-orange-600">Build with intent.</span>
               </motion.h1>
             </div>
 
@@ -188,7 +188,7 @@ export default function Contact() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="w-px h-10 bg-gradient-to-b from-transparent to-emerald-500"
+                className="w-px h-10 bg-gradient-to-b from-transparent to-orange-500"
               />
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-neutral-300">
                 Scroll
@@ -214,10 +214,10 @@ export default function Contact() {
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               onClick={() => handleCardClick(item)}
-              className="relative p-6 sm:p-7 md:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 cursor-pointer transition-all duration-500 hover:border-emerald-500/40 hover:bg-emerald-50/30 hover:shadow-lg hover:shadow-emerald-500/[0.04] group overflow-hidden"
+              className="relative p-6 sm:p-7 md:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 cursor-pointer transition-all duration-500 hover:border-orange-500/40 hover:bg-orange-50/30 hover:shadow-lg hover:shadow-orange-500/[0.04] group overflow-hidden"
             >
               {/* Hover accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-emerald-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
               <h3 className="text-[15px] sm:text-base font-semibold text-neutral-900 mb-2 sm:mb-2.5 tracking-[-0.01em]">
                 {item.title}
@@ -228,10 +228,10 @@ export default function Contact() {
               </p>
 
               <div className="flex items-center gap-2">
-                <span className="text-[12px] sm:text-[13px] text-emerald-600 font-semibold group-hover:translate-x-1 transition-transform duration-300">
+                <span className="text-[12px] sm:text-[13px] text-orange-600 font-semibold group-hover:translate-x-1 transition-transform duration-300">
                   {item.action}
                 </span>
-                <div className="w-0 group-hover:w-4 h-px bg-emerald-500 transition-all duration-300" />
+                <div className="w-0 group-hover:w-4 h-px bg-orange-500 transition-all duration-300" />
               </div>
             </motion.div>
           ))}
@@ -251,7 +251,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] text-emerald-600 uppercase font-bold mb-4 sm:mb-5">
+            <p className="text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] text-orange-600 uppercase font-bold mb-4 sm:mb-5">
               ⬡ Transmission Protocol
             </p>
 
@@ -302,10 +302,10 @@ export default function Contact() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="flex flex-col gap-3 mb-8 sm:mb-10"
             >
-              <div className="flex items-center gap-2.5 px-4 py-2.5 bg-emerald-50 border border-emerald-500/20 rounded-xl">
+              <div className="flex items-center gap-2.5 px-4 py-2.5 bg-orange-50 border border-orange-500/20 rounded-xl">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
                 </span>
                 <span className="text-[10px] sm:text-[11px] tracking-[0.1em] text-neutral-500 uppercase font-bold">
                   Foundry Queue: Minimal Latency
@@ -326,7 +326,7 @@ export default function Contact() {
                 alt="Engineering workspace"
                 className="w-full h-full object-cover grayscale-[40%]  group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.06] to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.06] to-transparent" />
               <div className="absolute bottom-3 left-4 text-[10px] text-white tracking-[0.1em] font-bold uppercase">
                 Forge_Node_01 // Online
               </div>
@@ -349,7 +349,7 @@ export default function Contact() {
       <section className="px-5 sm:px-6 md:px-8 py-16 sm:py-20 md:py-28 text-center relative overflow-hidden">
         {/* Subtle radial glow */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-emerald-500/[0.03] blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-orange-500/[0.03] blur-3xl" />
         </div>
 
         <div className="relative z-10">
@@ -365,9 +365,9 @@ export default function Contact() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="h-px w-8 bg-emerald-500/60 origin-right block"
+              className="h-px w-8 bg-orange-500/60 origin-right block"
             />
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-emerald-600">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-orange-600">
               Final Word
             </span>
             <motion.div
@@ -375,7 +375,7 @@ export default function Contact() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="h-px w-8 bg-emerald-500/60 origin-left block"
+              className="h-px w-8 bg-orange-500/60 origin-left block"
             />
           </motion.div>
 
@@ -402,7 +402,7 @@ export default function Contact() {
               }}
               className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-[-0.04em] leading-[1.1]"
             >
-              <span className="text-emerald-600">
+              <span className="text-orange-600">
                 Build something meaningful.
               </span>
             </motion.h2>

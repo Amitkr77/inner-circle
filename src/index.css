@@ -10,13 +10,13 @@
     --color-accent-orange: #FF6B35;
     --color-accent-red: #D7263D;
     --color-accent-purple: #8A2BE2;
-    --color-accent-emerald: #10B981;
+    --color-accent-orange: #10B981;
     --color-accent-forest: #064E3B;
 }
 
 @layer base {
     body {
-        @apply  text-black antialiased selection:bg-accent-emerald selection:text-white overflow-x-hidden;
+        @apply  text-black antialiased selection:bg-accent-orange selection:text-white overflow-x-hidden;
         font-family: var(--font-sans);
     }
 }

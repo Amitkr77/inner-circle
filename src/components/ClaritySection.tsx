@@ -42,7 +42,7 @@ export default function ClaritySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-8 sm:mb-10 lg:mb-12 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.45em] text-emerald-600 before:block before:h-px before:w-4 sm:before:w-6 shrink-0 before:bg-emerald-400"
+            className="mb-8 sm:mb-10 lg:mb-12 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.45em] text-orange-600 before:block before:h-px before:w-4 sm:before:w-6 shrink-0 before:bg-orange-400"
           >
             The philosophy
           </motion.p>
@@ -53,7 +53,7 @@ export default function ClaritySection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="pointer-events-none select-none absolute right-[-2%] top-2 sm:right-[-5%] sm:top-6 lg:right-[-10px] lg:top-10 z-0 whitespace-nowrap text-[80px] sm:text-[120px] md:text-[180px] lg:text-[220px] font-black leading-none tracking-[-0.06em] bg-gradient-to-br from-emerald-200/50 to-transparent bg-clip-text text-transparent"
+            className="pointer-events-none select-none absolute right-[-2%] top-2 sm:right-[-5%] sm:top-6 lg:right-[-10px] lg:top-10 z-0 whitespace-nowrap text-[80px] sm:text-[120px] md:text-[180px] lg:text-[220px] font-black leading-none tracking-[-0.06em] bg-gradient-to-br from-orange-200/50 to-transparent bg-clip-text text-transparent"
           >
             CLARITY
           </motion.div>
@@ -81,7 +81,7 @@ export default function ClaritySection() {
                   delay: 0.1,
                   ease: [0.76, 0, 0.24, 1],
                 }}
-                className="block text-emerald-500/60"
+                className="block text-orange-500/60"
               >
                 clarity &
               </motion.span>
@@ -120,16 +120,16 @@ export default function ClaritySection() {
               className="group relative p-6 sm:p-8 lg:p-10"
             >
               {/* Hover background */}
-              <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-b from-orange-50/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               {/* Hover top line */}
-              <div className="absolute left-0 top-0 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-emerald-500 transition-all duration-500 ease-out group-hover:w-full" />
+              <div className="absolute left-0 top-0 h-[2px] w-0 bg-gradient-to-r from-orange-400 to-orange-500 transition-all duration-500 ease-out group-hover:w-full" />
 
               <div className="relative z-10">
-                <div className="mb-4 sm:mb-6 text-[48px] sm:text-[56px] lg:text-[72px] font-black leading-none tracking-[-0.04em] text-neutral-300 transition-colors duration-500 group-hover:text-emerald-400">
+                <div className="mb-4 sm:mb-6 text-[48px] sm:text-[56px] lg:text-[72px] font-black leading-none tracking-[-0.04em] text-neutral-300 transition-colors duration-500 group-hover:text-orange-400">
                   {c.num}
                 </div>
-                <p className="mb-2 sm:mb-3 text-sm sm:text-base font-extrabold tracking-[-0.01em] text-emerald-600">
+                <p className="mb-2 sm:mb-3 text-sm sm:text-base font-extrabold tracking-[-0.01em] text-orange-600">
                   {c.title}
                 </p>
                 <p className="text-[13px] sm:text-sm leading-[1.85] text-neutral-500">
@@ -152,16 +152,16 @@ export default function ClaritySection() {
           >
             <p className="mb-5 sm:mb-6 font-[family-name:var(--font-serif)] text-lg sm:text-xl lg:text-[22px] italic leading-[1.65] text-neutral-400">
               "Everything is built to help you{" "}
-              <em className="not-italic font-semibold text-emerald-600">
+              <em className="not-italic font-semibold text-orange-600">
                 think better
               </em>{" "}
               and{" "}
-              <em className="not-italic font-semibold text-emerald-600">
+              <em className="not-italic font-semibold text-orange-600">
                 build better
               </em>{" "}
               — not just feel inspired for a week."
             </p>
-            <p className="flex items-center gap-2.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 before:block before:h-px before:w-4 shrink-0 before:bg-emerald-400">
+            <p className="flex items-center gap-2.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 before:block before:h-px before:w-4 shrink-0 before:bg-orange-400">
               The retreat ethos
             </p>
           </motion.div>
@@ -184,7 +184,7 @@ export default function ClaritySection() {
                   transition={{ delay: 0.4 + idx * 0.1, duration: 0.5 }}
                   className="flex items-center gap-3"
                 >
-                  <span className="h-1 w-1 shrink-0 rounded-full bg-emerald-500" />
+                  <span className="h-1 w-1 shrink-0 rounded-full bg-orange-500" />
                   <span className="text-[12px] sm:text-[13px] font-medium text-neutral-400">
                     {text}
                   </span>
@@ -192,17 +192,17 @@ export default function ClaritySection() {
               ))}
             </div>
 
-            <div className=" mt-5  bg-gradient-to-b from-emerald-50/80 to-transparent border border-emerald-200 px-2 py-1">
+            <div className=" mt-5  bg-gradient-to-b from-orange-50/80 to-transparent border border-orange-200 px-2 py-1">
               <Link
                 to="/apply"
                 className="group/cta flex items-center justify-between w-full"
               >
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-600 transition-colors group-hover/cta:text-black">
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-orange-600 transition-colors group-hover/cta:text-black">
                   Apply now
                 </span>
 
                 {/* Premium CTA Button */}
-                <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-neutral-300 bg-white text-emerald-600 transition-all duration-300 group-hover/cta:bg-emerald-500 group-hover/cta:border-emerald-500 group-hover/cta:text-white group-hover/cta:shadow-lg group-hover/cta:shadow-emerald-500/25">
+                <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-neutral-300 bg-white text-orange-600 transition-all duration-300 group-hover/cta:bg-orange-500 group-hover/cta:border-orange-500 group-hover/cta:text-white group-hover/cta:shadow-lg group-hover/cta:shadow-orange-500/25">
                   <svg
                     width="12"
                     height="12"

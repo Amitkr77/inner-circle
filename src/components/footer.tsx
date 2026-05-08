@@ -138,7 +138,7 @@ function TracePath({ d, className }: { d: string; className?: string }) {
         fill="none"
         stroke="currentColor"
         strokeWidth="0.4"
-        className="text-emerald-400"
+        className="text-orange-400"
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: [0, pathLength, 0], opacity: [0, 0.4, 0] }}
         transition={{
@@ -200,7 +200,7 @@ function AnimatedDots({ count = 18 }: { count?: number }) {
             delay: i * 0.35,
             ease: "easeInOut",
           }}
-          className="absolute rounded-full bg-emerald-500"
+          className="absolute rounded-full bg-orange-500"
           style={{
             width: 2 + (i % 3),
             height: 2 + (i % 3),
@@ -236,9 +236,9 @@ export function Footer() {
         <AnimatedDots count={20} />
 
         {/* Orbs */}
-        <FloatingOrb className="w-[400px] h-[400px] -top-[140px] -left-[100px] bg-emerald-500/[0.03] blur-[100px]" />
+        <FloatingOrb className="w-[400px] h-[400px] -top-[140px] -left-[100px] bg-orange-500/[0.03] blur-[100px]" />
         <FloatingOrb
-          className="w-[320px] h-[320px] -bottom-[120px] -right-[80px] bg-emerald-500/[0.04] blur-[90px]"
+          className="w-[320px] h-[320px] -bottom-[120px] -right-[80px] bg-orange-500/[0.04] blur-[90px]"
           duration={11}
         />
         <FloatingOrb
@@ -247,13 +247,13 @@ export function Footer() {
         />
 
         {/* Blobs */}
-        <MorphingBlob className="w-[180px] h-[180px] top-[15%] right-[8%] bg-emerald-500/[0.02]" />
+        <MorphingBlob className="w-[180px] h-[180px] top-[15%] right-[8%] bg-orange-500/[0.02]" />
         <MorphingBlob className="w-[140px] h-[140px] bottom-[20%] left-[15%] bg-neutral-300/[0.03]" />
 
         {/* Rings */}
-        <PulseRing className="w-[120px] h-[120px] top-[8%] left-[25%] border-emerald-500/[0.08]" />
+        <PulseRing className="w-[120px] h-[120px] top-[8%] left-[25%] border-orange-500/[0.08]" />
         <PulseRing
-          className="w-[160px] h-[160px] bottom-[12%] right-[20%] border-emerald-500/[0.05]"
+          className="w-[160px] h-[160px] bottom-[12%] right-[20%] border-orange-500/[0.05]"
           duration={7}
         />
         <PulseRing
@@ -267,7 +267,7 @@ export function Footer() {
           duration={28}
         />
         <RotatingShape
-          className="w-12 h-12 bottom-[20%] left-[18%] border border-emerald-500/[0.08] rounded-sm"
+          className="w-12 h-12 bottom-[20%] left-[18%] border border-orange-500/[0.08] rounded-sm"
           duration={20}
         />
         <RotatingShape className="w-20 h-20 top-[10%] left-[8%]" duration={35}>
@@ -281,7 +281,7 @@ export function Footer() {
               fill="none"
               stroke="currentColor"
               strokeWidth="0.4"
-              className="text-emerald-400/[0.08]"
+              className="text-orange-400/[0.08]"
             />
           </svg>
         </RotatingShape>
@@ -295,7 +295,7 @@ export function Footer() {
               fill="none"
               stroke="currentColor"
               strokeWidth="0.4"
-              className="text-emerald-400/[0.08]"
+              className="text-orange-400/[0.08]"
             />
           </svg>
         </RotatingShape>
@@ -314,7 +314,7 @@ export function Footer() {
         <motion.div
           animate={{ x: [0, 30, 0], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[35%] right-[4%] w-px h-[100px] bg-gradient-to-b from-transparent via-emerald-500/15 to-transparent origin-top -rotate-[22deg]"
+          className="absolute top-[35%] right-[4%] w-px h-[100px] bg-gradient-to-b from-transparent via-orange-500/15 to-transparent origin-top -rotate-[22deg]"
         />
         <motion.div
           animate={{ x: [0, -25, 0], opacity: [0.08, 0.15, 0.08] }}
@@ -324,7 +324,7 @@ export function Footer() {
             ease: "easeInOut",
             delay: 3,
           }}
-          className="absolute bottom-[25%] left-[6%] w-px h-[80px] bg-gradient-to-b from-transparent via-emerald-500/[0.1] to-transparent origin-top rotate-[18deg]"
+          className="absolute bottom-[25%] left-[6%] w-px h-[80px] bg-gradient-to-b from-transparent via-orange-500/[0.1] to-transparent origin-top rotate-[18deg]"
         />
 
         {/* Corner frames */}
@@ -346,7 +346,7 @@ export function Footer() {
               }}
               className={`absolute top-0 ${
                 i % 2 === 0 ? "left-0" : "right-0"
-              } w-full h-px bg-emerald-500/15 origin-${
+              } w-full h-px bg-orange-500/15 origin-${
                 i % 2 === 0 ? "left" : "right"
               }`}
             />
@@ -361,7 +361,7 @@ export function Footer() {
               }}
               className={`absolute ${
                 i % 2 === 0 ? "top-0" : "bottom-0"
-              } left-0 w-px h-full bg-emerald-500/15 origin-${
+              } left-0 w-px h-full bg-orange-500/15 origin-${
                 i < 2 ? "top" : "bottom"
               }`}
             />
@@ -409,8 +409,8 @@ export function Footer() {
               className="flex items-center gap-2.5 pt-2"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
               </span>
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-300">
                 Accepting applications
@@ -440,18 +440,18 @@ export function Footer() {
                     {link.isHash ? (
                       <a
                         href={link.path}
-                        className="group flex items-center gap-2.5 text-[12px] sm:text-[13px] text-neutral-900 hover:text-emerald-600 transition-colors duration-300"
+                        className="group flex items-center gap-2.5 text-[12px] sm:text-[13px] text-neutral-900 hover:text-orange-600 transition-colors duration-300"
                       >
                         {link.name}
-                        <span className="w-0 group-hover:w-3 h-px bg-emerald-500/50 transition-all duration-300" />
+                        <span className="w-0 group-hover:w-3 h-px bg-orange-500/50 transition-all duration-300" />
                       </a>
                     ) : (
                       <Link
                         to={link.path}
-                        className="group flex items-center gap-2.5 text-[12px] sm:text-[13px] text-neutral-900 hover:text-emerald-600 transition-colors duration-300"
+                        className="group flex items-center gap-2.5 text-[12px] sm:text-[13px] text-neutral-900 hover:text-orange-600 transition-colors duration-300"
                       >
                         {link.name}
-                        <span className="w-0 group-hover:w-3 h-px bg-emerald-500/50 transition-all duration-300" />
+                        <span className="w-0 group-hover:w-3 h-px bg-orange-500/50 transition-all duration-300" />
                       </Link>
                     )}
                   </motion.li>
@@ -471,7 +471,7 @@ export function Footer() {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
           <motion.div
             variants={drawLine}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-px bg-emerald-500/30 origin-center"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-px bg-orange-500/30 origin-center"
           />
           <motion.div
             initial={{ scale: 0, rotate: -90 }}
@@ -483,7 +483,7 @@ export function Footer() {
               stiffness: 300,
               damping: 15,
             }}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 border border-emerald-500/25 rotate-45"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 border border-orange-500/25 rotate-45"
           />
         </motion.div>
 
@@ -511,7 +511,7 @@ export function Footer() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.25 + i * 0.06, duration: 0.4 }}
                 whileHover={{ y: -2 }}
-                className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-widest text-neutral-900 hover:text-emerald-600 transition-colors duration-300 cursor-pointer"
+                className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-widest text-neutral-900 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
               >
                 {item.name}
               </motion.a>

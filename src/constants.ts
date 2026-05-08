@@ -3,7 +3,7 @@ export interface Experience {
   title: string;
   location: string;
   category: "India" | "International";
- 
+
   vibe:
     | "Adventure"
     | "Growth"
@@ -208,7 +208,7 @@ export const EXPERIENCES: Experience[] = [
       "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&q=80&w=2070",
     pricePerHead: 16500,
     groupSize: 10,
-    description: "Emerald green tea estates and wildlife tours.",
+    description: "orange green tea estates and wildlife tours.",
     highlights: [
       "Eravikulam National Park",
       "Mattupetty Dam Boating",
@@ -236,7 +236,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     itinerary: [],
   },
-{
+  {
     id: "in-7",
     title: "Goa Beach Escape",
     location: "Goa, India",
@@ -289,11 +289,7 @@ export const EXPERIENCES: Experience[] = [
     pricePerHead: 15000,
     groupSize: 20,
     description: "Historic forts and vibrant markets.",
-    highlights: [
-      "Amber Fort",
-      "Hawa Mahal",
-      "Local Bazaar Shopping",
-    ],
+    highlights: ["Amber Fort", "Hawa Mahal", "Local Bazaar Shopping"],
     itinerary: [],
   },
 
@@ -309,11 +305,7 @@ export const EXPERIENCES: Experience[] = [
     pricePerHead: 8000,
     groupSize: 18,
     description: "Hot springs and spiritual vibes.",
-    highlights: [
-      "Vishwa Shanti Stupa",
-      "Hot Water Springs",
-      "Ropeway Ride",
-    ],
+    highlights: ["Vishwa Shanti Stupa", "Hot Water Springs", "Ropeway Ride"],
     itinerary: [],
   },
 
@@ -329,11 +321,7 @@ export const EXPERIENCES: Experience[] = [
     pricePerHead: 17000,
     groupSize: 15,
     description: "Palaces and royal history.",
-    highlights: [
-      "Mysore Palace",
-      "Chamundi Hills",
-      "Brindavan Gardens",
-    ],
+    highlights: ["Mysore Palace", "Chamundi Hills", "Brindavan Gardens"],
     itinerary: [],
   },
 
@@ -349,11 +337,7 @@ export const EXPERIENCES: Experience[] = [
     pricePerHead: 16000,
     groupSize: 17,
     description: "Modern city with rich history.",
-    highlights: [
-      "Charminar",
-      "Ramoji Film City",
-      "Hyderabadi Biryani",
-    ],
+    highlights: ["Charminar", "Ramoji Film City", "Hyderabadi Biryani"],
     itinerary: [],
   },
 
@@ -369,11 +353,7 @@ export const EXPERIENCES: Experience[] = [
     pricePerHead: 14000,
     groupSize: 16,
     description: "India’s Silicon Valley experience.",
-    highlights: [
-      "Cubbon Park",
-      "Lalbagh Garden",
-      "Cafe Culture",
-    ],
+    highlights: ["Cubbon Park", "Lalbagh Garden", "Cafe Culture"],
     itinerary: [],
   },
 
@@ -389,11 +369,7 @@ export const EXPERIENCES: Experience[] = [
     pricePerHead: 9000,
     groupSize: 15,
     description: "Wildlife and forest adventure.",
-    highlights: [
-      "Valmiki Tiger Reserve",
-      "Jungle Safari",
-      "Nature Walk",
-    ],
+    highlights: ["Valmiki Tiger Reserve", "Jungle Safari", "Nature Walk"],
     itinerary: [],
   },
 
@@ -409,14 +385,9 @@ export const EXPERIENCES: Experience[] = [
     pricePerHead: 22000,
     groupSize: 18,
     description: "Explore northeast culture and beauty.",
-    highlights: [
-      "Loktak Lake",
-      "Floating Islands",
-      "Local Dance & Culture",
-    ],
+    highlights: ["Loktak Lake", "Floating Islands", "Local Dance & Culture"],
     itinerary: [],
   },
- 
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

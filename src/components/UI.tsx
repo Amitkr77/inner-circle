@@ -65,11 +65,11 @@ export function GlowBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Top right atmospheric greenery glow */}
-      <div className="absolute top-[-200px] right-[-200px] w-[700px] h-[700px] bg-gradient-to-r from-accent-emerald/20 to-transparent blur-[100px] rounded-full" />
+      <div className="absolute top-[-200px] right-[-200px] w-[700px] h-[700px] bg-gradient-to-r from-accent-orange/20 to-transparent blur-[100px] rounded-full" />
       {/* Bottom left deep forest glow */}
       <div className="absolute bottom-[-150px] left-[-150px] w-[600px] h-[600px] bg-gradient-to-r from-accent-forest/30 to-transparent blur-[100px] rounded-full" />
       {/* Subtle center organic drift */}
-      <div className="absolute top-[30%] left-[20%] w-[500px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full" />
+      <div className="absolute top-[30%] left-[20%] w-[500px] h-[500px] bg-orange-500/5 blur-[120px] rounded-full" />
     </div>
   );
 }

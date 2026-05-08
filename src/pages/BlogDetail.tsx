@@ -235,7 +235,7 @@ export default function BlogDetail() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-white">
         <div className="flex flex-col items-center gap-4">
-          <div className="h-8 w-8 rounded-full border-2 border-t-transparent animate-spin border-emerald-500" />
+          <div className="h-8 w-8 rounded-full border-2 border-t-transparent animate-spin border-orange-500" />
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-400">
             Loading article…
           </p>
@@ -247,7 +247,7 @@ export default function BlogDetail() {
   if (!article) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-white">
-        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-600">
+        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange-600">
           404
         </p>
         <h1 className="text-3xl font-black tracking-tight text-neutral-900">
@@ -339,7 +339,7 @@ export default function BlogDetail() {
                 key={tag}
                 className={`rounded-sm border px-2.5 sm:px-3 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] ${
                   i === 0
-                    ? "border-emerald-500/30 bg-emerald-50 text-emerald-600"
+                    ? "border-orange-500/30 bg-orange-50 text-orange-600"
                     : "border-neutral-300 text-neutral-400 bg-white/80 backdrop-blur-sm"
                 }`}
               >
@@ -368,7 +368,7 @@ export default function BlogDetail() {
             className="flex flex-wrap items-center gap-3 sm:gap-4"
           >
             <div className="flex items-center gap-2 sm:gap-2.5">
-              <div className="flex h-7 w-7 items-center justify-center rounded-full border text-[10px] font-bold border-emerald-500/30 bg-emerald-50 text-emerald-600">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full border text-[10px] font-bold border-orange-500/30 bg-orange-50 text-orange-600">
                 {authorInitials}
               </div>
               <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-neutral-500">
@@ -424,7 +424,7 @@ export default function BlogDetail() {
                 key={tag}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="cursor-pointer rounded-sm border border-neutral-200 bg-white px-3 sm:px-3.5 py-1.5 sm:py-1.75 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-neutral-400 transition-all duration-200 hover:border-emerald-500/30 hover:text-emerald-600 hover:bg-emerald-50/30"
+                className="cursor-pointer rounded-sm border border-neutral-200 bg-white px-3 sm:px-3.5 py-1.5 sm:py-1.75 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-neutral-400 transition-all duration-200 hover:border-orange-500/30 hover:text-orange-600 hover:bg-orange-50/30"
               >
                 {tag}
               </motion.button>
@@ -443,7 +443,7 @@ export default function BlogDetail() {
               <motion.div
                 whileHover={{ scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                className="flex h-10 sm:h-11 w-10 sm:w-11 shrink-0 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-50 text-sm sm:text-base font-extrabold text-emerald-600"
+                className="flex h-10 sm:h-11 w-10 sm:w-11 shrink-0 items-center justify-center rounded-full border border-orange-500/30 bg-orange-50 text-sm sm:text-base font-extrabold text-orange-600"
               >
                 {authorInitials}
               </motion.div>
@@ -480,14 +480,14 @@ export default function BlogDetail() {
             <p className="mb-2 sm:mb-2.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.28em] text-neutral-400">
               Reading progress
             </p>
-            <div className="h-1.5 overflow-hidden rounded-full bg-emerald-100">
+            <div className="h-1.5 overflow-hidden rounded-full bg-orange-100">
               <motion.div
-                className="h-full rounded-full bg-emerald-500"
+                className="h-full rounded-full bg-orange-500"
                 style={{ width: `${progress}%` }}
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               />
             </div>
-            <p className="mt-2 text-[11px] sm:text-[12px] font-bold text-emerald-600">
+            <p className="mt-2 text-[11px] sm:text-[12px] font-bold text-orange-600">
               {Math.round(progress)}% through
             </p>
           </motion.div>
@@ -509,7 +509,7 @@ export default function BlogDetail() {
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleShare(btn.type)}
-                className="flex items-center gap-2.5 rounded-sm border border-neutral-200 px-3 sm:px-3.5 py-2 sm:py-2.5 transition-all duration-200 hover:border-emerald-500/30 hover:bg-emerald-50/30 w-full text-left"
+                className="flex items-center gap-2.5 rounded-sm border border-neutral-200 px-3 sm:px-3.5 py-2 sm:py-2.5 transition-all duration-200 hover:border-orange-500/30 hover:bg-orange-50/30 w-full text-left"
               >
                 {btn.icon}
                 <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.18em] text-neutral-400">
@@ -549,7 +549,7 @@ export default function BlogDetail() {
                     className="h-12 sm:h-14 w-12 sm:w-14 shrink-0 rounded-sm object-cover opacity-60"
                   />
                   <div className="flex-1 min-w-0">
-                    <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-emerald-600">
+                    <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-orange-600">
                       {(item.tags ?? [])[0] ?? "Article"}
                     </p>
                     <p className="text-[12px] sm:text-[13px] font-bold leading-[1.3] line-clamp-2 text-neutral-500">
@@ -577,7 +577,7 @@ export default function BlogDetail() {
           <motion.span
             whileHover={{ x: 4 }}
             onClick={() => navigate("/blog")}
-            className="cursor-pointer text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-emerald-600 hover:text-emerald-700 transition-colors"
+            className="cursor-pointer text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-orange-600 hover:text-orange-700 transition-colors"
           >
             View all →
           </motion.span>
@@ -600,7 +600,7 @@ export default function BlogDetail() {
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 onClick={() => navigate(`/blog/${card.url_handle}`)}
-                className="group cursor-pointer border-t-2 border-transparent bg-neutral-50 rounded-sm overflow-hidden transition-all duration-300 hover:border-t-emerald-500 hover:bg-white hover:shadow-lg hover:shadow-emerald-500/[0.04]"
+                className="group cursor-pointer border-t-2 border-transparent bg-neutral-50 rounded-sm overflow-hidden transition-all duration-300 hover:border-t-orange-500 hover:bg-white hover:shadow-lg hover:shadow-orange-500/[0.04]"
               >
                 <img
                   src={card.image_url}
@@ -609,10 +609,10 @@ export default function BlogDetail() {
                   className="block h-36 sm:h-42 w-full object-cover opacity-60 transition-opacity duration-300 group-hover:opacity-80"
                 />
                 <div className="p-4 sm:p-5">
-                  <p className="mb-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-emerald-600">
+                  <p className="mb-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-orange-600">
                     {(card.tags ?? [])[0] ?? "Article"}
                   </p>
-                  <p className="mb-2 text-[14px] sm:text-[15px] font-extrabold leading-[1.3] tracking-[-0.01em] line-clamp-2 text-neutral-700 group-hover:text-emerald-600 transition-colors duration-300">
+                  <p className="mb-2 text-[14px] sm:text-[15px] font-extrabold leading-[1.3] tracking-[-0.01em] line-clamp-2 text-neutral-700 group-hover:text-orange-600 transition-colors duration-300">
                     {card.title}
                   </p>
                   <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-neutral-400">
@@ -647,13 +647,13 @@ export default function BlogDetail() {
         </div>
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 w-full sm:w-auto">
           <input
-            className="flex-1 sm:w-60 border border-neutral-200 bg-white px-4 py-3 sm:py-3.5 font-sans text-[13px] sm:text-[14px] text-neutral-900 outline-none placeholder:text-neutral-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/10 transition-all rounded-sm"
+            className="flex-1 sm:w-60 border border-neutral-200 bg-white px-4 py-3 sm:py-3.5 font-sans text-[13px] sm:text-[14px] text-neutral-900 outline-none placeholder:text-neutral-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 transition-all rounded-sm"
             placeholder="your@email.com"
           />
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="shrink-0 bg-neutral-900 px-5 sm:px-6 py-3 sm:py-3.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white hover:bg-emerald-600 transition-colors rounded-sm"
+            className="shrink-0 bg-neutral-900 px-5 sm:px-6 py-3 sm:py-3.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white hover:bg-orange-600 transition-colors rounded-sm"
           >
             Subscribe
           </motion.button>

@@ -163,7 +163,7 @@ export default function Journal() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="h-px w-6 sm:w-8 bg-emerald-600 origin-left block"
+                className="h-px w-6 sm:w-8 bg-orange-600 origin-left block"
               />
               <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.5em] text-neutral-400">
                 The Journal
@@ -217,7 +217,7 @@ export default function Journal() {
                       delay: 1.2,
                       ease: [0.76, 0, 0.24, 1],
                     }}
-                    className="absolute left-0 top-1/2 w-full h-0.5 md:h-1 bg-emerald-500/60 origin-left -rotate-2"
+                    className="absolute left-0 top-1/2 w-full h-0.5 md:h-1 bg-orange-500/60 origin-left -rotate-2"
                   />
                 </motion.span>
               </div>
@@ -262,7 +262,7 @@ export default function Journal() {
                   whileTap={{ scale: 0.97 }}
                   className={`rounded-sm border px-3.5 sm:px-4 py-1.5 sm:py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 ${
                     i === 0
-                      ? "border-emerald-500/30 bg-emerald-50 text-emerald-600 shadow-sm shadow-emerald-500/[0.06]"
+                      ? "border-orange-500/30 bg-orange-50 text-orange-600 shadow-sm shadow-orange-500/[0.06]"
                       : "border-neutral-200 text-neutral-400 hover:border-neutral-300 hover:text-neutral-600 bg-white"
                   }`}
                 >
@@ -348,7 +348,7 @@ export default function Journal() {
                   transition={{ delay: 0.8 + i * 0.06, duration: 0.5 }}
                   className="group flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 border-b border-neutral-100 hover:bg-white transition-all duration-200"
                 >
-                  <span className="min-w-6 sm:min-w-7 font-mono text-[10px] sm:text-[11px] text-neutral-300 group-hover:text-emerald-600 transition-colors duration-300">
+                  <span className="min-w-6 sm:min-w-7 font-mono text-[10px] sm:text-[11px] text-neutral-300 group-hover:text-orange-600 transition-colors duration-300">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1 min-w-0">
@@ -357,7 +357,7 @@ export default function Journal() {
                     </p>
                   </div>
                   <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <span className="text-[8px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-emerald-600 bg-emerald-50 border border-emerald-500/20 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-[1px]">
+                    <span className="text-[8px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-orange-600 bg-orange-50 border border-orange-500/20 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-[1px]">
                       {item.tags?.[0] || "Blog"}
                     </span>
                     <svg
@@ -380,7 +380,7 @@ export default function Journal() {
 
             <div className="h-10 sm:h-12 border-t border-neutral-200 bg-white flex items-center px-6 sm:px-8">
               <div className="flex items-center gap-2 text-neutral-400">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
                 <span className="font-mono text-[9px] sm:text-[10px] tracking-wider">
                   SYNCED WEEKLY
                 </span>
@@ -446,7 +446,7 @@ export default function Journal() {
                     </span>
                   ))}
                 </div>
-                <h2 className="mb-2 text-xl sm:text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-neutral-900 whitespace-pre-line group-hover:text-emerald-600 transition-colors duration-300">
+                <h2 className="mb-2 text-xl sm:text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-neutral-900 whitespace-pre-line group-hover:text-orange-600 transition-colors duration-300">
                   {blog.title}
                 </h2>
                 <p className="mb-3 text-[13px] sm:text-sm text-neutral-100 line-clamp-2">
@@ -464,14 +464,14 @@ export default function Journal() {
                   <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-neutral-300">
                     {new Date(blog.created_at).toLocaleDateString()}
                   </span>
-                  <div className="ml-auto flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-neutral-200 group-hover:border-emerald-500/30 group-hover:bg-emerald-50 transition-all duration-300">
+                  <div className="ml-auto flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-neutral-200 group-hover:border-orange-500/30 group-hover:bg-orange-50 transition-all duration-300">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                       <path
                         d="M2 8L8 2M8 2H3M8 2v5"
                         stroke="currentColor"
                         strokeWidth="1.2"
                         strokeLinecap="round"
-                        className="text-neutral-400 group-hover:text-emerald-600 transition-colors"
+                        className="text-neutral-400 group-hover:text-orange-600 transition-colors"
                       />
                     </svg>
                   </div>
@@ -516,10 +516,10 @@ export default function Journal() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-white/50 to-black/80 to-transparent" />
             <div className="absolute inset-y-0 left-0 flex w-full sm:w-[55%] flex-col justify-center px-6 sm:px-11 py-8 sm:py-10">
-              <p className="mb-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-emerald-600">
+              <p className="mb-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-orange-600">
                 {item.tags?.[0] || "Featured"}
               </p>
-              <h2 className="mb-4 text-2xl sm:text-[32px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-300">
+              <h2 className="mb-4 text-2xl sm:text-[32px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-300">
                 {item.title}
               </h2>
               <p className="mb-5 text-[13px] sm:text-[14px] leading-[1.8] text-neutral-200 line-clamp-2">
@@ -557,7 +557,7 @@ export default function Journal() {
           <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] sm:tracking-[0.35em] text-neutral-400">
             Recent articles
           </span>
-          <span className="cursor-pointer text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-emerald-600 hover:text-emerald-700 transition-colors">
+          <span className="cursor-pointer text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-orange-600 hover:text-orange-700 transition-colors">
             View all →
           </span>
         </div>
@@ -591,7 +591,7 @@ export default function Journal() {
                     className="h-16 w-16 shrink-0 rounded-sm object-cover  transition-opacity duration-300"
                   />
                   <div className="flex-1">
-                    <p className="mb-1 sm:mb-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-emerald-600">
+                    <p className="mb-1 sm:mb-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-orange-600">
                       {item.tags?.[0] || "Blog"}
                     </p>
                     <p className="mb-1.5 sm:mb-2 text-[14px] sm:text-[15px] font-extrabold leading-[1.3] tracking-[-0.01em] text-neutral-500 transition-colors duration-200 group-hover:text-neutral-900">
@@ -615,7 +615,7 @@ export default function Journal() {
         transition={{ duration: 1 }}
         className="flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 md:gap-12 border-y border-neutral-200 bg-neutral-50 px-5 sm:px-8 md:px-11 py-10 sm:py-12 md:py-14"
       >
-        <div className="shrink-0 text-[60px] sm:text-[80px] font-black leading-[0.7] text-emerald-500/10 -mt-2 font-serif">
+        <div className="shrink-0 text-[60px] sm:text-[80px] font-black leading-[0.7] text-orange-500/10 -mt-2 font-serif">
           &ldquo;
         </div>
         <p className="flex-1 font-serif text-[20px] sm:text-[26px] italic leading-normal text-neutral-400">
@@ -665,7 +665,7 @@ export default function Journal() {
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group cursor-pointer border-t-2 border-transparent bg-neutral-50 p-6 sm:p-8 transition-all duration-300 hover:border-t-emerald-500 hover:bg-white hover:shadow-lg hover:shadow-emerald-500/[0.04] border-r border-neutral-200 last:border-r-0"
+                className="group cursor-pointer border-t-2 border-transparent bg-neutral-50 p-6 sm:p-8 transition-all duration-300 hover:border-t-orange-500 hover:bg-white hover:shadow-lg hover:shadow-orange-500/[0.04] border-r border-neutral-200 last:border-r-0"
               >
                 <img
                   src={card.img}
@@ -673,10 +673,10 @@ export default function Journal() {
                   alt=""
                   className="mb-4 sm:mb-5 h-32 sm:h-35 w-full rounded-sm object-cover opacity-60 transition-opacity duration-300 group-hover:opacity-80"
                 />
-                <p className="mb-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.28em] text-emerald-600">
+                <p className="mb-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.28em] text-orange-600">
                   {card.tag}
                 </p>
-                <p className="mb-2 sm:mb-2.5 text-[15px] sm:text-base font-extrabold tracking-[-0.015em] leading-[1.3] text-neutral-700 group-hover:text-emerald-600 transition-colors duration-300">
+                <p className="mb-2 sm:mb-2.5 text-[15px] sm:text-base font-extrabold tracking-[-0.015em] leading-[1.3] text-neutral-700 group-hover:text-orange-600 transition-colors duration-300">
                   {card.title}
                 </p>
                 <p className="mb-4 text-[13px] sm:text-[14px] leading-[1.7] text-neutral-400 line-clamp-3">
@@ -706,7 +706,7 @@ export default function Journal() {
               key={t.name}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="flex cursor-pointer items-center gap-2 rounded-sm border border-neutral-200 bg-white px-3.5 sm:px-4 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-neutral-400 transition-all duration-200 hover:border-emerald-500/30 hover:text-emerald-600 hover:bg-emerald-50/30"
+              className="flex cursor-pointer items-center gap-2 rounded-sm border border-neutral-200 bg-white px-3.5 sm:px-4 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-neutral-400 transition-all duration-200 hover:border-orange-500/30 hover:text-orange-600 hover:bg-orange-50/30"
             >
               {t.name}
               <span className="text-[8px] sm:text-[9px] text-neutral-300">
@@ -743,13 +743,13 @@ export default function Journal() {
         <div className="flex flex-col gap-2 sm:gap-2.5">
           <div className="flex">
             <input
-              className="flex-1 border border-neutral-200 bg-neutral-50 px-4 py-3 sm:py-3.5 text-[13px] sm:text-[14px] text-neutral-900 outline-none font-sans placeholder:text-neutral-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/10 transition-all rounded-sm"
+              className="flex-1 border border-neutral-200 bg-neutral-50 px-4 py-3 sm:py-3.5 text-[13px] sm:text-[14px] text-neutral-900 outline-none font-sans placeholder:text-neutral-400 focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 transition-all rounded-sm"
               placeholder="your@email.com"
             />
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="shrink-0 bg-neutral-900 px-5 sm:px-6 py-3 sm:py-3.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.22em] text-white hover:bg-emerald-600 transition-colors rounded-sm"
+              className="shrink-0 bg-neutral-900 px-5 sm:px-6 py-3 sm:py-3.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.22em] text-white hover:bg-orange-600 transition-colors rounded-sm"
             >
               Subscribe
             </motion.button>

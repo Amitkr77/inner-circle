@@ -1,6 +1,6 @@
 "use client";
 
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 // import { useRef } from "react";
 import {
   Brain,
@@ -154,7 +154,7 @@ export default function Resources() {
   // const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
-    <div className="min-h-screen bg-white selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen bg-white selection:bg-orange-100 selection:text-orange-900">
       <main>
         {/* ─── Hero Section ─── */}
         <section className="relative min-h-[100vh] flex flex-col justify-end px-6 pb-16 lg:px-24 lg:pb-24 overflow-hidden bg-[#0A0F0C]">
@@ -338,7 +338,7 @@ export default function Resources() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-emerald-600 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
+              <span className="text-orange-600 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
                 The Vanguard
               </span>
               <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl tracking-[-0.03em] text-neutral-900">
@@ -350,7 +350,7 @@ export default function Resources() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               href="#"
-              className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-widest text-neutral-400 hover:text-emerald-600 transition-colors border border-neutral-200 hover:border-emerald-500 px-4 py-2 font-bold whitespace-nowrap"
+              className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-widest text-neutral-400 hover:text-orange-600 transition-colors border border-neutral-200 hover:border-orange-500 px-4 py-2 font-bold whitespace-nowrap"
             >
               View All Insights
             </motion.a>
@@ -376,12 +376,12 @@ export default function Resources() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="absolute top-5 sm:top-8 left-5 sm:left-8 bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 border border-emerald-500/20 text-[9px] tracking-widest uppercase font-bold text-emerald-600"
+                  className="absolute top-5 sm:top-8 left-5 sm:left-8 bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 border border-orange-500/20 text-[9px] tracking-widest uppercase font-bold text-orange-600"
                 >
                   {FEATURED_INSIGHTS[0].category}
                 </motion.div>
               </div>
-              <h3 className="font-bold text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6 tracking-[-0.02em] sm:tracking-[-0.03em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
+              <h3 className="font-bold text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6 tracking-[-0.02em] sm:tracking-[-0.03em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-500">
                 {FEATURED_INSIGHTS[0].title}
               </h3>
               <p className="text-neutral-500 max-w-xl leading-relaxed text-[15px] sm:text-base lg:text-lg font-light">
@@ -404,16 +404,16 @@ export default function Resources() {
                   key={item.title}
                   className="group cursor-pointer"
                 >
-                  <span className="text-emerald-600 text-[11px] sm:text-[12px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
+                  <span className="text-orange-600 text-[11px] sm:text-[12px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
                     {item.category}
                   </span>
-                  <h3 className="font-bold text-xl sm:text-2xl mb-3 sm:mb-4 tracking-[-0.02em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
+                  <h3 className="font-bold text-xl sm:text-2xl mb-3 sm:mb-4 tracking-[-0.02em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-500">
                     {item.title}
                   </h3>
                   <p className="text-sm text-neutral-400 leading-relaxed font-light">
                     {item.description}
                   </p>
-                  <div className="mt-5 sm:mt-6 w-0 group-hover:w-12 h-px bg-emerald-500 transition-all duration-500 ease-out" />
+                  <div className="mt-5 sm:mt-6 w-0 group-hover:w-12 h-px bg-orange-500 transition-all duration-500 ease-out" />
                 </motion.div>
               ))}
             </div>
@@ -440,11 +440,11 @@ export default function Resources() {
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   >
                     <cat.icon
-                      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-neutral-400 group-hover:text-emerald-600 mb-4 sm:mb-6 transition-colors duration-300"
+                      className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-neutral-400 group-hover:text-orange-600 mb-4 sm:mb-6 transition-colors duration-300"
                       strokeWidth={1.5}
                     />
                   </motion.div>
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-neutral-500 group-hover:text-emerald-600 transition-colors font-bold">
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-neutral-500 group-hover:text-orange-600 transition-colors font-bold">
                     {cat.label}
                   </span>
                 </motion.a>
@@ -462,7 +462,7 @@ export default function Resources() {
               viewport={{ once: true }}
               className="max-w-2xl"
             >
-              <span className="text-emerald-600 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
+              <span className="text-orange-600 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block mb-3 sm:mb-4 font-bold">
                 The Archive
               </span>
               <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl tracking-[-0.03em] text-neutral-900">
@@ -484,7 +484,7 @@ export default function Resources() {
                 variants={fadeUp}
                 className="group cursor-pointer"
               >
-                <div className="h-[320px] sm:h-[380px] lg:h-[420px] bg-neutral-100 mb-6 sm:mb-8 overflow-hidden relative border border-neutral-200 rounded-sm transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:shadow-emerald-500/5 group-hover:border-neutral-300">
+                <div className="h-[320px] sm:h-[380px] lg:h-[420px] bg-neutral-100 mb-6 sm:mb-8 overflow-hidden relative border border-neutral-200 rounded-sm transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:shadow-orange-500/5 group-hover:border-neutral-300">
                   <img
                     className="w-full h-full object-cover grayscale-[40%]  transition-all duration-1000 ease-out group-hover:scale-105"
                     src={card.image}
@@ -496,8 +496,8 @@ export default function Resources() {
                       whileHover={{ scale: 1.05 }}
                       className={`inline-block px-3 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-widest transition-all duration-300 ${
                         card.tag === "Article"
-                          ? "bg-emerald-600 text-white border border-emerald-600 group-hover:bg-emerald-500"
-                          : "bg-white/90 backdrop-blur-md text-neutral-700 border border-neutral-200 group-hover:border-emerald-500/30 group-hover:text-emerald-700"
+                          ? "bg-orange-600 text-white border border-orange-600 group-hover:bg-orange-500"
+                          : "bg-white/90 backdrop-blur-md text-neutral-700 border border-neutral-200 group-hover:border-orange-500/30 group-hover:text-orange-700"
                       }`}
                     >
                       {card.tag}
@@ -506,7 +506,7 @@ export default function Resources() {
                 </div>
                 <div className="px-1 sm:px-2">
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                    <span className="text-[9px] sm:text-[10px] text-emerald-600 tracking-[0.15em] sm:tracking-[0.2em] uppercase font-bold">
+                    <span className="text-[9px] sm:text-[10px] text-orange-600 tracking-[0.15em] sm:tracking-[0.2em] uppercase font-bold">
                       {card.category}
                     </span>
                     <span className="w-1 h-1 bg-neutral-300 rounded-full" />
@@ -514,7 +514,7 @@ export default function Resources() {
                       {card.readTime}
                     </span>
                   </div>
-                  <h3 className="font-bold text-xl sm:text-2xl tracking-[-0.02em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
+                  <h3 className="font-bold text-xl sm:text-2xl tracking-[-0.02em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-500">
                     {card.title}
                   </h3>
                 </div>
@@ -539,23 +539,23 @@ export default function Resources() {
                 transition={{ delay: 0.4 + i * 0.12, duration: 0.6 }}
                 className="group cursor-pointer"
               >
-                <span className="text-[9px] sm:text-[10px] text-emerald-600 tracking-[0.15em] sm:tracking-widest uppercase mb-3 sm:mb-4 block font-bold">
+                <span className="text-[9px] sm:text-[10px] text-orange-600 tracking-[0.15em] sm:tracking-widest uppercase mb-3 sm:mb-4 block font-bold">
                   {article.category}
                 </span>
-                <h3 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 tracking-[-0.02em] text-neutral-900 group-hover:text-emerald-600 transition-colors duration-500">
+                <h3 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 tracking-[-0.02em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-500">
                   {article.title}
                 </h3>
                 <p className="text-[12px] sm:text-xs text-neutral-400 font-light leading-relaxed">
                   {article.description}
                 </p>
-                <div className="mt-4 w-0 group-hover:w-8 h-px bg-emerald-500 transition-all duration-500" />
+                <div className="mt-4 w-0 group-hover:w-8 h-px bg-orange-500 transition-all duration-500" />
               </motion.div>
             ))}
           </motion.div>
         </section>
 
         {/* ─── Founder Frameworks ─── */}
-        <section className="py-12 sm:py-16 lg:py-20 px-5 sm:px-6 lg:px-24 xl:px-32  bg-gradient-to-b from-emerald-50/80 to-transparent  text-center">
+        <section className="py-12 sm:py-16 lg:py-20 px-5 sm:px-6 lg:px-24 xl:px-32  bg-gradient-to-b from-orange-50/80 to-transparent  text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -563,7 +563,7 @@ export default function Resources() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center mb-10 sm:mb-12"
           >
-            <span className="text-emerald-600 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5 sm:mb-6 font-bold">
+            <span className="text-orange-600 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5 sm:mb-6 font-bold">
               Founder Frameworks
             </span>
             <h2 className="font-bold text-4xl sm:text-5xl lg:text-7xl tracking-[-0.03em] max-w-4xl leading-tight text-neutral-900">
@@ -594,14 +594,14 @@ export default function Resources() {
                 <motion.div
                   whileHover={{ rotate: 6, scale: 1.08 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center border bg-neutral-50 rounded-sm mb-8 sm:mb-12 border-emerald-500/30 group-hover:bg-emerald-50 transition-colors duration-300"
+                  className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center border bg-neutral-50 rounded-sm mb-8 sm:mb-12 border-orange-500/30 group-hover:bg-orange-50 transition-colors duration-300"
                 >
                   <tool.icon
-                    className="text-emerald-600 w-7 h-7 sm:w-8 sm:h-8"
+                    className="text-orange-600 w-7 h-7 sm:w-8 sm:h-8"
                     strokeWidth={1.5}
                   />
                 </motion.div>
-                <h4 className="font-bold group-hover:text-emerald-600 text-2xl sm:text-3xl mb-4 sm:mb-6 tracking-[-0.02em] text-neutral-900 transition-colors duration-300">
+                <h4 className="font-bold group-hover:text-orange-600 text-2xl sm:text-3xl mb-4 sm:mb-6 tracking-[-0.02em] text-neutral-900 transition-colors duration-300">
                   {tool.title}
                 </h4>
                 <p className="text-neutral-400 sm:text-[15px] font-light leading-relaxed">
@@ -616,7 +616,7 @@ export default function Resources() {
                     duration: 0.6,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="mt-6 sm:mt-8 h-px w-8 bg-emerald-500/40 origin-left"
+                  className="mt-6 sm:mt-8 h-px w-8 bg-orange-500/40 origin-left"
                 />
               </motion.div>
             ))}
@@ -635,7 +635,7 @@ export default function Resources() {
             >
               <Quote
                 size={48}
-                className="text-emerald-600"
+                className="text-orange-600"
                 fill="currentColor"
               />
             </motion.div>
@@ -660,9 +660,9 @@ export default function Resources() {
                     duration: 0.6,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="h-px w-8 bg-emerald-500/40 mb-4 origin-left"
+                  className="h-px w-8 bg-orange-500/40 mb-4 origin-left"
                 />
-                <cite className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-emerald-600 not-italic font-bold">
+                <cite className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-orange-600 not-italic font-bold">
                   — Circle Member, Series C Founder
                 </cite>
               </motion.blockquote>
@@ -687,9 +687,9 @@ export default function Resources() {
                     duration: 0.6,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="h-px w-8 bg-emerald-500/40 mb-4 origin-left"
+                  className="h-px w-8 bg-orange-500/40 mb-4 origin-left"
                 />
-                <cite className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-emerald-600 not-italic font-bold">
+                <cite className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-orange-600 not-italic font-bold">
                   — Circle Member, Exit &apos;22
                 </cite>
               </motion.blockquote>
@@ -700,7 +700,7 @@ export default function Resources() {
         {/* ─── Final CTA ─── */}
         <section className="py-16 sm:py-20 lg:py-28 px-5 sm:px-6 lg:px-24 xl:px-32 bg-white text-center relative overflow-hidden">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] rounded-full bg-emerald-500/[0.03] blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] rounded-full bg-orange-500/[0.03] blur-3xl" />
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto">
@@ -727,9 +727,9 @@ export default function Resources() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
-                  className="relative overflow-hidden border border-emerald-300  text-black font-bold hover:border-white text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] px-10 sm:px-16 py-4 sm:py-5 transition-all duration-700 shadow-lg shadow-neutral-900/10 group"
+                  className="relative overflow-hidden border border-orange-300  text-black font-bold hover:border-white text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] px-10 sm:px-16 py-4 sm:py-5 transition-all duration-700 shadow-lg shadow-neutral-900/10 group"
                 >
-                  <span className="absolute inset-0 bg-emerald-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                  <span className="absolute inset-0 bg-orange-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
                   <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                     Explore Experiences
                   </span>

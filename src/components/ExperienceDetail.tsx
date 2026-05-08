@@ -28,7 +28,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
           onClick={() => navigate("/explore")}
           className="group inline-flex items-center gap-3"
         >
-          <div className="h-px w-5 bg-emerald-400/50 group-hover:w-8 transition-all duration-300" />
+          <div className="h-px w-5 bg-orange-400/50 group-hover:w-8 transition-all duration-300" />
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/30 group-hover:text-white/60 transition-colors">
             Back to Expeditions
           </span>
@@ -61,7 +61,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
             <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/40 bg-black/60 backdrop-blur-sm px-3 py-1.5 border border-white/[0.08]">
               {exp.vibe}
             </span>
-            <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-emerald-400/70 bg-black/60 backdrop-blur-sm px-3 py-1.5 border border-emerald-400/20">
+            <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-orange-400/70 bg-black/60 backdrop-blur-sm px-3 py-1.5 border border-orange-400/20">
               {exp.duration} · {exp.nights} Nights
             </span>
           </div>
@@ -69,8 +69,8 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
           {/* Bottom Title Block */}
           <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-5 bg-emerald-400/60" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-emerald-400/70 font-bold">
+              <div className="h-px w-5 bg-orange-400/60" />
+              <span className="text-[11px] uppercase tracking-[0.3em] text-orange-400/70 font-bold">
                 {exp.location}
               </span>
             </div>
@@ -99,7 +99,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
           <div className="lg:col-span-8 border-r border-white/[0.06] pr-0 lg:pr-16">
             {/* Description */}
             <section className="mb-20">
-              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.3em] text-emerald-400/50">
+              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-400/50">
                 Overview
               </p>
               <p className="text-[17px] leading-[1.85] text-white/50 font-light max-w-2xl">
@@ -110,7 +110,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
             {/* Highlights (No Icons, Sharp Grid) */}
             {exp.highlights && exp.highlights.length > 0 && (
               <section className="mb-20">
-                <p className="mb-8 text-[11px] font-bold uppercase tracking-[0.3em] text-emerald-400/50">
+                <p className="mb-8 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-400/50">
                   What's Included
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[2px]">
@@ -122,7 +122,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                       transition={{ delay: 0.05 * idx }}
                       className="bg-white/[0.02] border border-white/[0.04] p-6 flex items-start gap-4 hover:bg-white/[0.03] transition-colors"
                     >
-                      <span className="text-emerald-400/50 font-mono text-sm mt-0.5">
+                      <span className="text-orange-400/50 font-mono text-sm mt-0.5">
                         —
                       </span>
                       <span className="text-[14px] font-medium text-white/60 leading-relaxed">
@@ -137,8 +137,8 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
             {/* Itinerary (Strict Timeline) */}
             <section>
               <div className="flex items-center gap-3 mb-12">
-                <Plane className="w-4 h-4 text-emerald-400/50" />
-                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-emerald-400/50">
+                <Plane className="w-4 h-4 text-orange-400/50" />
+                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-orange-400/50">
                   Day-by-Day Itinerary
                 </p>
               </div>
@@ -154,7 +154,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                       className="group relative pl-10 pb-12 border-l border-white/[0.06] last:border-l-transparent last:pb-0"
                     >
                       {/* Sharp Dot Marker (No Glow) */}
-                      <div className="absolute -left-[5px] top-1.5 w-[10px] h-[10px] bg-[#050505] border-2 border-white/20 group-hover:border-emerald-400 transition-colors" />
+                      <div className="absolute -left-[5px] top-1.5 w-[10px] h-[10px] bg-[#050505] border-2 border-white/20 group-hover:border-orange-400 transition-colors" />
 
                       <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/25 block mb-2">
                         Day {String(item.day).padStart(2, "0")}
@@ -212,7 +212,8 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                   </p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-[32px] font-black tracking-[-0.04em] text-white leading-none">
-                      {/* ₹{exp.pricePerHead.toLocaleString("en-IN")} */}₹ Revealing Soon
+                      {/* ₹{exp.pricePerHead.toLocaleString("en-IN")} */}₹
+                      Revealing Soon
                     </span>
                     <span className="text-[11px] text-white/20 font-mono">
                       / pax
@@ -283,7 +284,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
                   </div>
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <div key={i} className="w-1 h-4 bg-emerald-400/30" />
+                      <div key={i} className="w-1 h-4 bg-orange-400/30" />
                     ))}
                   </div>
                 </div>

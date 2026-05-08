@@ -51,14 +51,14 @@ export default function InsideRetreat() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-5 sm:mb-6 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-500"
+              className="mb-5 sm:mb-6 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-orange-500"
             >
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="h-px w-5 bg-emerald-500 origin-left"
+                className="h-px w-5 bg-orange-500 origin-left"
               />
               What happens inside
             </motion.p>
@@ -101,7 +101,7 @@ export default function InsideRetreat() {
                     delay: 0.15,
                     ease: [0.76, 0, 0.24, 1],
                   }}
-                  className="block text-emerald-500 font-normal italic"
+                  className="block text-orange-500 font-normal italic"
                 >
                   /
                 </motion.span>
@@ -176,34 +176,38 @@ export default function InsideRetreat() {
               className="group cursor-pointer border-b border-neutral-200 relative transition-all duration-500 hover:bg-neutral-50"
             >
               {/* Left accent bar on hover */}
-              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-emerald-500 scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
+              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-orange-500 scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
 
               {/* Main Row */}
               <div className="flex items-baseline gap-4 sm:gap-6 md:gap-12 py-6 sm:py-7 md:py-8 px-4 sm:px-5 md:px-5 relative">
                 {/* Number */}
-                <span className="min-w-[28px] sm:min-w-[30px] font-mono text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-neutral-300 group-hover:text-emerald-500/70 transition-colors duration-300">
+                <span className="min-w-[28px] sm:min-w-[30px] font-mono text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-neutral-300 group-hover:text-orange-500/70 transition-colors duration-300">
                   {s.num}
                 </span>
 
                 {/* Title */}
-                <h3 className="flex-1 text-[clamp(1.25rem,3vw,32px)] font-extrabold tracking-[-0.025em] text-neutral-900 group-hover:text-emerald-600 transition-all duration-300 group-hover:translate-x-2">
+                <h3 className="flex-1 text-[clamp(1.25rem,3vw,32px)] font-extrabold tracking-[-0.025em] text-neutral-900 group-hover:text-orange-600 transition-all duration-300 group-hover:translate-x-2">
                   {s.title}
                 </h3>
 
                 {/* Tag pill */}
-                <span className="hidden sm:inline-block rounded-[2px] border border-neutral-200 group-hover:border-emerald-500/30 px-2.5 sm:px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-hover:text-emerald-600/70 transition-all duration-300 min-w-[90px] sm:min-w-[100px] text-center group-hover:bg-emerald-50">
+                <span className="hidden sm:inline-block rounded-[2px] border border-neutral-200 group-hover:border-orange-500/30 px-2.5 sm:px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-hover:text-orange-600/70 transition-all duration-300 min-w-[90px] sm:min-w-[100px] text-center group-hover:bg-orange-50">
                   {s.tag}
                 </span>
 
                 {/* Mobile expand chevron */}
                 <motion.svg
-                  className="sm:hidden w-4 h-4 text-neutral-300 group-hover:text-emerald-500 group-hover:rotate-90 transition-all duration-300 absolute right-4 top-1/2 -translate-y-1/2"
+                  className="sm:hidden w-4 h-4 text-neutral-300 group-hover:text-orange-500 group-hover:rotate-90 transition-all duration-300 absolute right-4 top-1/2 -translate-y-1/2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2.5}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
                 </motion.svg>
               </div>
 
@@ -234,8 +238,12 @@ export default function InsideRetreat() {
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute left-0 top-0 bottom-0 w-[2px] bg-emerald-500/70 origin-top"
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="absolute left-0 top-0 bottom-0 w-[2px] bg-orange-500/70 origin-top"
             />
 
             <motion.p
@@ -243,7 +251,7 @@ export default function InsideRetreat() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="mb-8 sm:mb-5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600"
+              className="mb-8 sm:mb-5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-orange-600"
             >
               Who this is for
             </motion.p>
@@ -255,15 +263,19 @@ export default function InsideRetreat() {
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    delay: 0.2 + i * 0.1,
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="group/item flex items-center gap-3 sm:gap-4 border-b border-neutral-200 py-4 sm:py-5 last:border-b-0"
                 >
                   {/* Expanding dash */}
-                  <span className="h-px w-3 sm:w-4 shrink-0 bg-emerald-500/40 group-hover/item:w-6 sm:group-hover/item:w-8 transition-all duration-500 ease-out" />
+                  <span className="h-px w-3 sm:w-4 shrink-0 bg-orange-500/40 group-hover/item:w-6 sm:group-hover/item:w-8 transition-all duration-500 ease-out" />
 
                   {/* Hover glow dot */}
                   <span className="relative flex items-center">
-                    <span className="absolute w-1.5 h-1.5 rounded-full bg-emerald-500/0 group-hover/item:bg-emerald-500/20 transition-all duration-500 -left-1" />
+                    <span className="absolute w-1.5 h-1.5 rounded-full bg-orange-500/0 group-hover/item:bg-orange-500/20 transition-all duration-500 -left-1" />
                     <span className="text-[14px] sm:text-[15px] tracking-[0.01em] text-neutral-400 group-hover/item:text-neutral-700 group-hover/item:translate-x-1 transition-all duration-300">
                       {text}
                     </span>
@@ -280,8 +292,10 @@ export default function InsideRetreat() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="mt-2 sm:mt-2 flex items-center gap-2 text-neutral-300"
             >
-              <div className="w-1 h-1 rounded-full bg-emerald-500/50" />
-              <span className="text-[10px] font-mono tracking-widest uppercase">4 profiles</span>
+              <div className="w-1 h-1 rounded-full bg-orange-500/50" />
+              <span className="text-[10px] font-mono tracking-widest uppercase">
+                4 profiles
+              </span>
             </motion.div>
           </motion.div>
 
@@ -296,9 +310,9 @@ export default function InsideRetreat() {
               href="#"
               whileHover="hover"
               initial="idle"
-              className="group relative overflow-hidden bg-emerald-500 p-8 sm:p-10 md:p-12 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] transition-colors duration-300 hover:bg-emerald-400 block"
+              className="group relative overflow-hidden bg-orange-500 p-8 sm:p-10 md:p-12 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] transition-colors duration-300 hover:bg-orange-400 block"
             >
-              {/* Background grid — now white lines on emerald */}
+              {/* Background grid — now white lines on orange */}
               <div
                 className="absolute inset-0 opacity-[0.15] group-hover:opacity-[0.25] transition-opacity duration-700"
                 style={{
@@ -370,12 +384,7 @@ export default function InsideRetreat() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-white/20 group-hover:border-white/50 transition-colors duration-300"
                 >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 10 10"
-                    fill="none"
-                  >
+                  <svg width="14" height="14" viewBox="0 0 10 10" fill="none">
                     <motion.path
                       d="M2 8L8 2M8 2H3M8 2v5"
                       stroke="currentColor"

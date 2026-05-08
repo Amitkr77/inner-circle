@@ -72,13 +72,13 @@ export default function Explore() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-5 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600/70"
+              className="mb-5 flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-orange-600/70"
             >
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="h-px w-5 bg-emerald-600/70 origin-left"
+                className="h-px w-5 bg-orange-600/70 origin-left"
               />
               The Catalog
             </motion.p>
@@ -101,7 +101,7 @@ export default function Explore() {
                   delay: 0.1,
                   ease: [0.76, 0, 0.24, 1],
                 }}
-                className="text-[clamp(2.2rem,6vw,6rem)] font-black leading-[0.88] tracking-[-0.04em] text-emerald-500 transition-colors duration-500 cursor-default"
+                className="text-[clamp(2.2rem,6vw,6rem)] font-black leading-[0.88] tracking-[-0.04em] text-orange-500 transition-colors duration-500 cursor-default"
               >
                 expeditions.
               </motion.h1>
@@ -114,7 +114,7 @@ export default function Explore() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="md:pb-2 md:pl-14"
           >
-            <p className="border-l border-emerald-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500">
+            <p className="border-l border-orange-500 pl-5 sm:pl-6 text-[14px] sm:text-[15px] leading-[1.85] text-neutral-500">
               Every destination curated for founders, leaders, and high-impact
               thinkers. No tourists.
             </p>
@@ -138,7 +138,7 @@ export default function Explore() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search destinations, vibes..."
-              className="w-full bg-neutral-50 border border-neutral-200 px-10 pr-10 py-3 text-[13px] sm:text-[14px] text-neutral-900 focus:outline-none focus:border-emerald-500/40 focus:ring-1 focus:ring-emerald-500/10 transition-all placeholder:text-neutral-300 rounded-sm"
+              className="w-full bg-neutral-50 border border-neutral-200 px-10 pr-10 py-3 text-[13px] sm:text-[14px] text-neutral-900 focus:outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/10 transition-all placeholder:text-neutral-300 rounded-sm"
             />
             <AnimatePresence>
               {search && (
@@ -160,7 +160,7 @@ export default function Explore() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-neutral-50 border border-neutral-200 px-4 py-3 pr-10 text-[12px] sm:text-[13px] text-neutral-600 focus:outline-none focus:border-emerald-500/40 appearance-none cursor-pointer min-w-[150px] sm:min-w-[160px] rounded-sm"
+              className="bg-neutral-50 border border-neutral-200 px-4 py-3 pr-10 text-[12px] sm:text-[13px] text-neutral-600 focus:outline-none focus:border-orange-500/40 appearance-none cursor-pointer min-w-[150px] sm:min-w-[160px] rounded-sm"
             >
               {SORT_OPTIONS.map((s) => (
                 <option key={s} className="bg-white text-neutral-700">
@@ -189,7 +189,7 @@ export default function Explore() {
             onClick={() => setFiltersOpen((p) => !p)}
             className={`flex items-center gap-2 px-4 sm:px-5 py-3 border text-[10px] sm:text-[11px] uppercase font-bold tracking-[0.2em] transition-all duration-300 rounded-sm ${
               filtersOpen
-                ? "border-emerald-500/40 text-emerald-600 bg-emerald-50"
+                ? "border-orange-500/40 text-orange-600 bg-orange-50"
                 : "border-neutral-200 text-neutral-400 hover:border-neutral-300 hover:text-neutral-600 bg-neutral-50"
             }`}
           >
@@ -275,8 +275,7 @@ export default function Explore() {
           transition={{ duration: 0.3 }}
           className="text-[11px] sm:text-[12px] text-neutral-400 uppercase tracking-[0.2em] font-bold"
         >
-          {filtered.length} Expedition{filtered.length !== 1 ? "s" : ""}{" "}
-          Found
+          {filtered.length} Expedition{filtered.length !== 1 ? "s" : ""} Found
         </motion.p>
         <div className="h-px flex-1 mx-6 sm:mx-8 bg-neutral-100" />
         <p className="text-[11px] sm:text-[12px] text-neutral-300 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono hidden sm:block">
@@ -311,7 +310,7 @@ export default function Explore() {
                 setActiveDuration("All");
                 setActiveVibe("All");
               }}
-              className="mt-5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="mt-5 text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600 hover:text-orange-700 transition-colors"
             >
               Clear all filters
             </button>
@@ -350,7 +349,7 @@ function FilterPill({
       onClick={onClick}
       className={`px-3.5 sm:px-4 py-2 text-[10px] sm:text-[11px] uppercase font-bold tracking-[0.15em] sm:tracking-[0.2em] border transition-all duration-200 rounded-sm ${
         active
-          ? "border-emerald-500/40 bg-emerald-50 text-emerald-600 shadow-sm shadow-emerald-500/[0.06]"
+          ? "border-orange-500/40 bg-orange-50 text-orange-600 shadow-sm shadow-orange-500/[0.06]"
           : "border-neutral-200 text-neutral-400 hover:border-neutral-300 hover:text-neutral-600 bg-white"
       }`}
     >
@@ -402,7 +401,7 @@ function ExploreCard({ exp, idx }: { exp: Experience; idx: number }) {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 + idx * 0.05, duration: 0.4 }}
-            className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-emerald-600/80 bg-white/80 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 border border-emerald-500/20 rounded-sm"
+            className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-orange-600/80 bg-white/80 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 border border-orange-500/20 rounded-sm"
           >
             {exp.duration} • {exp.nights}N
           </motion.span>
@@ -423,9 +422,9 @@ function ExploreCard({ exp, idx }: { exp: Experience; idx: number }) {
                 initial="hidden"
                 animate="show"
                 transition={{ delay: 0.35 + idx * 0.05 }}
-                className="h-px w-5 bg-emerald-500/60 origin-left block"
+                className="h-px w-5 bg-orange-500/60 origin-left block"
               />
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-emerald-300/70 font-bold">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-orange-300/70 font-bold">
                 {exp.location}
               </span>
             </motion.div>
@@ -472,9 +471,9 @@ function ExploreCard({ exp, idx }: { exp: Experience; idx: number }) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-200 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-emerald-500/30 group-hover:bg-emerald-50/50 transition-all duration-500 shrink-0"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-neutral-200 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-orange-500/30 group-hover:bg-orange-50/50 transition-all duration-500 shrink-0"
               >
-                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600/70" />
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600/70" />
               </motion.div>
             </motion.div>
           </div>

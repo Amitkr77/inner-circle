@@ -219,9 +219,9 @@ export default function MonolithRetreat() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="h-px w-5 bg-emerald-500 origin-left block"
+              className="h-px w-5 bg-orange-500 origin-left block"
             />
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-emerald-600">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-orange-600">
               Phase One
             </span>
           </motion.div>
@@ -266,7 +266,7 @@ export default function MonolithRetreat() {
               <div className="flex items-baseline gap-3 sm:gap-4 mb-10 sm:mb-12">
                 <motion.span
                   variants={fadeUp}
-                  className="font-[Epilogue] text-2xl sm:text-3xl font-light italic text-emerald-500"
+                  className="font-[Epilogue] text-2xl sm:text-3xl font-light italic text-orange-500"
                 >
                   01
                 </motion.span>
@@ -285,7 +285,7 @@ export default function MonolithRetreat() {
                     variants={fadeUp}
                     className="group"
                   >
-                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-emerald-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
+                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-orange-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
                       {field.label}
                     </label>
                     {field.type === "select" ? (
@@ -294,7 +294,7 @@ export default function MonolithRetreat() {
                           name={field.name}
                           value={formData[field.name]}
                           onChange={handleChange}
-                          className="w-full bg-neutral-50 border border-neutral-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/10 py-3 sm:py-3.5 text-sm text-neutral-900 focus:outline-none transition-all appearance-none cursor-pointer rounded-sm"
+                          className="w-full bg-neutral-50 border border-neutral-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 py-3 sm:py-3.5 text-sm text-neutral-900 focus:outline-none transition-all appearance-none cursor-pointer rounded-sm"
                         >
                           <option value="" className="text-neutral-400">
                             Select Stage
@@ -332,16 +332,16 @@ export default function MonolithRetreat() {
                         onChange={handleChange}
                         onFocus={() => setFocusedField(field.name)}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-emerald-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 ${
+                        className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-orange-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 ${
                           focusedField === field.name
-                            ? "border-emerald-500 bg-emerald-50/30"
+                            ? "border-orange-500 bg-orange-50/30"
                             : ""
                         }`}
                       />
                     )}
                     {/* Animated underline */}
                     <motion.div
-                      className="absolute bottom-0 left-0 h-px bg-emerald-500 origin-left"
+                      className="absolute bottom-0 left-0 h-px bg-orange-500 origin-left"
                       initial={{ scaleX: 0 }}
                       animate={
                         focusedField === field.name
@@ -365,7 +365,7 @@ export default function MonolithRetreat() {
               <div className="flex items-baseline gap-3 sm:gap-4 mb-10 sm:mb-12">
                 <motion.span
                   variants={fadeUp}
-                  className="font-[Epilogue] text-2xl sm:text-3xl font-light italic text-emerald-500"
+                  className="font-[Epilogue] text-2xl sm:text-3xl font-light italic text-orange-500"
                 >
                   02
                 </motion.span>
@@ -384,7 +384,7 @@ export default function MonolithRetreat() {
                     variants={fadeUp}
                     className="group relative"
                   >
-                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-emerald-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
+                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-orange-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
                       {field.label}
                     </label>
                     <textarea
@@ -395,14 +395,14 @@ export default function MonolithRetreat() {
                       onChange={handleChange}
                       onFocus={() => setFocusedField(field.name)}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-emerald-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 resize-none leading-relaxed ${
+                      className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-orange-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 resize-none leading-relaxed ${
                         focusedField === field.name
-                          ? "border-emerald-500 bg-emerald-50/30"
+                          ? "border-orange-500 bg-orange-50/30"
                           : ""
                       }`}
                     />
                     <motion.div
-                      className="absolute bottom-0 left-0 h-px bg-emerald-500 origin-left"
+                      className="absolute bottom-0 left-0 h-px bg-orange-500 origin-left"
                       initial={{ scaleX: 0 }}
                       animate={
                         focusedField === field.name
@@ -426,7 +426,7 @@ export default function MonolithRetreat() {
               <div className="flex items-baseline gap-3 sm:gap-4 mb-10 sm:mb-12">
                 <motion.span
                   variants={fadeUp}
-                  className="font-[Epilogue] text-2xl sm:text-3xl font-light italic text-emerald-500"
+                  className="font-[Epilogue] text-2xl sm:text-3xl font-light italic text-orange-500"
                 >
                   03
                 </motion.span>
@@ -441,7 +441,7 @@ export default function MonolithRetreat() {
               <motion.div variants={fadeUp} className="space-y-6 sm:space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                   <div className="group relative">
-                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-emerald-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
+                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-orange-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
                       Preferred Retreat
                     </label>
                     <div className="relative">
@@ -449,7 +449,7 @@ export default function MonolithRetreat() {
                         name="cohortDate"
                         value={formData.cohortDate}
                         onChange={handleChange}
-                        className="w-full bg-neutral-50 border border-neutral-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/10 py-3 sm:py-3.5 text-sm text-neutral-900 focus:outline-none transition-all appearance-none cursor-pointer rounded-sm"
+                        className="w-full bg-neutral-50 border border-neutral-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 py-3 sm:py-3.5 text-sm text-neutral-900 focus:outline-none transition-all appearance-none cursor-pointer rounded-sm"
                       >
                         <option value="Rishikesh Retreat" className="bg-white">
                           Rishikesh Retreat
@@ -473,7 +473,7 @@ export default function MonolithRetreat() {
                       </svg>
                     </div>
                     <motion.div
-                      className="absolute bottom-0 left-0 h-px bg-emerald-500 origin-left"
+                      className="absolute bottom-0 left-0 h-px bg-orange-500 origin-left"
                       initial={{ scaleX: 0 }}
                       animate={
                         focusedField === "cohortDate"
@@ -485,7 +485,7 @@ export default function MonolithRetreat() {
                   </div>
 
                   <div className="group relative">
-                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-emerald-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
+                    <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-orange-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
                       Dietary Requirements
                     </label>
                     <input
@@ -496,14 +496,14 @@ export default function MonolithRetreat() {
                       onChange={handleChange}
                       onFocus={() => setFocusedField("dietary")}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-emerald-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 ${
+                      className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-orange-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 ${
                         focusedField === "dietary"
-                          ? "border-emerald-500 bg-emerald-50/30"
+                          ? "border-orange-500 bg-orange-50/30"
                           : ""
                       }`}
                     />
                     <motion.div
-                      className="absolute bottom-0 left-0 h-px bg-emerald-500 origin-left"
+                      className="absolute bottom-0 left-0 h-px bg-orange-500 origin-left"
                       initial={{ scaleX: 0 }}
                       animate={
                         focusedField === "dietary"
@@ -516,7 +516,7 @@ export default function MonolithRetreat() {
                 </div>
 
                 <motion.div variants={fadeUp} className="group relative">
-                  <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-emerald-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
+                  <label className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 group-focus-within:text-orange-600 mb-2.5 sm:mb-3 transition-colors font-semibold">
                     Additional Notes
                   </label>
                   <input
@@ -527,14 +527,14 @@ export default function MonolithRetreat() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField("notes")}
                     onBlur={() => setFocusedField(null)}
-                    className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-emerald-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 ${
+                    className={`w-full bg-transparent border-b-2 border-neutral-200 focus:border-orange-500 py-3 sm:py-3.5 text-sm text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-all duration-300 ${
                       focusedField === "notes"
-                        ? "border-emerald-500 bg-emerald-50/30"
+                        ? "border-orange-500 bg-orange-50/30"
                         : ""
                     }`}
                   />
                   <motion.div
-                    className="absolute bottom-0 left-0 h-px bg-emerald-500 origin-left"
+                    className="absolute bottom-0 left-0 h-px bg-orange-500 origin-left"
                     initial={{ scaleX: 0 }}
                     animate={
                       focusedField === "notes" ? { scaleX: 1 } : { scaleX: 0 }
@@ -553,8 +553,8 @@ export default function MonolithRetreat() {
                   whileTap={{ scale: 0.98 }}
                   className="group relative overflow-hidden inline-flex items-center gap-3 bg-neutral-900 text-white font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[12px] sm:text-sm px-8 sm:px-10 py-4 sm:py-5 rounded-sm hover:shadow-xl hover:shadow-neutral-900/10 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  {/* Emerald sweep */}
-                  <span className="absolute inset-0 bg-emerald-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                  {/* orange sweep */}
+                  <span className="absolute inset-0 bg-orange-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
                   <span className="relative z-10 flex items-center gap-3">
                     {loading ? (
                       <motion.span
@@ -614,7 +614,7 @@ export default function MonolithRetreat() {
               <motion.div
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="bg-white border border-neutral-200 p-6 sm:p-8 rounded-md hover:border-emerald-500/40 transition-all duration-300"
+                className="bg-white border border-neutral-200 p-6 sm:p-8 rounded-md hover:border-orange-500/40 transition-all duration-300"
               >
                 <h4 className="font-[Epilogue] font-bold text-lg sm:text-xl text-neutral-900 mb-3">
                   Selection Protocol
@@ -627,8 +627,8 @@ export default function MonolithRetreat() {
                 </p>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-emerald-600 font-semibold">
+                  <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-orange-600 font-semibold">
                     Response within 48 hours
                   </span>
                 </div>
@@ -668,7 +668,7 @@ export default function MonolithRetreat() {
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
                     className="text-center py-4 rounded-md bg-neutral-50 border border-neutral-100"
                   >
-                    <p className="text-xl font-black text-emerald-600 tabular-nums">
+                    <p className="text-xl font-black text-orange-600 tabular-nums">
                       {item.n}
                     </p>
                     <p className="text-[10px] uppercase tracking-[0.15em] text-neutral-400 mt-1">
