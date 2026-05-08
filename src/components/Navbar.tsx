@@ -58,8 +58,8 @@ export function Navbar() {
       <nav
         className={`fixed left-0 right-0 top-[0px] z-[999] transition-all duration-500 ${
           isScrolled
-            ? "h-14 sm:h-16 bg-white/90 backdrop-blur-xl shadow-sm shadow-neutral-900/[0.03] "
-            : "h-20 sm:h-24 bg-transparent backdrop-blur-0 shadow-none"
+            ? "h-14 sm:h-20 bg-white shadow-sm shadow-neutral-900/[0.03] "
+            : "h-20 sm:h-28 bg-transparent backdrop-blur-0 shadow-none"
         }`}
       >
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-5 sm:px-6 md:px-10">
@@ -71,12 +71,12 @@ export function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05, rotate: 3 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="rounded-full border border-neutral-200 bg-white p-1 sm:p-1.5 transition-all duration-300 group-hover:border-orange-500/30 group-hover:shadow-lg group-hover:shadow-orange-500/[0.08]"
+              className={`rounded-full border border-neutral-200 bg-white p-1 sm:p-1.5 transition-all duration-300 group-hover:border-orange-500/30 group-hover:shadow-lg group-hover:shadow-orange-500/[0.08] overflow-hidden${isScrolled ? " border-none" : " border-neutral-200"}`}
             >
               <img
                 src="/logo.png"
                 alt="Logo"
-                className="h-7 w-auto sm:h-8 object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                className="h-7 w-auto sm:h-15 object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
               />
             </motion.div>
           </Link>
