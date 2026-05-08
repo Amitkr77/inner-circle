@@ -468,7 +468,7 @@ export default function BlogDetail() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.7 }}
-          className="px-5 sm:px-6 lg:px-7 py-8 sm:py-10 lg:sticky lg:top-24 lg:self-start lg:h-[calc(100vh-96px)] lg:overflow-y-auto"
+          className="px-5 sm:px-6 lg:px-7 py-8 sm:py-10 lg:sticky lg:top-24 lg:self-start lg:h-[calc(100vh-96px)] "
         >
           {/* Reading Progress */}
           <motion.div

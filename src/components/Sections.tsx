@@ -231,98 +231,158 @@ export function PastExpeditions() {
 export function Hero() {
   const navigate = useNavigate();
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y = useTransform(scrollY, [0, 600], [0, 160]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-12 pb-20 overflow-hidden">
-      <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-premium-black/80 via-transparent to-premium-black z-10" />
+    <section className="relative h-screen flex items-end justify-center overflow-hidden pb-15">
+      {/* Background */}
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-black z-10" />
+
         <img
-          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=2070"
-          alt="Breathtaking Nature"
-          className="w-full h-full object-cover scale-110 opacity-70"
-          referrerPolicy="no-referrer"
+          src="/hero-bg.jpg"
+          alt="Founder Retreat Landscape"
+          className="w-full h-full object-cover scale-110 opacity-60"
         />
+
+        {/* Orange ambient glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(255,120,0,0.25),transparent_60%)] z-20" />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20 pt-48 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+      {/* Content (perfectly centered) */}
+      <div className="relative z-20 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-end">
+        {/* Badge */}
+        {/* <motion.div
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-3 px-4 py-3 rounded-full glass-immersive text-sm font-bold tracking-[0.1em] text-white/80 uppercase mb-8"
+          transition={{ duration: 0.7 }}
+          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-morphism mb-6"
         >
-          <span className="glow-dot h-2 w-2 rounded-full bg-accent-orange" />
-          India expeditions now open
-        </motion.div>
+          <span className="h-2.5 w-2.5 rounded-full bg-orange-500 shadow-[0_0_14px_rgba(255,120,0,0.9)]" />
+          <span className="text-xs tracking-[0.2em] uppercase text-white/70 font-semibold">
+            Founder Retreats Now Open
+          </span>
+        </motion.div> */}
 
+        {/* Heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-6xl md:text-8xl font-bold leading-[1.05] mb-2 tracking-[-0.04em]"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold leading-20 tracking-[-0.04em]"
         >
-          Founder Retreat for <span className="italic font-light">Clarity</span>
+          Build With{" "}
+          <span className="text-white/80 font-light italic">Clarity</span>
           <br />
-          <span className="text-accent-gradient">
-            Focus & Real <span className="italic font-algerian">Progress</span>.
+          <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+            Focus & Real Progress
           </span>
         </motion.h1>
 
+        {/* Subtext */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-2xl md:text-xl text-white/50 max-w-xl mx-auto mb-4 font-medium leading-relaxed"
+          className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed"
         >
-          Step away. Think clearly. Build better.
-          {/*A curated startup founder retreat designed to 
-          help you step away from noise, gain clarity, and solve real business bottlenecks. */}
+          Step away from noise. Think deeply. Return with clarity that moves
+          your company forward.
         </motion.p>
 
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2"
+          className="flex flex-col sm:flex-row gap-4 mt-10"
         >
-          <Button
+          {/* <Button
             onClick={() => navigate("/explore")}
-            className="w-full sm:w-auto px-10 py-5 text-lg flex items-center group"
+            className="px-10 py-5 text-lg font-semibold bg-orange-500 hover:bg-orange-600 text-black shadow-[0_10px_40px_rgba(255,120,0,0.35)] group"
           >
-            Explore Experiences
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            Explore Retreats
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button> */}
+          <button
+            onClick={() => navigate("/explore")}
+            className="
+    group relative inline-flex items-center justify-center
+    overflow-hidden rounded-2xl
+    px-10 py-5
+    text-lg font-semibold tracking-wide text-black
+    bg-gradient-to-r from-orange-500 via-orange-400 to-amber-300
+    shadow-[0_12px_40px_rgba(255,140,0,0.35)]
+    transition-all duration-300 ease-out
+    hover:scale-[1.03]
+    hover:shadow-[0_18px_55px_rgba(255,140,0,0.5)]
+    active:scale-[0.98]
+  "
+          >
+            {/* Glow effect */}
+            <span
+              className="
+      absolute inset-0
+      bg-white/20 opacity-0
+      transition-opacity duration-300
+      group-hover:opacity-100
+    "
+            />
+
+            {/* Shine animation */}
+            <span
+              className="
+      absolute -left-[120%] top-0 h-full w-[120%]
+      rotate-12 bg-white/20 blur-xl
+      transition-all duration-700
+      group-hover:left-[120%]
+    "
+            />
+
+            {/* Content */}
+            <span className="relative z-10 flex items-center">
+              Explore Retreats
+              <ArrowRight
+                className="
+        ml-3 h-5 w-5
+        transition-transform duration-300
+        group-hover:translate-x-1.5
+      "
+              />
+            </span>
+          </button>
+
           <Button
             onClick={() => navigate("/apply")}
             variant="outline"
-            className="w-full sm:w-auto px-10 py-5 text-lg group"
+            className="px-10 py-5 text-lg border-white/20 text-white hover:bg-white/5 group"
           >
-            Plan Corporate Retreat
-            <Play className="w-4 h-4 fill-white" />
+            Corporate Programs
+            <Play className="w-4 h-4 ml-2 text-orange-400" />
           </Button>
         </motion.div>
 
+        {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14 w-full"
         >
           {[
-            { label: "Fortune 500 Clients", value: "50+" },
-            { label: "Curated Destinations", value: "120+" },
-            { label: "Active Members", value: "10k+" },
-            { label: "NPS Score", value: "98%" },
+            { label: "Founders Hosted", value: "500+" },
+            { label: "Retreats Curated", value: "120+" },
+            { label: "Companies", value: "80+" },
+            { label: "Satisfaction", value: "98%" },
           ].map((stat, idx) => (
             <div
               key={idx}
-              className="glass-morphism p-4 rounded-2xl flex flex-col items-center"
+              className="rounded-2xl p-5 bg-white/5 border border-white/10 backdrop-blur-md flex flex-col items-center hover:border-orange-500/40 transition"
             >
-              <span className="text-2xl font-display font-bold text-accent-pink">
+              <span className="text-2xl font-bold text-orange-400">
                 {stat.value}
               </span>
-              <span className="text-[10px] uppercase tracking-widest text-white/40">
+              <span className="text-[11px] uppercase tracking-widest text-white/40 mt-1">
                 {stat.label}
               </span>
             </div>

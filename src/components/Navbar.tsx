@@ -69,9 +69,9 @@ export function Navbar() {
             className="group flex items-center gap-2.5 sm:gap-3 relative z-10"
           >
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 3 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className={`rounded-full border border-neutral-200 bg-white p-1 sm:p-1.5 transition-all duration-300 group-hover:border-orange-500/30 group-hover:shadow-lg group-hover:shadow-orange-500/[0.08] overflow-hidden${isScrolled ? " border-none" : " border-neutral-200"}`}
+              // whileHover={{ scale: 1.05, rotate: 3 }}
+              // transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className={`rounded-full bg-white p-1 sm:p-1.5 transition-all duration-300   overflow-hidden ${isScrolled ? " " : " "}`}
             >
               <img
                 src="/logo.png"
@@ -111,7 +111,7 @@ export function Navbar() {
                       }`}
                     />
                     {/* Active dot */}
-                    <motion.span
+                    {/* <motion.span
                       initial={active ? { scale: 0 } : {}}
                       animate={active ? { scale: 1 } : {}}
                       transition={{
@@ -120,7 +120,7 @@ export function Navbar() {
                         damping: 15,
                       }}
                       className="absolute -bottom-3 left-1/2 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-orange-500"
-                    />
+                    /> */}
                   </Link>
                 </motion.div>
               );
@@ -138,7 +138,7 @@ export function Navbar() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  className="group relative overflow-hidden rounded-full bg-orange-600 px-6 sm:px-7 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.18em] text-white shadow-md shadow-neutral-900/10 transition-shadow duration-300 hover:shadow-lg hover:shadow-neutral-900/15"
+                  className="group relative overflow-hidden rounded-full  bg-gradient-to-r from-orange-500 via-orange-400 to-amber-300 px-6 sm:px-7 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.15em] sm:tracking-[0.18em] text-white shadow-md shadow-neutral-900/10 transition-shadow duration-300 hover:shadow-lg hover:shadow-neutral-900/15"
                 >
                   {/* orange hover sweep */}
                   <span className="absolute inset-0 bg-orange-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
