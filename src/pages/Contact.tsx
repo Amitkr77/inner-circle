@@ -85,7 +85,7 @@ export default function Contact() {
   return (
     <div className="bg-white text-neutral-900 overflow-x-hidden">
       {/* ── HERO SECTION ── */}
-      <section className="relative w-full min-h-[90vh] sm:min-h-[100vh] flex items-start justify-start overflow-hidden pt-20 sm:pt-28 md:pt-32">
+      <section className="relative w-full min-h-full sm:min-h-[100vh] flex items-end justify-start overflow-hidden pt-20 sm:pt-28 md:pt-32">
         {/* Background image with parallax */}
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
           <img
@@ -109,7 +109,7 @@ export default function Contact() {
         {/* Content */}
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="relative z-[3] max-w-[1152px] w-full mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20"
+          className="relative z-[3] max-w-[1152px] w-full mx-auto px-5 sm:px-6 md:px-8 pb-12 sm:pb-16 md:pb-20"
         >
           <div className="max-w-[560px]">
             <motion.p
