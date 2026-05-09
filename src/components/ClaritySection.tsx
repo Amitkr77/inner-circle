@@ -299,16 +299,16 @@ export default function ClaritySection() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{
-                  amount: 1,
+                  amount: 0.8,
                   margin: "-35% 0px -35% 0px",
                 }}
                 transition={{
-                  duration: 0.4,
+                  duration: 0.5,
                 }}
                 className="
                   absolute inset-0
                   bg-gradient-to-b
-                  from-orange-50/80
+                  from-orange-100/80
                   to-transparent
                 "
               />
@@ -382,7 +382,7 @@ export default function ClaritySection() {
         >
           <Link
             to="/apply"
-            className="group/cta flex items-center justify-between rounded-2xl border border-orange-200 bg-gradient-to-b from-orange-50/80 to-transparent px-5 py-4"
+            className="group/cta flex items-center justify-between rounded-2xl border border-orange-200 bg-gradient-to-b from-orange-100/80 to-transparent px-5 py-4"
           >
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-orange-600 group-active/cta:text-black transition-colors">
               Apply now
