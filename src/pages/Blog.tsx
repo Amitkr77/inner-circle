@@ -217,7 +217,7 @@ export default function Journal() {
                       delay: 1.2,
                       ease: [0.76, 0, 0.24, 1],
                     }}
-                    className="absolute left-0 top-1/2 w-full h-[2px] xs:h-[2.5px] sm:h-[3px] md:h-1 bg-orange-500/60 origin-left -rotate-2"
+                    className="absolute left-0 top-3/4 w-full h-[2px] xs:h-[2.5px] sm:h-[3px] md:h-1 bg-orange-500/60 origin-left -rotate-2"
                   />
                 </motion.span>
               </div>
