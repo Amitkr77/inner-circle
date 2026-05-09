@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, Plane, ArrowUpRight } from "lucide-react";
+import { Search, X, Plane, ArrowUpRight, ArrowUpDown, SlidersHorizontal } from "lucide-react";
 import { Link } from "react-router-dom";
 import { EXPERIENCES } from "../constants";
 import type { Experience } from "../constants";
@@ -123,148 +123,187 @@ export default function Explore() {
       </section>
 
       {/* ── Search & Filter Bar ── */}
-      <motion.div
-        initial={{ y: -10 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className="sticky top-[2px] sm:top-[2px] z-50 bg-white/90 backdrop-blur-xl border-b border-neutral-200"
-      >
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 py-4 sm:py-5 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center">
-          {/* Search Input */}
-          <div className="relative flex-1 w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-300" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search destinations, vibes..."
-              className="w-full bg-neutral-50 border border-neutral-200 px-10 pr-10 py-3 text-[13px] sm:text-[14px] text-neutral-900 focus:outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/10 transition-all placeholder:text-neutral-300 rounded-sm"
-            />
-            <AnimatePresence>
-              {search && (
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  onClick={() => setSearch("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-300 hover:text-neutral-600 transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </motion.button>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* Sort Select */}
-          <div className="relative">
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-neutral-50 border border-neutral-200 px-4 py-3 pr-10 text-[12px] sm:text-[13px] text-neutral-600 focus:outline-none focus:border-orange-500/40 appearance-none cursor-pointer min-w-[150px] sm:min-w-[160px] rounded-sm"
-            >
-              {SORT_OPTIONS.map((s) => (
-                <option key={s} className="bg-white text-neutral-700">
-                  {s}
-                </option>
-              ))}
-            </select>
-            <svg
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </div>
-
-          {/* Filter Toggle */}
-          <motion.button
-            whileTap={{ scale: 0.97 }}
-            onClick={() => setFiltersOpen((p) => !p)}
-            className={`flex items-center gap-2 px-4 sm:px-5 py-3 border text-[10px] sm:text-[11px] uppercase font-bold tracking-[0.2em] transition-all duration-300 rounded-sm ${
-              filtersOpen
-                ? "border-orange-500/40 text-orange-600 bg-orange-50"
-                : "border-neutral-200 text-neutral-400 hover:border-neutral-300 hover:text-neutral-600 bg-neutral-50"
-            }`}
-          >
-            Filters
-          </motion.button>
-        </div>
-
-        {/* Expandable Filter Panel */}
+<motion.div
+  initial={{ y: -10 }}
+  animate={{ y: 0 }}
+  transition={{ delay: 0.3, duration: 0.5 }}
+  className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-neutral-200"
+>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-11">
+    
+    {/* Single Row - All Screen Sizes */}
+    <div className="flex items-center gap-2 py-3">
+      
+      {/* Search Input - Flex grow */}
+      <div className="relative flex-1 min-w-0">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search destinations..."
+          className="w-full bg-neutral-100 border border-transparent pl-9 pr-8 py-2.5 text-[13px] text-neutral-900 focus:outline-none focus:bg-white focus:border-orange-400/40 focus:ring-1 focus:ring-orange-400/10 transition-all placeholder:text-neutral-400 rounded-lg"
+        />
         <AnimatePresence>
-          {filtersOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden border-t border-neutral-100"
+          {search && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              onClick={() => setSearch("")}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
             >
-              <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 py-5 sm:py-6 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 bg-neutral-50/80">
-                {/* Duration Row */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.4 }}
-                >
-                  <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-400 font-bold mb-3 sm:mb-4">
-                    Duration
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {DURATIONS.map((d, i) => (
-                      <motion.div
-                        key={d}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.12 + i * 0.04, duration: 0.3 }}
-                      >
-                        <FilterPill
-                          label={d}
-                          active={activeDuration === d}
-                          onClick={() => setActiveDuration(d)}
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-                {/* Vibe Row */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15, duration: 0.4 }}
-                >
-                  <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-400 font-bold mb-3 sm:mb-4">
-                    Vibe
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {VIBES.map((v, i) => (
-                      <motion.div
-                        key={v}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.15 + i * 0.04, duration: 0.3 }}
-                      >
-                        <FilterPill
-                          label={v}
-                          active={activeVibe === v}
-                          onClick={() => setActiveVibe(v)}
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
+              <X className="w-3.5 h-3.5" />
+            </motion.button>
           )}
         </AnimatePresence>
+      </div>
+
+      {/* Sort - Compact Icon Button */}
+      <div className="relative shrink-0">
+        <select
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
+        >
+          {SORT_OPTIONS.map((s) => (
+            <option key={s} value={s}>{s}</option>
+          ))}
+        </select>
+        <div className={`flex items-center gap-1.5 px-3 py-2.5 rounded-lg border text-[12px] font-medium transition-all ${
+          sortBy !== SORT_OPTIONS[0]
+            ? "bg-orange-50 border-orange-200 text-orange-600"
+            : "bg-neutral-100 border-transparent text-neutral-600"
+        }`}>
+          <ArrowUpDown className="w-3.5 h-3.5 shrink-0" />
+          <span className="hidden sm:block max-w-[80px] truncate">{sortBy}</span>
+        </div>
+      </div>
+
+      {/* Filter Toggle Button */}
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setFiltersOpen((p) => !p)}
+        className={`relative shrink-0 flex items-center gap-1.5 px-3 py-2.5 rounded-lg border text-[12px] font-medium transition-all duration-200 ${
+          filtersOpen || activeDuration !== "All" || activeVibe !== "All"
+            ? "bg-orange-500 border-orange-500 text-white"
+            : "bg-neutral-100 border-transparent text-neutral-600 hover:bg-neutral-200"
+        }`}
+      >
+        <SlidersHorizontal className="w-3.5 h-3.5 shrink-0" />
+        <span className="hidden sm:block">Filters</span>
+        {/* Active dot */}
+        {!filtersOpen && (activeDuration !== "All" || activeVibe !== "All") && (
+          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-orange-400 border border-white rounded-full" />
+        )}
+      </motion.button>
+    </div>
+  </div>
+
+  {/* Expandable Filter Panel */}
+  <AnimatePresence>
+    {filtersOpen && (
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="overflow-hidden border-t border-neutral-100"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-11 py-4 bg-neutral-50">
+
+          {/* Sort Pills - Mobile Only */}
+          <div className="sm:hidden mb-4 pb-4 border-b border-neutral-200">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold mb-2.5">
+              Sort By
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {SORT_OPTIONS.map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setSortBy(s)}
+                  className={`px-3 py-1.5 text-[11px] font-medium rounded-md border transition-all ${
+                    sortBy === s
+                      ? "bg-neutral-900 border-neutral-900 text-white"
+                      : "bg-white border-neutral-200 text-neutral-500"
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Duration & Vibe Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+            
+            {/* Duration */}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 }}
+            >
+              <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold mb-2.5">
+                Duration
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {DURATIONS.map((d) => (
+                  <FilterPill
+                    key={d}
+                    label={d}
+                    active={activeDuration === d}
+                    onClick={() => setActiveDuration(d)}
+                  />
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Vibe */}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold mb-2.5">
+                Vibe
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {VIBES.map((v) => (
+                  <FilterPill
+                    key={v}
+                    label={v}
+                    active={activeVibe === v}
+                    onClick={() => setActiveVibe(v)}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Footer Actions */}
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-neutral-200">
+            <button
+              onClick={() => {
+                setActiveDuration("All");
+                setActiveVibe("All");
+                setSortBy(SORT_OPTIONS[0]);
+              }}
+              className="text-[11px] text-neutral-400 hover:text-neutral-600 transition-colors font-medium"
+            >
+              Reset all
+            </button>
+            <button
+              onClick={() => setFiltersOpen(false)}
+              className="flex items-center gap-1.5 px-4 py-2 bg-neutral-900 text-white text-[11px] font-bold uppercase tracking-[0.1em] rounded-lg hover:bg-neutral-700 transition-colors"
+            >
+              Done
+            </button>
+          </div>
+        </div>
       </motion.div>
+    )}
+  </AnimatePresence>
+</motion.div>
 
       {/* ── Results Count ── */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-11 pt-10 sm:pt-12 pb-5 sm:pb-6 flex items-center justify-between">
