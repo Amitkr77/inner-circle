@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import type { Variants } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -669,7 +668,7 @@ export default function BlogDetail() {
                     No related articles.
                   </p>
                 ) : (
-                  relatedMini.map((item, i) => (
+                  relatedMini.map((item) => (
                     <button
                       key={item.url_handle}
                       onClick={() => navigate(`/blog/${item.url_handle}`)}
