@@ -98,12 +98,6 @@ export default function Journal() {
     "Community",
   ];
 
-  const stats = [
-    { n: "48+", l: "Articles" },
-    { n: "12k", l: "Readers" },
-    { n: "600+", l: "Founders" },
-    { n: "18", l: "Countries" },
-  ];
 
   const topics = [
     { name: "Mindset", count: 14 },
@@ -311,9 +305,9 @@ export default function Journal() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full lg:w-[380px] xl:w-[420px] 2xl:w-[480px] bg-neutral-50 border-t lg:border-t-0 border-neutral-200 flex flex-col justify-end mt-8 lg:mt-0"
+            className="w-full lg:w-[380px] xl:w-[420px] 2xl:w-[480px] bg-neutral-50 border-t lg:border-t-0 border-neutral-200  mt-8 lg:mt-0"
           >
-            <div className="grid grid-cols-2 border-b border-neutral-200">
+            {/* <div className="grid grid-cols-2 border-b border-neutral-200">
               {stats.map((s, i) => (
                 <div
                   key={s.l}
@@ -327,7 +321,7 @@ export default function Journal() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div className="px-5 xs:px-6 sm:px-7 md:px-8 py-3.5 xs:py-4 sm:py-4.5 md:py-5 border-b border-neutral-200 flex items-center justify-between">
               <span className="text-[9px] xs:text-[9.5px] sm:text-[10px] font-bold uppercase tracking-[0.2em] xs:tracking-[0.25em] sm:tracking-[0.3em] md:tracking-[0.35em] text-neutral-400">
