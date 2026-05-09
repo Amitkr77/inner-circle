@@ -98,12 +98,6 @@ export default function Journal() {
     "Community",
   ];
 
-  const stats = [
-    { n: "48+", l: "Articles" },
-    { n: "12k", l: "Readers" },
-    { n: "600+", l: "Founders" },
-    { n: "18", l: "Countries" },
-  ];
 
   const topics = [
     { name: "Mindset", count: 14 },
@@ -311,9 +305,9 @@ export default function Journal() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full lg:w-[380px] xl:w-[420px] 2xl:w-[480px] bg-neutral-50 border-t lg:border-t-0 border-neutral-200 flex flex-col justify-end mt-8 lg:mt-0"
+            className="w-full lg:w-[380px] xl:w-[420px] 2xl:w-[480px] bg-neutral-50 border-t lg:border-t-0 border-neutral-200  mt-8 lg:mt-0"
           >
-            <div className="grid grid-cols-2 border-b border-neutral-200">
+            {/* <div className="grid grid-cols-2 border-b border-neutral-200">
               {stats.map((s, i) => (
                 <div
                   key={s.l}
@@ -327,7 +321,7 @@ export default function Journal() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div className="px-5 xs:px-6 sm:px-7 md:px-8 py-3.5 xs:py-4 sm:py-4.5 md:py-5 border-b border-neutral-200 flex items-center justify-between">
               <span className="text-[9px] xs:text-[9.5px] sm:text-[10px] font-bold uppercase tracking-[0.2em] xs:tracking-[0.25em] sm:tracking-[0.3em] md:tracking-[0.35em] text-neutral-400">
@@ -434,7 +428,7 @@ export default function Journal() {
                 alt={blog.title}
                 className="absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-black/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/80 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5 xs:p-6 sm:p-7 md:p-8">
                 <div className="flex flex-wrap gap-x-2.5 xs:gap-x-3 gap-y-1 mb-2.5 xs:mb-3 sm:mb-3.5">
                   {(blog.tags ?? []).map((tag: string) => (
@@ -446,7 +440,7 @@ export default function Journal() {
                     </span>
                   ))}
                 </div>
-                <h2 className="mb-1.5 xs:mb-2 text-lg xs:text-xl sm:text-[22px] md:text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-neutral-900 whitespace-pre-line group-hover:text-orange-600 transition-colors duration-300">
+                <h2 className="mb-1.5 xs:mb-2 text-lg xs:text-xl sm:text-[22px] md:text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-neutral-100 whitespace-pre-line group-hover:text-orange-600 transition-colors duration-300">
                   {blog.title}
                 </h2>
                 <p className="mb-2.5 xs:mb-3 text-[12px] xs:text-[12.5px] sm:text-[13px] md:text-sm text-neutral-100 line-clamp-2">
@@ -514,12 +508,12 @@ export default function Journal() {
               alt=""
               className="absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/50 to-black/80 to-transparent" />
-            <div className="absolute inset-y-0 left-0 flex w-full sm:w-[60%] md:w-[55%] flex-col justify-center px-5 xs:px-6 sm:px-8 md:px-10 lg:px-11 py-7 xs:py-8 sm:py-9 md:py-10">
-              <p className="mb-2.5 xs:mb-3 text-[8.5px] xs:text-[9px] sm:text-[9.5px] md:text-[10px] font-bold uppercase tracking-[0.18em] xs:tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-orange-600">
+            <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-black/80 to-transparent" />
+            <div className="absolute inset-y-0 left-0 flex w-full sm:w-[55%] flex-col justify-center px-6 sm:px-11 py-8 sm:py-10">
+              <p className="mb-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-orange-600">
                 {item.tags?.[0] || "Featured"}
               </p>
-              <h2 className="mb-3.5 xs:mb-4 text-xl xs:text-2xl sm:text-[28px] md:text-[30px] lg:text-[32px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-300">
+              <h2 className="mb-3.5 xs:mb-4 text-xl xs:text-2xl sm:text-[28px] md:text-[30px] lg:text-[32px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-100 group-hover:text-orange-600 transition-colors duration-300">
                 {item.title}
               </h2>
               <p className="mb-4 xs:mb-4.5 sm:mb-5 text-[12px] xs:text-[12.5px] sm:text-[13px] md:text-[14px] leading-[1.7] xs:leading-[1.75] sm:leading-[1.8] text-neutral-200 line-clamp-2">
