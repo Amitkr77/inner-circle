@@ -161,175 +161,175 @@ export default function Resources() {
     <div className="min-h-screen bg-white selection:bg-orange-100 selection:text-orange-900">
       <main>
         {/* ─── Hero Section ─── */}
-        <section className="relative min-h-[100vh] flex flex-col justify-end px-6 pb-16 lg:px-24 lg:pb-24 overflow-hidden bg-[#0A0F0C]">
-          {/* Background Image - Slow cinematic drift */}
-          <div className="absolute inset-0 z-0">
-            <motion.img
-              initial={{ scale: 1.1, y: -10 }}
-              animate={{ scale: 1.1, y: 0 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "linear",
-              }}
-              className="w-full h-full object-cover opacity-60"
-              src="d1.png"
-              alt="Cinematic wide shot founders"
+<section className="relative min-h-[100vh] flex flex-col justify-end px-6 pb-16 lg:px-24 lg:pb-24 overflow-hidden bg-[#0A0F0C]">
+  {/* Background Image - Slow cinematic drift */}
+  <div className="absolute inset-0 z-0">
+    <motion.img
+      initial={{ scale: 1.1, y: -10 }}
+      animate={{ scale: 1.1, y: 0 }}
+      transition={{
+        duration: 20,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "linear",
+      }}
+      className="w-full h-full object-cover opacity-60"
+      src="d1.png"
+      alt="Cinematic wide shot founders"
+    />
+    {/* Hard, asymmetric mask - not a soft gradient */}
+    <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F0C]/30 via-[#0A0F0C]/50 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F0C]/60 via-[#0A0F0C]/30 to-transparent" />
+  </div>
+
+  {/* Architectural Corner Accents */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 1.5, duration: 1 }}
+    className="absolute top-8 left-8 w-16 h-16 border-t border-l border-[rgba(255,255,255,0.40)] z-10"
+  />
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 1.5, duration: 1 }}
+    className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-[rgba(255,255,255,0.40)] z-10"
+  />
+
+  {/* Main Content Container */}
+  <div className="relative z-10 w-full max-w-7xl mx-auto">
+    {/* Top Row: Eyebrow + Description aligned to grid edges */}
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        className="lg:col-span-4"
+      >
+        <span className="font-mono text-[11px] text-[rgba(255,255,255,0.40)] tracking-[0.4em] uppercase">
+          001 — Archives & Insights
+        </span>
+      </motion.div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        className="lg:col-span-6 lg:col-start-7 font-body text-[15px] text-[rgba(255,255,255,0.40)] leading-relaxed"
+      >
+        A curated repository of strategic leverage, operational
+        frameworks, and psychological protocols for the modern
+        architect.
+      </motion.p>
+    </div>
+
+    {/* The Typographic Hero - Massive scale */}
+    <div className="space-y-[-0.05em]">
+      <div className="overflow-hidden">
+        <motion.h1
+          initial={{ y: "110%", rotateX: -20 }}
+          animate={{ y: 0, rotateX: 0 }}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+            ease: [0.76, 0, 0.24, 1],
+          }}
+          className="font-display font-bold text-[clamp(3rem,6vw,8rem)]  tracking-ultra-tight leading-[0.85] text-[rgba(255,255,255,0.90)]"
+        >
+          Resources for
+        </motion.h1>
+      </div>
+
+      <div className="overflow-hidden">
+        <motion.h1
+          initial={{ y: "110%", rotateX: -20 }}
+          animate={{ y: 0, rotateX: 0 }}
+          transition={{
+            duration: 1,
+            delay: 0.35,
+            ease: [0.76, 0, 0.24, 1],
+          }}
+          className="font-display font-bold text-[clamp(3rem,6vw,8rem)] w-2/3 tracking-ultra-tight leading-[0.85] text-[rgba(255,255,255,0.90)]"
+        >
+          Founders Who Want
+        </motion.h1>
+      </div>
+
+      {/* The "Clarity" Drop - Bigger scale, stroke effect */}
+      <div className="overflow-hidden py-6">
+        <motion.h1
+          initial={{ y: "110%" }}
+          animate={{ y: 0 }}
+          transition={{
+            duration: 1.1,
+            delay: 0.5,
+            ease: [0.76, 0, 0.24, 1],
+          }}
+          className="font-display font-bold text-[clamp(3.5rem,9vw,10rem)] tracking-ultra-tight leading-[0.8] relative inline-block"
+        >
+          {/* Outline Text */}
+          <span className="text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.40)] italic font-medium">
+            Clarity
+          </span>
+          {/* Filled overlay that slides in */}
+          <motion.span
+            initial={{ clipPath: "inset(0 100% 0 0)" }}
+            animate={{ clipPath: "inset(0 0% 0 0)" }}
+            transition={{
+              duration: 0.8,
+              delay: 1.2,
+              ease: [0.76, 0, 0.24, 1],
+            }}
+           className="absolute left-0 top-0 min-h-[120px] sm:min-h-[160px] md:min-h-[200px] lg:min-h-[240px]  w-130 text-[#f54a00] italic font-medium [-webkit-text-stroke:0px]"
+            style={{ textShadow: "0 0 40px rgba(224, 138, 9, 0.2)" }}
+            aria-hidden="true"
+          >
+            Clarity
+          </motion.span>
+        </motion.h1>
+      </div>
+    </div>
+
+    {/* Bottom Structure: Expanding line + CTA */}
+    <div className="mt-12 flex items-center gap-6">
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{
+          duration: 1.2,
+          delay: 1.4,
+          ease: [0.76, 0, 0.24, 1],
+        }}
+        className="origin-left h-px w-32 bg-[rgba(255,255,255,0.60)]"
+      />
+
+      <motion.a
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.5 }}
+        href="#features"
+        className="group inline-flex items-center gap-3 font-label text-[12px] text-[rgba(255,255,255,0.40)] uppercase tracking-[0.3em] hover:text-[rgba(255,255,255,0.90)] transition-colors duration-500"
+      >
+        <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center group-hover:bg-[rgba(255,255,255,0.90)] group-hover:text-[#0A0F0C] transition-all duration-500">
+          <svg
+            className="w-2.5 h-2.5 "
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={3}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 9l-7 7-7-7"
             />
-            {/* Hard, asymmetric mask - not a soft gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F0C]/30 via-[#0A0F0C]/50 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F0C]/60 via-[#0A0F0C]/30 to-transparent" />
-          </div>
-
-          {/* Architectural Corner Accents */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="absolute top-8 left-8 w-16 h-16 border-t border-l border-[rgba(255,255,255,0.40)] z-10"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-[rgba(255,255,255,0.40)] z-10"
-          />
-
-          {/* Main Content Container */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto">
-            {/* Top Row: Eyebrow + Description aligned to grid edges */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="lg:col-span-4"
-              >
-                <span className="font-mono text-[11px] text-[rgba(255,255,255,0.40)] tracking-[0.4em] uppercase">
-                  001 — Archives & Insights
-                </span>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="lg:col-span-6 lg:col-start-7 font-body text-[15px] text-[rgba(255,255,255,0.40)] leading-relaxed"
-              >
-                A curated repository of strategic leverage, operational
-                frameworks, and psychological protocols for the modern
-                architect.
-              </motion.p>
-            </div>
-
-            {/* The Typographic Hero - Massive scale */}
-            <div className="space-y-[-0.05em]">
-              <div className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: "110%", rotateX: -20 }}
-                  animate={{ y: 0, rotateX: 0 }}
-                  transition={{
-                    duration: 1,
-                    delay: 0.2,
-                    ease: [0.76, 0, 0.24, 1],
-                  }}
-                  className="font-display font-bold text-[clamp(3rem,8vw,9rem)] tracking-ultra-tight leading-[0.85] text-[rgba(255,255,255,0.90)]"
-                >
-                  Resources for
-                </motion.h1>
-              </div>
-
-              <div className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: "110%", rotateX: -20 }}
-                  animate={{ y: 0, rotateX: 0 }}
-                  transition={{
-                    duration: 1,
-                    delay: 0.35,
-                    ease: [0.76, 0, 0.24, 1],
-                  }}
-                  className="font-display font-bold text-[clamp(3rem,8vw,9rem)] tracking-ultra-tight leading-[0.85] text-[rgba(255,255,255,0.90)]"
-                >
-                  Founders Who Want
-                </motion.h1>
-              </div>
-
-              {/* The "Clarity" Drop - Bigger scale, stroke effect */}
-              <div className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{
-                    duration: 1.1,
-                    delay: 0.5,
-                    ease: [0.76, 0, 0.24, 1],
-                  }}
-                  className="font-display font-bold text-[clamp(4rem,11vw,12rem)] tracking-ultra-tight leading-[0.8]"
-                >
-                  {/* Outline Text */}
-                  <span className="text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.40)] italic font-medium">
-                    Clarity
-                  </span>
-                  {/* Filled overlay that slides in */}
-                  <motion.span
-                    initial={{ clipPath: "inset(0 100% 0 0)" }}
-                    animate={{ clipPath: "inset(0 0% 0 0)" }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 1.2,
-                      ease: [0.76, 0, 0.24, 1],
-                    }}
-                    className="absolute left-0 text-[#4ADE80] italic font-medium [-webkit-text-stroke:0px]"
-                    style={{ textShadow: "0 0 40px rgba(74, 222, 128, 0.2)" }}
-                    aria-hidden="true"
-                  >
-                    Clarity
-                  </motion.span>
-                </motion.h1>
-              </div>
-            </div>
-
-            {/* Bottom Structure: Expanding line + CTA */}
-            <div className="mt-12 flex items-center gap-6">
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{
-                  duration: 1.2,
-                  delay: 1.4,
-                  ease: [0.76, 0, 0.24, 1],
-                }}
-                className="origin-left h-px w-32 bg-[rgba(255,255,255,0.60)]"
-              />
-
-              <motion.a
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.6, duration: 0.5 }}
-                href="#features"
-                className="group inline-flex items-center gap-3 font-label text-[12px] text-[rgba(255,255,255,0.40)] uppercase tracking-[0.3em] hover:text-[rgba(255,255,255,0.90)] transition-colors duration-500"
-              >
-                <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center group-hover:bg-[rgba(255,255,255,0.90)] group-hover:text-[#0A0F0C] transition-all duration-500">
-                  <svg
-                    className="w-2.5 h-2.5 "
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </span>
-                Enter Archive
-              </motion.a>
-            </div>
-          </div>
-        </section>
+          </svg>
+        </span>
+        Enter Archive
+      </motion.a>
+    </div>
+  </div>
+</section>
 
         {/* ─── Featured Insights ─── */}
         <section
