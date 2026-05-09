@@ -127,8 +127,7 @@ export default function Explore() {
   initial={{ y: -10 }}
   animate={{ y: 0 }}
   transition={{ delay: 0.3, duration: 0.5 }}
-  className="sticky top-[80px] z-50 bg-white/95 backdrop-blur-xl border-b border-neutral-200"
->
+  className="sticky top-[56px] sm:top-[64px] md:top-[80px] z-50 bg-white/95 backdrop-blur-xl border-b border-neutral-200">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-11">
     
     {/* Single Row - All Screen Sizes */}
