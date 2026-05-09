@@ -234,7 +234,7 @@ export function Hero() {
   const y = useTransform(scrollY, [0, 600], [0, 160]);
 
   return (
-    <section className="relative h-screen flex items-end justify-center overflow-hidden pb-15">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden ">
       {/* Background */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-black z-10" />
@@ -363,17 +363,17 @@ export function Hero() {
         </motion.div>
 
         {/* Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14 w-full"
         >
           {[
-            { label: "Founders Hosted", value: "500+" },
-            { label: "Retreats Curated", value: "120+" },
-            { label: "Companies", value: "80+" },
-            { label: "Satisfaction", value: "98%" },
+            { label: "Curated Experiences", value: "500+" },
+            { label: "Clarity-First Approach", value: "120+" },
+            { label: "India-Focused Ecosystem", value: "80+" },
+            { label: "Meaningful Relationships", value: "98%" },
           ].map((stat, idx) => (
             <div
               key={idx}
@@ -387,7 +387,7 @@ export function Hero() {
               </span>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -15,6 +15,7 @@ import Resources from "./pages/Resources";
 import Success from "./pages/Success";
 import ScrollToTop from "./components/ScrollToTop";
 import { Footer } from "./components/footer";
+import ResourceDetail from "./pages/ResourceDetail";
 
 export default function App() {
   return (
@@ -22,7 +23,6 @@ export default function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
-      
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -33,6 +33,7 @@ export default function App() {
         <Route path="/experiences/:id" element={<ExperienceDetails />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/resources/:slug" element={<ResourceDetail />} />
       </Routes>
       <Footer />
     </Router>

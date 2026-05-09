@@ -434,7 +434,7 @@ export default function Journal() {
                 alt={blog.title}
                 className="absolute inset-0 h-full w-full object-cover  transition-all duration-700 ease-out group-hover:scale-105 "
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-black/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/80 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                 <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3 sm:mb-3.5">
                   {(blog.tags ?? []).map((tag: string) => (
@@ -446,7 +446,7 @@ export default function Journal() {
                     </span>
                   ))}
                 </div>
-                <h2 className="mb-2 text-xl sm:text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-neutral-900 whitespace-pre-line group-hover:text-orange-600 transition-colors duration-300">
+                <h2 className="mb-2 text-xl sm:text-2xl font-extrabold tracking-[-0.02em] leading-[1.2] text-neutral-100 whitespace-pre-line group-hover:text-orange-600 transition-colors duration-300">
                   {blog.title}
                 </h2>
                 <p className="mb-3 text-[13px] sm:text-sm text-neutral-100 line-clamp-2">
@@ -514,12 +514,12 @@ export default function Journal() {
               alt=""
               className="absolute inset-0 h-full w-full object-cover  transition-all duration-700 ease-out group-hover:scale-[1.03] "
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/50 to-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-black/80 to-transparent" />
             <div className="absolute inset-y-0 left-0 flex w-full sm:w-[55%] flex-col justify-center px-6 sm:px-11 py-8 sm:py-10">
               <p className="mb-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-orange-600">
                 {item.tags?.[0] || "Featured"}
               </p>
-              <h2 className="mb-4 text-2xl sm:text-[32px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-900 group-hover:text-orange-600 transition-colors duration-300">
+              <h2 className="mb-4 text-2xl sm:text-[32px] font-black leading-[1.1] tracking-[-0.03em] text-neutral-100 group-hover:text-orange-600 transition-colors duration-300">
                 {item.title}
               </h2>
               <p className="mb-5 text-[13px] sm:text-[14px] leading-[1.8] text-neutral-200 line-clamp-2">

@@ -13,21 +13,22 @@ import {
   LayoutGrid,
   Quote,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 /* ================= DATA ================= */
 
 const FEATURED_INSIGHTS = [
   {
+    slug: "founder-playbook",
     category: "Scaling Strategy",
     title: "Founder Playbook: Scaling with Intent",
     description:
       "How to maintain the soul of your enterprise while building the systems that allow it to breathe without you. A framework for essential growth.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBJsFr1QPuk7dTapLhL3oC9EpqtcmAfrN2DTkyrQu3NVDd4wckWuVoP_Xgprf9p7aigOYvXQ9s6xrtpt2zpaLbwXyIwvdGuSaOh2HyqaEWN2WqEfiaolLGUL77KNebXUncxXVSNM7qiBrSE2JK7cO9YlSFqZYBDZAHIC4Hgb2TV5gkS_nvcH8sl--QrP7C17Blq2BspagODG0mYeQvhn7JZhXX5O66i-sqgr4zD5gx83u_6Vk12udN0K5gC96mEE-ezbtmGkhHH1bU",
+    image: "/resources/Founder-playbook.png",
     major: true,
   },
   {
+    slug: "psychology-of-leverage",
     category: "Psychology",
     title: "The Psychology of Leverage",
     description:
@@ -35,6 +36,7 @@ const FEATURED_INSIGHTS = [
     major: false,
   },
   {
+    slug: "from-zero-to-growth",
     category: "Case Study",
     title: "From Zero to Growth",
     description:
@@ -53,6 +55,7 @@ const CATEGORIES = [
 
 const RESOURCE_CARDS = [
   {
+    slug: "art-of-essentialism",
     tag: "Article",
     category: "Mindset",
     readTime: "12 min read",
@@ -61,6 +64,7 @@ const RESOURCE_CARDS = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuA2g0UdnKo10aTip0JLXuLWB_CJgm9OAPUJ26RBAJG9WOBwKHNH6TBvMEwFGqgbs7900dBOISp6ZKP3hPKL47-wW90WzmSIykj_iH37ko5H_9TtODd77m7jo9qWOzmbFR78WcAGbytTYSzBMETR6LFF5QJRDLaNq_vnxVbl6InixE2IFj3gS-rtnCE3NIFFNebTRGgqdhkTPE3D9pnLnwr3Fd3ZATk_irmW0VY_gW03GPxObEKX0BnVolBkXEmp1OVjZO3sJXm-hAI",
   },
   {
+    slug: "hiring-protocol-2",
     tag: "Framework",
     category: "Hiring",
     readTime: "8 min read",
@@ -69,6 +73,7 @@ const RESOURCE_CARDS = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDjNmvZ1iHi4bZmZUpdmg-qd6Is-yIoyxhITe27apYKJn4XeXOuC2HxGth3ByOJzwc7Ys2EaZNGGGmb4nIusiVM1nsMTKjORr2YYDFN5MfpMJ2PRllHpIFg3FMgUwOb81zPrjNHNvrMoi4c10Wi3F8LjKGoopbIptqhHq4n8dBTmdDOIHeB2X3N_zBdokRCw7iCGYXxVd53FEjkjMV5GBuy4W4U9bWE04zMEWpaFAO7rmw9YFA4gvy9tID83fmLn_kss7tR4t6f02E",
   },
   {
+    slug: "operating-systems",
     tag: "Resource",
     category: "Operations",
     readTime: "Downloadable",
@@ -80,18 +85,21 @@ const RESOURCE_CARDS = [
 
 const MINI_ARTICLES = [
   {
+    slug: "cap-table-narrative",
     category: "Finance",
     title: "The Cap Table Narrative",
     description:
       "Communicating equity value to late-stage hires and strategic partners.",
   },
   {
+    slug: "radical-delegation",
     category: "Leadership",
     title: "Radical Delegation",
     description:
       "Finding the precise edge where trust meets operational accountability.",
   },
   {
+    slug: "second-act-transitions",
     category: "Exit Strategy",
     title: "Second Act Transitions",
     description:
@@ -101,32 +109,27 @@ const MINI_ARTICLES = [
 
 const FRAMEWORKS = [
   {
+    slug: "decision-clarity",
     icon: Focus,
     title: "Decision Clarity",
     description:
       "A 4-step heuristic to separate market signal from emotional noise in executive pivots.",
   },
   {
+    slug: "network-mapping",
     icon: BarChart3,
     title: "Bottleneck Audit",
     description:
       "Quantifying the hidden cost of founder involvement in operational minutiae.",
   },
   {
+    slug: "growth-matrix",
     icon: LayoutGrid,
     title: "Growth Matrix",
     description:
       "Balancing rapid expansion with structural integrity to prevent organizational decay.",
   },
 ];
-
-// const drawLine = {
-//   hidden: { scaleX: 0 },
-//   show: {
-//     scaleX: 1,
-//     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
-//   },
-// };
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -144,6 +147,7 @@ const stagger = {
 /* ================= COMPONENT ================= */
 
 export default function Resources() {
+  const navigate = useNavigate();
   // const heroRef = useRef(null);
   // const { scrollYProgress } = useScroll({
   //   target: heroRef,
@@ -359,6 +363,9 @@ export default function Resources() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 lg:gap-20">
             {/* Major Feature */}
             <motion.div
+              onClick={() =>
+                navigate(`/resources/${FEATURED_INSIGHTS[0].slug}`)
+              }
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -393,6 +400,7 @@ export default function Resources() {
             <div className="md:col-span-4 flex flex-col gap-12 sm:gap-14 lg:gap-20 pt-6 sm:pt-10">
               {FEATURED_INSIGHTS.slice(1).map((item, i) => (
                 <motion.div
+                  onClick={() => navigate(`/resources/${item.slug}`)}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -432,7 +440,10 @@ export default function Resources() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.5 }}
                   whileHover={{ y: -2 }}
-                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`#`);
+                  }}
                   className="bg-white py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-10 flex flex-col items-center text-center border-r border-b border-neutral-200 last:border-r-0  transition-all duration-500 group"
                 >
                   <motion.div
@@ -480,6 +491,7 @@ export default function Resources() {
           >
             {RESOURCE_CARDS.map((card) => (
               <motion.div
+              onClick={()=>navigate(`/resources/${card.slug}`)}
                 key={card.title}
                 variants={fadeUp}
                 className="group cursor-pointer"
@@ -532,6 +544,7 @@ export default function Resources() {
           >
             {MINI_ARTICLES.map((article, i) => (
               <motion.div
+                  onClick={() => navigate(`/resources/${article.slug}`)}
                 key={article.title}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -581,6 +594,7 @@ export default function Resources() {
           >
             {FRAMEWORKS.map((tool, i) => (
               <motion.div
+                // onClick={() => navigate(`/resources/${tool.slug}`)}
                 key={tool.title}
                 variants={fadeUp}
                 whileHover={{
