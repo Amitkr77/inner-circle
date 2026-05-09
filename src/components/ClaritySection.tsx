@@ -28,6 +28,9 @@ export default function ClaritySection() {
   ];
 
   return (
+      <>
+    {/* DESKTOP VIEW */}
+    <div className="hidden md:block">
     <div className="overflow-hidden bg-[#FAFAF9] font-[family-name:var(--font-sans)] text-black relative">
       {/* Ambient Background Gradient */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(16,185,129,0.06),_transparent_60%)]" />
@@ -225,5 +228,201 @@ export default function ClaritySection() {
         </div>
       </div>
     </div>
-  );
+    </div>
+     {/* MOBILE VIEW */}
+    <div className="block md:hidden overflow-hidden bg-[#FAFAF9] text-black relative">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(16,185,129,0.06),_transparent_60%)]" />
+
+      <div className="relative z-10 px-5 pt-14 pb-10">
+        {/* Heading */}
+        <motion.p
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-20 mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-orange-600 before:block before:h-px before:w-4 before:bg-orange-400"
+        >
+          The philosophy
+        </motion.p>
+
+        {/* Title */}
+        <div className="relative mb-14">
+          <div className="absolute z-0 right-[-6%] -top-28 sm:right-[-5%] sm:top-6 text-[80px] font-black tracking-[-0.06em] bg-gradient-to-br from-orange-200/50 to-transparent bg-clip-text text-transparent select-none pointer-events-none">
+            CLARITY
+          </div>
+
+          <div className="relative z-10 text-[42px] font-black leading-[0.92] tracking-[-0.05em]">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+            >
+              Designed for
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-orange-500/60"
+            >
+              clarity &
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              deep thinking.
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Cards */}
+        <div className="flex flex-col gap-5">
+          {cols.map((c, i) => (
+             <motion.div
+              key={c.num}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.7,
+                delay: i * 0.15,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="group relative p-6 sm:p-8 lg:p-10"
+            >
+              {/* Background */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{
+                  amount: 1,
+                  margin: "-35% 0px -35% 0px",
+                }}
+                transition={{
+                  duration: 0.4,
+                }}
+                className="
+                  absolute inset-0
+                  bg-gradient-to-b
+                  from-orange-50/80
+                  to-transparent
+                "
+              />
+
+              {/* Top line */}
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{
+                  amount: 0.95,
+                  margin: "-35% 0px -35% 0px",
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                }}
+                className="
+                  absolute left-0 top-0
+                  h-[2px]
+                  bg-gradient-to-r
+                  from-orange-400 to-orange-500
+                "
+              />
+              <div className="relative z-10">
+                {/* Number */}
+                <motion.div
+                  initial={{ color: "#d4d4d4" }}
+                  whileInView={{ color: "#fb923c" }}
+                  viewport={{ amount: 0.8, margin: "-35% 0px -35% 0px" }}
+                  transition={{ duration: 0.6 }}
+                  className="mb-4 text-[54px] font-black leading-none tracking-[-0.04em]"
+                >
+                  {c.num}
+                </motion.div>
+
+                <p className="mb-3 text-sm font-extrabold tracking-[-0.01em] text-orange-600">
+                  {c.title}
+                </p>
+
+                <p className="text-[13px] leading-[1.85] text-neutral-500">
+                  {c.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Tags */}
+        <div className="mt-10 flex flex-col gap-4">
+          {tags.map((text, idx) => (
+            <motion.div
+              key={text}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: idx * 0.1, duration: 0.4 }}
+              className="flex items-center gap-3"
+            >
+              <span className="h-1 w-1 rounded-full bg-orange-500" />
+              <span className="text-[13px] font-medium text-neutral-500">
+                {text}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 300, damping: 18 }}
+          className="mt-10"
+        >
+          <Link
+            to="/apply"
+            className="group/cta flex items-center justify-between rounded-2xl border border-orange-200 bg-gradient-to-b from-orange-50/80 to-transparent px-5 py-4"
+          >
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-orange-600 group-active/cta:text-black transition-colors">
+              Apply now
+            </span>
+
+            <div
+              className="
+                flex h-11 w-11 items-center justify-center
+                rounded-full border border-neutral-300
+                bg-white text-orange-600
+                transition-all duration-300 ease-out
+
+                group-active/cta:bg-orange-500
+                group-active/cta:border-orange-500
+                group-active/cta:text-white
+                group-active/cta:shadow-lg
+                group-active/cta:shadow-orange-500/25
+                group-active/cta:scale-110
+              "
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                className="transition-transform duration-300 group-active/cta:-translate-y-0.5 group-active/cta:translate-x-0.5"
+              >
+                <path
+                  d="M2 10L10 2M10 2H4M10 2v6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </Link>
+        </motion.div>
+      </div>
+    </div>
+  </>
+);
 }
