@@ -505,12 +505,12 @@ export default function Journal() {
           <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.3em] md:tracking-[0.35em] text-neutral-400">
             Recent articles
           </span>
-          <button
+          {/* <button
             type="button"
             className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.16em] md:tracking-[0.2em] text-orange-600 hover:text-orange-700 transition-colors"
           >
             View all →
-          </button>
+          </button> */}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2">
