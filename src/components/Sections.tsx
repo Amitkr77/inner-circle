@@ -1237,7 +1237,7 @@ export function HowItWorks() {
             style={{ maxWidth: "200px" }}
           />
         </motion.div>
-
+        <div className="hidden md:block">
         {/* ── The 4-Column Matrix ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
           {steps.map((step, idx) => (
@@ -1433,7 +1433,230 @@ export function HowItWorks() {
           </motion.span>
         </motion.div>
       </div>
+      </div>
+       {/* MOBILE VIEW */}
+<div className="block md:hidden">
+  <div className="flex flex-col">
+    {steps.map((step, idx) => (
+      <motion.div
+        key={idx}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.7,
+          delay: idx * 0.12,
+          ease: [0.25, 0.1, 0.25, 1],
+        }}
+        className="
+          group
+          relative
+          overflow-hidden
+          border-b border-neutral-200
+          px-5 py-8
+          min-h-[280px]
+          bg-white
+        "
+      >
+        {/* Active Background */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{
+            amount: 0.8,
+            margin: "-35% 0px -35% 0px",
+          }}
+          transition={{ duration: 0.5 }}
+          className="
+            absolute inset-0
+            bg-gradient-to-b
+            from-orange-50/80
+            to-transparent
+          "
+        />
+
+        {/* Top Progress Line */}
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          viewport={{
+            amount: 0.9,
+            margin: "-35% 0px -35% 0px",
+          }}
+          transition={{
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            absolute left-0 top-0
+            h-[2px]
+            bg-gradient-to-r
+            from-orange-400
+            to-orange-500
+          "
+        />
+
+        {/* Huge Number */}
+        <div className="relative z-10">
+          <motion.div
+            initial={{
+              color: "#fed7aa",
+              opacity: 0.5,
+            }}
+            whileInView={{
+              color: "#f97316",
+              opacity: 1,
+            }}
+            viewport={{
+              amount: 0.8,
+              margin: "-35% 0px -35% 0px",
+            }}
+            transition={{
+              duration: 0.6,
+            }}
+            className="
+              mb-5
+              text-[5rem]
+              font-black
+              leading-none
+              tracking-[-0.05em]
+            "
+            style={{
+              textShadow: "0 0 30px rgba(249,115,22,0.15)",
+            }}
+          >
+            {step.num}
+          </motion.div>
+
+          {/* STEP LABEL */}
+          <motion.div
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.4,
+              delay: idx * 0.1,
+            }}
+            className="mb-3 flex items-center gap-2"
+          >
+            <span className="font-mono text-[11px] tracking-[0.2em] text-orange-500">
+              STEP {step.num}
+            </span>
+          </motion.div>
+
+          {/* TITLE */}
+          <motion.h3
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: idx * 0.12 + 0.1,
+            }}
+            className="
+              mb-4
+              text-[30px]
+              font-black
+              leading-[0.95]
+              tracking-[-0.04em]
+              text-neutral-900
+            "
+          >
+            {step.title}
+          </motion.h3>
+
+          {/* DESCRIPTION */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: idx * 0.12 + 0.2,
+            }}
+            className="
+              text-[14px]
+              leading-[1.9]
+              text-neutral-500
+              max-w-[95%]
+            "
+          >
+            {step.desc}
+          </motion.p>
+
+          {/* ACTIVE INDICATOR */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{
+              amount: 0.8,
+              margin: "-35% 0px -35% 0px",
+            }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1,
+            }}
+            className="mt-6 flex items-center gap-2"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" />
+
+            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-orange-500/80">
+              Active
+            </span>
+          </motion.div>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+  {/* ── Bottom Progression Indicator ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-6 sm:mt-8 md:mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 md:gap-0 px-1 sm:px-2"
+        >
+          <motion.span
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="font-mono text-[10px] sm:text-[11px] text-neutral-400 tracking-widest"
+          >
+            PROGRESSION: 01 — 04
+          </motion.span>
+
+          <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 order-last sm:order-none">
+            {[10, 30, 55, 100].map((opacity, i) => (
+              <motion.div
+                key={i}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.6 + i * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="w-6 sm:w-8 md:w-12 h-px bg-orange-500 origin-left"
+                style={{ opacity: opacity / 100 }}
+              />
+            ))}
+          </div>
+
+          <motion.span
+            initial={{ opacity: 0, x: 10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="font-mono text-[10px] sm:text-[11px] text-orange-500 tracking-widest font-bold"
+          >
+            OUTPUT ACHIEVED
+          </motion.span>
+        </motion.div>
+</div>
     </section>
+   
   );
 }
 
