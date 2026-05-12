@@ -291,13 +291,13 @@ export default function ContactForm() {
             onClick={submitForm}
             whileHover={{ scale: 1.005 }}
             whileTap={{ scale: 0.995 }}
-            className="group flex items-center justify-between w-full border-2 border-orange-400 hover:border-white text-neutral-900 px-6 py-4 mt-2 bg-transparent hover:bg-orange-400/50 hover:text-white transition-all duration-300 relative z-10"
+            className="group flex items-center justify-between w-full border-2 border-orange-500 text-neutral-300 px-6 py-4 mt-2 bg-gradient-to-b from-orange-50/80 to-transparent transition-all duration-300 relative z-10"
           >
-            <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em]">
+            <span className="text-[16px] sm:text-[12px] font-bold uppercase text-orange-500 group-hover:text-black transition-colors">
               Send Inquiry
             </span>
-            <div className="flex items-center justify-center w-8 h-8 border border-current group-hover:border-white/30 transition-colors">
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <div className="flex items-center justify-center w-10 h-10 rounded-full text-orange-500 group-hover:text-white border border-current bg-white group-hover:bg-orange-500 group-hover:border-orange-500/10 transition-colors">
+              <ArrowUpRight className="w-6 h-8 transform rotate-12 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </div>
           </motion.button>
         </motion.div>
