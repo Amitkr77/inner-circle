@@ -1,3 +1,18 @@
+import BangaloreImg from "./assets/placeImg/Bangalore.jpg";
+import DarjeelingImg from "./assets/placeImg/Darjeeling.avif";
+import GoaImg from "./assets/placeImg/Goa.jpg";
+import HydImg from "./assets/placeImg/HYD.avif";
+import JaipurImg from "./assets/placeImg/Jaipur.jpg";
+import ManaliImg from "./assets/placeImg/Manali.jpg";
+import ManipurImg from "./assets/placeImg/Maniput.avif";
+import MeghalayaImg from "./assets/placeImg/Meghalaya.avif";
+import MunnarImg from "./assets/placeImg/Munnar.avif";
+import MysoreImg from "./assets/placeImg/Mysore.jpg";
+import RajgirImg from "./assets/placeImg/Rajgir.jpg";
+import RishikeshImg from "./assets/placeImg/Rishikesh.jpg";
+import SikkimImg from "./assets/placeImg/Sikkim.avif";
+import ValmikiImg from "./assets/placeImg/Valmiki.jpg";
+import UdaipurImg from "./assets/placeImg/udaypur.avif";
 export interface Experience {
   id: string;
   title: string;
@@ -51,8 +66,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Adventure",
     duration: "3-4 Days",
     nights: 3,
-    image:
-      "https://images.openai.com/static-rsc-4/HAnKpCGuyUpaROw05X-SNya_wEHqb5FJ6lb4iDSn7PfyvRxJ5WPyKH6NyLsTbhEqRLClHYfFhorUkxOOil3tTeWsSMkxxHc77LyHSjrXIq4BfF9O6b9fXQtILkwytsq9PqWU9yrrwZ9LDLXtuqSIx-vT2Ez0_vaEIeW4mA6Wr38-1gPbIpEt1-ioBRtWaWaF?purpose=fullsize",
+    image: RishikeshImg,
     pricePerHead: 25500,
     groupSize: 15,
     description:
@@ -110,8 +124,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Luxury",
     duration: "3-4 Days",
     nights: 3,
-    image:
-      "https://images.openai.com/static-rsc-4/vV9nuW4oHBAYdSoqINgTld_LPZPAYIlhDqDF3jz2HR9WIwa9IckNG_paDLbrrMluk9yPar2ZdvuRXy33WY1QVPlFu6PJ0ccf3N0QhvMWGz9EZbdHoGN98aufvCBBeLPxo4QDRak4ivO7OsHiYzl9dLCgEM-8NiXdblxOCPwW_t1y0BkybRm98bMNkksXKUzS?purpose=inline",
+    image: ManaliImg,
     pricePerHead: 32000,
     groupSize: 8,
 
@@ -154,8 +167,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Nature",
     duration: "4 Days",
     nights: 3,
-    image:
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=2070",
+    image: DarjeelingImg, 
     pricePerHead: 18500,
     groupSize: 12,
     description:
@@ -183,8 +195,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Growth",
     duration: "3-5 Days",
     nights: 4,
-    image:
-      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=2070",
+    image: SikkimImg,
     pricePerHead: 22000,
     groupSize: 10,
     description: "Discover the cleanest city with Himalayan views.",
@@ -204,8 +215,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Nature",
     duration: "3-4 Days",
     nights: 3,
-    image:
-      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&q=80&w=2070",
+    image: MunnarImg,
     pricePerHead: 16500,
     groupSize: 10,
     description: "orange green tea estates and wildlife tours.",
@@ -224,8 +234,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Adventure",
     duration: "3-4 Days",
     nights: 3,
-    image:
-      "https://images.unsplash.com/photo-1502466650593-b65a2c690da0?auto=format&fit=crop&q=80&w=2070",
+    image: MeghalayaImg,
     pricePerHead: 28000,
     groupSize: 6,
     description: "Wettest place on earth with its magical bridges.",
@@ -244,7 +253,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Party",
     duration: "4 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    image: GoaImg,
     pricePerHead: 20000,
     groupSize: 18,
     description: "Beaches, nightlife and water sports.",
@@ -265,7 +274,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Luxury",
     duration: "4 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1599661046827-dacff0c0f09c",
+    image: UdaipurImg,
     pricePerHead: 18000,
     groupSize: 16,
     description: "City of lakes and royal palaces.",
@@ -285,7 +294,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Heritage",
     duration: "3 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1599661046289-e31897846e41",
+    image: JaipurImg,
     pricePerHead: 15000,
     groupSize: 20,
     description: "Historic forts and vibrant markets.",
@@ -301,7 +310,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Spiritual",
     duration: "3 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3",
+    image: RajgirImg,
     pricePerHead: 8000,
     groupSize: 18,
     description: "Hot springs and spiritual vibes.",
@@ -317,7 +326,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Culture",
     duration: "4 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3",
+    image: MysoreImg,
     pricePerHead: 17000,
     groupSize: 15,
     description: "Palaces and royal history.",
@@ -333,7 +342,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Urban",
     duration: "4 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3",
+    image: HydImg,
     pricePerHead: 16000,
     groupSize: 17,
     description: "Modern city with rich history.",
@@ -349,7 +358,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Urban",
     duration: "3 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1597047084897-51e81819a499",
+    image: BangaloreImg,
     pricePerHead: 14000,
     groupSize: 16,
     description: "India’s Silicon Valley experience.",
@@ -365,7 +374,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Wildlife",
     duration: "3 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    image: ValmikiImg ,
     pricePerHead: 9000,
     groupSize: 15,
     description: "Wildlife and forest adventure.",
@@ -381,7 +390,7 @@ export const EXPERIENCES: Experience[] = [
     vibe: "Culture",
     duration: "4 Days",
     nights: 3,
-    image: "https://images.unsplash.com/photo-1524492449090-1d9c5d33a7d5",
+    image: ManipurImg ,
     pricePerHead: 22000,
     groupSize: 18,
     description: "Explore northeast culture and beauty.",

@@ -44,7 +44,7 @@ export default function DarjeelingPage({ onBack }: Props) {
   ];
   return (
     // navbar
-    <div className="min-h-screen bg-[#131313] text-[#E5E2E1] font-['Manrope',sans-serif]">
+    <div className="min-h-screen bg-[#fffff] text-[#E5E2E1] font-['Manrope',sans-serif]">
       <nav className="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl shadow-2xl shadow-black/40">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-12 py-5">
           <button
