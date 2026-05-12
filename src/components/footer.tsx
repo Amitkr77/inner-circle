@@ -390,7 +390,7 @@ export function Footer() {
               className="inline-block"
             >
               <img
-                src="/logo.png"
+                src="/rembglogo.png"
                 alt="Collabuilder logo"
                 className="h-12 sm:h-14 w-auto"
               />
