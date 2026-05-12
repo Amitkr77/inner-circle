@@ -264,8 +264,8 @@ export default function BlogDetail() {
           className="flex items-center gap-2 sm:gap-2.5  py-4 sm:py-5 border-b border-neutral-200"
         >
           {[
-            { text: "Journal", active: false, path: "/blog" },
-            { text: primaryTag, active: false, path: "/blog" },
+            { text: "Blogs", active: false, path: "/blog" },
+            // { text: primaryTag, active: false, path: "/blog" },
             {
               text:
                 article.title.length > 40
@@ -306,26 +306,94 @@ export default function BlogDetail() {
           <div className="absolute bottom-0 left-0 right-0 px-5 sm:px-8 md:px-11 pb-10 sm:pb-14">
             {/* Tag pills */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="mb-4 sm:mb-5 flex flex-wrap items-center gap-2 sm:gap-2.5"
+              transition={{ delay: 0.25, duration: 0.55, ease: "easeOut" }}
+              className="mb-5 flex flex-wrap items-center gap-2"
             >
               {articleTags.slice(0, 3).map((tag, i) => (
-                <span
+                <motion.span
                   key={tag}
-                  className={`rounded-sm border px-2.5 sm:px-3 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] ${
-                    i === 0
-                      ? "border-orange-500/30 bg-orange-50 text-orange-600"
-                      : "border-neutral-300 text-neutral-400 bg-white/80 backdrop-blur-sm"
-                  }`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: 0.3 + i * 0.08,
+                    duration: 0.35,
+                  }}
+                  whileHover={{
+                    y: -2,
+                    scale: 1.03,
+                  }}
+                  className="
+        group relative overflow-hidden rounded-full
+        border border-orange-400/40
+        bg-white/10
+        px-3.5 py-1.5
+        text-[9px] sm:text-[10px]
+        font-semibold uppercase
+        tracking-[0.22em]
+        text-white
+        backdrop-blur-xl
+        transition-all duration-300
+        hover:border-orange-300
+        hover:bg-orange-500/15
+        hover:shadow-[0_0_20px_rgba(249,115,22,0.25)]
+      "
                 >
-                  {tag}
-                </span>
+                  {/* subtle glow */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-400/10 to-orange-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  {/* content */}
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {/* <span className="h-1.5 w-1.5 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.9)]" /> */}
+                    {tag}
+                  </span>
+                </motion.span>
               ))}
-              <span className="rounded-sm border border-neutral-300 px-2.5 sm:px-3 py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-400 bg-white/80 backdrop-blur-sm">
+
+              {/* read time */}
+              <motion.span
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.55, duration: 0.35 }}
+                whileHover={{ y: -2 }}
+                className="
+      flex items-center gap-1.5
+      rounded-full
+      border border-white/10
+      bg-black/30
+      px-3.5 py-1.5
+      text-[9px] sm:text-[10px]
+      font-medium uppercase
+      tracking-[0.22em]
+      text-neutral-300
+      backdrop-blur-xl
+      transition-all duration-300
+      hover:border-white/20
+      hover:bg-white/10
+      hover:text-orange-900
+    "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-3 w-3 text-neutral-400"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 5.25a.75.75 0 01.75.75v5.19l3.28 1.97a.75.75 0 11-.78 1.28l-3.64-2.18a.75.75 0 01-.36-.64V6a.75.75 0 01.75-.75z"
+                    clipRule="evenodd"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M12 1.5a10.5 10.5 0 100 21 10.5 10.5 0 000-21zm-9 10.5a9 9 0 1118 0 9 9 0 01-18 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+
                 {readTime}
-              </span>
+              </motion.span>
             </motion.div>
 
             <motion.h1
@@ -382,7 +450,7 @@ export default function BlogDetail() {
             className="px-6 sm:px-10 lg:px-14 py-14 sm:py-20 lg:border-r border-neutral-100"
           >
             {/* Excerpt opener */}
-            <div className="flex items-start gap-5 mb-14 pb-14 border-b border-neutral-100">
+            <div className="flex items-start gap-5 mb-14 border-neutral-100">
               <span className="text-[5.5rem] leading-[0.5] text-orange-200 font-serif select-none shrink-0 mt-1">
                 &ldquo;
               </span>
@@ -393,11 +461,11 @@ export default function BlogDetail() {
 
             {/* Divider label */}
             <div className="flex items-center gap-5 mb-14">
-              <div className="flex-1 h-px bg-neutral-100" />
+              <div className="flex-1 h-px bg-orange-500" />
               <span className="text-[9px] uppercase tracking-[0.5em] text-neutral-400 font-bold">
                 Article
               </span>
-              <div className="flex-1 h-px bg-neutral-100" />
+              <div className="flex-1 h-px bg-orange-500" />
             </div>
 
             {/* Markdown content — fully custom renderers */}
