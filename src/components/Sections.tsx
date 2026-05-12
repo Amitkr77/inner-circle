@@ -250,7 +250,7 @@ export function Hero() {
       </motion.div>
 
       {/* Content (perfectly centered) */}
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center justify-end w-full">
+      <div className="relative z-20 max-w-5xl mx-auto p-15 sm:px-10 text-center flex flex-col items-center justify-end w-full">
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 18 }}
