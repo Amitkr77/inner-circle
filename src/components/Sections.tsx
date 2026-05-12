@@ -592,9 +592,9 @@ export function ExperienceShowcase() {
                           {exp.title}
                         </h3>
                       </div>
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-orange-400/30 transition-all duration-500 shrink-0">
+                      <div className="w-6 h-8 sm:w-10 sm:h-10 rounded-full border border-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-orange-500/30 transition-all duration-500 shrink-0">
                         <svg
-                          className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-orange-400/70 -rotate-45"
+                          className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-orange-500/70 -rotate-45"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -603,7 +603,7 @@ export function ExperienceShowcase() {
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            d="M5 12h14M12 5l7 7-7 7"
+                            d="M2 10L10 2M10 2H4M10 2v6"
                           />
                         </svg>
                       </div>
@@ -631,18 +631,18 @@ export function ExperienceShowcase() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-8 sm:mt-12 flex justify-center"
+          className="mt-8 sm:mt-12 flex justify-center group"
         >
           <a
             href="/explore"
-            className="group inline-flex items-center gap-3 sm:gap-4 border px-6 sm:px-8 py-3 sm:py-4 border-orange-400/30 bg-orange-400/5 transition-all duration-300"
+            className="inline-flex items-center gap-3 sm:gap-4 border px-6 sm:px-8 py-3 sm:py-4 border-orange-500/30 bg-gradient-to-b from-orange-50/80 to-transparent transition-all duration-300"
           >
-            <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] text-orange-400 group-hover:text-orange-400 transition-colors">
+            <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] text-orange-500 group-hover:text-black transition-colors">
               View all expeditions
             </span>
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-orange-400/30 flex items-center justify-center">
+            <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-neutral-300 bg-white text-orange-500 transition-transform duration-300 group-hover:bg-orange-500 group-hover:border-orange-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-orange-500/25">
               <svg
-                className="w-3 h-3 -rotate-45 text-orange-400 transition-colors"
+                className="w-6 h-8 -rotate-45 text-orange-500 transition-transform group-hover:text-white duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -805,17 +805,17 @@ export function CorporateExperience() {
             </div>
 
             {/* CTA & Trust */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 group">
               <a
                 href="/contact"
-                className="group inline-flex items-center gap-3 border px-5 sm:px-7 py-3 sm:py-4 border-orange-400/50 bg-orange-400/5 transition-all duration-300 w-fit"
+                className="inline-flex items-center gap-3 border px-5 sm:px-7 py-3 sm:py-4 border-orange-400/50 bg-gradient-to-b from-orange-50/80 to-transparent transition-all duration-300 w-fit"
               >
-                <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] text-black/80 group-hover:text-black transition-colors">
+                <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] text-orange-500 group-hover:text-black transition-colors">
                   Enquire now
                 </span>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-orange-400/50 bg-orange-400/5 flex items-center justify-center">
+                <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-neutral-300 bg-white text-orange-500 transition-all duration-300 group-hover:bg-orange-500 group-hover:border-orange-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-orange-500/25">
                   <svg
-                    className="w-3 h-3 -rotate-45 text-orange-400 transition-colors"
+                    className="w-6 h-8 -rotate-45 text-orange-500 group-hover:text-white group-hover:transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -1783,7 +1783,7 @@ export function ContactSection() {
                 className="h-px w-3 bg-orange-500 origin-left "
               />
               <span className="text-[10px] font-bold text-black/60 uppercase tracking-[0.3em]">
-                Limited to 24 per cohort
+                Limited to 20 per cohort
               </span>
             </motion.div>
           </div>
