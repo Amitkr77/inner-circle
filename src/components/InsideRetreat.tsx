@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function InsideRetreat() {
@@ -35,7 +36,7 @@ export default function InsideRetreat() {
     "Founders tired of shallow networking",
     "Serious individuals ready to grow",
   ];
-
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <section
       id="inside-retreat"
@@ -165,7 +166,7 @@ export default function InsideRetreat() {
         </div>
 
         {/* ── Sessions List (Expanding Rows) ── */}
-        <div className="mb-16 sm:mb-24 flex flex-col border-t border-neutral-200">
+        <div className="hidden md:block mb-16 sm:mb-24 flex flex-col border-t border-neutral-200">
           {sessions.map((s, i) => (
             <motion.div
               key={s.num}
@@ -222,6 +223,142 @@ export default function InsideRetreat() {
             </motion.div>
           ))}
         </div>
+        {/* ── Sessions List (Desktop + Mobile Unified) ── */}
+<div className="block md:hidden mb-16 sm:mb-10 flex flex-col border-t border-neutral-200">
+  {sessions.map((s, i) => {
+    const isActive = activeIndex === i;
+
+    return (
+      <motion.div
+        key={s.num}
+        initial={{ opacity: 1, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        onViewportEnter={() => setActiveIndex(i)}
+        viewport={{
+          amount: 0.72,
+          margin: "-35% 0px -35% 0px",
+        }}
+        transition={{
+          delay: i * 0.08,
+          duration: 0.6,
+        }}
+        className={`group border-b border-neutral-50 relative mb-6 transition-all duration-500 ${
+          isActive ? "bg-neutral-50" : "bg-white"
+        }`}
+      >
+        {/* Left Accent Bar */}
+        <motion.div
+          animate={{
+            scaleY: isActive ? 1 : 0,
+          }}
+          transition={{
+            duration: 0.45,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="absolute left-0 top-0 bottom-0 w-[2px] bg-orange-500 origin-top"
+        />
+
+        {/* Main Row */}
+        <div className="flex items-baseline gap-4 sm:gap-6 md:gap-12 py-6 sm:py-7 md:py-8 px-4 sm:px-5 md:px-5 relative">
+          {/* Number */}
+          <motion.span
+            animate={{
+              color: isActive ? "#f97316" : "#d4d4d4",
+            }}
+            transition={{ duration: 0.3 }}
+            className="min-w-[28px] sm:min-w-[30px] font-mono text-[11px] sm:text-[12px] font-bold tracking-[0.2em]"
+          >
+            {s.num}
+          </motion.span>
+
+          {/* Title */}
+          <motion.h3
+            animate={{
+              x: isActive ? 8 : 0,
+              color: isActive ? "#ea580c" : "#171717",
+            }}
+            transition={{
+              duration: 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="flex-1 text-[clamp(1.25rem,3vw,32px)] font-extrabold tracking-[-0.025em]"
+          >
+            {s.title}
+          </motion.h3>
+
+          {/* Desktop Tag */}
+          <motion.span
+            animate={{
+              borderColor: isActive
+                ? "rgba(249,115,22,0.3)"
+                : "rgba(229,229,229,1)",
+              color: isActive
+                ? "rgba(234,88,12,0.7)"
+                : "rgba(163,163,163,1)",
+              backgroundColor: isActive
+                ? "rgba(255,247,237,1)"
+                : "rgba(255,255,255,1)",
+            }}
+            transition={{ duration: 0.35 }}
+            className="hidden sm:inline-block rounded-[2px] border px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] min-w-[90px] sm:min-w-[100px] text-center"
+          >
+            {s.tag}
+          </motion.span>
+
+          {/* Mobile Arrow */}
+          <motion.svg
+            animate={{
+              rotate: isActive ? 90 : 0,
+              color: isActive ? "#f97316" : "#d4d4d4",
+            }}
+            transition={{ duration: 0.35 }}
+            className="sm:hidden w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9 5l7 7-7 7"
+            />
+          </motion.svg>
+        </div>
+
+        {/* Expanding Description */}
+        <motion.div
+          animate={{
+            height: isActive ? "auto" : 0,
+            opacity: isActive ? 1 : 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="overflow-hidden"
+        >
+          <div className="pb-7 sm:pb-8 pl-[40px] sm:pl-[54px] md:pl-[90px] pr-6 sm:pr-8">
+            <motion.p
+              animate={{
+                y: isActive ? 0 : 12,
+                opacity: isActive ? 1 : 0,
+                color: isActive ? "#737373" : "#a3a3a3",
+              }}
+              transition={{
+                duration: 0.4,
+                delay: isActive ? 0.05 : 0,
+              }}
+              className="max-w-2xl text-[13px] sm:text-[14px] leading-[1.75]"
+            >
+              {s.desc}
+            </motion.p>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  })}
+</div>
 
         {/* ── Bottom Panels ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[2px]">
