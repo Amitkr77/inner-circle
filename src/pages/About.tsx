@@ -293,7 +293,7 @@ export default function About() {
             <motion.div style={{ y: mandateY }} className="relative">
               <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU3pGfkFQkB2R4pRbuy2YVig7qwp2ENJaLfag8ZpNAHEAD0uKK_7iw1i2GAQg1VEe9dfAtp84stX4i1C_z27BSZQpvlsRu6uCCM-k53tml-iu0IgmqOE0sU8WjX4fQvXK9JZqvfCyDT_iDxJEkw53U99q7mkViBF53O4qGI6OtS3O3cin4ON9YY8nyku0etHXmznCRcNHErC3Gw0UqRHD4CgbuiPPT_IrVb2LkqccDs3QFQ_YpzEiyVE29W_pSBbAxrbjWWCHSBIk"
+                  src="/About2.png"
                   className="h-full w-full object-cover grayscale-[25%] brightness-95"
                 />
 

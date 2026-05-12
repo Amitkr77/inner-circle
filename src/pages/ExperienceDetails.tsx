@@ -3,9 +3,9 @@ import { EXPERIENCES } from "../constants";
 import { ExperienceDetail } from "../components/ExperienceDetail";
 
 export default function ExperienceDetails() {
-  const { id } = useParams();
+  const { slug } = useParams();
 
-  const exp = EXPERIENCES.find((e) => e.id === id);
+  const exp = EXPERIENCES.find((e) => e.slug === slug);
 
   if (!exp) return <div>Experience not found</div>;
 

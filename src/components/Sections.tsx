@@ -476,7 +476,7 @@ export function ExperienceShowcase() {
               className="lg:col-span-7 relative h-[350px] sm:h-[450px] md:h-[550px] lg:h-[700px] overflow-hidden bg-neutral-100 group cursor-pointer"
             >
               <Link
-                to={`/experiences/${featuredExp.id}`}
+                to={`/experiences/${featuredExp.slug}`}
                 className="absolute inset-0 z-20"
               />
 
@@ -563,7 +563,7 @@ export function ExperienceShowcase() {
                 className="relative flex-1 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] overflow-hidden bg-neutral-900  group cursor-pointer"
               >
                 <Link
-                  to={`/experiences/${exp.id}`}
+                  to={`/experiences/${exp.slug}`}
                   className="absolute inset-0 z-20"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
