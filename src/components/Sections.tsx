@@ -1546,12 +1546,20 @@ export function HowItWorks() {
 
           {/* TITLE */}
           <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+             initial={{
+              color: "#000000",
+              opacity: 0.5,
+            }}
+            whileInView={{
+              color: "#f97316",
+              opacity: 1,
+            }}
+            viewport={{
+              amount: 0.8,
+              margin: "-35% 0px -35% 0px",
+            }}
             transition={{
-              duration: 0.5,
-              delay: idx * 0.12 + 0.1,
+              duration: 0.6,
             }}
             className="
               mb-4
