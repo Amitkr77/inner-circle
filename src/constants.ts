@@ -11,7 +11,7 @@ import MysoreImg from "./assets/placeImg/Mysore.jpg";
 import RajgirImg from "./assets/placeImg/Rajgir.jpg";
 import RishikeshImg from "./assets/placeImg/Rishikesh.jpg";
 import SikkimImg from "./assets/placeImg/Sikkim.avif";
-import ValmikiImg from "./assets/placeImg/Valmiki.jpg";
+import ValmikiImg from "./assets/placeImg/Valmiki.png";
 import UdaipurImg from "./assets/placeImg/udaypur.avif";
 export interface Experience {
   id: string;
