@@ -551,7 +551,7 @@ export default function MonolithRetreat() {
                   disabled={loading}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative overflow-hidden inline-flex items-center gap-3 bg-neutral-900 text-white font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[12px] sm:text-sm px-8 sm:px-10 py-4 sm:py-5 rounded-sm hover:shadow-xl hover:shadow-neutral-900/10 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="group relative overflow-hidden inline-flex items-center gap-3 bg-neutral-900 hover:bg-white duration-1000 text-white font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[12px] sm:text-sm px-8 sm:px-10 py-4 sm:py-5 rounded-sm hover:shadow-xl hover:shadow-neutral-900/10 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {/* orange sweep */}
                   <span className="absolute inset-0 bg-orange-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
