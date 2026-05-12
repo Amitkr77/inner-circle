@@ -37,7 +37,7 @@ const drawLine: Variants = {
 const IMAGES = {
   hero: heroimg,
   support:
-    "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?w=600&q=80",
+    "/support.jpg",
 };
 
 const CONTACT_CARDS = [

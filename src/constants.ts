@@ -15,6 +15,7 @@ import ValmikiImg from "./assets/placeImg/Valmiki.jpg";
 import UdaipurImg from "./assets/placeImg/udaypur.avif";
 export interface Experience {
   id: string;
+  slug: string;
   title: string;
   location: string;
   category: "India" | "International";
@@ -60,6 +61,7 @@ export const EXPERIENCES: Experience[] = [
   // INDIA
   {
     id: "in-3",
+    slug: "rishikesh-retreat",
     title: "Rishikesh Retreat",
     location: "Rishikesh, Uttarakhand",
     category: "India",
@@ -118,6 +120,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "in-4",
+    slug: "manali-mountains",
     title: "Manali Mountains",
     location: "Manali, Himachal Pradesh",
     category: "India",
@@ -161,6 +164,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "in-1",
+    slug: "mystical-darjeeling",
     title: "Mystical Darjeeling",
     location: "West Bengal, India",
     category: "India",
@@ -189,6 +193,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "in-2",
+    slug: "sikkim-serenity",  
     title: "Sikkim Serenity",
     location: "Sikkim, India",
     category: "India",
@@ -209,6 +214,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "in-5",
+    slug: "munnar-tea-trails",
     title: "Munnar Tea Trails",
     location: "Kerala, India",
     category: "India",
@@ -228,6 +234,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "in-6",
+    slug: "meghalaya-living-roots", 
     title: "Meghalaya Living Roots",
     location: "Meghalaya, India",
     category: "India",
@@ -247,6 +254,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "in-7",
+    slug: "goa-beach-escape",
     title: "Goa Beach Escape",
     location: "Goa, India",
     category: "India",
@@ -268,6 +276,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-8",
+    slug: "royal-udaipur",
     title: "Royal Udaipur",
     location: "Udaipur, Rajasthan",
     category: "India",
@@ -288,6 +297,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-9",
+    slug: "pink-city-jaipur",
     title: "Pink City Jaipur",
     location: "Jaipur, Rajasthan",
     category: "India",
@@ -304,6 +314,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-10",
+    slug: "rajgir-wellness-retreat",
     title: "Rajgir Wellness Retreat",
     location: "Rajgir, Bihar",
     category: "India",
@@ -320,6 +331,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-11",
+    slug: "mysore-heritage-tour",
     title: "Mysore Heritage Tour",
     location: "Mysore, Karnataka",
     category: "India",
@@ -336,6 +348,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-12",
+    slug: "hyderabad-city-life",
     title: "Hyderabad City Life",
     location: "Hyderabad, Telangana",
     category: "India",
@@ -352,6 +365,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-13",
+    slug: "bangalore-tech-escape",
     title: "Bangalore Tech Escape",
     location: "Bangalore, Karnataka",
     category: "India",
@@ -368,6 +382,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-14",
+    slug: "valmiki-nagar-jungle-safari",
     title: "Valmiki Nagar Jungle Safari",
     location: "Valmikinagar, Bihar",
     category: "India",
@@ -384,6 +399,7 @@ export const EXPERIENCES: Experience[] = [
 
   {
     id: "in-15",
+    slug: "manipur-cultural-tour",
     title: "Manipur Cultural Tour",
     location: "Manipur, India",
     category: "India",

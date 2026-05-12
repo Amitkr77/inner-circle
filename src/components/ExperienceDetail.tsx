@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, Plane } from "lucide-react";
 import type { Experience } from "../constants";
 import { useNavigate } from "react-router-dom";
+import Experiencehero from "../assets/placeImg/ExperienceHero.png";
 
 interface ExperienceDetailProps {
   exp: Experience;
@@ -46,7 +47,7 @@ export function ExperienceDetail({ exp }: ExperienceDetailProps) {
           <img
             src={
               exp.image ||
-              "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=2070"
+              Experiencehero
             }
             alt={exp.title}
             className="w-full h-full object-cover opacity-100 scale-105 hover:scale-100 transition-transform duration-[2s] ease-out"

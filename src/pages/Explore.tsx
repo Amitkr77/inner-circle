@@ -400,7 +400,7 @@ function FilterPill({
 function ExploreCard({ exp, idx }: { exp: Experience; idx: number }) {
   return (
     <Link
-      to={`/experiences/${exp.id}`}
+      to={`/experiences/${exp.slug}`}
       className="block h-[480px] sm:h-[550px] lg:h-[650px] relative overflow-hidden bg-neutral-100 border border-neutral-200 group rounded-sm sm:rounded-none"
     >
       <motion.div
